@@ -30,7 +30,7 @@ class HomeViewController: UIViewController {
         menuItems.append(MenuCell(image: #imageLiteral(resourceName: "monkey"), string: "Monkey is eating banana"))
         menuItems.append(MenuCell(image: #imageLiteral(resourceName: "mouse"), string: "Cat is chasing mouse in the house"))
         
-//        self.navigationController?.isNavigationBarHidden = true
+        self.navigationController?.isNavigationBarHidden = true
 
         // Do any additional setup after loading the view.
     }

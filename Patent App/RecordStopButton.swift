@@ -13,11 +13,11 @@ class RecordStopButton: UIButton {
     var ovalLayer = CAShapeLayer()
     
     var ovalPath: UIBezierPath {
-        return UIBezierPath(roundedRect: CGRect(x: 8.0, y: 8.0, width: self.frame.width - 16, height: self.frame.height - 16), cornerRadius: (self.frame.width - 16)/2)
+        return UIBezierPath(roundedRect: CGRect(x: 10.0, y: 10.0, width: self.frame.width - 20, height: self.frame.height - 20), cornerRadius: (self.frame.width - 20)/2)
     }
     
     var rectPath: UIBezierPath {
-        return UIBezierPath(roundedRect: CGRect(x: 20.0, y: 20.0, width: self.frame.width - 40, height: self.frame.height - 40), cornerRadius: 3)
+        return UIBezierPath(roundedRect: CGRect(x: 18.0, y: 18.0, width: self.frame.width - 36, height: self.frame.height - 36), cornerRadius: 3)
     }
     
     override init(frame: CGRect) {
@@ -49,9 +49,9 @@ class RecordStopButton: UIButton {
         self.backgroundColor = UIColor.clear
         self.layer.cornerRadius = self.frame.width/2
         self.layer.borderColor = UIColor.white.cgColor
-        self.layer.borderWidth = 5
+        self.layer.borderWidth = 4
         
-        ovalLayer.fillColor = UIColor.red.cgColor
+        ovalLayer.fillColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1).cgColor
         ovalLayer.path = ovalPath.cgPath
         self.layer.addSublayer(ovalLayer)
     }

@@ -37,10 +37,23 @@ class ViewController: UIViewController {
         stringArray = aString.lowercased().components(separatedBy: " ")
         
         replacedString = String(aString.map {
-            $0 != " " ? "_" : " "
+            if (($0 >= "a" && $0 <= "z") || ($0 >= "A" && $0 <= "Z")) {
+                return "_"
+            } else {
+                return $0
+            }
         })
         
         label.text = replacedString
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        stop()
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
     }
     
     @IBAction func recordAudio(_ sender: UIButton) {
@@ -70,6 +83,9 @@ class ViewController: UIViewController {
         SpeechRecognitionService.sharedInstance.stopStreaming()
     }
     
+    @IBAction func back(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
 }
 
 extension ViewController: AudioControllerDelegate {
