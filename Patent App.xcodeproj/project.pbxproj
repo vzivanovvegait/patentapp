@@ -17,6 +17,7 @@
 		E19170EE1FF3985100C3BD1C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E19170EC1FF3985100C3BD1C /* LaunchScreen.storyboard */; };
 		E19170F61FF3A08D00C3BD1C /* SpeechRecognitionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19170F51FF3A08D00C3BD1C /* SpeechRecognitionService.swift */; };
 		E19170F81FF3A09500C3BD1C /* AudioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19170F71FF3A09500C3BD1C /* AudioController.swift */; };
+		E1C5DC662004E1EA000366A1 /* HintButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C5DC652004E1EA000366A1 /* HintButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		E19170EF1FF3985100C3BD1C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E19170F51FF3A08D00C3BD1C /* SpeechRecognitionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechRecognitionService.swift; sourceTree = "<group>"; };
 		E19170F71FF3A09500C3BD1C /* AudioController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioController.swift; sourceTree = "<group>"; };
+		E1C5DC652004E1EA000366A1 /* HintButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 				E19170EC1FF3985100C3BD1C /* LaunchScreen.storyboard */,
 				E19170EF1FF3985100C3BD1C /* Info.plist */,
 				E140398D1FFF7B4100FF4088 /* RecordStopButton.swift */,
+				E1C5DC652004E1EA000366A1 /* HintButton.swift */,
 			);
 			path = "Patent App";
 			sourceTree = "<group>";
@@ -228,6 +231,7 @@
 				E19170E61FF3985100C3BD1C /* ViewController.swift in Sources */,
 				E19170F61FF3A08D00C3BD1C /* SpeechRecognitionService.swift in Sources */,
 				E19170F81FF3A09500C3BD1C /* AudioController.swift in Sources */,
+				E1C5DC662004E1EA000366A1 /* HintButton.swift in Sources */,
 				E19170E41FF3985100C3BD1C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

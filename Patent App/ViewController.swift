@@ -16,7 +16,8 @@ class ViewController: UIViewController {
     
     var audioData: NSMutableData!
     
-    @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var startButton: RecordStopButton!
+    @IBOutlet weak var hintButton: HintButton!
     
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var imageView: UIImageView!
@@ -30,7 +31,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        startButton.delegate = self
         imageView.image = image
+        
+        hintButton.setImage(#imageLiteral(resourceName: "hint").withRenderingMode(.alwaysTemplate), for: .normal)
+        hintButton.badge = "5"
         
         AudioController.sharedInstance.delegate = self
         
@@ -79,12 +84,20 @@ class ViewController: UIViewController {
     }
     
     func stop() {
-        _ = AudioController.sharedInstance.stop()
-        SpeechRecognitionService.sharedInstance.stopStreaming()
+        if AudioController.sharedInstance.remoteIOUnit != nil {
+            _ = AudioController.sharedInstance.stop()
+            SpeechRecognitionService.sharedInstance.stopStreaming()
+        }
     }
     
     @IBAction func back(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
+    }
+}
+
+extension ViewController: RecordStopButtonDelegate {
+    func timeExpired() {
+        stop()
     }
 }
 
@@ -110,7 +123,7 @@ extension ViewController: AudioControllerDelegate {
                 } else if let response = response {
                     print(response)
                     for result in response.resultsArray {
-                        guard let result = result as? StreamingRecognitionResult, result.isFinal  else {
+                        guard let result = result as? StreamingRecognitionResult, result.isFinal else {
                             return
                         }
                         for alternative in result.alternativesArray {

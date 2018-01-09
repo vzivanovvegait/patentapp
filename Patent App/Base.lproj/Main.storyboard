@@ -88,10 +88,20 @@
                                             <action selector="recordAudio:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jdo-Ly-U2j"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SaE-8b-PyM" customClass="HintButton" customModule="Patent_App" customModuleProvider="target">
+                                        <rect key="frame" x="310" y="15" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="SaE-8b-PyM" secondAttribute="height" multiplier="1:1" id="VqF-9N-4Pk"/>
+                                            <constraint firstAttribute="width" constant="50" id="lz6-sI-FIY"/>
+                                        </constraints>
+                                        <state key="normal" image="hint"/>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="KBM-iB-48V" secondAttribute="bottom" constant="10" id="Cpu-ri-686"/>
+                                    <constraint firstAttribute="trailing" secondItem="SaE-8b-PyM" secondAttribute="trailing" constant="15" id="cZd-wt-HYU"/>
+                                    <constraint firstItem="SaE-8b-PyM" firstAttribute="centerY" secondItem="KBM-iB-48V" secondAttribute="centerY" id="m3c-A1-kg8"/>
                                     <constraint firstItem="KBM-iB-48V" firstAttribute="centerX" secondItem="4Da-sc-Dle" secondAttribute="centerX" id="mt2-17-9yy"/>
                                     <constraint firstItem="KBM-iB-48V" firstAttribute="top" secondItem="4Da-sc-Dle" secondAttribute="top" constant="10" id="voI-Dm-OS2"/>
                                 </constraints>
@@ -128,6 +138,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="hintButton" destination="SaE-8b-PyM" id="ONC-gl-oV5"/>
                         <outlet property="imageView" destination="0Cc-qM-f0j" id="G7A-Px-O1D"/>
                         <outlet property="label" destination="Em5-83-yF8" id="rwb-NE-RjP"/>
                         <outlet property="startButton" destination="KBM-iB-48V" id="QjS-5t-OaS"/>
@@ -159,5 +170,6 @@
     <resources>
         <image name="arrow" width="512" height="512"/>
         <image name="elephant" width="480" height="408"/>
+        <image name="hint" width="128" height="128"/>
     </resources>
 </document>
