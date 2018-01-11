@@ -10,13 +10,17 @@
 		7A3882E7F463409C143F7A5E /* Pods_Patent_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27AFEF69F4C4243AA6F86D73 /* Pods_Patent_App.framework */; };
 		E140398E1FFF7B4100FF4088 /* RecordStopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E140398D1FFF7B4100FF4088 /* RecordStopButton.swift */; };
 		E16503881FFE276C00D91FDF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16503871FFE276C00D91FDF /* HomeViewController.swift */; };
+		E189C9F5200624E400B8EF7E /* OvalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E189C9F4200624E400B8EF7E /* OvalView.swift */; };
 		E19170E41FF3985100C3BD1C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19170E31FF3985100C3BD1C /* AppDelegate.swift */; };
-		E19170E61FF3985100C3BD1C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19170E51FF3985100C3BD1C /* ViewController.swift */; };
+		E19170E61FF3985100C3BD1C /* StoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19170E51FF3985100C3BD1C /* StoryViewController.swift */; };
 		E19170E91FF3985100C3BD1C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E19170E71FF3985100C3BD1C /* Main.storyboard */; };
 		E19170EB1FF3985100C3BD1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E19170EA1FF3985100C3BD1C /* Assets.xcassets */; };
 		E19170EE1FF3985100C3BD1C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E19170EC1FF3985100C3BD1C /* LaunchScreen.storyboard */; };
 		E19170F61FF3A08D00C3BD1C /* SpeechRecognitionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19170F51FF3A08D00C3BD1C /* SpeechRecognitionService.swift */; };
 		E19170F81FF3A09500C3BD1C /* AudioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19170F71FF3A09500C3BD1C /* AudioController.swift */; };
+		E194D72520076C0F005D62EF /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E194D72420076C0F005D62EF /* MenuButton.swift */; };
+		E194D72720077306005D62EF /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E194D72620077306005D62EF /* CategoryViewController.swift */; };
+		E194D72920077657005D62EF /* StoryboardInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E194D72820077657005D62EF /* StoryboardInitializable.swift */; };
 		E1C5DC662004E1EA000366A1 /* HintButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C5DC652004E1EA000366A1 /* HintButton.swift */; };
 /* End PBXBuildFile section */
 
@@ -26,15 +30,19 @@
 		D4D0EA8C9B9210A9EC420EBA /* Pods-Patent App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Patent App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Patent App/Pods-Patent App.debug.xcconfig"; sourceTree = "<group>"; };
 		E140398D1FFF7B4100FF4088 /* RecordStopButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordStopButton.swift; sourceTree = "<group>"; };
 		E16503871FFE276C00D91FDF /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		E189C9F4200624E400B8EF7E /* OvalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OvalView.swift; sourceTree = "<group>"; };
 		E19170E01FF3985100C3BD1C /* Patent App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Patent App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E19170E31FF3985100C3BD1C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E19170E51FF3985100C3BD1C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E19170E51FF3985100C3BD1C /* StoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewController.swift; sourceTree = "<group>"; };
 		E19170E81FF3985100C3BD1C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E19170EA1FF3985100C3BD1C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E19170ED1FF3985100C3BD1C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E19170EF1FF3985100C3BD1C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E19170F51FF3A08D00C3BD1C /* SpeechRecognitionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechRecognitionService.swift; sourceTree = "<group>"; };
 		E19170F71FF3A09500C3BD1C /* AudioController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioController.swift; sourceTree = "<group>"; };
+		E194D72420076C0F005D62EF /* MenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
+		E194D72620077306005D62EF /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		E194D72820077657005D62EF /* StoryboardInitializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardInitializable.swift; sourceTree = "<group>"; };
 		E1C5DC652004E1EA000366A1 /* HintButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,18 +97,78 @@
 			isa = PBXGroup;
 			children = (
 				E19170E31FF3985100C3BD1C /* AppDelegate.swift */,
-				E19170F71FF3A09500C3BD1C /* AudioController.swift */,
-				E19170F51FF3A08D00C3BD1C /* SpeechRecognitionService.swift */,
-				E16503871FFE276C00D91FDF /* HomeViewController.swift */,
-				E19170E51FF3985100C3BD1C /* ViewController.swift */,
-				E19170E71FF3985100C3BD1C /* Main.storyboard */,
+				E194D72E200779EB005D62EF /* ViewControllers */,
+				E194D72A2007797B005D62EF /* CustomViews */,
+				E194D72D200779DA005D62EF /* Protocols */,
+				E194D72F20077A04005D62EF /* Storyboards */,
+				E194D73020077A1B005D62EF /* GoogleSpeech */,
 				E19170EA1FF3985100C3BD1C /* Assets.xcassets */,
-				E19170EC1FF3985100C3BD1C /* LaunchScreen.storyboard */,
 				E19170EF1FF3985100C3BD1C /* Info.plist */,
-				E140398D1FFF7B4100FF4088 /* RecordStopButton.swift */,
-				E1C5DC652004E1EA000366A1 /* HintButton.swift */,
 			);
 			path = "Patent App";
+			sourceTree = "<group>";
+		};
+		E194D72A2007797B005D62EF /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				E194D72C200779C5005D62EF /* Views */,
+				E194D72B200779A4005D62EF /* Buttons */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		E194D72B200779A4005D62EF /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				E194D72420076C0F005D62EF /* MenuButton.swift */,
+				E1C5DC652004E1EA000366A1 /* HintButton.swift */,
+				E140398D1FFF7B4100FF4088 /* RecordStopButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		E194D72C200779C5005D62EF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E189C9F4200624E400B8EF7E /* OvalView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E194D72D200779DA005D62EF /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				E194D72820077657005D62EF /* StoryboardInitializable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		E194D72E200779EB005D62EF /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E16503871FFE276C00D91FDF /* HomeViewController.swift */,
+				E194D72620077306005D62EF /* CategoryViewController.swift */,
+				E19170E51FF3985100C3BD1C /* StoryViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E194D72F20077A04005D62EF /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				E19170EC1FF3985100C3BD1C /* LaunchScreen.storyboard */,
+				E19170E71FF3985100C3BD1C /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		E194D73020077A1B005D62EF /* GoogleSpeech */ = {
+			isa = PBXGroup;
+			children = (
+				E19170F71FF3A09500C3BD1C /* AudioController.swift */,
+				E19170F51FF3A08D00C3BD1C /* SpeechRecognitionService.swift */,
+			);
+			path = GoogleSpeech;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,12 +294,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E194D72720077306005D62EF /* CategoryViewController.swift in Sources */,
 				E140398E1FFF7B4100FF4088 /* RecordStopButton.swift in Sources */,
 				E16503881FFE276C00D91FDF /* HomeViewController.swift in Sources */,
-				E19170E61FF3985100C3BD1C /* ViewController.swift in Sources */,
+				E19170E61FF3985100C3BD1C /* StoryViewController.swift in Sources */,
+				E194D72920077657005D62EF /* StoryboardInitializable.swift in Sources */,
 				E19170F61FF3A08D00C3BD1C /* SpeechRecognitionService.swift in Sources */,
 				E19170F81FF3A09500C3BD1C /* AudioController.swift in Sources */,
+				E194D72520076C0F005D62EF /* MenuButton.swift in Sources */,
 				E1C5DC662004E1EA000366A1 /* HintButton.swift in Sources */,
+				E189C9F5200624E400B8EF7E /* OvalView.swift in Sources */,
 				E19170E41FF3985100C3BD1C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

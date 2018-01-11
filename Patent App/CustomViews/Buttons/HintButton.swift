@@ -12,13 +12,15 @@ class HintButton: UIButton {
 
     var badgeLabel = UILabel()
     
-    @IBInspectable var badge: String? {
+    let borderLayer = CAShapeLayer()
+    
+    var badge: Int? {
         didSet {
             addBadgeToButon(badge: badge)
         }
     }
     
-    @IBInspectable public var badgeBackgroundColor = UIColor.red {
+    @IBInspectable public var badgeBackgroundColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1) {
         didSet {
             badgeLabel.backgroundColor = badgeBackgroundColor
         }
@@ -52,10 +54,11 @@ class HintButton: UIButton {
         self.addBadgeToButon(badge: nil)
     }
     
-    func addBadgeToButon(badge: String?) {
-        self.tintColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
-        
-        badgeLabel.text = badge
+    func addBadgeToButon(badge: Int?) {
+        self.tintColor = badgeBackgroundColor
+        if let badge = badge {
+            badgeLabel.text = "\(badge)"
+        }
         badgeLabel.textColor = badgeTextColor
         badgeLabel.backgroundColor = badgeBackgroundColor
         badgeLabel.font = badgeFont
@@ -70,10 +73,38 @@ class HintButton: UIButton {
         let y = CGFloat(10)
         badgeLabel.frame = CGRect(x: x, y: y, width: CGFloat(width), height: CGFloat(height))
         
-        badgeLabel.layer.cornerRadius = badgeLabel.frame.height/2
-        badgeLabel.layer.masksToBounds = true
+        self.makeBorderWithCornerRadius(radius: badgeLabel.frame.height/2, borderColor: UIColor(red: 242/255.0, green: 233/255.0, blue: 134/255.0, alpha: 1), borderWidth: 2)
         addSubview(badgeLabel)
         badgeLabel.isHidden = badge != nil ? false : true
+    }
+    
+    func makeBorderWithCornerRadius(radius: CGFloat, borderColor: UIColor, borderWidth: CGFloat) {
+        let rect = badgeLabel.bounds
+        
+        let maskPath = UIBezierPath(roundedRect: rect, byRoundingCorners: .allCorners, cornerRadii: CGSize(width: radius, height: radius))
+        
+        // Create the shape layer and set its path
+        let maskLayer = CAShapeLayer()
+        maskLayer.frame = rect
+        maskLayer.path  = maskPath.cgPath
+        
+        // Set the newly created shape layer as the mask for the view's layer
+        badgeLabel.layer.mask = maskLayer
+        
+        //Create path for border
+        let borderPath = UIBezierPath(roundedRect: rect, byRoundingCorners: .allCorners, cornerRadii: CGSize(width: radius, height: radius))
+        
+        // Create the shape layer and set its path
+        
+        
+        borderLayer.frame       = rect
+        borderLayer.path        = borderPath.cgPath
+        borderLayer.strokeColor = borderColor.cgColor
+        borderLayer.fillColor   = UIColor.clear.cgColor
+        borderLayer.lineWidth   = borderWidth
+        
+        //Add this layer to give border.
+        badgeLabel.layer.addSublayer(borderLayer)
     }
 
 }

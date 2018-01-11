@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  StoryViewController.swift
 //  Patent App
 //
 //  Created by Vladimir Zivanov on 12/27/17.
@@ -12,19 +12,22 @@ import googleapis
 
 let SAMPLE_RATE = 16000
 
-class ViewController: UIViewController {
+final class StoryViewController: UIViewController, StoryboardInitializable {
     
     var audioData: NSMutableData!
     
     @IBOutlet weak var startButton: RecordStopButton!
     @IBOutlet weak var hintButton: HintButton!
+    @IBOutlet weak var ovalView: OvalView!
     
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     
-    var aString:String! // = "Elephant is sitting"
+    var aString:String! = "my brother's room"
     var image:UIImage!
     var stringArray = [String]()
+    
+    var hintNumber: Int? = 5
     
     var replacedString:String!
     
@@ -32,10 +35,12 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         startButton.delegate = self
-        imageView.image = image
+        imageView.image = #imageLiteral(resourceName: "elephant")
         
         hintButton.setImage(#imageLiteral(resourceName: "hint").withRenderingMode(.alwaysTemplate), for: .normal)
-        hintButton.badge = "5"
+        hintButton.badge = hintNumber
+        ovalView.isHidden = true
+        ovalView.text = "What animal is on image?"
         
         AudioController.sharedInstance.delegate = self
         
@@ -90,18 +95,26 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func hintNumberAction(_ sender: HintButton) {
+        if var badge = hintNumber {
+            ovalView.isHidden = false
+            badge = badge - 1
+            sender.badge = badge
+        }
+    }
+    
     @IBAction func back(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
 }
 
-extension ViewController: RecordStopButtonDelegate {
+extension StoryViewController: RecordStopButtonDelegate {
     func timeExpired() {
         stop()
     }
 }
 
-extension ViewController: AudioControllerDelegate {
+extension StoryViewController: AudioControllerDelegate {
     
     func processSampleData(_ data: Data) -> Void {
         audioData.append(data)
@@ -130,6 +143,8 @@ extension ViewController: AudioControllerDelegate {
                             guard let alternative = alternative as? SpeechRecognitionAlternative else {
                                 return
                             }
+                            
+//                            strongSelf.label.text = alternative.transcript
                             let arrayOfString = alternative.transcript.lowercased().components(separatedBy: " ")
                             for string in arrayOfString {
                                 let ranges = strongSelf.findRanges(for: string, in: strongSelf.aString)

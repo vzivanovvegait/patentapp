@@ -13,16 +13,14 @@ struct MenuCell {
     let string: String!
 }
 
-class HomeViewController: UIViewController {
-    
-    @IBOutlet weak var tableView: UITableView!
+final class HomeViewController: UIViewController, StoryboardInitializable {
     
     var menuItems = [MenuCell]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        view.backgroundColor = UIColor(red: 242/255.0, green: 233/255.0, blue: 134/255.0, alpha: 1)
         
         menuItems.append(MenuCell(image: #imageLiteral(resourceName: "elephant"), string: "Elephant is sitting"))
         menuItems.append(MenuCell(image: #imageLiteral(resourceName: "giraffe"), string: "Giraffe is reading a book"))
@@ -35,27 +33,13 @@ class HomeViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
+    @IBAction func play(_ sender: MenuButton) {
+        let categoryViewController = CategoryViewController.makeFromStoryboard()
+        self.navigationController?.pushViewController(categoryViewController, animated: true)
+    }
 }
 
-extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return menuItems.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
-        
-        cell!.textLabel?.text = "Task \(indexPath.row + 1)"
-        
-        return cell!
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc =  storyboard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
-        vc.aString = menuItems[indexPath.row].string.lowercased()
-        vc.image = menuItems[indexPath.row].image
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-}
