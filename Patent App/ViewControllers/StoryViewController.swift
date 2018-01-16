@@ -12,50 +12,42 @@ import googleapis
 
 let SAMPLE_RATE = 16000
 
+struct Word {
+    var mainString:String
+    var isSpecial:Bool
+    var isFound:Bool
+}
+
 final class StoryViewController: UIViewController, StoryboardInitializable {
     
     var audioData: NSMutableData!
     
     @IBOutlet weak var startButton: RecordStopButton!
     @IBOutlet weak var hintButton: HintButton!
-    @IBOutlet weak var ovalView: OvalView!
     
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     
-    var aString:String! = "my brother's room"
-    var image:UIImage!
-    var stringArray = [String]()
+//    var aString:String! = "once upon a time, there was a king, who had 12 daughters - 12 princesses."
+//    var image:UIImage!
     
-    var hintNumber: Int? = 5
-    
-    var replacedString:String!
+    var arrayOfWords = [Word]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         startButton.delegate = self
-        imageView.image = #imageLiteral(resourceName: "elephant")
+        imageView.image = UIImage(named: "1")
         
         hintButton.setImage(#imageLiteral(resourceName: "hint").withRenderingMode(.alwaysTemplate), for: .normal)
-        hintButton.badge = hintNumber
-        ovalView.isHidden = true
-        ovalView.text = "What animal is on image?"
         
         AudioController.sharedInstance.delegate = self
         
-        stringArray = aString.lowercased().components(separatedBy: " ")
+        arrayOfWords = DataUtils.getDataArray()
         
-        replacedString = String(aString.map {
-            if (($0 >= "a" && $0 <= "z") || ($0 >= "A" && $0 <= "Z")) {
-                return "_"
-            } else {
-                return $0
-            }
-        })
-        
-        label.text = replacedString
+        label.text = StringUtils.createString(from: arrayOfWords)
     }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
@@ -88,19 +80,8 @@ final class StoryViewController: UIViewController, StoryboardInitializable {
         _ = AudioController.sharedInstance.start()
     }
     
-    func stop() {
-        if AudioController.sharedInstance.remoteIOUnit != nil {
-            _ = AudioController.sharedInstance.stop()
-            SpeechRecognitionService.sharedInstance.stopStreaming()
-        }
-    }
-    
     @IBAction func hintNumberAction(_ sender: HintButton) {
-        if var badge = hintNumber {
-            ovalView.isHidden = false
-            badge = badge - 1
-            sender.badge = badge
-        }
+        
     }
     
     @IBAction func back(_ sender: Any) {
@@ -144,14 +125,12 @@ extension StoryViewController: AudioControllerDelegate {
                                 return
                             }
                             
-//                            strongSelf.label.text = alternative.transcript
-                            let arrayOfString = alternative.transcript.lowercased().components(separatedBy: " ")
-                            for string in arrayOfString {
-                                let ranges = strongSelf.findRanges(for: string, in: strongSelf.aString)
-                                for range in ranges {
-                                    strongSelf.replacedString.replaceSubrange(range, with: string)
-                                    strongSelf.label.text = strongSelf.replacedString.uppercased()
-                                }
+                            let arrayOfString = alternative.transcript.components(separatedBy: " ")
+                            
+                            strongSelf.label.text = strongSelf.makeString(arrayOfStrings: arrayOfString)
+                            
+                            if let s = StringUtils.checkIsFinish(wordArray: strongSelf.arrayOfWords) {
+                                strongSelf.label.text = s
                             }
                         }
                     }
@@ -161,18 +140,42 @@ extension StoryViewController: AudioControllerDelegate {
         }
     }
     
-    func findRanges(for word: String, in text: String) -> [Range<String.Index>] {
-        do {
-            let regex = try NSRegularExpression(pattern: "\\b\(word)\\b", options: [])
-            
-            let fullStringRange = NSRange(text.startIndex..., in: text)
-            let matches = regex.matches(in: text, options: [], range: fullStringRange)
-            return matches.map {
-                Range($0.range, in: text)!
+    func makeString(arrayOfStrings: [String]) -> String {
+        var foundWords = [String]()
+        
+        for index in 0..<arrayOfWords.count {
+            if !arrayOfWords[index].isSpecial {
+                if arrayOfWords[index].isFound {
+                    foundWords.append(arrayOfWords[index].mainString)
+                } else if checkString(word: arrayOfWords[index].mainString, in: arrayOfStrings) {
+                    arrayOfWords[index].isFound = true
+                    foundWords.append(arrayOfWords[index].mainString)
+                } else {
+                    foundWords.append(replaceString(word: arrayOfWords[index].mainString, with: "_"))
+                }
+            } else {
+//                foundWords.append(arrayOfWords[index].mainString)
             }
         }
-        catch {
-            return []
+        
+        return foundWords.joined(separator: " ").replacingOccurrences(of: " ,", with: ",", options: NSString.CompareOptions.literal, range: nil).replacingOccurrences(of: " .", with: ".", options: NSString.CompareOptions.literal, range: nil)
+    }
+    
+    func stop() {
+        if AudioController.sharedInstance.remoteIOUnit != nil {
+            _ = AudioController.sharedInstance.stop()
+            SpeechRecognitionService.sharedInstance.stopStreaming()
         }
     }
+    
+    func checkString(word: String, in array: [String]) -> Bool {
+        return array.contains(where: { $0.uppercased() == word.uppercased() }) ? true : false
+    }
+    
+    func replaceString(word: String, with: String) -> String {
+        return String(word.map {_ in
+            return "_"
+        })
+    }
+    
 }
