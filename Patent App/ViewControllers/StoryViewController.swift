@@ -22,6 +22,7 @@ final class StoryViewController: UIViewController, StoryboardInitializable {
     
     var audioData: NSMutableData!
     
+//    @IBOutlet weak var debugLabel: UILabel!
     @IBOutlet weak var startButton: RecordStopButton!
     @IBOutlet weak var hintButton: HintButton!
     
@@ -58,9 +59,9 @@ final class StoryViewController: UIViewController, StoryboardInitializable {
         return true
     }
     
-    @IBAction func recordAudio(_ sender: UIButton) {
-        sender.isSelected = !sender.isSelected
-        if (sender.isSelected) {
+    @IBAction func recordAudio(_ sender: Any) {
+        startButton.isSelected = !startButton.isSelected
+        if (startButton.isSelected) {
             play()
         } else {
             stop()
@@ -115,6 +116,20 @@ extension StoryViewController: AudioControllerDelegate {
                     strongSelf.stop()
                     strongSelf.play()
                 } else if let response = response {
+                    // debug mode
+//                    for result in response.resultsArray {
+//                        guard let result = result as? StreamingRecognitionResult else {
+//                            return
+//                        }
+//                        for alternative in result.alternativesArray {
+//                            guard let alternative = alternative as? SpeechRecognitionAlternative else {
+//                                return
+//                            }
+//                            strongSelf.debugLabel.text = "Google speech result:\n" + alternative.transcript
+//                        }
+//                    }
+                    
+                    
                     print(response)
                     for result in response.resultsArray {
                         guard let result = result as? StreamingRecognitionResult, result.isFinal else {
@@ -131,6 +146,14 @@ extension StoryViewController: AudioControllerDelegate {
                             
                             if let s = StringUtils.checkIsFinish(wordArray: strongSelf.arrayOfWords) {
                                 strongSelf.label.text = s
+                                strongSelf.recordAudio(strongSelf)
+                                FinishController.shared.showFinishView {
+                                    strongSelf.arrayOfWords = DataUtils.getDataArray()
+                                    strongSelf.label.text = StringUtils.createString(from: strongSelf.arrayOfWords)
+                                    strongSelf.startButton.count = 0
+                                    
+                                     FinishController.shared.hideFinishView()
+                                }
                             }
                         }
                     }
@@ -154,7 +177,7 @@ extension StoryViewController: AudioControllerDelegate {
                     foundWords.append(replaceString(word: arrayOfWords[index].mainString, with: "_"))
                 }
             } else {
-//                foundWords.append(arrayOfWords[index].mainString)
+                foundWords.append(arrayOfWords[index].mainString)
             }
         }
         

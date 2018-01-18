@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		7A3882E7F463409C143F7A5E /* Pods_Patent_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27AFEF69F4C4243AA6F86D73 /* Pods_Patent_App.framework */; };
 		E140398E1FFF7B4100FF4088 /* RecordStopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E140398D1FFF7B4100FF4088 /* RecordStopButton.swift */; };
+		E146A1CD200F51D60024E6A2 /* FinishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E146A1CC200F51D60024E6A2 /* FinishView.swift */; };
+		E146A1D1200F52000024E6A2 /* FinishView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E146A1D0200F52000024E6A2 /* FinishView.xib */; };
+		E146A1D3200F52D50024E6A2 /* FinishController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E146A1D2200F52D50024E6A2 /* FinishController.swift */; };
 		E14FF70E200E43B000B12E39 /* DataUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14FF70D200E43B000B12E39 /* DataUtils.swift */; };
 		E14FF710200E446500B12E39 /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14FF70F200E446500B12E39 /* StringUtils.swift */; };
 		E16503881FFE276C00D91FDF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16503871FFE276C00D91FDF /* HomeViewController.swift */; };
@@ -31,6 +34,9 @@
 		7A19AD277406B221DC623C2C /* Pods-Patent App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Patent App.release.xcconfig"; path = "Pods/Target Support Files/Pods-Patent App/Pods-Patent App.release.xcconfig"; sourceTree = "<group>"; };
 		D4D0EA8C9B9210A9EC420EBA /* Pods-Patent App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Patent App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Patent App/Pods-Patent App.debug.xcconfig"; sourceTree = "<group>"; };
 		E140398D1FFF7B4100FF4088 /* RecordStopButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordStopButton.swift; sourceTree = "<group>"; };
+		E146A1CC200F51D60024E6A2 /* FinishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishView.swift; sourceTree = "<group>"; };
+		E146A1D0200F52000024E6A2 /* FinishView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FinishView.xib; sourceTree = "<group>"; };
+		E146A1D2200F52D50024E6A2 /* FinishController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishController.swift; sourceTree = "<group>"; };
 		E14FF70D200E43B000B12E39 /* DataUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataUtils.swift; sourceTree = "<group>"; };
 		E14FF70F200E446500B12E39 /* StringUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
 		E16503871FFE276C00D91FDF /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +85,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		E146A1CB200F51B80024E6A2 /* FinishView */ = {
+			isa = PBXGroup;
+			children = (
+				E146A1CC200F51D60024E6A2 /* FinishView.swift */,
+				E146A1D0200F52000024E6A2 /* FinishView.xib */,
+			);
+			path = FinishView;
+			sourceTree = "<group>";
+		};
 		E14FF70C200E435200B12E39 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				E19170E31FF3985100C3BD1C /* AppDelegate.swift */,
+				E146A1D2200F52D50024E6A2 /* FinishController.swift */,
 				E194D72E200779EB005D62EF /* ViewControllers */,
 				E194D72A2007797B005D62EF /* CustomViews */,
 				E194D72D200779DA005D62EF /* Protocols */,
@@ -125,6 +141,7 @@
 		E194D72A2007797B005D62EF /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				E146A1CB200F51B80024E6A2 /* FinishView */,
 				E194D72C200779C5005D62EF /* Views */,
 				E194D72B200779A4005D62EF /* Buttons */,
 			);
@@ -250,6 +267,7 @@
 				E19170EE1FF3985100C3BD1C /* LaunchScreen.storyboard in Resources */,
 				E19170EB1FF3985100C3BD1C /* Assets.xcassets in Resources */,
 				E19170E91FF3985100C3BD1C /* Main.storyboard in Resources */,
+				E146A1D1200F52000024E6A2 /* FinishView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,9 +333,11 @@
 				E16503881FFE276C00D91FDF /* HomeViewController.swift in Sources */,
 				E19170E61FF3985100C3BD1C /* StoryViewController.swift in Sources */,
 				E194D72920077657005D62EF /* StoryboardInitializable.swift in Sources */,
+				E146A1CD200F51D60024E6A2 /* FinishView.swift in Sources */,
 				E19170F61FF3A08D00C3BD1C /* SpeechRecognitionService.swift in Sources */,
 				E19170F81FF3A09500C3BD1C /* AudioController.swift in Sources */,
 				E194D72520076C0F005D62EF /* MenuButton.swift in Sources */,
+				E146A1D3200F52D50024E6A2 /* FinishController.swift in Sources */,
 				E1C5DC662004E1EA000366A1 /* HintButton.swift in Sources */,
 				E189C9F5200624E400B8EF7E /* OvalView.swift in Sources */,
 				E19170E41FF3985100C3BD1C /* AppDelegate.swift in Sources */,

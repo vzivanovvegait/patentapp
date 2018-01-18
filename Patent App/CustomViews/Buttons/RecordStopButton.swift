@@ -17,7 +17,11 @@ class RecordStopButton: UIButton {
     weak var delegate:RecordStopButtonDelegate?
     
     var timer = Timer()
-    var count:CGFloat = 0
+    var count:CGFloat = 0 {
+        didSet {
+            circlePathLayer.strokeEnd = 0.0
+        }
+    }
     
     var ovalLayer = CAShapeLayer()
     let circlePathLayer = CAShapeLayer()

@@ -156,6 +156,9 @@
                                             <constraint firstAttribute="width" constant="50" id="lz6-sI-FIY"/>
                                         </constraints>
                                         <state key="normal" image="hint"/>
+                                        <connections>
+                                            <action selector="hintNumberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Idz-wd-oax"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -183,7 +186,6 @@
                         </subviews>
                         <color key="backgroundColor" red="0.94901960784313721" green="0.9137254901960784" blue="0.52549019607843139" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="4Da-sc-Dle" firstAttribute="top" secondItem="0Cc-qM-f0j" secondAttribute="bottom" id="KBH-xC-fzJ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4Da-sc-Dle" secondAttribute="trailing" id="Rwd-VA-Laj"/>
                             <constraint firstItem="0Cc-qM-f0j" firstAttribute="top" secondItem="Em5-83-yF8" secondAttribute="bottom" id="Sh4-W6-dN5"/>
                             <constraint firstItem="0Cc-qM-f0j" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="YCc-an-39z"/>
@@ -194,6 +196,7 @@
                             <constraint firstItem="mB7-rx-iW2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="bxe-MY-f7c"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Em5-83-yF8" secondAttribute="trailing" constant="10" id="m8a-iz-SAH"/>
                             <constraint firstItem="Em5-83-yF8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="mno-yF-p6K"/>
+                            <constraint firstItem="4Da-sc-Dle" firstAttribute="top" secondItem="0Cc-qM-f0j" secondAttribute="bottom" id="oBH-oJ-xq5"/>
                             <constraint firstItem="0Cc-qM-f0j" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-5" id="xrL-Co-8Xf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
