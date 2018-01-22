@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Chalkduster.ttf">
+            <string>Chalkduster</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SendContainerView" customModule="Patent_App" customModuleProvider="target">
+            <connections>
+                <outlet property="sendButton" destination="gd2-hh-QDl" id="da3-gL-6rA"/>
+                <outlet property="textField" destination="fmn-ec-VhM" id="xew-hB-VyH"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gd2-hh-QDl">
+                    <rect key="frame" x="325" y="5" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="gd2-hh-QDl" secondAttribute="height" multiplier="1:1" id="7kr-xj-fkW"/>
+                        <constraint firstAttribute="width" constant="40" id="zSo-rU-s5C"/>
+                    </constraints>
+                    <connections>
+                        <action selector="send:" destination="-1" eventType="touchUpInside" id="Cht-y3-S0d"/>
+                    </connections>
+                </button>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fmn-ec-VhM">
+                    <rect key="frame" x="10" y="13.5" width="305" height="23"/>
+                    <color key="textColor" red="0.0" green="0.3803921569" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="18"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="gd2-hh-QDl" secondAttribute="trailing" constant="10" id="Cps-I0-aMF"/>
+                <constraint firstItem="gd2-hh-QDl" firstAttribute="leading" secondItem="fmn-ec-VhM" secondAttribute="trailing" constant="10" id="FKh-QH-fQe"/>
+                <constraint firstItem="gd2-hh-QDl" firstAttribute="centerY" secondItem="fmn-ec-VhM" secondAttribute="centerY" id="Y5R-Kb-1n1"/>
+                <constraint firstItem="fmn-ec-VhM" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="od7-e0-VnX"/>
+                <constraint firstItem="fmn-ec-VhM" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="zt7-UL-1Vz"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+        </view>
+    </objects>
+</document>

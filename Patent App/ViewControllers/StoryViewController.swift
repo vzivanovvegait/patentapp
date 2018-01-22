@@ -12,51 +12,70 @@ import googleapis
 
 let SAMPLE_RATE = 16000
 
-struct Word {
-    var mainString:String
-    var isSpecial:Bool
-    var isFound:Bool
-}
-
-final class StoryViewController: UIViewController, StoryboardInitializable {
+final class StoryViewController: UIViewController, StoryboardInitializable, KeyboardHandlerProtocol {
     
     var audioData: NSMutableData!
     
-//    @IBOutlet weak var debugLabel: UILabel!
+    @IBOutlet weak var scrollView: UIScrollView!
+    //    @IBOutlet weak var debugLabel: UILabel!
     @IBOutlet weak var startButton: RecordStopButton!
     @IBOutlet weak var hintButton: HintButton!
+    @IBOutlet weak var keyboardButton: UIButton!
+    
+    @IBOutlet weak var sendContainerView: SendContainerView!
+    //    @IBOutlet weak var sendButton: UIButton!
     
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var imageViewHeightConstraint: NSLayoutConstraint!
     
-//    var aString:String! = "once upon a time, there was a king, who had 12 daughters - 12 princesses."
-//    var image:UIImage!
+    @IBOutlet weak var sendboxBottomConstraint: NSLayoutConstraint!
     
     var arrayOfWords = [Word]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        enableDismissKeyboardOnTap()
+        
+        scrollView.contentInset = UIEdgeInsets(top: 60, left: 0, bottom: 80, right: 0)
+        
         startButton.delegate = self
-        imageView.image = UIImage(named: "1")
+        setImage(image: UIImage(named: "1")!)
+        
+        sendContainerView.registerView { (text) in
+            let arrayOfString = text.components(separatedBy: " ")
+            self.label.text = self.createString(array: arrayOfString)
+        }
         
         hintButton.setImage(#imageLiteral(resourceName: "hint").withRenderingMode(.alwaysTemplate), for: .normal)
-        
+        keyboardButton.setImage(#imageLiteral(resourceName: "ic_keyboard").withRenderingMode(.alwaysTemplate), for: .normal)
+        keyboardButton.tintColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
+
         AudioController.sharedInstance.delegate = self
-        
+
         arrayOfWords = DataUtils.getDataArray()
-        
+
         label.text = StringUtils.createString(from: arrayOfWords)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        registerForKeyboardNotifications()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
+        deregisterFromKeyboardNotifications()
         stop()
     }
     
     override var prefersStatusBarHidden: Bool {
         return true
+    }
+    
+    deinit {
+        print("kraj")
     }
     
     @IBAction func recordAudio(_ sender: Any) {
@@ -79,6 +98,16 @@ final class StoryViewController: UIViewController, StoryboardInitializable {
         _ = AudioController.sharedInstance.prepare(specifiedSampleRate: SAMPLE_RATE)
         SpeechRecognitionService.sharedInstance.sampleRate = SAMPLE_RATE
         _ = AudioController.sharedInstance.start()
+    }
+    
+    func setImage(image: UIImage) {
+        let imageAspect = Float(image.size.width / image.size.height)
+        imageViewHeightConstraint.constant = CGFloat(Float(UIScreen.main.bounds.width) / imageAspect)
+        imageView.image = image
+    }
+    
+    @IBAction func keyboard(_ sender: Any) {
+        sendContainerView.setFirstResponder()
     }
     
     @IBAction func hintNumberAction(_ sender: HintButton) {
@@ -116,19 +145,6 @@ extension StoryViewController: AudioControllerDelegate {
                     strongSelf.stop()
                     strongSelf.play()
                 } else if let response = response {
-                    // debug mode
-//                    for result in response.resultsArray {
-//                        guard let result = result as? StreamingRecognitionResult else {
-//                            return
-//                        }
-//                        for alternative in result.alternativesArray {
-//                            guard let alternative = alternative as? SpeechRecognitionAlternative else {
-//                                return
-//                            }
-//                            strongSelf.debugLabel.text = "Google speech result:\n" + alternative.transcript
-//                        }
-//                    }
-                    
                     
                     print(response)
                     for result in response.resultsArray {
@@ -142,7 +158,7 @@ extension StoryViewController: AudioControllerDelegate {
                             
                             let arrayOfString = alternative.transcript.components(separatedBy: " ")
                             
-                            strongSelf.label.text = strongSelf.makeString(arrayOfStrings: arrayOfString)
+                            strongSelf.label.text = strongSelf.createString(array: arrayOfString)
                             
                             if let s = StringUtils.checkIsFinish(wordArray: strongSelf.arrayOfWords) {
                                 strongSelf.label.text = s
@@ -163,25 +179,22 @@ extension StoryViewController: AudioControllerDelegate {
         }
     }
     
-    func makeString(arrayOfStrings: [String]) -> String {
-        var foundWords = [String]()
-        
+    func createString(array: [String]) -> String {
+        var s = ""
+        var rangeCounter = 0
         for index in 0..<arrayOfWords.count {
-            if !arrayOfWords[index].isSpecial {
-                if arrayOfWords[index].isFound {
-                    foundWords.append(arrayOfWords[index].mainString)
-                } else if checkString(word: arrayOfWords[index].mainString, in: arrayOfStrings) {
-                    arrayOfWords[index].isFound = true
-                    foundWords.append(arrayOfWords[index].mainString)
-                } else {
-                    foundWords.append(replaceString(word: arrayOfWords[index].mainString, with: "_"))
+            if index != 0 {
+                if ![".", ",", ":", "?", "!"].contains(arrayOfWords[index].mainString) {
+                    s += " "
+                    rangeCounter += 1
                 }
-            } else {
-                foundWords.append(arrayOfWords[index].mainString)
             }
+            //        print("Pocetak: \(rangeCounter), duzina: \(arrayOfWords[index].mainString.count)")
+            s += arrayOfWords[index].getString(array: array)
+            rangeCounter += arrayOfWords[index].mainString.count
         }
         
-        return foundWords.joined(separator: " ").replacingOccurrences(of: " ,", with: ",", options: NSString.CompareOptions.literal, range: nil).replacingOccurrences(of: " .", with: ".", options: NSString.CompareOptions.literal, range: nil)
+        return s
     }
     
     func stop() {
@@ -189,16 +202,6 @@ extension StoryViewController: AudioControllerDelegate {
             _ = AudioController.sharedInstance.stop()
             SpeechRecognitionService.sharedInstance.stopStreaming()
         }
-    }
-    
-    func checkString(word: String, in array: [String]) -> Bool {
-        return array.contains(where: { $0.uppercased() == word.uppercased() }) ? true : false
-    }
-    
-    func replaceString(word: String, with: String) -> String {
-        return String(word.map {_ in
-            return "_"
-        })
     }
     
 }
