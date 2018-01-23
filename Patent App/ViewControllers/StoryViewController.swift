@@ -225,8 +225,25 @@ extension StoryViewController: AudioControllerDelegate {
 extension StoryViewController: TTTAttributedLabelDelegate {
     func attributedLabel(_ label: TTTAttributedLabel!, didSelectLinkWith url: URL!) {
         if let index = Int(url.absoluteString), isRecording {
-            arrayOfWords[index].changeState()
-            label.setText(DataUtils.createString(from: arrayOfWords))
+            switch arrayOfWords[index].wordState {
+            case .oneline:
+                arrayOfWords[index].changeState()
+            case .underlined:
+                arrayOfWords[index].changeState()
+                DialogUtils.showWarningDialog(self, title: "Clue", message: arrayOfWords[index].hint, completion: nil)
+            case .clue:
+                arrayOfWords[index].changeState()
+                label.setText(DataUtils.createString(from: arrayOfWords))
+            case .firstLastLetter:
+                DialogUtils.showYesNoDialog(self, title: nil, message: "Are you sure you want to give up and see what it is?", completion: { (result) in
+                    if result {
+                        self.arrayOfWords[index].changeState()
+                        self.label.setText(DataUtils.createString(from: self.arrayOfWords))
+                    }
+                })
+            case .normal:
+                break
+            }
         }
     }
 }

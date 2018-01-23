@@ -14,24 +14,24 @@ class DataUtils {
         
         var arrayOfWords = [Word]()
         
-        arrayOfWords.append(Word(mainString: "Once", isSpecial: false))
-        arrayOfWords.append(Word(mainString: "upon", isSpecial: false))
-        arrayOfWords.append(Word(mainString: "a", isSpecial: false))
-        arrayOfWords.append(Word(mainString: "time", isSpecial: false))
-        arrayOfWords.append(Word(mainString: ",", isSpecial: true))
-        arrayOfWords.append(Word(mainString: "there", isSpecial: false))
-        arrayOfWords.append(Word(mainString: "was", isSpecial: false))
-        arrayOfWords.append(Word(mainString: "a", isSpecial: false))
-        arrayOfWords.append(Word(mainString: "king", isSpecial: false))
-        arrayOfWords.append(Word(mainString: ",", isSpecial: true))
-        arrayOfWords.append(Word(mainString: "who", isSpecial: false))
-        arrayOfWords.append(Word(mainString: "had", isSpecial: false))
-        arrayOfWords.append(Word(mainString: "12", isSpecial: false))
-        arrayOfWords.append(Word(mainString: "daughters", isSpecial: false))
-        arrayOfWords.append(Word(mainString: "-", isSpecial: true))
-        arrayOfWords.append(Word(mainString: "12", isSpecial: false))
-        arrayOfWords.append(Word(mainString: "princesses", isSpecial: false))
-        arrayOfWords.append(Word(mainString: ".", isSpecial: true))
+        arrayOfWords.append(Word(mainString: "Once", isSpecial: false, roots: nil, hint: nil))
+        arrayOfWords.append(Word(mainString: "upon", isSpecial: false, roots: nil, hint: nil))
+        arrayOfWords.append(Word(mainString: "a", isSpecial: false, roots: nil, hint: nil))
+        arrayOfWords.append(Word(mainString: "time", isSpecial: false, roots: nil, hint: nil))
+        arrayOfWords.append(Word(mainString: ",", isSpecial: true, roots: nil, hint: nil))
+        arrayOfWords.append(Word(mainString: "there", isSpecial: false, roots: nil, hint: nil))
+        arrayOfWords.append(Word(mainString: "was", isSpecial: false, roots: ["were"], hint: nil))
+        arrayOfWords.append(Word(mainString: "a", isSpecial: false, roots: nil, hint: nil))
+        arrayOfWords.append(Word(mainString: "king", isSpecial: false, roots: ["kings"], hint: "A man with a crown is often called..?"))
+        arrayOfWords.append(Word(mainString: ",", isSpecial: true, roots: nil, hint: nil))
+        arrayOfWords.append(Word(mainString: "who", isSpecial: false, roots: nil, hint: nil))
+        arrayOfWords.append(Word(mainString: "had", isSpecial: false, roots: ["has", "have"], hint: nil))
+        arrayOfWords.append(Word(mainString: "12", isSpecial: false, roots: ["twelve"], hint: nil))
+        arrayOfWords.append(Word(mainString: "daughters", isSpecial: false, roots: ["daughter"], hint: "A girl to a father is a ..?"))
+        arrayOfWords.append(Word(mainString: "-", isSpecial: true, roots: nil, hint: nil))
+        arrayOfWords.append(Word(mainString: "12", isSpecial: false, roots: ["twelve"], hint: nil))
+        arrayOfWords.append(Word(mainString: "princesses", isSpecial: false, roots: ["princess"], hint: "A daughter of a king is called..?"))
+        arrayOfWords.append(Word(mainString: ".", isSpecial: true, roots: nil, hint: nil))
         
         return arrayOfWords
     }
@@ -47,7 +47,9 @@ class DataUtils {
                 }
             }
             attString.append(NSMutableAttributedString(string: array[index].getString()))
-            attString.addAttribute(NSAttributedStringKey.link, value: "\(index)", range: NSRange(location: rangeCounter, length: array[index].mainString.count))
+            if !array[index].isFound && (array[index].hint != nil) {
+                attString.addAttribute(NSAttributedStringKey.link, value: "\(index)", range: NSRange(location: rangeCounter, length: array[index].mainString.count))
+            }
             
             rangeCounter += array[index].mainString.count
         }

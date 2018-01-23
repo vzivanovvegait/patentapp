@@ -11,7 +11,9 @@ import Foundation
 struct Word {
     
     enum State {
-        case hidden
+        case oneline
+        case underlined
+        case clue
         case firstLastLetter
         case normal
     }
@@ -19,11 +21,15 @@ struct Word {
     var mainString:String
     var isSpecial:Bool
     var isFound:Bool = false
-    var wordState:State = .hidden
+    var roots:[String]?
+    var wordState:State = .oneline
+    var hint:String?
     
-    init(mainString: String, isSpecial: Bool) {
+    init(mainString: String, isSpecial: Bool, roots: [String]?, hint: String?) {
         self.mainString = mainString
         self.isSpecial = isSpecial
+        self.roots = roots
+        self.hint = hint
         if isSpecial {
             self.isFound = true
             self.wordState = .normal
@@ -35,7 +41,11 @@ struct Word {
             return mainString
         } else {
             switch self.wordState {
-            case .hidden:
+            case .oneline:
+                return mainString.mapString()
+            case .underlined:
+                return mainString.mapString()
+            case .clue:
                 return mainString.mapString()
             case .firstLastLetter:
                 return mainString.mapFirstLastString()
@@ -49,9 +59,10 @@ struct Word {
         if checkString(in: array) {
             self.isFound = true
             return true
-        }
-            // TODO: Root words
-        else {
+        } else if checkRoots(in: array) {
+            self.isFound = true
+            return true
+        } else {
             
         }
         return false
@@ -59,9 +70,14 @@ struct Word {
     
     mutating func changeState() {
         switch self.wordState {
-        case .hidden:
+        case .oneline:
+            self.wordState = .underlined
+        case .underlined:
+            self.wordState = .clue
+        case .clue:
             self.wordState = .firstLastLetter
         case .firstLastLetter:
+            self.isFound = true
             self.wordState = .normal
         case .normal:
             break
@@ -70,6 +86,19 @@ struct Word {
     
     fileprivate func checkString(in array: [String]) -> Bool {
         return array.contains(where: { $0.uppercased() == mainString.uppercased() }) ? true : false
+    }
+    
+    fileprivate func checkRoots(in array: [String]) -> Bool {
+        if let roots = roots {
+            for root in roots {
+                if array.contains(where: { $0.uppercased() == root.uppercased() }) {
+                    return true
+                } else {
+                    continue
+                }
+            }
+        }
+        return false
     }
 }
 
