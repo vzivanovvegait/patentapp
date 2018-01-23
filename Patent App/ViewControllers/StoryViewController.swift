@@ -43,8 +43,9 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
         enableDismissKeyboardOnTap()
 
         sendContainerView.registerView { (text) in
-            let arrayOfString = text.components(separatedBy: " ")
-            self.label.setText(self.createString(array: arrayOfString))
+            if self.checkStringFromResponse(response: text) {
+                self.label.setText(DataUtils.createString(from: self.arrayOfWords))
+            }
         }
         
         AudioController.sharedInstance.delegate = self
@@ -73,7 +74,7 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
     
     func setData() {
         arrayOfWords = DataUtils.getDataArray()
-        label.setText(self.createString(array: []))
+        label.setText(DataUtils.createString(from: arrayOfWords))
     }
     
     // Set UI
@@ -186,21 +187,21 @@ extension StoryViewController: AudioControllerDelegate {
                                 return
                             }
                             
-                            let arrayOfString = alternative.transcript.components(separatedBy: " ")
-                            
-                            strongSelf.label.setText(strongSelf.createString(array: arrayOfString))
-                            
-                            if let s = StringUtils.checkIsFinish(wordArray: strongSelf.arrayOfWords) {
-                                strongSelf.label.text = s
-                                strongSelf.recordAudio(strongSelf)
-                                FinishController.shared.showFinishView {
-                                    strongSelf.arrayOfWords = DataUtils.getDataArray()
-                                    strongSelf.label.text = StringUtils.createString(from: strongSelf.arrayOfWords)
-                                    strongSelf.startButton.count = 0
-                                    
-                                     FinishController.shared.hideFinishView()
-                                }
+                            if strongSelf.checkStringFromResponse(response: alternative.transcript) {
+                                strongSelf.label.setText(DataUtils.createString(from: strongSelf.arrayOfWords))
                             }
+                            
+//                            if let s = StringUtils.checkIsFinish(wordArray: strongSelf.arrayOfWords) {
+//                                strongSelf.label.text = s
+//                                strongSelf.recordAudio(strongSelf)
+//                                FinishController.shared.showFinishView {
+//                                    strongSelf.arrayOfWords = DataUtils.getDataArray()
+//                                    strongSelf.label.text = StringUtils.createString(from: strongSelf.arrayOfWords)
+//                                    strongSelf.startButton.count = 0
+//
+//                                     FinishController.shared.hideFinishView()
+//                                }
+//                            }
                         }
                     }
                 }
@@ -209,26 +210,15 @@ extension StoryViewController: AudioControllerDelegate {
         }
     }
     
-    func createString(array: [String]) -> NSMutableAttributedString {
-        let attString = NSMutableAttributedString(string: "")
-        var rangeCounter = 0
+    func checkStringFromResponse(response: String) -> Bool {
+        var isFound = false
+        let responseArray = response.components(separatedBy: " ")
         for index in 0..<arrayOfWords.count {
-            if index != 0 {
-                if ![".", ",", ":", "?", "!"].contains(arrayOfWords[index].mainString) {
-                    attString.append(NSMutableAttributedString(string: " "))
-                    rangeCounter += 1
-                }
+            if !arrayOfWords[index].check(array: responseArray) {
+                isFound = true
             }
-            attString.append(NSMutableAttributedString(string: arrayOfWords[index].getString(array: array)))
-            attString.addAttribute(NSAttributedStringKey.link, value: "\(index)", range: NSRange(location: rangeCounter, length: arrayOfWords[index].mainString.count))
-            
-            rangeCounter += arrayOfWords[index].mainString.count
         }
-        
-        attString.addAttribute(NSAttributedStringKey.font, value: UIFont.systemFont(ofSize: 34), range: NSRange(attString.string.startIndex..., in: attString.string))
-        attString.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1), range: NSRange(attString.string.startIndex..., in: attString.string))
-        
-        return attString
+        return isFound
     }
 }
 
@@ -236,7 +226,7 @@ extension StoryViewController: TTTAttributedLabelDelegate {
     func attributedLabel(_ label: TTTAttributedLabel!, didSelectLinkWith url: URL!) {
         if let index = Int(url.absoluteString), isRecording {
             arrayOfWords[index].changeState()
-            label.setText(createString(array: []))
+            label.setText(DataUtils.createString(from: arrayOfWords))
         }
     }
 }
