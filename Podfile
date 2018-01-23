@@ -6,5 +6,6 @@ target 'Patent App' do
   use_frameworks!
 
   pod 'googleapis', :path => '.'
+	pod 'TTTAttributedLabel'
 
 end

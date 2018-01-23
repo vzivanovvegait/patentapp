@@ -105,6 +105,7 @@
 		E14FF70C200E435200B12E39 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				E146A1D2200F52D50024E6A2 /* FinishController.swift */,
 				E14FF70D200E43B000B12E39 /* DataUtils.swift */,
 				E14FF70F200E446500B12E39 /* StringUtils.swift */,
 			);
@@ -149,15 +150,13 @@
 		E19170E21FF3985100C3BD1C /* Patent App */ = {
 			isa = PBXGroup;
 			children = (
-				E1529DB1201601AC003CD7C6 /* Model */,
 				E19170E31FF3985100C3BD1C /* AppDelegate.swift */,
-				E188E2802010ABA300755614 /* KeyboardHandlerProtocol.swift */,
-				E146A1D2200F52D50024E6A2 /* FinishController.swift */,
+				E1529DB1201601AC003CD7C6 /* Model */,
 				E194D72E200779EB005D62EF /* ViewControllers */,
 				E194D72A2007797B005D62EF /* CustomViews */,
-				E194D72D200779DA005D62EF /* Protocols */,
 				E194D72F20077A04005D62EF /* Storyboards */,
 				E14FF70C200E435200B12E39 /* Utils */,
+				E194D72D200779DA005D62EF /* Protocols */,
 				E194D73020077A1B005D62EF /* GoogleSpeech */,
 				E19170EA1FF3985100C3BD1C /* Assets.xcassets */,
 				E19170EF1FF3985100C3BD1C /* Info.plist */,
@@ -197,6 +196,7 @@
 		E194D72D200779DA005D62EF /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				E188E2802010ABA300755614 /* KeyboardHandlerProtocol.swift */,
 				E194D72820077657005D62EF /* StoryboardInitializable.swift */,
 			);
 			path = Protocols;
@@ -309,9 +309,28 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Patent App/Pods-Patent App-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/TTTAttributedLabel/TTTAttributedLabel.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
+				"${BUILT_PRODUCTS_DIR}/googleapis/googleapis.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TTTAttributedLabel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/googleapis.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -339,13 +358,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Patent App-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

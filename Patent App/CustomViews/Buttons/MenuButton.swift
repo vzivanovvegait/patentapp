@@ -36,7 +36,7 @@ class MenuButton: UIButton {
     func setupView() {
         self.backgroundColor? = UIColor.clear
         self.setTitleColor(UIColor(red: 242/255.0, green: 233/255.0, blue: 134/255.0, alpha: 1), for: .normal)
-        self.titleLabel?.font = UIFont(name: "Chalkduster", size: 25)
+        self.titleLabel?.font = UIFont.systemFont(ofSize: 25)
     }
 
 }

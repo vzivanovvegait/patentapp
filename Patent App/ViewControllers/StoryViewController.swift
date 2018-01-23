@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 import googleapis
+import TTTAttributedLabel
 
 let SAMPLE_RATE = 16000
 
@@ -17,46 +18,36 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
     var audioData: NSMutableData!
     
     @IBOutlet weak var scrollView: UIScrollView!
-    //    @IBOutlet weak var debugLabel: UILabel!
     @IBOutlet weak var startButton: RecordStopButton!
-    @IBOutlet weak var hintButton: HintButton!
     @IBOutlet weak var keyboardButton: UIButton!
     
     @IBOutlet weak var sendContainerView: SendContainerView!
-    //    @IBOutlet weak var sendButton: UIButton!
     
-    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var label: TTTAttributedLabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var imageViewHeightConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var sendboxBottomConstraint: NSLayoutConstraint!
     
     var arrayOfWords = [Word]()
+    var isRecording = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        enableDismissKeyboardOnTap()
-        
-        scrollView.contentInset = UIEdgeInsets(top: 60, left: 0, bottom: 80, right: 0)
-        
-        startButton.delegate = self
+        setLabel()
         setImage(image: UIImage(named: "1")!)
+        setViews()
+        setData()
         
+        enableDismissKeyboardOnTap()
+
         sendContainerView.registerView { (text) in
             let arrayOfString = text.components(separatedBy: " ")
-            self.label.text = self.createString(array: arrayOfString)
+            self.label.setText(self.createString(array: arrayOfString))
         }
         
-        hintButton.setImage(#imageLiteral(resourceName: "hint").withRenderingMode(.alwaysTemplate), for: .normal)
-        keyboardButton.setImage(#imageLiteral(resourceName: "ic_keyboard").withRenderingMode(.alwaysTemplate), for: .normal)
-        keyboardButton.tintColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
-
         AudioController.sharedInstance.delegate = self
-
-        arrayOfWords = DataUtils.getDataArray()
-
-        label.text = StringUtils.createString(from: arrayOfWords)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -78,14 +69,39 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
         print("kraj")
     }
     
-    @IBAction func recordAudio(_ sender: Any) {
-        startButton.isSelected = !startButton.isSelected
-        if (startButton.isSelected) {
-            play()
-        } else {
-            stop()
-        }
+    // Set data
+    
+    func setData() {
+        arrayOfWords = DataUtils.getDataArray()
+        label.setText(self.createString(array: []))
     }
+    
+    // Set UI
+    
+    func setImage(image: UIImage) {
+        let imageAspect = Float(image.size.width / image.size.height)
+        imageViewHeightConstraint.constant = CGFloat(Float(UIScreen.main.bounds.width) / imageAspect)
+        imageView.image = image
+    }
+    
+    func setLabel() {
+        label.linkAttributes = [NSAttributedStringKey.foregroundColor: UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)]
+        label.activeLinkAttributes = [NSAttributedStringKey.foregroundColor: UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)]
+        label.delegate = self
+        label.lineBreakMode = .byWordWrapping
+        label.numberOfLines = 0
+        label.isUserInteractionEnabled = true
+    }
+    
+    func setViews() {
+        keyboardButton.isEnabled = false
+        keyboardButton.setImage(#imageLiteral(resourceName: "ic_keyboard").withRenderingMode(.alwaysTemplate), for: .normal)
+        keyboardButton.tintColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
+        scrollView.contentInset = UIEdgeInsets(top: 60, left: 0, bottom: 80, right: 0)
+        startButton.delegate = self
+    }
+    
+    // Play/Stop actions
     
     func play() {
         let audioSession = AVAudioSession.sharedInstance()
@@ -98,20 +114,34 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
         _ = AudioController.sharedInstance.prepare(specifiedSampleRate: SAMPLE_RATE)
         SpeechRecognitionService.sharedInstance.sampleRate = SAMPLE_RATE
         _ = AudioController.sharedInstance.start()
+        
+        keyboardButton.isEnabled = true
+        isRecording = true
     }
     
-    func setImage(image: UIImage) {
-        let imageAspect = Float(image.size.width / image.size.height)
-        imageViewHeightConstraint.constant = CGFloat(Float(UIScreen.main.bounds.width) / imageAspect)
-        imageView.image = image
+    func stop() {
+        if AudioController.sharedInstance.remoteIOUnit != nil {
+            _ = AudioController.sharedInstance.stop()
+            SpeechRecognitionService.sharedInstance.stopStreaming()
+        }
+        
+        keyboardButton.isEnabled = false
+        isRecording = false
+    }
+    
+    // IBActions
+    
+    @IBAction func recordAudio(_ sender: Any) {
+        startButton.isSelected = !startButton.isSelected
+        if (startButton.isSelected) {
+            play()
+        } else {
+            stop()
+        }
     }
     
     @IBAction func keyboard(_ sender: Any) {
         sendContainerView.setFirstResponder()
-    }
-    
-    @IBAction func hintNumberAction(_ sender: HintButton) {
-        
     }
     
     @IBAction func back(_ sender: Any) {
@@ -158,7 +188,7 @@ extension StoryViewController: AudioControllerDelegate {
                             
                             let arrayOfString = alternative.transcript.components(separatedBy: " ")
                             
-                            strongSelf.label.text = strongSelf.createString(array: arrayOfString)
+                            strongSelf.label.setText(strongSelf.createString(array: arrayOfString))
                             
                             if let s = StringUtils.checkIsFinish(wordArray: strongSelf.arrayOfWords) {
                                 strongSelf.label.text = s
@@ -179,29 +209,34 @@ extension StoryViewController: AudioControllerDelegate {
         }
     }
     
-    func createString(array: [String]) -> String {
-        var s = ""
+    func createString(array: [String]) -> NSMutableAttributedString {
+        let attString = NSMutableAttributedString(string: "")
         var rangeCounter = 0
         for index in 0..<arrayOfWords.count {
             if index != 0 {
                 if ![".", ",", ":", "?", "!"].contains(arrayOfWords[index].mainString) {
-                    s += " "
+                    attString.append(NSMutableAttributedString(string: " "))
                     rangeCounter += 1
                 }
             }
-            //        print("Pocetak: \(rangeCounter), duzina: \(arrayOfWords[index].mainString.count)")
-            s += arrayOfWords[index].getString(array: array)
+            attString.append(NSMutableAttributedString(string: arrayOfWords[index].getString(array: array)))
+            attString.addAttribute(NSAttributedStringKey.link, value: "\(index)", range: NSRange(location: rangeCounter, length: arrayOfWords[index].mainString.count))
+            
             rangeCounter += arrayOfWords[index].mainString.count
         }
         
-        return s
+        attString.addAttribute(NSAttributedStringKey.font, value: UIFont.systemFont(ofSize: 34), range: NSRange(attString.string.startIndex..., in: attString.string))
+        attString.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1), range: NSRange(attString.string.startIndex..., in: attString.string))
+        
+        return attString
     }
-    
-    func stop() {
-        if AudioController.sharedInstance.remoteIOUnit != nil {
-            _ = AudioController.sharedInstance.stop()
-            SpeechRecognitionService.sharedInstance.stopStreaming()
+}
+
+extension StoryViewController: TTTAttributedLabelDelegate {
+    func attributedLabel(_ label: TTTAttributedLabel!, didSelectLinkWith url: URL!) {
+        if let index = Int(url.absoluteString), isRecording {
+            arrayOfWords[index].changeState()
+            label.setText(createString(array: []))
         }
     }
-    
 }

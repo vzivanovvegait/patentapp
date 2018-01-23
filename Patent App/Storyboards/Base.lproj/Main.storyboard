@@ -11,11 +11,6 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Chalkduster.ttf">
-            <string>Chalkduster</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Home View Controller-->
         <scene sceneID="Fu0-v2-2M1">
@@ -127,7 +122,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="778"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v8T-30-Efn" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="303"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="286"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="0Cc-qM-f0j">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="220"/>
@@ -135,21 +130,22 @@
                                                     <constraint firstAttribute="height" constant="220" id="qBm-LT-pGa"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="text" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Em5-83-yF8">
-                                                <rect key="frame" x="10" y="240" width="355" height="38"/>
-                                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="30"/>
-                                                <color key="textColor" red="0.0" green="0.38039215686274508" blue="0.40784313725490196" alpha="1" colorSpace="calibratedRGB"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="flI-3q-1HV" customClass="TTTAttributedLabel">
+                                                <rect key="frame" x="166.66666666666666" y="240" width="42" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="Em5-83-yF8" secondAttribute="bottom" constant="25" id="2z5-LH-hW3"/>
-                                            <constraint firstItem="Em5-83-yF8" firstAttribute="top" secondItem="0Cc-qM-f0j" secondAttribute="bottom" constant="20" id="A0x-lK-IbL"/>
-                                            <constraint firstAttribute="trailing" secondItem="Em5-83-yF8" secondAttribute="trailing" constant="10" id="I7M-Lp-DLR"/>
-                                            <constraint firstItem="Em5-83-yF8" firstAttribute="leading" secondItem="v8T-30-Efn" secondAttribute="leading" constant="10" id="Mfx-La-7op"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="flI-3q-1HV" secondAttribute="trailing" constant="10" id="F33-7v-hLW"/>
+                                            <constraint firstItem="flI-3q-1HV" firstAttribute="top" secondItem="0Cc-qM-f0j" secondAttribute="bottom" constant="20" id="Mpd-Ym-wAS"/>
+                                            <constraint firstAttribute="bottom" secondItem="flI-3q-1HV" secondAttribute="bottom" constant="25" id="fhN-Fv-cSl"/>
                                             <constraint firstItem="0Cc-qM-f0j" firstAttribute="leading" secondItem="v8T-30-Efn" secondAttribute="leading" id="fpp-xW-TTT"/>
+                                            <constraint firstItem="flI-3q-1HV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="v8T-30-Efn" secondAttribute="leading" constant="10" id="g78-Ud-Aut"/>
                                             <constraint firstAttribute="trailing" secondItem="0Cc-qM-f0j" secondAttribute="trailing" id="rV3-y3-2ng"/>
                                             <constraint firstItem="0Cc-qM-f0j" firstAttribute="top" secondItem="v8T-30-Efn" secondAttribute="top" id="rhO-ri-D1g"/>
+                                            <constraint firstItem="flI-3q-1HV" firstAttribute="centerX" secondItem="0Cc-qM-f0j" secondAttribute="centerX" priority="750" id="yUW-ub-7Cw"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -177,17 +173,6 @@
                                             <action selector="recordAudio:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jdo-Ly-U2j"/>
                                         </connections>
                                     </button>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SaE-8b-PyM" customClass="HintButton" customModule="Patent_App" customModuleProvider="target">
-                                        <rect key="frame" x="310" y="15" width="50" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="SaE-8b-PyM" secondAttribute="height" multiplier="1:1" id="VqF-9N-4Pk"/>
-                                            <constraint firstAttribute="width" constant="50" id="lz6-sI-FIY"/>
-                                        </constraints>
-                                        <state key="normal" image="hint"/>
-                                        <connections>
-                                            <action selector="hintNumberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Idz-wd-oax"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nVA-OY-5rc">
                                         <rect key="frame" x="15" y="20" width="40" height="40"/>
                                         <constraints>
@@ -196,7 +181,6 @@
                                         </constraints>
                                         <state key="normal" image="ic_keyboard"/>
                                         <connections>
-                                            <action selector="hintNumberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OVZ-8I-IEy"/>
                                             <action selector="keyboard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Pii-VC-mXH"/>
                                         </connections>
                                     </button>
@@ -204,9 +188,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="KBM-iB-48V" secondAttribute="bottom" constant="10" id="Cpu-ri-686"/>
-                                    <constraint firstAttribute="trailing" secondItem="SaE-8b-PyM" secondAttribute="trailing" constant="15" id="cZd-wt-HYU"/>
                                     <constraint firstItem="nVA-OY-5rc" firstAttribute="leading" secondItem="4Da-sc-Dle" secondAttribute="leading" constant="15" id="lZn-rH-nhk"/>
-                                    <constraint firstItem="SaE-8b-PyM" firstAttribute="centerY" secondItem="KBM-iB-48V" secondAttribute="centerY" id="m3c-A1-kg8"/>
                                     <constraint firstItem="KBM-iB-48V" firstAttribute="centerX" secondItem="4Da-sc-Dle" secondAttribute="centerX" id="mt2-17-9yy"/>
                                     <constraint firstItem="KBM-iB-48V" firstAttribute="top" secondItem="4Da-sc-Dle" secondAttribute="top" constant="10" id="voI-Dm-OS2"/>
                                     <constraint firstItem="nVA-OY-5rc" firstAttribute="centerY" secondItem="KBM-iB-48V" secondAttribute="centerY" id="wRf-gi-5Fv"/>
@@ -252,11 +234,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="hintButton" destination="SaE-8b-PyM" id="ONC-gl-oV5"/>
                         <outlet property="imageView" destination="0Cc-qM-f0j" id="G7A-Px-O1D"/>
                         <outlet property="imageViewHeightConstraint" destination="qBm-LT-pGa" id="dAH-cC-njc"/>
                         <outlet property="keyboardButton" destination="nVA-OY-5rc" id="Xjc-Iz-CYI"/>
-                        <outlet property="label" destination="Em5-83-yF8" id="rwb-NE-RjP"/>
+                        <outlet property="label" destination="flI-3q-1HV" id="UiW-vB-pFs"/>
                         <outlet property="scrollView" destination="C0y-0K-lUQ" id="VdX-4Y-QGn"/>
                         <outlet property="sendContainerView" destination="od5-S2-p1o" id="YzH-Gd-mEk"/>
                         <outlet property="sendboxBottomConstraint" destination="fg4-I0-8As" id="dgN-P4-iwD"/>
@@ -271,7 +252,6 @@
     <resources>
         <image name="1" width="1024" height="584"/>
         <image name="arrow" width="512" height="512"/>
-        <image name="hint" width="128" height="128"/>
         <image name="ic_keyboard" width="512" height="512"/>
     </resources>
 </document>
