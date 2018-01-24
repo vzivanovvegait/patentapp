@@ -46,7 +46,11 @@ class DataUtils {
                     rangeCounter += 1
                 }
             }
-            attString.append(NSMutableAttributedString(string: array[index].getString()))
+            let word = NSMutableAttributedString(string: array[index].getString())
+            if [.underlined, .firstLastLetter, .clue].contains(array[index].wordState) {
+                word.addAttribute(NSAttributedStringKey.kern, value: 3, range: NSRange(location: 0, length: array[index].mainString.count))
+            }
+            attString.append(word)
             if !array[index].isFound && (array[index].hint != nil) {
                 attString.addAttribute(NSAttributedStringKey.link, value: "\(index)", range: NSRange(location: rangeCounter, length: array[index].mainString.count))
             }

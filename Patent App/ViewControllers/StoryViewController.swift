@@ -232,9 +232,11 @@ extension StoryViewController: TTTAttributedLabelDelegate {
             switch arrayOfWords[index].wordState {
             case .oneline:
                 arrayOfWords[index].changeState()
+                self.setTextLabel()
             case .underlined:
                 arrayOfWords[index].changeState()
                 DialogUtils.showWarningDialog(self, title: "Clue", message: arrayOfWords[index].hint, completion: nil)
+//                self.setTextLabel()
             case .clue:
                 arrayOfWords[index].changeState()
                 self.setTextLabel()
