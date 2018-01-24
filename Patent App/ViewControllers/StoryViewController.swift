@@ -44,7 +44,7 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
 
         sendContainerView.registerView { (text) in
             if self.checkStringFromResponse(response: text) {
-                self.label.setText(DataUtils.createString(from: self.arrayOfWords))
+                self.setTextLabel()
             }
         }
         
@@ -74,7 +74,7 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
     
     func setData() {
         arrayOfWords = DataUtils.getDataArray()
-        label.setText(DataUtils.createString(from: arrayOfWords))
+        setTextLabel()
     }
     
     // Set UI
@@ -188,20 +188,8 @@ extension StoryViewController: AudioControllerDelegate {
                             }
                             
                             if strongSelf.checkStringFromResponse(response: alternative.transcript) {
-                                strongSelf.label.setText(DataUtils.createString(from: strongSelf.arrayOfWords))
+                                strongSelf.setTextLabel()
                             }
-                            
-//                            if let s = StringUtils.checkIsFinish(wordArray: strongSelf.arrayOfWords) {
-//                                strongSelf.label.text = s
-//                                strongSelf.recordAudio(strongSelf)
-//                                FinishController.shared.showFinishView {
-//                                    strongSelf.arrayOfWords = DataUtils.getDataArray()
-//                                    strongSelf.label.text = StringUtils.createString(from: strongSelf.arrayOfWords)
-//                                    strongSelf.startButton.count = 0
-//
-//                                     FinishController.shared.hideFinishView()
-//                                }
-//                            }
                         }
                     }
                 }
@@ -220,6 +208,22 @@ extension StoryViewController: AudioControllerDelegate {
         }
         return isFound
     }
+    
+    func setTextLabel() {
+        let result = DataUtils.createString(from: arrayOfWords)
+        label.setText(result.0)
+        if result.1 {
+            sendContainerView.removeFirstResponder()
+            recordAudio(self)
+            FinishController.shared.showFinishView {
+                self.arrayOfWords = DataUtils.getDataArray()
+                self.startButton.count = 0
+                FinishController.shared.hideFinishView()
+                self.setTextLabel()
+            }
+
+        }
+    }
 }
 
 extension StoryViewController: TTTAttributedLabelDelegate {
@@ -233,12 +237,12 @@ extension StoryViewController: TTTAttributedLabelDelegate {
                 DialogUtils.showWarningDialog(self, title: "Clue", message: arrayOfWords[index].hint, completion: nil)
             case .clue:
                 arrayOfWords[index].changeState()
-                label.setText(DataUtils.createString(from: arrayOfWords))
+                self.setTextLabel()
             case .firstLastLetter:
                 DialogUtils.showYesNoDialog(self, title: nil, message: "Are you sure you want to give up and see what it is?", completion: { (result) in
                     if result {
                         self.arrayOfWords[index].changeState()
-                        self.label.setText(DataUtils.createString(from: self.arrayOfWords))
+                        self.setTextLabel()
                     }
                 })
             case .normal:

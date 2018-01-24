@@ -60,6 +60,10 @@ class SendContainerView: UIView {
         textField.becomeFirstResponder()
     }
     
+    func removeFirstResponder() {
+        textField.resignFirstResponder()
+    }
+    
     @IBAction func send(_ sender: Any) {
         if let text = textField.text {
             completionHandler(text)

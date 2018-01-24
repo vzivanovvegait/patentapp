@@ -30,8 +30,8 @@
                     <rect key="frame" x="43" y="232.5" width="289" height="222"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have successfully completed this part of the story" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aeH-ZS-koj">
-                            <rect key="frame" x="10" y="25" width="269" height="111.5"/>
-                            <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="22"/>
+                            <rect key="frame" x="10" y="25" width="269" height="90"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
                             <color key="textColor" red="0.0" green="0.3803921569" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>

@@ -48,7 +48,11 @@ struct Word {
             case .clue:
                 return mainString.mapString()
             case .firstLastLetter:
-                return mainString.mapFirstLastString()
+                if mainString.count > 2 {
+                    return mainString.mapFirstLastString()
+                } else {
+                    return mainString.mapString()
+                }
             case .normal:
                 return mainString
             }
