@@ -32,6 +32,13 @@
 		E194D72720077306005D62EF /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E194D72620077306005D62EF /* CategoryViewController.swift */; };
 		E194D72920077657005D62EF /* StoryboardInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E194D72820077657005D62EF /* StoryboardInitializable.swift */; };
 		E1C5DC662004E1EA000366A1 /* HintButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C5DC652004E1EA000366A1 /* HintButton.swift */; };
+		E1ED4409201B510200BA291A /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ED4408201B510200BA291A /* NotesViewController.swift */; };
+		E1ED4414201B530B00BA291A /* Patent.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E1ED4412201B530B00BA291A /* Patent.xcdatamodeld */; };
+		E1ED442E201B57DD00BA291A /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ED442D201B57DD00BA291A /* NoteCell.swift */; };
+		E1ED4431201B609000BA291A /* Note+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ED442F201B609000BA291A /* Note+CoreDataClass.swift */; };
+		E1ED4432201B609000BA291A /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ED4430201B609000BA291A /* Note+CoreDataProperties.swift */; };
+		E1ED4434201B654600BA291A /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ED4433201B654600BA291A /* CoreDataManager.swift */; };
+		E1ED4436201B761100BA291A /* NoteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ED4435201B761100BA291A /* NoteController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +71,13 @@
 		E194D72620077306005D62EF /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		E194D72820077657005D62EF /* StoryboardInitializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardInitializable.swift; sourceTree = "<group>"; };
 		E1C5DC652004E1EA000366A1 /* HintButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintButton.swift; sourceTree = "<group>"; };
+		E1ED4408201B510200BA291A /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
+		E1ED4413201B530B00BA291A /* Patent.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Patent.xcdatamodel; sourceTree = "<group>"; };
+		E1ED442D201B57DD00BA291A /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
+		E1ED442F201B609000BA291A /* Note+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E1ED4430201B609000BA291A /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E1ED4433201B654600BA291A /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		E1ED4435201B761100BA291A /* NoteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +125,8 @@
 				E146A1D2200F52D50024E6A2 /* FinishController.swift */,
 				E14FF70D200E43B000B12E39 /* DataUtils.swift */,
 				E14FF70F200E446500B12E39 /* StringUtils.swift */,
+				E1ED4433201B654600BA291A /* CoreDataManager.swift */,
+				E1ED4435201B761100BA291A /* NoteController.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -153,6 +169,8 @@
 		E19170E21FF3985100C3BD1C /* Patent App */ = {
 			isa = PBXGroup;
 			children = (
+				E1ED442F201B609000BA291A /* Note+CoreDataClass.swift */,
+				E1ED4430201B609000BA291A /* Note+CoreDataProperties.swift */,
 				E19170E31FF3985100C3BD1C /* AppDelegate.swift */,
 				E1529DB1201601AC003CD7C6 /* Model */,
 				E194D72E200779EB005D62EF /* ViewControllers */,
@@ -163,6 +181,7 @@
 				E194D73020077A1B005D62EF /* GoogleSpeech */,
 				E19170EA1FF3985100C3BD1C /* Assets.xcassets */,
 				E19170EF1FF3985100C3BD1C /* Info.plist */,
+				E1ED4412201B530B00BA291A /* Patent.xcdatamodeld */,
 			);
 			path = "Patent App";
 			sourceTree = "<group>";
@@ -174,6 +193,7 @@
 				E146A1CB200F51B80024E6A2 /* FinishView */,
 				E194D72C200779C5005D62EF /* Views */,
 				E194D72B200779A4005D62EF /* Buttons */,
+				E1ED442D201B57DD00BA291A /* NoteCell.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -211,6 +231,7 @@
 				E16503871FFE276C00D91FDF /* HomeViewController.swift */,
 				E194D72620077306005D62EF /* CategoryViewController.swift */,
 				E19170E51FF3985100C3BD1C /* StoryViewController.swift */,
+				E1ED4408201B510200BA291A /* NotesViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -385,20 +406,27 @@
 				E14FF70E200E43B000B12E39 /* DataUtils.swift in Sources */,
 				E140398E1FFF7B4100FF4088 /* RecordStopButton.swift in Sources */,
 				E16503881FFE276C00D91FDF /* HomeViewController.swift in Sources */,
+				E1ED4436201B761100BA291A /* NoteController.swift in Sources */,
 				E19170E61FF3985100C3BD1C /* StoryViewController.swift in Sources */,
 				E194D72920077657005D62EF /* StoryboardInitializable.swift in Sources */,
 				E146A1CD200F51D60024E6A2 /* FinishView.swift in Sources */,
 				E19170F61FF3A08D00C3BD1C /* SpeechRecognitionService.swift in Sources */,
 				E188E2812010ABA300755614 /* KeyboardHandlerProtocol.swift in Sources */,
 				E19170F81FF3A09500C3BD1C /* AudioController.swift in Sources */,
+				E1ED4431201B609000BA291A /* Note+CoreDataClass.swift in Sources */,
 				E1529DB3201601BC003CD7C6 /* Word.swift in Sources */,
 				E188E2832010D3BE00755614 /* SendContainerView.swift in Sources */,
+				E1ED442E201B57DD00BA291A /* NoteCell.swift in Sources */,
 				E17D12E1201779B70040681E /* DialogUtils.swift in Sources */,
 				E194D72520076C0F005D62EF /* MenuButton.swift in Sources */,
+				E1ED4432201B609000BA291A /* Note+CoreDataProperties.swift in Sources */,
+				E1ED4434201B654600BA291A /* CoreDataManager.swift in Sources */,
 				E146A1D3200F52D50024E6A2 /* FinishController.swift in Sources */,
+				E1ED4409201B510200BA291A /* NotesViewController.swift in Sources */,
 				E1C5DC662004E1EA000366A1 /* HintButton.swift in Sources */,
 				E189C9F5200624E400B8EF7E /* OvalView.swift in Sources */,
 				E19170E41FF3985100C3BD1C /* AppDelegate.swift in Sources */,
+				E1ED4414201B530B00BA291A /* Patent.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -539,7 +567,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RC7W8BPRW2;
 				INFOPLIST_FILE = "Patent App/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "vega.Patent-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -556,7 +584,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RC7W8BPRW2;
 				INFOPLIST_FILE = "Patent App/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "vega.Patent-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -587,6 +615,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E1ED4412201B530B00BA291A /* Patent.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E1ED4413201B530B00BA291A /* Patent.xcdatamodel */,
+			);
+			currentVersion = E1ED4413201B530B00BA291A /* Patent.xcdatamodel */;
+			path = Patent.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = E19170D81FF3985100C3BD1C /* Project object */;
 }

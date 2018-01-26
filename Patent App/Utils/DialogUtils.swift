@@ -30,13 +30,13 @@ class DialogUtils {
         
         let dialog = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
-        let yesAction = UIAlertAction(title: "Da", style: .default, handler: {
+        let yesAction = UIAlertAction(title: "Yes", style: .default, handler: {
             (alert: UIAlertAction!) -> Void in
             completion(true)
         })
         dialog.addAction(yesAction)
         
-        let noAction = UIAlertAction(title: "Ne", style: .default, handler: {
+        let noAction = UIAlertAction(title: "No", style: .default, handler: {
             (alert: UIAlertAction!) -> Void in
             completion(false)
         })

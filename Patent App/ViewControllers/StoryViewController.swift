@@ -20,6 +20,7 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var startButton: RecordStopButton!
     @IBOutlet weak var keyboardButton: UIButton!
+    @IBOutlet weak var notesButton: UIButton!
     
     @IBOutlet weak var sendContainerView: SendContainerView!
     
@@ -100,6 +101,8 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
         keyboardButton.tintColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
         scrollView.contentInset = UIEdgeInsets(top: 60, left: 0, bottom: 80, right: 0)
         startButton.delegate = self
+        notesButton.setImage(#imageLiteral(resourceName: "note").withRenderingMode(.alwaysTemplate), for: .normal)
+        notesButton.tintColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
     }
     
     // Play/Stop actions
@@ -143,6 +146,11 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
     
     @IBAction func keyboard(_ sender: Any) {
         sendContainerView.setFirstResponder()
+    }
+    
+    @IBAction func notes(_ sender: Any) {
+        let navigationController = NotesViewController.makeFromStoryboard().embedInNavigationController()
+        self.present(navigationController, animated: true, completion: nil)
     }
     
     @IBAction func back(_ sender: Any) {
@@ -248,7 +256,7 @@ extension StoryViewController: TTTAttributedLabelDelegate {
                     }
                 })
             case .normal:
-                break
+                NoteController.shared.insertNote(word: arrayOfWords[index].mainString, explanation: "test")
             }
         }
     }
