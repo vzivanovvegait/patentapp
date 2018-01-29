@@ -24,6 +24,8 @@ final class NotesViewController: UIViewController {
     
         self.notes = NoteController.shared.getNotes()
         
+        tableView.tableFooterView = UIView()
+        
         let barButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.close))
         navigationItem.rightBarButtonItem = barButtonItem
         // Do any additional setup after loading the view.

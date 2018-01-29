@@ -60,7 +60,6 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         deregisterFromKeyboardNotifications()
-        stop()
     }
     
     override var prefersStatusBarHidden: Bool {
@@ -154,6 +153,7 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
     }
     
     @IBAction func back(_ sender: Any) {
+        stop()
         self.navigationController?.popViewController(animated: true)
     }
 }
@@ -237,27 +237,43 @@ extension StoryViewController: AudioControllerDelegate {
 extension StoryViewController: TTTAttributedLabelDelegate {
     func attributedLabel(_ label: TTTAttributedLabel!, didSelectLinkWith url: URL!) {
         if let index = Int(url.absoluteString), isRecording {
-            switch arrayOfWords[index].wordState {
-            case .oneline:
-                arrayOfWords[index].changeState()
-                self.setTextLabel()
-            case .underlined:
-                arrayOfWords[index].changeState()
+            handleResponse(index: index)
+        }
+    }
+    
+    func handleResponse(index: Int) {
+        switch arrayOfWords[index].wordState {
+        case .oneline:
+            arrayOfWords[index].changeState()
+            self.setTextLabel()
+        case .underlined:
+            arrayOfWords[index].changeState()
+            self.setTextLabel()
+        case .firstLastLetter:
+            arrayOfWords[index].changeState()
+            if arrayOfWords[index].hint != nil {
                 DialogUtils.showWarningDialog(self, title: "Clue", message: arrayOfWords[index].hint, completion: nil)
-//                self.setTextLabel()
-            case .clue:
-                arrayOfWords[index].changeState()
-                self.setTextLabel()
-            case .firstLastLetter:
-                DialogUtils.showYesNoDialog(self, title: nil, message: "Are you sure you want to give up and see what it is?", completion: { (result) in
-                    if result {
-                        self.arrayOfWords[index].changeState()
-                        self.setTextLabel()
-                    }
-                })
-            case .normal:
-                NoteController.shared.insertNote(word: arrayOfWords[index].mainString, explanation: "test")
+            } else {
+                DialogUtils.showWarningDialog(self, title: "Clue", message: "The word has no a clue", completion: nil)
             }
+        case .clue:
+            DialogUtils.showYesNoDialog(self, title: nil, message: "Are you sure you want to give up and see what it is?", completion: { (result) in
+                if result {
+                    self.arrayOfWords[index].changeState()
+                    self.setTextLabel()
+                }
+            })
+        case .normal:
+            DialogUtils.showYesNoDialog(self, title: "Save", message: "Are you sure you want to save \(arrayOfWords[index].mainString.uppercased()) into notes?", completion: { (result) in
+                if result {
+                    if NoteController.shared.insertNote(word: self.arrayOfWords[index].mainString, explanation: "test") {
+                        DialogUtils.showWarningDialog(self, title: nil, message: "\(self.arrayOfWords[index].mainString.uppercased()) has been added in Notes!", completion: nil)
+                    } else {
+                        DialogUtils.showWarningDialog(self, title: "Error", message: "\(self.arrayOfWords[index].mainString.uppercased()) already exist in Notes!", completion: nil)
+                    }
+                }
+            })
+            
         }
     }
 }

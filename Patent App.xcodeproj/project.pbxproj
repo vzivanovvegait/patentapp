@@ -20,6 +20,7 @@
 		E188E2812010ABA300755614 /* KeyboardHandlerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E188E2802010ABA300755614 /* KeyboardHandlerProtocol.swift */; };
 		E188E2832010D3BE00755614 /* SendContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E188E2822010D3BE00755614 /* SendContainerView.swift */; };
 		E188E2852010D3DA00755614 /* SendContainerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E188E2842010D3DA00755614 /* SendContainerView.xib */; };
+		E18937B1201F81EB009776A0 /* story.json in Resources */ = {isa = PBXBuildFile; fileRef = E18937B0201F81EA009776A0 /* story.json */; };
 		E189C9F5200624E400B8EF7E /* OvalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E189C9F4200624E400B8EF7E /* OvalView.swift */; };
 		E19170E41FF3985100C3BD1C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19170E31FF3985100C3BD1C /* AppDelegate.swift */; };
 		E19170E61FF3985100C3BD1C /* StoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19170E51FF3985100C3BD1C /* StoryViewController.swift */; };
@@ -57,6 +58,7 @@
 		E188E2802010ABA300755614 /* KeyboardHandlerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardHandlerProtocol.swift; sourceTree = "<group>"; };
 		E188E2822010D3BE00755614 /* SendContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendContainerView.swift; sourceTree = "<group>"; };
 		E188E2842010D3DA00755614 /* SendContainerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SendContainerView.xib; sourceTree = "<group>"; };
+		E18937B0201F81EA009776A0 /* story.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = story.json; sourceTree = "<group>"; };
 		E189C9F4200624E400B8EF7E /* OvalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OvalView.swift; sourceTree = "<group>"; };
 		E19170E01FF3985100C3BD1C /* Patent App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Patent App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E19170E31FF3985100C3BD1C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -134,6 +136,8 @@
 		E1529DB1201601AC003CD7C6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E1ED442F201B609000BA291A /* Note+CoreDataClass.swift */,
+				E1ED4430201B609000BA291A /* Note+CoreDataProperties.swift */,
 				E1529DB2201601BC003CD7C6 /* Word.swift */,
 			);
 			path = Model;
@@ -169,8 +173,6 @@
 		E19170E21FF3985100C3BD1C /* Patent App */ = {
 			isa = PBXGroup;
 			children = (
-				E1ED442F201B609000BA291A /* Note+CoreDataClass.swift */,
-				E1ED4430201B609000BA291A /* Note+CoreDataProperties.swift */,
 				E19170E31FF3985100C3BD1C /* AppDelegate.swift */,
 				E1529DB1201601AC003CD7C6 /* Model */,
 				E194D72E200779EB005D62EF /* ViewControllers */,
@@ -181,6 +183,7 @@
 				E194D73020077A1B005D62EF /* GoogleSpeech */,
 				E19170EA1FF3985100C3BD1C /* Assets.xcassets */,
 				E19170EF1FF3985100C3BD1C /* Info.plist */,
+				E18937B0201F81EA009776A0 /* story.json */,
 				E1ED4412201B530B00BA291A /* Patent.xcdatamodeld */,
 			);
 			path = "Patent App";
@@ -318,6 +321,7 @@
 			files = (
 				E19170EE1FF3985100C3BD1C /* LaunchScreen.storyboard in Resources */,
 				E19170EB1FF3985100C3BD1C /* Assets.xcassets in Resources */,
+				E18937B1201F81EB009776A0 /* story.json in Resources */,
 				E19170E91FF3985100C3BD1C /* Main.storyboard in Resources */,
 				E146A1D1200F52000024E6A2 /* FinishView.xib in Resources */,
 				E188E2852010D3DA00755614 /* SendContainerView.xib in Resources */,

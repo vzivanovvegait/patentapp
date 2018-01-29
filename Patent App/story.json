@@ -1,0 +1,526 @@
+ [{
+  "image": "1",
+  "words": [{
+            "mainString": "Once",
+            "isSpecial": false,
+            "roots": ["koako", "dsadsa", "dsadsda"],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "upon",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "a",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "time",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": ",",
+            "isSpecial": true,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "there",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "was",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "a",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "king",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": ",",
+            "isSpecial": true,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "who",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "had",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "12",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "daughters",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "-",
+            "isSpecial": true,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "12",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "princesses",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": ".",
+            "isSpecial": true,
+            "roots": [],
+            "hint": "dasdsadf"
+            }
+            ]
+  }, {
+  "image": "2",
+  "words": [{
+            "mainString": "Princesses",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "shared",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "a",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "room",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": ",",
+            "isSpecial": true,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "and",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "their",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "beds",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "stood",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "side",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "by",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "side",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "in",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "two",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "rows",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": ".",
+            "isSpecial": true,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "One",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "bed",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "was",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "bigger",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "than",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "others",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "and",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "had",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "a",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "nightstand",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "with",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "a",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "lamp",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "next",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "to",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "it",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": ".",
+            "isSpecial": true,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "The",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "room",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "had",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "2",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "windows",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "and",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "red",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "curtains",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "and",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "a",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "shoeshelf",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "with",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "12",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "pairs",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "of",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "brand",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "new",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "shoes",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": ".",
+            "isSpecial": true,
+            "roots": [],
+            "hint": "dasdsadf"
+            }
+            ]
+  }, {
+  "image": "3",
+  "words": [{
+            "mainString": "At",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "night",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": ",",
+            "isSpecial": true,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "the",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "king",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "ordered",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "the",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "guard",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "to",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "lock",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "the",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "princesses'",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "room",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "with",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "7",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            },
+            {
+            "mainString": "locks",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "dasdsadf"
+            }
+            ]
+  }]

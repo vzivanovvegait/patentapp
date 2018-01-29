@@ -77,10 +77,10 @@ struct Word {
         case .oneline:
             self.wordState = .underlined
         case .underlined:
-            self.wordState = .clue
-        case .clue:
             self.wordState = .firstLastLetter
         case .firstLastLetter:
+            self.wordState = .clue
+        case .clue:
             self.isFound = true
             self.wordState = .normal
         case .normal:
