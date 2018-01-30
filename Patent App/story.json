@@ -3,110 +3,109 @@
   "words": [{
             "mainString": "Once",
             "isSpecial": false,
-            "roots": ["koako", "dsadsa", "dsadsda"],
-            "hint": "dasdsadf"
+            "roots": [],
+            "hint": "… twice, thrice "
             },
             {
             "mainString": "upon",
             "isSpecial": false,
             "roots": [],
-            "hint": "dasdsadf"
+            "hint": "Some behaviour is frawned …"
             },
             {
             "mainString": "a",
             "isSpecial": false,
             "roots": [],
-            "hint": "dasdsadf"
+            "hint": ""
             },
             {
             "mainString": "time",
             "isSpecial": false,
             "roots": [],
-            "hint": "dasdsadf"
+            "hint": "You look at the watch when you want to know the …"
             },
             {
             "mainString": ",",
             "isSpecial": true,
             "roots": [],
-            "hint": "dasdsadf"
+            "hint": ""
             },
             {
             "mainString": "there",
             "isSpecial": false,
             "roots": [],
-            "hint": "dasdsadf"
+            "hint": ""
             },
             {
             "mainString": "was",
             "isSpecial": false,
             "roots": [],
-            "hint": "dasdsadf"
+            "hint": ""
             },
             {
             "mainString": "a",
             "isSpecial": false,
             "roots": [],
-            "hint": "dasdsadf"
+            "hint": ""
             },
             {
             "mainString": "king",
             "isSpecial": false,
             "roots": [],
-            "hint": "dasdsadf"
+            "hint": "A man with a crown is often called..?"
             },
             {
             "mainString": ",",
             "isSpecial": true,
             "roots": [],
-            "hint": "dasdsadf"
+            "hint": ""
             },
             {
             "mainString": "who",
             "isSpecial": false,
-            "roots": [],
-            "hint": "dasdsadf"
+            "roots": []
             },
             {
             "mainString": "had",
             "isSpecial": false,
             "roots": [],
-            "hint": "dasdsadf"
+            "hint": ""
             },
             {
             "mainString": "12",
             "isSpecial": false,
-            "roots": [],
-            "hint": "dasdsadf"
+            "roots": ["twelve"],
+            "hint": "It's a number…are there things/characters that you see a few of? Let's start counting!"
             },
             {
             "mainString": "daughters",
             "isSpecial": false,
-            "roots": [],
-            "hint": "dasdsadf"
+            "roots": ["daughter"],
+            "hint": "A girl to a father is a ..?"
             },
             {
             "mainString": "-",
             "isSpecial": true,
             "roots": [],
-            "hint": "dasdsadf"
+            "hint": ""
             },
             {
             "mainString": "12",
             "isSpecial": false,
             "roots": [],
-            "hint": "dasdsadf"
+            "hint": "It's a number…are there things/characters that you see a few of? Let's start counting!"
             },
             {
             "mainString": "princesses",
             "isSpecial": false,
-            "roots": [],
-            "hint": "dasdsadf"
+            "roots": ["princess"],
+            "hint": "A daughter of a king is called..?"
             },
             {
             "mainString": ".",
             "isSpecial": true,
             "roots": [],
-            "hint": "dasdsadf"
+            "hint": ""
             }
             ]
   }, {
@@ -114,314 +113,314 @@
   "words": [{
             "mainString": "Princesses",
             "isSpecial": false,
-            "roots": [],
-            "hint": "dasdsadf"
+            "roots": ["princess"],
+            "hint": "A daughter of a king is called..?"
             },
             {
             "mainString": "shared",
             "isSpecial": false,
-            "roots": [],
-            "hint": "dasdsadf"
+            "roots": ["share", "shared", "shares"],
+            "hint": "If you eat half of an apple, and your friend eats the other half, you ….that apple; they also say: \"….. is caring\" See if you can guess!"
             },
             {
             "mainString": "a",
             "isSpecial": false,
             "roots": [],
-            "hint": "dasdsadf"
+            "hint": ""
             },
             {
             "mainString": "room",
             "isSpecial": false,
-            "roots": [],
-            "hint": "dasdsadf"
+            "roots": ["rooms"],
+            "hint": "It’s an area of the house - it has a door and a window"
             },
             {
             "mainString": ",",
             "isSpecial": true,
             "roots": [],
-            "hint": "dasdsadf"
+            "hint": ""
             },
             {
             "mainString": "and",
             "isSpecial": false,
             "roots": [],
-            "hint": "dasdsadf"
+            "hint": ""
             },
             {
             "mainString": "their",
             "isSpecial": false,
             "roots": [],
-            "hint": "dasdsadf"
+            "hint": "If a toy belongs to a few girls, you would say it's …. (belonging to them) toy. "
             },
             {
             "mainString": "beds",
             "isSpecial": false,
-            "roots": [],
-            "hint": "dasdsadf"
+            "roots": ["bed"],
+            "hint": "The furniture you use to sleep on"
             },
             {
             "mainString": "stood",
             "isSpecial": false,
-            "roots": [],
-            "hint": "dasdsadf"
+            "roots": ["stood", "stand", "standing"],
+            "hint": "You use your legs to walk, but furniture can only use legs to… "
             },
             {
             "mainString": "side",
             "isSpecial": false,
             "roots": [],
-            "hint": "dasdsadf"
+            "hint": ""
             },
             {
             "mainString": "by",
             "isSpecial": false,
             "roots": [],
-            "hint": "dasdsadf"
+            "hint": ""
             },
             {
             "mainString": "side",
             "isSpecial": false,
             "roots": [],
-            "hint": "dasdsadf"
+            "hint": ""
             },
             {
             "mainString": "in",
             "isSpecial": false,
             "roots": [],
-            "hint": "dasdsadf"
+            "hint": ""
             },
             {
             "mainString": "two",
             "isSpecial": false,
-            "roots": [],
-            "hint": "dasdsadf"
+            "roots": ["2"],
+            "hint": "It's a number…are there things/characters that you see a few of? Let's start counting!"
             },
             {
             "mainString": "rows",
             "isSpecial": false,
-            "roots": [],
-            "hint": "dasdsadf"
+            "roots": ["row"],
+            "hint": "A number of people or things in a more or less straight line, or a line of seats in a theater"
             },
             {
             "mainString": ".",
             "isSpecial": true,
             "roots": [],
-            "hint": "dasdsadf"
+            "hint": ""
             },
             {
             "mainString": "One",
             "isSpecial": false,
-            "roots": [],
-            "hint": "dasdsadf"
+            "roots": ["1"],
+            "hint": "It's a number…are there things/characters that you see a few of? Let's start counting!"
             },
             {
             "mainString": "bed",
             "isSpecial": false,
-            "roots": [],
-            "hint": "dasdsadf"
+            "roots": ["beds"],
+            "hint": "The furniture you use to sleep on"
             },
             {
             "mainString": "was",
             "isSpecial": false,
             "roots": [],
-            "hint": "dasdsadf"
+            "hint": "What is the past tense of the word \"is\""
             },
             {
             "mainString": "bigger",
             "isSpecial": false,
             "roots": [],
-            "hint": "dasdsadf"
+            "hint": "When something is more big than something else, you say it is …."
             },
             {
             "mainString": "than",
             "isSpecial": false,
             "roots": [],
-            "hint": "dasdsadf"
+            "hint": ""
             },
             {
             "mainString": "others",
             "isSpecial": false,
             "roots": [],
-            "hint": "dasdsadf"
+            "hint": "There is a saying: \"Treat ….how you want to be treated yourself.\""
             },
             {
             "mainString": "and",
             "isSpecial": false,
-            "roots": [],
-            "hint": "dasdsadf"
+            "roots": ["other"],
+            "hint": ""
             },
             {
             "mainString": "had",
             "isSpecial": false,
             "roots": [],
-            "hint": "dasdsadf"
+            "hint": "To own something is in other words…"
             },
             {
             "mainString": "a",
             "isSpecial": false,
             "roots": [],
-            "hint": "dasdsadf"
+            "hint": ""
             },
             {
             "mainString": "nightstand",
             "isSpecial": false,
-            "roots": [],
-            "hint": "dasdsadf"
+            "roots": ["nightstands"],
+            "hint": "A furniture piece that stands next to a bed "
             },
             {
             "mainString": "with",
             "isSpecial": false,
             "roots": [],
-            "hint": "dasdsadf"
+            "hint": "Mary and Ellen go to school together, so you can say Mary goes to school …Ellen."
             },
             {
             "mainString": "a",
             "isSpecial": false,
             "roots": [],
-            "hint": "dasdsadf"
+            "hint": ""
             },
             {
             "mainString": "lamp",
             "isSpecial": false,
-            "roots": [],
-            "hint": "dasdsadf"
+            "roots": ["lamps"],
+            "hint": "It can hang from the ceiling or stand on the floor, and has a light bulb in it…"
             },
             {
             "mainString": "next",
             "isSpecial": false,
             "roots": [],
-            "hint": "dasdsadf"
+            "hint": "When something is located very close to something else"
             },
             {
             "mainString": "to",
             "isSpecial": false,
             "roots": [],
-            "hint": "dasdsadf"
+            "hint": "On an envelope, you put \"from\" and \"…\" whom the letter is sent"
             },
             {
             "mainString": "it",
             "isSpecial": false,
             "roots": [],
-            "hint": "dasdsadf"
+            "hint": ""
             },
             {
             "mainString": ".",
             "isSpecial": true,
             "roots": [],
-            "hint": "dasdsadf"
+            "hint": ""
             },
             {
             "mainString": "The",
             "isSpecial": false,
             "roots": [],
-            "hint": "dasdsadf"
+            "hint": ""
             },
             {
             "mainString": "room",
             "isSpecial": false,
-            "roots": [],
-            "hint": "dasdsadf"
+            "roots": ["rooms"],
+            "hint": "It’s an area of the house  - it has a door and a window"
             },
             {
             "mainString": "had",
             "isSpecial": false,
             "roots": [],
-            "hint": "dasdsadf"
+            "hint": "To own something is in other words…"
             },
             {
             "mainString": "2",
             "isSpecial": false,
-            "roots": [],
-            "hint": "dasdsadf"
+            "roots": ["two"],
+            "hint": "It's a number…are there things/characters that you see a few of? Let's start counting!"
             },
             {
             "mainString": "windows",
             "isSpecial": false,
-            "roots": [],
-            "hint": "dasdsadf"
+            "roots": ["window"],
+            "hint": "It's located on the wall and lets you see outside"
             },
             {
             "mainString": "and",
             "isSpecial": false,
             "roots": [],
-            "hint": "dasdsadf"
+            "hint": ""
             },
             {
             "mainString": "red",
             "isSpecial": false,
             "roots": [],
-            "hint": "dasdsadf"
+            "hint": "It's a color. What colors do you see?"
             },
             {
             "mainString": "curtains",
             "isSpecial": false,
-            "roots": [],
-            "hint": "dasdsadf"
+            "roots": ["curtain"],
+            "hint": "How do you call a fabric that is used to cover the window"
             },
             {
             "mainString": "and",
             "isSpecial": false,
             "roots": [],
-            "hint": "dasdsadf"
+            "hint": ""
             },
             {
             "mainString": "a",
             "isSpecial": false,
             "roots": [],
-            "hint": "dasdsadf"
+            "hint": ""
             },
             {
             "mainString": "shoeshelf",
             "isSpecial": false,
-            "roots": [],
-            "hint": "dasdsadf"
+            "roots": ["shoeshelfs"],
+            "hint": ""
             },
             {
             "mainString": "with",
             "isSpecial": false,
             "roots": [],
-            "hint": "dasdsadf"
+            "hint": "Mary and Ellen go to school together, so you can say Mary goes to school …Ellen."
             },
             {
             "mainString": "12",
             "isSpecial": false,
-            "roots": [],
-            "hint": "dasdsadf"
+            "roots": ["twelve"],
+            "hint": "It's a number…are there things/characters that you see a few of? Let's start counting!"
             },
             {
             "mainString": "pairs",
             "isSpecial": false,
-            "roots": [],
-            "hint": "dasdsadf"
+            "roots": ["pair"],
+            "hint": "Another word for a \"couple\" would be.."
             },
             {
             "mainString": "of",
             "isSpecial": false,
             "roots": [],
-            "hint": "dasdsadf"
+            "hint": ""
             },
             {
             "mainString": "brand",
             "isSpecial": false,
             "roots": [],
-            "hint": "dasdsadf"
+            "hint": "Nike, Tylenol, Samsung - are examples of a ...?"
             },
             {
             "mainString": "new",
             "isSpecial": false,
             "roots": [],
-            "hint": "dasdsadf"
+            "hint": "When you just bought something, that item is …"
             },
             {
             "mainString": "shoes",
             "isSpecial": false,
-            "roots": [],
-            "hint": "dasdsadf"
+            "roots": ["shoe"],
+            "hint": "Those things you put on your feet to walk"
             },
             {
             "mainString": ".",
             "isSpecial": true,
             "roots": [],
-            "hint": "dasdsadf"
+            "hint": ""
             }
             ]
   }, {
@@ -430,97 +429,103 @@
             "mainString": "At",
             "isSpecial": false,
             "roots": [],
-            "hint": "dasdsadf"
+            "hint": ""
             },
             {
             "mainString": "night",
             "isSpecial": false,
             "roots": [],
-            "hint": "dasdsadf"
+            "hint": "When sun goes down and day ends,… begins"
             },
             {
             "mainString": ",",
             "isSpecial": true,
             "roots": [],
-            "hint": "dasdsadf"
+            "hint": ""
             },
             {
             "mainString": "the",
             "isSpecial": false,
             "roots": [],
-            "hint": "dasdsadf"
+            "hint": ""
             },
             {
             "mainString": "king",
             "isSpecial": false,
-            "roots": [],
-            "hint": "dasdsadf"
+            "roots": ["kings"],
+            "hint": "A man with a crown is often called..?"
             },
             {
             "mainString": "ordered",
             "isSpecial": false,
-            "roots": [],
-            "hint": "dasdsadf"
+            "roots": ["order"],
+            "hint": "What do you do in a restaurant when the waiter comes?"
             },
             {
             "mainString": "the",
             "isSpecial": false,
             "roots": [],
-            "hint": "dasdsadf"
+            "hint": ""
             },
             {
             "mainString": "guard",
             "isSpecial": false,
-            "roots": [],
-            "hint": "dasdsadf"
+            "roots": ["guards"],
+            "hint": "How would you call a person whose job is to protect the castle?"
             },
             {
             "mainString": "to",
             "isSpecial": false,
             "roots": [],
-            "hint": "dasdsadf"
+            "hint": "On an envelope, you put \"from\" and \"…\" whom the letter is sent"
             },
             {
             "mainString": "lock",
             "isSpecial": false,
-            "roots": [],
-            "hint": "dasdsadf"
+            "roots": ["locks"],
+            "hint": "When you leave the house, don’t forget to … the door"
             },
             {
             "mainString": "the",
             "isSpecial": false,
             "roots": [],
-            "hint": "dasdsadf"
+            "hint": ""
             },
             {
-            "mainString": "princesses'",
+            "mainString": "princessess’",
             "isSpecial": false,
-            "roots": [],
-            "hint": "dasdsadf"
+            "roots": ["princess", "princesses"],
+            "hint": "A daughter of a king is called..?"
             },
             {
             "mainString": "room",
             "isSpecial": false,
-            "roots": [],
-            "hint": "dasdsadf"
+            "roots": ["rooms"],
+            "hint": "It’s an area of the house  - it has a door and a window "
             },
             {
             "mainString": "with",
             "isSpecial": false,
             "roots": [],
-            "hint": "dasdsadf"
+            "hint": "Mary and Ellen go to school together, so you can say Mary goes to school …Ellen."
             },
             {
             "mainString": "7",
             "isSpecial": false,
-            "roots": [],
-            "hint": "dasdsadf"
+            "roots": ["seven"],
+            "hint": "It's a number…are there things/characters that you see a few of? Let's start counting!"
             },
             {
             "mainString": "locks",
             "isSpecial": false,
+            "roots": ["lock"],
+            "hint": "When you leave the house, don’t forget to … the door"
+            },
+            {
+            "mainString": ".",
+            "isSpecial": true,
             "roots": [],
-            "hint": "dasdsadf"
+            "hint": ""
             }
             ]
   }]

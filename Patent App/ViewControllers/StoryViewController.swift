@@ -33,11 +33,15 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
     var arrayOfWords = [Word]()
     var isRecording = false
     
+    var storyParts = [StoryPart]()
+    var index = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        storyParts = StoryController.getStory()
+        
         setLabel()
-        setImage(image: UIImage(named: "1")!)
         setViews()
         setData()
         
@@ -73,8 +77,12 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
     // Set data
     
     func setData() {
-        arrayOfWords = DataUtils.getDataArray()
+        
+        
+        arrayOfWords = storyParts[index].words
         setTextLabel()
+        
+        setImage(image: UIImage(named: storyParts[index].image)!)
     }
     
     // Set UI
@@ -224,10 +232,14 @@ extension StoryViewController: AudioControllerDelegate {
             sendContainerView.removeFirstResponder()
             recordAudio(self)
             FinishController.shared.showFinishView {
-                self.arrayOfWords = DataUtils.getDataArray()
+                
                 self.startButton.count = 0
                 FinishController.shared.hideFinishView()
-                self.setTextLabel()
+                if self.index + 1 < self.storyParts.count {
+                    self.index += 1
+                }
+                self.setData()
+//                self.setTextLabel()
             }
 
         }
@@ -266,7 +278,7 @@ extension StoryViewController: TTTAttributedLabelDelegate {
         case .normal:
             DialogUtils.showYesNoDialog(self, title: "Save", message: "Are you sure you want to save \(arrayOfWords[index].mainString.uppercased()) into notes?", completion: { (result) in
                 if result {
-                    if NoteController.shared.insertNote(word: self.arrayOfWords[index].mainString, explanation: "test") {
+                    if NoteController.shared.insertNote(word: self.arrayOfWords[index].mainString.lowercased(), explanation: "test") {
                         DialogUtils.showWarningDialog(self, title: nil, message: "\(self.arrayOfWords[index].mainString.uppercased()) has been added in Notes!", completion: nil)
                     } else {
                         DialogUtils.showWarningDialog(self, title: "Error", message: "\(self.arrayOfWords[index].mainString.uppercased()) already exist in Notes!", completion: nil)

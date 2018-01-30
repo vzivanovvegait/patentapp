@@ -119,7 +119,7 @@ class RecordStopButton: UIButton {
     
     @objc func counter() {
         
-        count += 0.1/180.0
+        count += 0.1/240.0
         
         circlePathLayer.strokeEnd = CGFloat(count)
         

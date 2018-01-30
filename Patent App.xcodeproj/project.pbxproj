@@ -16,6 +16,8 @@
 		E14FF710200E446500B12E39 /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14FF70F200E446500B12E39 /* StringUtils.swift */; };
 		E1529DB3201601BC003CD7C6 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1529DB2201601BC003CD7C6 /* Word.swift */; };
 		E16503881FFE276C00D91FDF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16503871FFE276C00D91FDF /* HomeViewController.swift */; };
+		E17A1295202066AC00C37AFB /* StoryPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17A1294202066AC00C37AFB /* StoryPart.swift */; };
+		E17A12972020677100C37AFB /* StoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17A12962020677100C37AFB /* StoryController.swift */; };
 		E17D12E1201779B70040681E /* DialogUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17D12E0201779B70040681E /* DialogUtils.swift */; };
 		E188E2812010ABA300755614 /* KeyboardHandlerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E188E2802010ABA300755614 /* KeyboardHandlerProtocol.swift */; };
 		E188E2832010D3BE00755614 /* SendContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E188E2822010D3BE00755614 /* SendContainerView.swift */; };
@@ -54,6 +56,8 @@
 		E14FF70F200E446500B12E39 /* StringUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
 		E1529DB2201601BC003CD7C6 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 		E16503871FFE276C00D91FDF /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		E17A1294202066AC00C37AFB /* StoryPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryPart.swift; sourceTree = "<group>"; };
+		E17A12962020677100C37AFB /* StoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryController.swift; sourceTree = "<group>"; };
 		E17D12E0201779B70040681E /* DialogUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialogUtils.swift; sourceTree = "<group>"; };
 		E188E2802010ABA300755614 /* KeyboardHandlerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardHandlerProtocol.swift; sourceTree = "<group>"; };
 		E188E2822010D3BE00755614 /* SendContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendContainerView.swift; sourceTree = "<group>"; };
@@ -129,6 +133,7 @@
 				E14FF70F200E446500B12E39 /* StringUtils.swift */,
 				E1ED4433201B654600BA291A /* CoreDataManager.swift */,
 				E1ED4435201B761100BA291A /* NoteController.swift */,
+				E17A12962020677100C37AFB /* StoryController.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -139,6 +144,7 @@
 				E1ED442F201B609000BA291A /* Note+CoreDataClass.swift */,
 				E1ED4430201B609000BA291A /* Note+CoreDataProperties.swift */,
 				E1529DB2201601BC003CD7C6 /* Word.swift */,
+				E17A1294202066AC00C37AFB /* StoryPart.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -421,6 +427,8 @@
 				E1529DB3201601BC003CD7C6 /* Word.swift in Sources */,
 				E188E2832010D3BE00755614 /* SendContainerView.swift in Sources */,
 				E1ED442E201B57DD00BA291A /* NoteCell.swift in Sources */,
+				E17A1295202066AC00C37AFB /* StoryPart.swift in Sources */,
+				E17A12972020677100C37AFB /* StoryController.swift in Sources */,
 				E17D12E1201779B70040681E /* DialogUtils.swift in Sources */,
 				E194D72520076C0F005D62EF /* MenuButton.swift in Sources */,
 				E1ED4432201B609000BA291A /* Note+CoreDataProperties.swift in Sources */,

@@ -18,12 +18,23 @@ struct Word {
         case normal
     }
     
-    var mainString:String
-    var isSpecial:Bool
+    var mainString:String = ""
+    var isSpecial:Bool = false {
+        willSet {
+            if newValue {
+                self.isFound = true
+                self.wordState = .normal
+            }
+        }
+    }
     var isFound:Bool = false
     var roots:[String]?
     var wordState:State = .oneline
     var hint:String?
+    
+    init() {
+        
+    }
     
     init(mainString: String, isSpecial: Bool, roots: [String]?, hint: String?) {
         self.mainString = mainString
