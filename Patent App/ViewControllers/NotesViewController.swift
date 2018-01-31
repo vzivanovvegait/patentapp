@@ -57,6 +57,24 @@ extension NotesViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            DialogUtils.showYesNoDialog(self, title: "Delete", message: "Are you sure you want to delete \(notes[indexPath.row].word!) from notes?", completion: { (result) in
+                if result {
+                    if NoteController.shared.deleteNote(note: self.notes[indexPath.row]) {
+                        DialogUtils.showWarningDialog(self, title: nil, message: "Note has been successfully deleted!", completion: nil)
+                        self.notes.remove(at: indexPath.row)
+                        tableView.deleteRows(at: [indexPath], with: .fade)
+                    } else {
+                        DialogUtils.showWarningDialog(self, title: nil, message: "Error!!!", completion: nil)
+                    }
+                }
+            })
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+        }
+    }
 }
 
 extension NotesViewController: StoryboardInitializable {

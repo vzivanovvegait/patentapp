@@ -15,8 +15,7 @@
             {
             "mainString": "a",
             "isSpecial": false,
-            "roots": [],
-            "hint": ""
+            "roots": []
             },
             {
             "mainString": "time",
@@ -27,26 +26,22 @@
             {
             "mainString": ",",
             "isSpecial": true,
-            "roots": [],
-            "hint": ""
+            "roots": []
             },
             {
             "mainString": "there",
             "isSpecial": false,
-            "roots": [],
-            "hint": ""
+            "roots": []
             },
             {
             "mainString": "was",
             "isSpecial": false,
-            "roots": [],
-            "hint": ""
+            "roots": []
             },
             {
             "mainString": "a",
             "isSpecial": false,
-            "roots": [],
-            "hint": ""
+            "roots": []
             },
             {
             "mainString": "king",
@@ -57,8 +52,7 @@
             {
             "mainString": ",",
             "isSpecial": true,
-            "roots": [],
-            "hint": ""
+            "roots": []
             },
             {
             "mainString": "who",
@@ -68,8 +62,7 @@
             {
             "mainString": "had",
             "isSpecial": false,
-            "roots": [],
-            "hint": ""
+            "roots": []
             },
             {
             "mainString": "12",
@@ -86,8 +79,7 @@
             {
             "mainString": "-",
             "isSpecial": true,
-            "roots": [],
-            "hint": ""
+            "roots": []
             },
             {
             "mainString": "12",
@@ -104,8 +96,7 @@
             {
             "mainString": ".",
             "isSpecial": true,
-            "roots": [],
-            "hint": ""
+            "roots": []
             }
             ]
   }, {
@@ -125,8 +116,7 @@
             {
             "mainString": "a",
             "isSpecial": false,
-            "roots": [],
-            "hint": ""
+            "roots": []
             },
             {
             "mainString": "room",
@@ -137,14 +127,12 @@
             {
             "mainString": ",",
             "isSpecial": true,
-            "roots": [],
-            "hint": ""
+            "roots": []
             },
             {
             "mainString": "and",
             "isSpecial": false,
-            "roots": [],
-            "hint": ""
+            "roots": []
             },
             {
             "mainString": "their",
@@ -167,26 +155,22 @@
             {
             "mainString": "side",
             "isSpecial": false,
-            "roots": [],
-            "hint": ""
+            "roots": []
             },
             {
             "mainString": "by",
             "isSpecial": false,
-            "roots": [],
-            "hint": ""
+            "roots": []
             },
             {
             "mainString": "side",
             "isSpecial": false,
-            "roots": [],
-            "hint": ""
+            "roots": []
             },
             {
             "mainString": "in",
             "isSpecial": false,
-            "roots": [],
-            "hint": ""
+            "roots": []
             },
             {
             "mainString": "two",
@@ -203,8 +187,7 @@
             {
             "mainString": ".",
             "isSpecial": true,
-            "roots": [],
-            "hint": ""
+            "roots": []
             },
             {
             "mainString": "One",
@@ -233,8 +216,7 @@
             {
             "mainString": "than",
             "isSpecial": false,
-            "roots": [],
-            "hint": ""
+            "roots": []
             },
             {
             "mainString": "others",
@@ -245,8 +227,7 @@
             {
             "mainString": "and",
             "isSpecial": false,
-            "roots": ["other"],
-            "hint": ""
+            "roots": ["other"]
             },
             {
             "mainString": "had",
@@ -257,8 +238,7 @@
             {
             "mainString": "a",
             "isSpecial": false,
-            "roots": [],
-            "hint": ""
+            "roots": []
             },
             {
             "mainString": "nightstand",
@@ -275,8 +255,7 @@
             {
             "mainString": "a",
             "isSpecial": false,
-            "roots": [],
-            "hint": ""
+            "roots": []
             },
             {
             "mainString": "lamp",
@@ -299,20 +278,17 @@
             {
             "mainString": "it",
             "isSpecial": false,
-            "roots": [],
-            "hint": ""
+            "roots": []
             },
             {
             "mainString": ".",
             "isSpecial": true,
-            "roots": [],
-            "hint": ""
+            "roots": []
             },
             {
             "mainString": "The",
             "isSpecial": false,
-            "roots": [],
-            "hint": ""
+            "roots": []
             },
             {
             "mainString": "room",
@@ -341,8 +317,7 @@
             {
             "mainString": "and",
             "isSpecial": false,
-            "roots": [],
-            "hint": ""
+            "roots": []
             },
             {
             "mainString": "red",
@@ -359,20 +334,17 @@
             {
             "mainString": "and",
             "isSpecial": false,
-            "roots": [],
-            "hint": ""
+            "roots": []
             },
             {
             "mainString": "a",
             "isSpecial": false,
-            "roots": [],
-            "hint": ""
+            "roots": []
             },
             {
             "mainString": "shoeshelf",
             "isSpecial": false,
-            "roots": ["shoeshelfs"],
-            "hint": ""
+            "roots": ["shoeshelfs"]
             },
             {
             "mainString": "with",
@@ -395,8 +367,7 @@
             {
             "mainString": "of",
             "isSpecial": false,
-            "roots": [],
-            "hint": ""
+            "roots": []
             },
             {
             "mainString": "brand",
@@ -419,8 +390,7 @@
             {
             "mainString": ".",
             "isSpecial": true,
-            "roots": [],
-            "hint": ""
+            "roots": []
             }
             ]
   }, {
@@ -428,8 +398,7 @@
   "words": [{
             "mainString": "At",
             "isSpecial": false,
-            "roots": [],
-            "hint": ""
+            "roots": []
             },
             {
             "mainString": "night",
@@ -440,14 +409,12 @@
             {
             "mainString": ",",
             "isSpecial": true,
-            "roots": [],
-            "hint": ""
+            "roots": []
             },
             {
             "mainString": "the",
             "isSpecial": false,
-            "roots": [],
-            "hint": ""
+            "roots": []
             },
             {
             "mainString": "king",
@@ -464,8 +431,7 @@
             {
             "mainString": "the",
             "isSpecial": false,
-            "roots": [],
-            "hint": ""
+            "roots": []
             },
             {
             "mainString": "guard",
@@ -488,8 +454,7 @@
             {
             "mainString": "the",
             "isSpecial": false,
-            "roots": [],
-            "hint": ""
+            "roots": []
             },
             {
             "mainString": "princessess’",
@@ -524,8 +489,7 @@
             {
             "mainString": ".",
             "isSpecial": true,
-            "roots": [],
-            "hint": ""
+            "roots": []
             }
             ]
   }]

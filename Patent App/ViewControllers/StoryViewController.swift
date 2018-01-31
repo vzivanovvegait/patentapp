@@ -21,6 +21,8 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
     @IBOutlet weak var startButton: RecordStopButton!
     @IBOutlet weak var keyboardButton: UIButton!
     @IBOutlet weak var notesButton: UIButton!
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var forwardButton: UIButton!
     
     @IBOutlet weak var sendContainerView: SendContainerView!
     
@@ -29,6 +31,7 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
     @IBOutlet weak var imageViewHeightConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var sendboxBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var googleSpeechLabel: UILabel!
     
     var arrayOfWords = [Word]()
     var isRecording = false
@@ -78,7 +81,6 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
     
     func setData() {
         
-        
         arrayOfWords = storyParts[index].words
         setTextLabel()
         
@@ -110,6 +112,13 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
         startButton.delegate = self
         notesButton.setImage(#imageLiteral(resourceName: "note").withRenderingMode(.alwaysTemplate), for: .normal)
         notesButton.tintColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
+        backButton.setImage(#imageLiteral(resourceName: "back").withRenderingMode(.alwaysTemplate), for: .normal)
+        backButton.tintColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
+        forwardButton.setImage(#imageLiteral(resourceName: "forward").withRenderingMode(.alwaysTemplate), for: .normal)
+        forwardButton.tintColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
+        
+        backButton.isEnabled = false
+        forwardButton.isEnabled = false
     }
     
     // Play/Stop actions
@@ -164,6 +173,19 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
         stop()
         self.navigationController?.popViewController(animated: true)
     }
+    
+    @IBAction func previous(_ sender: Any) {
+        index -= 1
+        self.setData()
+        self.setupPrevNextButtons()
+    }
+    
+    @IBAction func forward(_ sender: Any) {
+        index += 1
+        self.setData()
+        self.setupPrevNextButtons()
+    }
+    
 }
 
 extension StoryViewController: RecordStopButtonDelegate {
@@ -202,7 +224,7 @@ extension StoryViewController: AudioControllerDelegate {
                             guard let alternative = alternative as? SpeechRecognitionAlternative else {
                                 return
                             }
-                            
+                            strongSelf.googleSpeechLabel.text = alternative.transcript
                             if strongSelf.checkStringFromResponse(response: alternative.transcript) {
                                 strongSelf.setTextLabel()
                             }
@@ -232,24 +254,64 @@ extension StoryViewController: AudioControllerDelegate {
             sendContainerView.removeFirstResponder()
             recordAudio(self)
             FinishController.shared.showFinishView {
-                
+                self.storyParts[self.index].isSolved = true
                 self.startButton.count = 0
                 FinishController.shared.hideFinishView()
-                if self.index + 1 < self.storyParts.count {
-                    self.index += 1
-                }
-                self.setData()
-//                self.setTextLabel()
+                self.setupPrevNextButtons()
+//                if self.index + 1 < self.storyParts.count {
+//                    self.index += 1
+//                }
+//                self.setData()
             }
 
         }
+    }
+    
+    func setupPrevNextButtons() {
+        if storyParts[index].isSolved {
+            if index + 1 < storyParts.count {
+                forwardButton.isEnabled = true
+            } else {
+                forwardButton.isEnabled = false
+            }
+        } else {
+            forwardButton.isEnabled = false
+        }
+        if index > 0 {
+            backButton.isEnabled = true
+        } else {
+            backButton.isEnabled = false
+        }
+//        if self.index + 1 < self.storyParts.count {
+//            forwardButton.isEnabled = true
+//        } else {
+//            forwardButton.isEnabled = false
+//        }
+//        if self.index > 0 {
+//            backButton.isEnabled = true
+//        } else {
+//            backButton.isEnabled = false
+//        }
+//        self.setData()
     }
 }
 
 extension StoryViewController: TTTAttributedLabelDelegate {
     func attributedLabel(_ label: TTTAttributedLabel!, didSelectLinkWith url: URL!) {
-        if let index = Int(url.absoluteString), isRecording {
-            handleResponse(index: index)
+        if let index = Int(url.absoluteString) {
+            if isRecording {
+                handleResponse(index: index)
+            } else if arrayOfWords[index].isFound {
+                DialogUtils.showYesNoDialog(self, title: "Save", message: "Are you sure you want to save \(arrayOfWords[index].mainString.uppercased()) into notes?", completion: { (result) in
+                    if result {
+                        if NoteController.shared.insertNote(word: self.arrayOfWords[index].mainString.lowercased(), explanation: "test") {
+                            DialogUtils.showWarningDialog(self, title: nil, message: "\(self.arrayOfWords[index].mainString.uppercased()) has been added in Notes!", completion: nil)
+                        } else {
+                            DialogUtils.showWarningDialog(self, title: "Error", message: "\(self.arrayOfWords[index].mainString.uppercased()) already exist in Notes!", completion: nil)
+                        }
+                    }
+                })
+            }
         }
     }
     

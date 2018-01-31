@@ -33,12 +33,24 @@ class NoteController {
         let newUser = NSManagedObject(entity: entity!, insertInto: context) as! Note
         
         newUser.word = word
-        newUser.explanation = explanation
+//        newUser.explanation = explanation
         do {
             try context.save()
             return true
         } catch {
             context.reset()
+            return false
+        }
+    }
+    
+    func deleteNote(note: Note) -> Bool {
+        let context = CoreDataManager.shared.persistentContainer.viewContext
+        
+        context.delete(note)
+        do {
+            try context.save()
+            return true
+        } catch {
             return false
         }
     }
