@@ -39,11 +39,7 @@ class Word {
             return mainString
         } else {
             switch self.wordState {
-            case .oneline:
-                return mainString.mapString()
-            case .underlined:
-                return mainString.mapString()
-            case .clue:
+            case .oneline, .underlined, .clue:
                 return mainString.mapString()
             case .firstLastLetter:
                 if mainString.count > 2 {
@@ -67,9 +63,8 @@ class Word {
             self.wordState = .normal
             return true
         } else {
-            
+            return false
         }
-        return false
     }
     
     func changeState() {

@@ -12,6 +12,9 @@
 		E146A1CD200F51D60024E6A2 /* FinishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E146A1CC200F51D60024E6A2 /* FinishView.swift */; };
 		E146A1D1200F52000024E6A2 /* FinishView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E146A1D0200F52000024E6A2 /* FinishView.xib */; };
 		E146A1D3200F52D50024E6A2 /* FinishController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E146A1D2200F52D50024E6A2 /* FinishController.swift */; };
+		E14F66C920234A11000C9CA4 /* BottomToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14F66C820234A11000C9CA4 /* BottomToolBar.swift */; };
+		E14F66CB20234A26000C9CA4 /* BottomToolBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = E14F66CA20234A26000C9CA4 /* BottomToolBar.xib */; };
+		E14F66CE2023727B000C9CA4 /* PatentLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14F66CD2023727B000C9CA4 /* PatentLabel.swift */; };
 		E14FF70E200E43B000B12E39 /* DataUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14FF70D200E43B000B12E39 /* DataUtils.swift */; };
 		E14FF710200E446500B12E39 /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14FF70F200E446500B12E39 /* StringUtils.swift */; };
 		E1529DB3201601BC003CD7C6 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1529DB2201601BC003CD7C6 /* Word.swift */; };
@@ -23,7 +26,6 @@
 		E188E2832010D3BE00755614 /* SendContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E188E2822010D3BE00755614 /* SendContainerView.swift */; };
 		E188E2852010D3DA00755614 /* SendContainerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E188E2842010D3DA00755614 /* SendContainerView.xib */; };
 		E18937B1201F81EB009776A0 /* story.json in Resources */ = {isa = PBXBuildFile; fileRef = E18937B0201F81EA009776A0 /* story.json */; };
-		E189C9F5200624E400B8EF7E /* OvalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E189C9F4200624E400B8EF7E /* OvalView.swift */; };
 		E19170E41FF3985100C3BD1C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19170E31FF3985100C3BD1C /* AppDelegate.swift */; };
 		E19170E61FF3985100C3BD1C /* StoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19170E51FF3985100C3BD1C /* StoryViewController.swift */; };
 		E19170E91FF3985100C3BD1C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E19170E71FF3985100C3BD1C /* Main.storyboard */; };
@@ -34,7 +36,6 @@
 		E194D72520076C0F005D62EF /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E194D72420076C0F005D62EF /* MenuButton.swift */; };
 		E194D72720077306005D62EF /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E194D72620077306005D62EF /* CategoryViewController.swift */; };
 		E194D72920077657005D62EF /* StoryboardInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E194D72820077657005D62EF /* StoryboardInitializable.swift */; };
-		E1C5DC662004E1EA000366A1 /* HintButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C5DC652004E1EA000366A1 /* HintButton.swift */; };
 		E1ED4409201B510200BA291A /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ED4408201B510200BA291A /* NotesViewController.swift */; };
 		E1ED4414201B530B00BA291A /* Patent.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E1ED4412201B530B00BA291A /* Patent.xcdatamodeld */; };
 		E1ED442E201B57DD00BA291A /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ED442D201B57DD00BA291A /* NoteCell.swift */; };
@@ -52,6 +53,9 @@
 		E146A1CC200F51D60024E6A2 /* FinishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishView.swift; sourceTree = "<group>"; };
 		E146A1D0200F52000024E6A2 /* FinishView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FinishView.xib; sourceTree = "<group>"; };
 		E146A1D2200F52D50024E6A2 /* FinishController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishController.swift; sourceTree = "<group>"; };
+		E14F66C820234A11000C9CA4 /* BottomToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomToolBar.swift; sourceTree = "<group>"; };
+		E14F66CA20234A26000C9CA4 /* BottomToolBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BottomToolBar.xib; sourceTree = "<group>"; };
+		E14F66CD2023727B000C9CA4 /* PatentLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatentLabel.swift; sourceTree = "<group>"; };
 		E14FF70D200E43B000B12E39 /* DataUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataUtils.swift; sourceTree = "<group>"; };
 		E14FF70F200E446500B12E39 /* StringUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
 		E1529DB2201601BC003CD7C6 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
@@ -63,7 +67,6 @@
 		E188E2822010D3BE00755614 /* SendContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendContainerView.swift; sourceTree = "<group>"; };
 		E188E2842010D3DA00755614 /* SendContainerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SendContainerView.xib; sourceTree = "<group>"; };
 		E18937B0201F81EA009776A0 /* story.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = story.json; sourceTree = "<group>"; };
-		E189C9F4200624E400B8EF7E /* OvalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OvalView.swift; sourceTree = "<group>"; };
 		E19170E01FF3985100C3BD1C /* Patent App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Patent App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E19170E31FF3985100C3BD1C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E19170E51FF3985100C3BD1C /* StoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewController.swift; sourceTree = "<group>"; };
@@ -76,7 +79,6 @@
 		E194D72420076C0F005D62EF /* MenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
 		E194D72620077306005D62EF /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		E194D72820077657005D62EF /* StoryboardInitializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardInitializable.swift; sourceTree = "<group>"; };
-		E1C5DC652004E1EA000366A1 /* HintButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintButton.swift; sourceTree = "<group>"; };
 		E1ED4408201B510200BA291A /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 		E1ED4413201B530B00BA291A /* Patent.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Patent.xcdatamodel; sourceTree = "<group>"; };
 		E1ED442D201B57DD00BA291A /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
@@ -122,6 +124,23 @@
 				E146A1D0200F52000024E6A2 /* FinishView.xib */,
 			);
 			path = FinishView;
+			sourceTree = "<group>";
+		};
+		E14F66C7202349DE000C9CA4 /* BottomToolBar */ = {
+			isa = PBXGroup;
+			children = (
+				E14F66C820234A11000C9CA4 /* BottomToolBar.swift */,
+				E14F66CA20234A26000C9CA4 /* BottomToolBar.xib */,
+			);
+			path = BottomToolBar;
+			sourceTree = "<group>";
+		};
+		E14F66CC2023725D000C9CA4 /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+				E14F66CD2023727B000C9CA4 /* PatentLabel.swift */,
+			);
+			path = Labels;
 			sourceTree = "<group>";
 		};
 		E14FF70C200E435200B12E39 /* Utils */ = {
@@ -198,9 +217,10 @@
 		E194D72A2007797B005D62EF /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				E14F66CC2023725D000C9CA4 /* Labels */,
+				E14F66C7202349DE000C9CA4 /* BottomToolBar */,
 				E188E2862010D4D200755614 /* SendContainerView */,
 				E146A1CB200F51B80024E6A2 /* FinishView */,
-				E194D72C200779C5005D62EF /* Views */,
 				E194D72B200779A4005D62EF /* Buttons */,
 				E1ED442D201B57DD00BA291A /* NoteCell.swift */,
 			);
@@ -211,18 +231,9 @@
 			isa = PBXGroup;
 			children = (
 				E194D72420076C0F005D62EF /* MenuButton.swift */,
-				E1C5DC652004E1EA000366A1 /* HintButton.swift */,
 				E140398D1FFF7B4100FF4088 /* RecordStopButton.swift */,
 			);
 			path = Buttons;
-			sourceTree = "<group>";
-		};
-		E194D72C200779C5005D62EF /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				E189C9F4200624E400B8EF7E /* OvalView.swift */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		E194D72D200779DA005D62EF /* Protocols */ = {
@@ -329,6 +340,7 @@
 				E19170EB1FF3985100C3BD1C /* Assets.xcassets in Resources */,
 				E18937B1201F81EB009776A0 /* story.json in Resources */,
 				E19170E91FF3985100C3BD1C /* Main.storyboard in Resources */,
+				E14F66CB20234A26000C9CA4 /* BottomToolBar.xib in Resources */,
 				E146A1D1200F52000024E6A2 /* FinishView.xib in Resources */,
 				E188E2852010D3DA00755614 /* SendContainerView.xib in Resources */,
 			);
@@ -411,6 +423,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E14F66CE2023727B000C9CA4 /* PatentLabel.swift in Sources */,
 				E194D72720077306005D62EF /* CategoryViewController.swift in Sources */,
 				E14FF710200E446500B12E39 /* StringUtils.swift in Sources */,
 				E14FF70E200E43B000B12E39 /* DataUtils.swift in Sources */,
@@ -419,6 +432,7 @@
 				E1ED4436201B761100BA291A /* NoteController.swift in Sources */,
 				E19170E61FF3985100C3BD1C /* StoryViewController.swift in Sources */,
 				E194D72920077657005D62EF /* StoryboardInitializable.swift in Sources */,
+				E14F66C920234A11000C9CA4 /* BottomToolBar.swift in Sources */,
 				E146A1CD200F51D60024E6A2 /* FinishView.swift in Sources */,
 				E19170F61FF3A08D00C3BD1C /* SpeechRecognitionService.swift in Sources */,
 				E188E2812010ABA300755614 /* KeyboardHandlerProtocol.swift in Sources */,
@@ -435,8 +449,6 @@
 				E1ED4434201B654600BA291A /* CoreDataManager.swift in Sources */,
 				E146A1D3200F52D50024E6A2 /* FinishController.swift in Sources */,
 				E1ED4409201B510200BA291A /* NotesViewController.swift in Sources */,
-				E1C5DC662004E1EA000366A1 /* HintButton.swift in Sources */,
-				E189C9F5200624E400B8EF7E /* OvalView.swift in Sources */,
 				E19170E41FF3985100C3BD1C /* AppDelegate.swift in Sources */,
 				E1ED4414201B530B00BA291A /* Patent.xcdatamodeld in Sources */,
 			);

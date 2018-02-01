@@ -12,6 +12,5 @@ class StoryPart {
     
     var image:String = ""
     var words:[Word] = []
-    var isSolved:Bool = false
 
 }
