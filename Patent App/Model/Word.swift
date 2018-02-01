@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Word {
+class Word {
     
     enum State {
         case oneline
@@ -19,6 +19,7 @@ struct Word {
     }
     
     var mainString:String = ""
+    
     var isSpecial:Bool = false {
         willSet {
             if newValue {
@@ -27,25 +28,11 @@ struct Word {
             }
         }
     }
+    
     var isFound:Bool = false
     var roots:[String]?
     var wordState:State = .oneline
     var hint:String?
-    
-    init() {
-        
-    }
-    
-    init(mainString: String, isSpecial: Bool, roots: [String]?, hint: String?) {
-        self.mainString = mainString
-        self.isSpecial = isSpecial
-        self.roots = roots
-        self.hint = hint
-        if isSpecial {
-            self.isFound = true
-            self.wordState = .normal
-        }
-    }
     
     func getString() -> String {
         if self.isFound {
@@ -70,12 +57,14 @@ struct Word {
         }
     }
     
-    mutating func check(array: [String]) -> Bool {
+    func check(array: [String]) -> Bool {
         if checkString(in: array) {
             self.isFound = true
+            self.wordState = .normal
             return true
         } else if checkRoots(in: array) {
             self.isFound = true
+            self.wordState = .normal
             return true
         } else {
             
@@ -83,7 +72,7 @@ struct Word {
         return false
     }
     
-    mutating func changeState() {
+    func changeState() {
         switch self.wordState {
         case .oneline:
             self.wordState = .underlined

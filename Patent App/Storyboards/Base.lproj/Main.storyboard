@@ -118,7 +118,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C0y-0K-lUQ">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="60" width="375" height="607"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v8T-30-Efn" userLabel="ContentView">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="286"/>
@@ -270,7 +270,7 @@
                             <constraint firstItem="4Da-sc-Dle" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="b6V-Lw-HVw"/>
                             <constraint firstItem="mB7-rx-iW2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="bxe-MY-f7c"/>
                             <constraint firstAttribute="bottom" secondItem="od5-S2-p1o" secondAttribute="bottom" constant="-50" id="fg4-I0-8As"/>
-                            <constraint firstItem="C0y-0K-lUQ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="gHs-4z-xLY"/>
+                            <constraint firstItem="C0y-0K-lUQ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="60" id="gHs-4z-xLY"/>
                             <constraint firstItem="v8T-30-Efn" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="ggn-L9-PiC"/>
                             <constraint firstItem="C0y-0K-lUQ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="igq-hI-4wj"/>
                             <constraint firstItem="C0y-0K-lUQ" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="nKW-QN-Pcp"/>

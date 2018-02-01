@@ -53,7 +53,7 @@ extension KeyboardHandlerProtocol where Self: UIViewController {
         self.sendboxBottomConstraint.constant = -50
         UIView.animate(withDuration: 0.5) {
             self.view.layoutIfNeeded()
-            let contentInsets = UIEdgeInsets(top: 60, left: 0, bottom: 80, right: 0)
+            let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: 80, right: 0)
             self.scrollView.contentInset = contentInsets
             self.scrollView.scrollIndicatorInsets = contentInsets
         }

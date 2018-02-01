@@ -33,11 +33,10 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
     @IBOutlet weak var sendboxBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var googleSpeechLabel: UILabel!
     
-    var arrayOfWords = [Word]()
     var isRecording = false
     
     var storyParts = [StoryPart]()
-    var index = 0
+    var storyIndex = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,10 +80,10 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
     
     func setData() {
         
-        arrayOfWords = storyParts[index].words
+        storyParts[storyIndex].words = storyParts[storyIndex].words
         setTextLabel()
         
-        setImage(image: UIImage(named: storyParts[index].image)!)
+        setImage(image: UIImage(named: storyParts[storyIndex].image)!)
     }
     
     // Set UI
@@ -108,7 +107,7 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
         keyboardButton.isEnabled = false
         keyboardButton.setImage(#imageLiteral(resourceName: "ic_keyboard").withRenderingMode(.alwaysTemplate), for: .normal)
         keyboardButton.tintColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
-        scrollView.contentInset = UIEdgeInsets(top: 60, left: 0, bottom: 80, right: 0)
+//        scrollView.contentInset = UIEdgeInsets(top: 60, left: 0, bottom: 80, right: 0)
         startButton.delegate = self
         notesButton.setImage(#imageLiteral(resourceName: "note").withRenderingMode(.alwaysTemplate), for: .normal)
         notesButton.tintColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
@@ -175,15 +174,27 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
     }
     
     @IBAction func previous(_ sender: Any) {
-        index -= 1
-        self.setData()
+        storyIndex -= 1
         self.setupPrevNextButtons()
+        
+        storyParts[storyIndex].words = storyParts[storyIndex].words
+        
+        setImage(image: UIImage(named: storyParts[storyIndex].image)!)
+        
+        let result = DataUtils.createString(from: storyParts[storyIndex].words)
+        label.setText(result.0)
     }
     
     @IBAction func forward(_ sender: Any) {
-        index += 1
-        self.setData()
+        storyIndex += 1
+//        self.setData()
         self.setupPrevNextButtons()
+        storyParts[storyIndex].words = storyParts[storyIndex].words
+        
+        setImage(image: UIImage(named: storyParts[storyIndex].image)!)
+        
+        let result = DataUtils.createString(from: storyParts[storyIndex].words)
+        label.setText(result.0)
     }
     
 }
@@ -239,8 +250,8 @@ extension StoryViewController: AudioControllerDelegate {
     func checkStringFromResponse(response: String) -> Bool {
         var isFound = false
         let responseArray = response.components(separatedBy: " ")
-        for index in 0..<arrayOfWords.count {
-            if !arrayOfWords[index].check(array: responseArray) {
+        for index in 0..<storyParts[storyIndex].words.count {
+            if !storyParts[storyIndex].words[index].check(array: responseArray) {
                 isFound = true
             }
         }
@@ -248,13 +259,13 @@ extension StoryViewController: AudioControllerDelegate {
     }
     
     func setTextLabel() {
-        let result = DataUtils.createString(from: arrayOfWords)
+        let result = DataUtils.createString(from: storyParts[storyIndex].words)
         label.setText(result.0)
         if result.1 {
             sendContainerView.removeFirstResponder()
             recordAudio(self)
             FinishController.shared.showFinishView {
-                self.storyParts[self.index].isSolved = true
+                self.storyParts[self.storyIndex].isSolved = true
                 self.startButton.count = 0
                 FinishController.shared.hideFinishView()
                 self.setupPrevNextButtons()
@@ -268,8 +279,8 @@ extension StoryViewController: AudioControllerDelegate {
     }
     
     func setupPrevNextButtons() {
-        if storyParts[index].isSolved {
-            if index + 1 < storyParts.count {
+        if storyParts[storyIndex].isSolved {
+            if storyIndex + 1 < storyParts.count {
                 forwardButton.isEnabled = true
             } else {
                 forwardButton.isEnabled = false
@@ -277,7 +288,7 @@ extension StoryViewController: AudioControllerDelegate {
         } else {
             forwardButton.isEnabled = false
         }
-        if index > 0 {
+        if storyIndex > 0 {
             backButton.isEnabled = true
         } else {
             backButton.isEnabled = false
@@ -301,13 +312,13 @@ extension StoryViewController: TTTAttributedLabelDelegate {
         if let index = Int(url.absoluteString) {
             if isRecording {
                 handleResponse(index: index)
-            } else if arrayOfWords[index].isFound {
-                DialogUtils.showYesNoDialog(self, title: "Save", message: "Are you sure you want to save \(arrayOfWords[index].mainString.uppercased()) into notes?", completion: { (result) in
+            } else if storyParts[storyIndex].words[index].isFound {
+                DialogUtils.showYesNoDialog(self, title: "Save", message: "Are you sure you want to save \(storyParts[storyIndex].words[index].mainString.uppercased()) into notes?", completion: { (result) in
                     if result {
-                        if NoteController.shared.insertNote(word: self.arrayOfWords[index].mainString.lowercased(), explanation: "test") {
-                            DialogUtils.showWarningDialog(self, title: nil, message: "\(self.arrayOfWords[index].mainString.uppercased()) has been added in Notes!", completion: nil)
+                        if NoteController.shared.insertNote(word: self.storyParts[self.storyIndex].words[index].mainString.lowercased(), explanation: "test") {
+                            DialogUtils.showWarningDialog(self, title: nil, message: "\(self.storyParts[self.storyIndex].words[index].mainString.uppercased()) has been added in Notes!", completion: nil)
                         } else {
-                            DialogUtils.showWarningDialog(self, title: "Error", message: "\(self.arrayOfWords[index].mainString.uppercased()) already exist in Notes!", completion: nil)
+                            DialogUtils.showWarningDialog(self, title: "Error", message: "\(self.storyParts[self.storyIndex].words[index].mainString.uppercased()) already exist in Notes!", completion: nil)
                         }
                     }
                 })
@@ -316,34 +327,34 @@ extension StoryViewController: TTTAttributedLabelDelegate {
     }
     
     func handleResponse(index: Int) {
-        switch arrayOfWords[index].wordState {
+        switch storyParts[storyIndex].words[index].wordState {
         case .oneline:
-            arrayOfWords[index].changeState()
+            storyParts[storyIndex].words[index].changeState()
             self.setTextLabel()
         case .underlined:
-            arrayOfWords[index].changeState()
+            storyParts[storyIndex].words[index].changeState()
             self.setTextLabel()
         case .firstLastLetter:
-            arrayOfWords[index].changeState()
-            if arrayOfWords[index].hint != nil {
-                DialogUtils.showWarningDialog(self, title: "Clue", message: arrayOfWords[index].hint, completion: nil)
+            storyParts[storyIndex].words[index].changeState()
+            if storyParts[storyIndex].words[index].hint != nil {
+                DialogUtils.showWarningDialog(self, title: "Clue", message: storyParts[storyIndex].words[index].hint, completion: nil)
             } else {
                 DialogUtils.showWarningDialog(self, title: "Clue", message: "The word has no a clue", completion: nil)
             }
         case .clue:
             DialogUtils.showYesNoDialog(self, title: nil, message: "Are you sure you want to give up and see what it is?", completion: { (result) in
                 if result {
-                    self.arrayOfWords[index].changeState()
+                    self.storyParts[self.storyIndex].words[index].changeState()
                     self.setTextLabel()
                 }
             })
         case .normal:
-            DialogUtils.showYesNoDialog(self, title: "Save", message: "Are you sure you want to save \(arrayOfWords[index].mainString.uppercased()) into notes?", completion: { (result) in
+            DialogUtils.showYesNoDialog(self, title: "Save", message: "Are you sure you want to save \(storyParts[storyIndex].words[index].mainString.uppercased()) into notes?", completion: { (result) in
                 if result {
-                    if NoteController.shared.insertNote(word: self.arrayOfWords[index].mainString.lowercased(), explanation: "test") {
-                        DialogUtils.showWarningDialog(self, title: nil, message: "\(self.arrayOfWords[index].mainString.uppercased()) has been added in Notes!", completion: nil)
+                    if NoteController.shared.insertNote(word: self.storyParts[self.storyIndex].words[index].mainString.lowercased(), explanation: "test") {
+                        DialogUtils.showWarningDialog(self, title: nil, message: "\(self.storyParts[self.storyIndex].words[index].mainString.uppercased()) has been added in Notes!", completion: nil)
                     } else {
-                        DialogUtils.showWarningDialog(self, title: "Error", message: "\(self.arrayOfWords[index].mainString.uppercased()) already exist in Notes!", completion: nil)
+                        DialogUtils.showWarningDialog(self, title: "Error", message: "\(self.storyParts[self.storyIndex].words[index].mainString.uppercased()) already exist in Notes!", completion: nil)
                     }
                 }
             })

@@ -9,15 +9,6 @@
 import UIKit
 
 class DataUtils {
-
-    class func getDataArray() -> [Word] {
-        
-        var arrayOfWords = [Word]()
-        
-        arrayOfWords.append(Word(mainString: "princessess’", isSpecial: false, roots: ["twelve"], hint: nil))
-        
-        return arrayOfWords
-    }
     
     class func createString(from array:[Word]) -> (NSMutableAttributedString, Bool) {
         let attString = NSMutableAttributedString(string: "")

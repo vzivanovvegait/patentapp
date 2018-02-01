@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct StoryPart {
+class StoryPart {
     
     var image:String = ""
     var words:[Word] = []
