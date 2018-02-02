@@ -39,9 +39,9 @@ class Word {
             return mainString
         } else {
             switch self.wordState {
-            case .oneline, .underlined, .clue:
+            case .oneline, .underlined:
                 return mainString.mapString()
-            case .firstLastLetter:
+            case .firstLastLetter, .clue:
                 if mainString.count > 2 {
                     return mainString.mapFirstLastString()
                 } else {

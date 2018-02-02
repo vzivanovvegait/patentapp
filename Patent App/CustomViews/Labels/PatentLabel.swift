@@ -25,8 +25,7 @@ class PatentLabel: TTTAttributedLabel {
     
     fileprivate func setupViews() {
         self.linkAttributes = [NSAttributedStringKey.foregroundColor: UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)]
-        self.activeLinkAttributes = [NSAttributedStringKey.foregroundColor: UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)]
-//        self.delegate = self
+        self.activeLinkAttributes = [NSAttributedStringKey.foregroundColor: UIColor.lightGray]
         self.lineBreakMode = .byWordWrapping
         self.numberOfLines = 0
         self.isUserInteractionEnabled = true

@@ -53,10 +53,10 @@ class RecordStopButton: UIButton {
         willSet {
             if newValue {
                 self.changeFromOvalToRect()
-                self.startTimer()
+//                self.startTimer()
             } else {
                 self.changeFromRectToOval()
-                stopTimer()
+//                stopTimer()
             }
         }
     }

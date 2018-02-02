@@ -11,8 +11,8 @@ import UIKit
 
 protocol KeyboardHandlerProtocol {
     
-    var scrollView: UIScrollView! { get set }
     var sendboxBottomConstraint: NSLayoutConstraint! { get set }
+    var containerViewBottomConstraint: NSLayoutConstraint! { get set }
     
 }
 
@@ -32,7 +32,6 @@ extension KeyboardHandlerProtocol where Self: UIViewController {
     }
     
     fileprivate func keyboardWillShow(_ notification: Notification) {
-        self.scrollView.isScrollEnabled = true
         
         let kbSize = (notification.userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.size
         var bottomSafeAreaInsets:CGFloat = 0
@@ -41,21 +40,17 @@ extension KeyboardHandlerProtocol where Self: UIViewController {
         }
         
         sendboxBottomConstraint.constant = kbSize.height
+        containerViewBottomConstraint.constant = kbSize.height + 50 - bottomSafeAreaInsets
         UIView.animate(withDuration: 0.5) {
             self.view.layoutIfNeeded()
-            let contentInsets: UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height - bottomSafeAreaInsets + 50, 0.0)
-            self.scrollView.contentInset = contentInsets
-            self.scrollView.scrollIndicatorInsets = contentInsets
         }
     }
     
     fileprivate func keyboardWillHide(_ notification: Notification) {
         self.sendboxBottomConstraint.constant = -50
+        containerViewBottomConstraint.constant = 80
         UIView.animate(withDuration: 0.5) {
             self.view.layoutIfNeeded()
-            let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: 80, right: 0)
-            self.scrollView.contentInset = contentInsets
-            self.scrollView.scrollIndicatorInsets = contentInsets
         }
     }
     
