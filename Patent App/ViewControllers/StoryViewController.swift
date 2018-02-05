@@ -18,6 +18,7 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
     let vc:StoryPartViewController = StoryPartViewController.makeFromStoryboard()
     
     var audioData: NSMutableData!
+    var timer = Timer()
     
     @IBOutlet weak var bottomToolBar: BottomToolBar!
     @IBOutlet weak var sendContainerView: SendContainerView!
@@ -165,7 +166,7 @@ extension StoryViewController: AudioControllerDelegate {
                     
                     print(response)
                     for result in response.resultsArray {
-                        guard let result = result as? StreamingRecognitionResult, result.isFinal else {
+                        guard let result = result as? StreamingRecognitionResult else {
                             return
                         }
                         for alternative in result.alternativesArray {
@@ -173,7 +174,9 @@ extension StoryViewController: AudioControllerDelegate {
                                 return
                             }
                             strongSelf.vc.setGoogleLabel(text: alternative.transcript)
-                            if strongSelf.vc.checkStringFromResponse(response: alternative.transcript) {
+                            if result.isFinal && strongSelf.vc.checkStringFromResponse(response: alternative.transcript) {
+                                strongSelf.timer.invalidate()
+                                strongSelf.timer = Timer.scheduledTimer(timeInterval: 2, target: strongSelf, selector: #selector(strongSelf.counter), userInfo: nil, repeats: false)
                                 strongSelf.vc.setTextLabel()
                             }
                         }
@@ -182,6 +185,10 @@ extension StoryViewController: AudioControllerDelegate {
             })
             self.audioData = NSMutableData()
         }
+    }
+    
+    @objc func counter() {
+        vc.setGoogleLabel(text: "")
     }
 
 }

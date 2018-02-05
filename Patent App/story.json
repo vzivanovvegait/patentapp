@@ -36,7 +36,8 @@
             {
             "mainString": "was",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "What is the past tense of the word \"is\""
             },
             {
             "mainString": "a",
@@ -488,6 +489,2328 @@
             },
             {
             "mainString": ".",
+            "isSpecial": true,
+            "roots": []
+            }
+            ]
+  }, {
+  "image": "4",
+  "words": [{
+            "mainString": "In",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "the",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "When sun goes down and day ends,… begins"
+            },
+            {
+            "mainString": "morning",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "The earliest time of the day"
+            },
+            {
+            "mainString": ",",
+            "isSpecial": true,
+            "roots": []
+            },
+            {
+            "mainString": "when",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "If you want to know someone's birthday, you ask \"… is your birthday?\""
+            },
+            {
+            "mainString": "sun",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "It's in the sky, it is round, yellow and hot"
+            },
+            {
+            "mainString": "shining",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "It's hot when the sun is …"
+            },
+            {
+            "mainString": "bright",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "You may need sunglasses if it's … outside"
+            },
+            {
+            "mainString": ",",
+            "isSpecial": true,
+            "roots": []
+            },
+            {
+            "mainString": "the",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "king",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "A man with a crown is often called..?"
+            },
+            {
+            "mainString": "went",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "Past tense of \"to go\""
+            },
+            {
+            "mainString": "into",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "You can say \"enter\" or go…"
+            },
+            {
+            "mainString": "the",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "girls",
+            "isSpecial": false,
+            "roots": ["girl"],
+            "hint": "There are boys and there are …"
+            },
+            {
+            "mainString": "room",
+            "isSpecial": false,
+            "roots": ["rooms"],
+            "hint": "It’s an area of the house  - it has a door and a window"
+            },
+            {
+            "mainString": "and",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "saw",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "Past tense of \"to see\""
+            },
+            {
+            "mainString": "that",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "If it isn't \"this,\" it's …"
+            },
+            {
+            "mainString": "the",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "shoes",
+            "isSpecial": false,
+            "roots": ["shoe"],
+            "hint": "Those things you put on your feet to walk"
+            },
+            {
+            "mainString": "on",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "Opposite of \"off\""
+            },
+            {
+            "mainString": "the",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "shelf",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "Piece of furniture that can hold things"
+            },
+            {
+            "mainString": "were",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "Past tense of \"are\""
+            },
+            {
+            "mainString": "torn",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "past tense of \"to tear\" (to rip apart)"
+            },
+            {
+            "mainString": "to",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "On an envelope, you put \"from\" and \"…\" whom the letter is sent"
+            },
+            {
+            "mainString": "pieces",
+            "isSpecial": false,
+            "roots": ["piece"],
+            "hint": "The puzzle has many … that you have to put together"
+            },
+            {
+            "mainString": ".",
+            "isSpecial": true,
+            "roots": []
+            },
+            {
+            "mainString": "How",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "When you want to learn to do something, you ask \"… do you do this?\""
+            },
+            {
+            "mainString": "did",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "Past tense of \"do\""
+            },
+            {
+            "mainString": "the",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "shoes",
+            "isSpecial": false,
+            "roots": ["shoe"],
+            "hint": "Those things you put on your feet to walk"
+            },
+            {
+            "mainString": "get",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "What gifts did you … for your birthday?"
+            },
+            {
+            "mainString": "torn",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "past tense of \"to tear\" (to rip apart)"
+            },
+            {
+            "mainString": "?",
+            "isSpecial": true,
+            "roots": []
+            },
+            {
+            "mainString": "Did",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "Past tense of \"do\""
+            },
+            {
+            "mainString": "they",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "When you are talking about a group of people, you say …"
+            },
+            {
+            "mainString": "go",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "A very short word that describes moving from one place to another"
+            },
+            {
+            "mainString": "out",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "The opposite of \"in\""
+            },
+            {
+            "mainString": "dancing",
+            "isSpecial": false,
+            "roots": ["dancing", "dance", "dances", "danced"],
+            "hint": "People move in a funny way when they hear music, but they call it …"
+            },
+            {
+            "mainString": "?",
+            "isSpecial": true,
+            "roots": []
+            },
+            {
+            "mainString": "But",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "the",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "door",
+            "isSpecial": false,
+            "roots": ["doors"],
+            "hint": "Without it, you could not enter the room"
+            },
+            {
+            "mainString": "was",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "What is the past tense of the word \"is\""
+            },
+            {
+            "mainString": "locked",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "If the door is …, you need the key to open it"
+            },
+            {
+            "mainString": "with",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "Mary and Ellen go to school together, so you can say Mary goes to school …Ellen."
+            },
+            {
+            "mainString": "7",
+            "isSpecial": false,
+            "roots": ["seven"],
+            "hint": "It's a number…are there things/characters that you see a few of? Let's start counting!"
+            },
+            {
+            "mainString": "locks",
+            "isSpecial": false,
+            "roots": ["lock"],
+            "hint": "When you leave the house, don’t forget to … the door"
+            },
+            {
+            "mainString": "?!",
+            "isSpecial": true,
+            "roots": []
+            }
+            ]
+  }, {
+  "image": "5",
+  "words": [{
+            "mainString": "The",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "king",
+            "isSpecial": false,
+            "roots": ["kings"],
+            "hint": "A man with a crown is often called..?"
+            },
+            {
+            "mainString": "gathered",
+            "isSpecial": false,
+            "roots": ["gather"],
+            "hint" : "What's the word for bringing people in one place?"
+            },
+            {
+            "mainString": "his",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "If a toy belongs to a boy, you would say it's …(belonging to him) toy"
+            },
+            {
+            "mainString": "kingdom",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "The country that belongs to the king"
+            },
+            {
+            "mainString": "and",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "proclaimed",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "What do you do in a restaurant when the waiter comes?"
+            },
+            {
+            "mainString": "that",
+            "isSpecial": false,
+            "roots": ["proclaim", "proclaimed"],
+            "hint": "Another word for \"announce\""
+            },
+            {
+            "mainString": "whoever",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "Another word for \"anyone who\" does something "
+            },
+            {
+            "mainString": "follows",
+            "isSpecial": false,
+            "roots": ["follow", "follows", "following", "followed"],
+            "hint": "When you don't know how to get somewhere, you … the signs"
+            },
+            {
+            "mainString": "the",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "girls’",
+            "isSpecial": false,
+            "roots": ["girl"],
+            "hint": "There are boys and there are …"
+            },
+            {
+            "mainString": "and",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "finds",
+            "isSpecial": false,
+            "roots": ["finds", "find", "finding", "found"],
+            "hint": "Everyone wants to … a treasure."
+            },
+            {
+            "mainString": "out",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "The opposite of \"in\""
+            },
+            {
+            "mainString": "where",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "If you don't see something, you may wonder …it is"
+            },
+            {
+            "mainString": "they",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "When you are talking about a group of people, you say …"
+            },
+            {
+            "mainString": "go",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "When you are talking about a group of people, you say …"
+            },
+            {
+            "mainString": ",",
+            "isSpecial": true,
+            "roots": []
+            },
+            {
+            "mainString": "will",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "I … be a doctor when I grow up"
+            },
+            {
+            "mainString": "marry",
+            "isSpecial": false,
+            "roots": ["marry", "married", "marrying", "marriage"],
+            "hint": "Two people fall in love and get…"
+            },
+            {
+            "mainString": "one",
+            "isSpecial": false,
+            "roots": ["1"],
+            "hint": "It's a number…are there things/characters that you see a few of? Let's start counting!"
+            },
+            {
+            "mainString": "of",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "them",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "It wasn't us, it was …"
+            },
+            {
+            "mainString": "and",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "When you are talking about a group of people, you say …"
+            },
+            {
+            "mainString": "will",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "I … be a doctor when I grow up"
+            },
+            {
+            "mainString": "inherit",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "To receive something from previous owner"
+            },
+            {
+            "mainString": "the",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "When you are talking about a group of people, you say …"
+            },
+            {
+            "mainString": "crown",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "The king wears it on his head"
+            },
+            {
+            "mainString": "after",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "Before and …"
+            },
+            {
+            "mainString": "the",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "king’s",
+            "isSpecial": false,
+            "roots": ["king", "kings"],
+            "hint": "A man with a crown is often called..?"
+            },
+            {
+            "mainString": "death",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "Opposite of life"
+            },
+            {
+            "mainString": ".",
+            "isSpecial": true,
+            "roots": []
+            }
+            ]
+  }, {
+  "image": "6",
+  "words": [{
+            "mainString": "Many",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "What do you say when there are"
+            },
+            {
+            "mainString": "young",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "What is the opposite of \"old\""
+            },
+            {
+            "mainString": "men",
+            "isSpecial": false,
+            "roots": ["man"],
+            "hint": "What is the opposite of \"women\""
+            },
+            {
+            "mainString": "lined",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "Another way to say \"formed a line\""
+            },
+            {
+            "mainString": "up",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "to",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "On an envelope, you put \"from\" and \"…\" whom the letter is sent"
+            },
+            {
+            "mainString": "accept",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "Please … my apologies"
+            },
+            {
+            "mainString": "the",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "challenge",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "nother word for \"contest\""
+            },
+            {
+            "mainString": ".",
+            "isSpecial": true,
+            "roots": []
+            }
+            ]
+  }, {
+  "image": "7",
+  "words": [{
+            "mainString": "A",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "young",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "What is the opposite of \"old\""
+            },
+            {
+            "mainString": "man",
+            "isSpecial": false,
+            "roots": ["men"],
+            "hint": "What is the opposite of \"women\""
+            },
+            {
+            "mainString": "was",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "What is the past tense of the word \"is\""
+            },
+            {
+            "mainString": "taken",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "When you leave your seat, and come back to see it was … by someone else"
+            },
+            {
+            "mainString": "to",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "On an envelope, you put \"from\" and \"…\" whom the letter is sent"
+            },
+            {
+            "mainString": "a",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "dining",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "room",
+            "isSpecial": false,
+            "roots": ["rooms"],
+            "hint": "It’s an area of the house  - it has a door and a window"
+            },
+            {
+            "mainString": ",",
+            "isSpecial": true,
+            "roots": []
+            },
+            {
+            "mainString": "where",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "If you don't see something, you may wonder …it is"
+            },
+            {
+            "mainString": "the",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "table",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "The food is served on the …."
+            },
+            {
+            "mainString": "was",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "What is the past tense of the word \"is\""
+            },
+            {
+            "mainString": "filled",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "Another way of saying \"full of\" would be.."
+            },
+            {
+            "mainString": "with",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "Mary and Ellen go to school together, so you can say Mary goes to school …Ellen."
+            },
+            {
+            "mainString": "fish",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "You catch it with bait"
+            },
+            {
+            "mainString": ",",
+            "isSpecial": true,
+            "roots": []
+            },
+            {
+            "mainString": "chicken",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "It's a bird, but it doesn't fly"
+            },
+            {
+            "mainString": ",",
+            "isSpecial": true,
+            "roots": []
+            },
+            {
+            "mainString": "wine",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "A drink made from grapes"
+            },
+            {
+            "mainString": ",",
+            "isSpecial": true,
+            "roots": []
+            },
+            {
+            "mainString": "and",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "veggies",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "One word that can describe carrots, beets, peppers, zucchini..?"
+            },
+            {
+            "mainString": ".",
+            "isSpecial": true,
+            "roots": []
+            },
+            {
+            "mainString": "When",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "If you want to know someone's birthday, you ask \"… is your birthday?\""
+            },
+            {
+            "mainString": "he",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "A girl is a \"she,\" and a boy…"
+            },
+            {
+            "mainString": "was",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "Past tense of \"is\""
+            },
+            {
+            "mainString": "full",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "The opposite of \"empty\""
+            },
+            {
+            "mainString": ",",
+            "isSpecial": true,
+            "roots": []
+            },
+            {
+            "mainString": "he",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "A girl is a \"she,\" and a boy…"
+            },
+            {
+            "mainString": "was",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "Past tense of \"is\""
+            },
+            {
+            "mainString": "taken",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "When you leave your seat, and come back to see it was … by someone else"
+            },
+            {
+            "mainString": "to",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "On an envelope, you put \"from\" and \"…\" whom the letter is sent"
+            },
+            {
+            "mainString": "the",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "room",
+            "isSpecial": false,
+            "roots": ["rooms"],
+            "hint": "It’s an area of the house  - it has a door and a window"
+            },
+            {
+            "mainString": "next",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "When something is located very close to something else"
+            },
+            {
+            "mainString": "to",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "On an envelope, you put \"from\" and \"…\" whom the letter is sent"
+            },
+            {
+            "mainString": "the",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "princesses’",
+            "isSpecial": false,
+            "roots": ["princess", "princesses"],
+            "hint": "You catch it with bait"
+            },
+            {
+            "mainString": "room",
+            "isSpecial": false,
+            "roots": ["rooms"],
+            "hint": "It’s an area of the house  - it has a door and a window"
+            },
+            {
+            "mainString": ",",
+            "isSpecial": true,
+            "roots": []
+            },
+            {
+            "mainString": "and",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "the",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "door",
+            "isSpecial": false,
+            "roots": ["rooms"],
+            "hint": "It’s an area of the house  - it has a door and a window"
+            },
+            {
+            "mainString": "was",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "Past tense of \"is\""
+            },
+            {
+            "mainString": "left",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "You go right, I go …"
+            },
+            {
+            "mainString": "open",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "You can look into another room because the door is…"
+            },
+            {
+            "mainString": ",",
+            "isSpecial": true,
+            "roots": []
+            },
+            {
+            "mainString": "so",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "he",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "A girl is a \"she,\" and a boy…"
+            },
+            {
+            "mainString": "could",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "If I …., I would!"
+            },
+            {
+            "mainString": "see",
+            "isSpecial": false,
+            "roots": ["sees"],
+            "hint": "What's the third letter of the alphabet, but also means \"to watch\""
+            },
+            {
+            "mainString": "where",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "If you don't see something, you may wonder …it is"
+            },
+            {
+            "mainString": "they",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "When you are talking about a group of people, you say …"
+            },
+            {
+            "mainString": "go",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "A very short word that describes moving from one place to another"
+            },
+            {
+            "mainString": "at",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "night",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "When sun goes down and day ends,… begins"
+            },
+            {
+            "mainString": ".",
+            "isSpecial": true,
+            "roots": []
+            }
+            ]
+  }, {
+  "image": "8",
+  "words": [{
+            "mainString": "At",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "night",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "When sun goes down and day ends,… begins"
+            },
+            {
+            "mainString": ",",
+            "isSpecial": true,
+            "roots": []
+            },
+            {
+            "mainString": "the",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "young",
+            "isSpecial": false,
+            "roots": ["kings"],
+            "hint": "What is the opposite of \"old\""
+            },
+            {
+            "mainString": "man",
+            "isSpecial": false,
+            "roots": ["men"],
+            "hint": "What is the opposite of \"women\""
+            },
+            {
+            "mainString": "felt",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "The past tense of \"feel\""
+            },
+            {
+            "mainString": "very",
+            "isSpecial": false,
+            "roots": ["guards"],
+            "hint": "You can say \"I'm starving,\" or say \"I am …hungry\" instead."
+            },
+            {
+            "mainString": "sleepy",
+            "isSpecial": false,
+            "roots": ["sleepy", "sleeping", "sleep", "asleep"],
+            "hint": "The reason you go to bed at night"
+            },
+            {
+            "mainString": ",",
+            "isSpecial": true,
+            "roots": []
+            },
+            {
+            "mainString": "was",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "Past tense of \"is\""
+            },
+            {
+            "mainString": "yawning",
+            "isSpecial": false,
+            "roots": ["yawn", "yawning"],
+            "hint": "Your mouth does it when you are tired"
+            },
+            {
+            "mainString": ",",
+            "isSpecial": true,
+            "roots": []
+            },
+            {
+            "mainString": "and",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "Mary and Ellen go to school together, so you can say Mary goes to school …Ellen."
+            },
+            {
+            "mainString": "could",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "If I …., I would!"
+            },
+            {
+            "mainString": "hardly",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "Another way to say \"with great difficulty\""
+            },
+            {
+            "mainString": "keep",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "When you hold a puppy and want to take it home with you, you ask: \"Can I … it?\""
+            },
+            {
+            "mainString": "his",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "If a toy belongs to a boy, you would say it's …(belonging to her) toy"
+            },
+            {
+            "mainString": "eyes",
+            "isSpecial": false,
+            "roots": ["eye"],
+            "hint": "They see, they cry, they close, they open, and they are on your face"
+            },
+            {
+            "mainString": "open",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "You can look into another room because the door is…"
+            },
+            {
+            "mainString": ",",
+            "isSpecial": true,
+            "roots": []
+            },
+            {
+            "mainString": "as",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "he",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "A girl is a \"she,\" and a boy…"
+            },
+            {
+            "mainString": "was",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "Past tense of \"is\""
+            },
+            {
+            "mainString": "holding",
+            "isSpecial": false,
+            "roots": ["holding", "hold", "holds"],
+            "hint": "When you don't want to drop something you're …. it tightly"
+            },
+            {
+            "mainString": "the",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "candle",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "It burns, it gives light, and it's made of wax"
+            },
+            {
+            "mainString": "and",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "trying",
+            "isSpecial": false,
+            "roots": ["try"],
+            "hint": "If you don't get the result you want, you keep …"
+            },
+            {
+            "mainString": "to",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "On an envelope, you put \"from\" and \"…\" whom the letter is sent"
+            },
+            {
+            "mainString": "watch",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "It's another way to saw \"look\", but it can also show time and you can wear it on your wrist"
+            },
+            {
+            "mainString": "the",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "princesses",
+            "isSpecial": false,
+            "roots": ["princess"],
+            "hint": "A daughter of a king is called..?"
+            },
+            {
+            "mainString": ".",
+            "isSpecial": true,
+            "roots": []
+            }
+            ]
+  }, {
+  "image": "9",
+  "words": [{
+            "mainString": "Come",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "morning",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "When sun goes down and day ends,… begins"
+            },
+            {
+            "mainString": ",",
+            "isSpecial": true,
+            "roots": []
+            },
+            {
+            "mainString": "the",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "young",
+            "isSpecial": false,
+            "roots": ["kings"],
+            "hint": "A man with a crown is often called..?"
+            },
+            {
+            "mainString": "man",
+            "isSpecial": false,
+            "roots": ["order"],
+            "hint": "What do you do in a restaurant when the waiter comes?"
+            },
+            {
+            "mainString": "woke",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "up",
+            "isSpecial": false,
+            "roots": ["guards"],
+            "hint": "How would you call a person whose job is to protect the castle?"
+            },
+            {
+            "mainString": "and",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "On an envelope, you put \"from\" and \"…\" whom the letter is sent"
+            },
+            {
+            "mainString": "run",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "into",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "the",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "A daughter of a king is called..?"
+            },
+            {
+            "mainString": "girls'",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "room",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "Mary and Ellen go to school together, so you can say Mary goes to school …Ellen."
+            },
+            {
+            "mainString": ",",
+            "isSpecial": true,
+            "roots": []
+            },
+            {
+            "mainString": "where",
+            "isSpecial": false,
+            "roots": ["lock"],
+            "hint": "When you leave the house, don’t forget to … the door"
+            },
+            {
+            "mainString": "he",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "A girl is a \"she,\" and a boy…"
+            },
+            {
+            "mainString": "saw",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "that",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "they",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "were",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "sleeping",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "but",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "the",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "shoes",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "were",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "torn",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "again",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": ".",
+            "isSpecial": true,
+            "roots": []
+            },
+            {
+            "mainString": "He",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "A girl is a \"she,\" and a boy…"
+            },
+            {
+            "mainString": "slept",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "through",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "the",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "night",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "and",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "didn't",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "see",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "where",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "they",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "went",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "dancing",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "!",
+            "isSpecial": true,
+            "roots": []
+            }
+            ]
+  }, {
+  "image": "10",
+  "words": [{
+            "mainString": "The",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "young",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "When sun goes down and day ends,… begins"
+            },
+            {
+            "mainString": "man",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "failed",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": ",",
+            "isSpecial": true,
+            "roots": []
+            },
+            {
+            "mainString": "and",
+            "isSpecial": false,
+            "roots": ["order"],
+            "hint": "What do you do in a restaurant when the waiter comes?"
+            },
+            {
+            "mainString": "was",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "What is the past tense of the word \"is\""
+            },
+            {
+            "mainString": "thrown",
+            "isSpecial": false,
+            "roots": ["guards"],
+            "hint": "How would you call a person whose job is to protect the castle?"
+            },
+            {
+            "mainString": "into",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "On an envelope, you put \"from\" and \"…\" whom the letter is sent"
+            },
+            {
+            "mainString": "jail",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": ".",
+            "isSpecial": true,
+            "roots": []
+            },
+            {
+            "mainString": "Others",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "A daughter of a king is called..?"
+            },
+            {
+            "mainString": "came'",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "to",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "On an envelope, you put \"from\" and \"…\" whom the letter is sent"
+            },
+            {
+            "mainString": "try",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "their",
+            "isSpecial": false,
+            "roots": ["lock"],
+            "hint": "When you leave the house, don’t forget to … the door"
+            },
+            {
+            "mainString": "luck",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": ",",
+            "isSpecial": true,
+            "roots": []
+            },
+            {
+            "mainString": "but",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "all",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "failed",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "and",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "were",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "thrown",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "into",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "jail",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": ".",
+            "isSpecial": true,
+            "roots": []
+            }
+            ]
+  }, {
+  "image": "11",
+  "words": [{
+            "mainString": "A",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "poor",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "When sun goes down and day ends,… begins"
+            },
+            {
+            "mainString": "boy",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "that",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "lived",
+            "isSpecial": false,
+            "roots": ["kings"],
+            "hint": "A man with a crown is often called..?"
+            },
+            {
+            "mainString": "on",
+            "isSpecial": false,
+            "roots": ["order"],
+            "hint": "What do you do in a restaurant when the waiter comes?"
+            },
+            {
+            "mainString": "the",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "street",
+            "isSpecial": false,
+            "roots": ["guards"],
+            "hint": "How would you call a person whose job is to protect the castle?"
+            },
+            {
+            "mainString": ",",
+            "isSpecial": true,
+            "roots": []
+            },
+            {
+            "mainString": "was",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "What is the past tense of the word \"is\""
+            },
+            {
+            "mainString": "telling",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "an",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "A daughter of a king is called..?"
+            },
+            {
+            "mainString": "old'",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "lady",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "Mary and Ellen go to school together, so you can say Mary goes to school …Ellen."
+            },
+            {
+            "mainString": "how",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "he",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "A girl is a \"she,\" and a boy…"
+            },
+            {
+            "mainString": "dreams",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "about",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "following",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "the",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "princesses",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": ",",
+            "isSpecial": true,
+            "roots": []
+            },
+            {
+            "mainString": "finding",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "out",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "where",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "the",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "they",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "dances",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "at",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "night",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": ",",
+            "isSpecial": true,
+            "roots": []
+            },
+            {
+            "mainString": "and",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "then",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "marrying",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "one",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "of",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "them",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": ",",
+            "isSpecial": true,
+            "roots": []
+            },
+            {
+            "mainString": "and",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "becoming",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "a",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "king",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "one",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "day",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": ".",
+            "isSpecial": true,
+            "roots": []
+            }
+            ]
+  }, {
+  "image": "12",
+  "words": [{
+            "mainString": "The",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "old",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "When sun goes down and day ends,… begins"
+            },
+            {
+            "mainString": "lady",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "whispered",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "to",
+            "isSpecial": false,
+            "roots": ["kings"],
+            "hint": "On an envelope, you put \"from\" and \"…\" whom the letter is sent"
+            },
+            {
+            "mainString": "him",
+            "isSpecial": false,
+            "roots": ["order"],
+            "hint": "What do you do in a restaurant when the waiter comes?"
+            },
+            {
+            "mainString": "\"",
+            "isSpecial": true,
+            "roots": []
+            },
+            {
+            "mainString": "Go",
+            "isSpecial": false,
+            "roots": ["guards"],
+            "hint": "How would you call a person whose job is to protect the castle?"
+            },
+            {
+            "mainString": "to",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "On an envelope, you put \"from\" and \"…\" whom the letter is sent"
+            },
+            {
+            "mainString": "the",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "king",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "to",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "On an envelope, you put \"from\" and \"…\" whom the letter is sent"
+            },
+            {
+            "mainString": "take",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "the",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "Mary and Ellen go to school together, so you can say Mary goes to school …Ellen."
+            },
+            {
+            "mainString": "challenge",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": ",",
+            "isSpecial": true,
+            "roots": []
+            },
+            {
+            "mainString": "and",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "at",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "night",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": ",",
+            "isSpecial": true,
+            "roots": []
+            },
+            {
+            "mainString": "when",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "you",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "come",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "to",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "On an envelope, you put \"from\" and \"…\" whom the letter is sent"
+            },
+            {
+            "mainString": "the",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "room",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "next",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "to",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "On an envelope, you put \"from\" and \"…\" whom the letter is sent"
+            },
+            {
+            "mainString": "the",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "princesses’",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "room",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": ",",
+            "isSpecial": true,
+            "roots": []
+            },
+            {
+            "mainString": "one",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "of",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "the",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "sisters",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "will",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "bring",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "you",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "wine",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "-",
+            "isSpecial": true,
+            "roots": []
+            },
+            {
+            "mainString": "take",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "it",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": ",",
+            "isSpecial": true,
+            "roots": []
+            },
+            {
+            "mainString": "and",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "when",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "no",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "one",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "sees",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": ",",
+            "isSpecial": true,
+            "roots": []
+            },
+            {
+            "mainString": "pour",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "it",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "into",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "the",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "flower",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "pot",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "on",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "the",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "window",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": ",",
+            "isSpecial": true,
+            "roots": []
+            },
+            {
+            "mainString": "and",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "then",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "pretend",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "that",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "you",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "fell",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "asleep",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": ".",
+            "isSpecial": true,
+            "roots": []
+            },
+            {
+            "mainString": "\"",
+            "isSpecial": true,
+            "roots": []
+            }
+            ]
+  }, {
+  "image": "13",
+  "words": [{
+            "mainString": "The",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "old",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "When sun goes down and day ends,… begins"
+            },
+            {
+            "mainString": "woman",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "pulled",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "out",
+            "isSpecial": false,
+            "roots": ["kings"],
+            "hint": "A man with a crown is often called..?"
+            },
+            {
+            "mainString": "a",
+            "isSpecial": false,
+            "roots": ["order"],
+            "hint": "What do you do in a restaurant when the waiter comes?"
+            },
+            {
+            "mainString": "purple",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "coat",
+            "isSpecial": false,
+            "roots": ["guards"],
+            "hint": "How would you call a person whose job is to protect the castle?"
+            },
+            {
+            "mainString": "from",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "her",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "bag",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": ",",
+            "isSpecial": true,
+            "roots": []
+            },
+            {
+            "mainString": "handed",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "it",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "Mary and Ellen go to school together, so you can say Mary goes to school …Ellen."
+            },
+            {
+            "mainString": "to",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "On an envelope, you put \"from\" and \"…\" whom the letter is sent"
+            },
+            {
+            "mainString": "the",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "boy",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": ",",
+            "isSpecial": true,
+            "roots": []
+            },
+            {
+            "mainString": "and",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "said",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": ":",
+            "isSpecial": true,
+            "roots": []
+            },
+            {
+            "mainString": "\"",
+            "isSpecial": true,
+            "roots": []
+            },
+            {
+            "mainString": "It",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "is",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "a",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "magic",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "coat",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": ",",
+            "isSpecial": true,
+            "roots": []
+            },
+            {
+            "mainString": "when",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "you",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "put",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "it",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "on",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "you",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "will",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "become",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "invisible",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "and",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "can",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "follow",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "the",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "girls",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "while",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "they",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "think",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "you",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "are",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "asleep",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "in",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "your",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": "room",
+            "isSpecial": false,
+            "roots": []
+            },
+            {
+            "mainString": ".",
+            "isSpecial": true,
+            "roots": []
+            },
+            {
+            "mainString": "\"",
             "isSpecial": true,
             "roots": []
             }

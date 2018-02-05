@@ -15,7 +15,7 @@ class DataUtils {
         var rangeCounter = 0
         for index in 0..<array.count {
             if index != 0 {
-                if ![".", ",", ":", "?", "!"].contains(array[index].mainString) {
+                if ![".", ",", ":", "?", "!", "?!"].contains(array[index].mainString) {
                     attString.append(NSMutableAttributedString(string: " "))
                     rangeCounter += 1
                 }

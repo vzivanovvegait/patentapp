@@ -31,6 +31,7 @@ final class StoryPartViewController: UIViewController {
         willSet {
             let result = DataUtils.createString(from: newValue)
             storyPartLabel.setText(result.0)
+            storyPartLabel.sizeToFit()
         }
     }
     
