@@ -279,7 +279,8 @@
             {
             "mainString": "it",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "He, she, …"
             },
             {
             "mainString": ".",
@@ -738,7 +739,8 @@
             {
             "mainString": "But",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "You can watch tv, …only after doing your homework"
             },
             {
             "mainString": "the",
@@ -832,8 +834,8 @@
             {
             "mainString": "that",
             "isSpecial": false,
-            "roots": ["proclaim", "proclaimed"],
-            "hint": "Another word for \"announce\""
+            "roots": [],
+            "hint": "If it isn't \"this,\" it's …"
             },
             {
             "mainString": "whoever",
@@ -891,7 +893,7 @@
             "mainString": "go",
             "isSpecial": false,
             "roots": [],
-            "hint": "When you are talking about a group of people, you say …"
+            "hint": "A very short word that describes moving from one place to another"
             },
             {
             "mainString": ",",
@@ -907,7 +909,7 @@
             {
             "mainString": "marry",
             "isSpecial": false,
-            "roots": ["marry", "married", "marrying", "marriage"],
+            "roots": ["married", "marrying", "marriage"],
             "hint": "Two people fall in love and get…"
             },
             {
@@ -1038,7 +1040,7 @@
             "mainString": "challenge",
             "isSpecial": false,
             "roots": [],
-            "hint": "nother word for \"contest\""
+            "hint": "Another word for \"contest\""
             },
             {
             "mainString": ".",
@@ -1584,13 +1586,14 @@
   "words": [{
             "mainString": "Come",
             "isSpecial": false,
-            "roots": []
+            "roots": ["comes", "coming", "came"],
+            "hint": "I love it when friends … over to my house"
             },
             {
             "mainString": "morning",
             "isSpecial": false,
             "roots": [],
-            "hint": "When sun goes down and day ends,… begins"
+            "hint": "The earliest time of the day"
             },
             {
             "mainString": ",",
@@ -1605,25 +1608,25 @@
             {
             "mainString": "young",
             "isSpecial": false,
-            "roots": ["kings"],
-            "hint": "A man with a crown is often called..?"
+            "roots": [],
+            "hint": "What is the opposite of \"old\""
             },
             {
             "mainString": "man",
             "isSpecial": false,
-            "roots": ["order"],
-            "hint": "What do you do in a restaurant when the waiter comes?"
+            "roots": ["men"],
+            "hint": "What is the opposite of \"women\""
             },
             {
             "mainString": "woke",
             "isSpecial": false,
-            "roots": []
+            "roots": ["woke", "wake", "waking", "awake"],
+            "hint": "First thing you do in the morning"
             },
             {
             "mainString": "up",
             "isSpecial": false,
-            "roots": ["guards"],
-            "hint": "How would you call a person whose job is to protect the castle?"
+            "roots": []
             },
             {
             "mainString": "and",
@@ -1634,29 +1637,31 @@
             {
             "mainString": "run",
             "isSpecial": false,
-            "roots": []
+            "roots": ["running", "runs"],
+            "hint": "It's almost like walking, but very fast"
             },
             {
             "mainString": "into",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "You can say \"enter\" or go…"
             },
             {
             "mainString": "the",
             "isSpecial": false,
-            "roots": [],
-            "hint": "A daughter of a king is called..?"
+            "roots": []
             },
             {
             "mainString": "girls'",
             "isSpecial": false,
-            "roots": []
+            "roots": ["girl", "girls"],
+            "hint": "There are boys and there are …"
             },
             {
             "mainString": "room",
             "isSpecial": false,
-            "roots": [],
-            "hint": "Mary and Ellen go to school together, so you can say Mary goes to school …Ellen."
+            "roots": ["rooms"],
+            "hint": "It’s an area of the house - it has a door and a window"
             },
             {
             "mainString": ",",
@@ -1666,8 +1671,8 @@
             {
             "mainString": "where",
             "isSpecial": false,
-            "roots": ["lock"],
-            "hint": "When you leave the house, don’t forget to … the door"
+            "roots": [],
+            "hint": "If you don't see something, you may wonder …it is"
             },
             {
             "mainString": "he",
@@ -1678,32 +1683,38 @@
             {
             "mainString": "saw",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "Past tense of \"to see\""
             },
             {
             "mainString": "that",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "If it isn't \"this,\" it's …"
             },
             {
             "mainString": "they",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "When you are talking about a group of people, you say …"
             },
             {
             "mainString": "were",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "Past tense of \"are\""
             },
             {
             "mainString": "sleeping",
             "isSpecial": false,
-            "roots": []
+            "roots": ["sleepy", "sleep", "asleep"],
+            "hint": "The reason you go to bed at night"
             },
             {
             "mainString": "but",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "You can watch tv, …only after doing your homework"
             },
             {
             "mainString": "the",
@@ -1713,22 +1724,26 @@
             {
             "mainString": "shoes",
             "isSpecial": false,
-            "roots": []
+            "roots": ["shoe"],
+            "hint": "Those things you put on your feet to walk"
             },
             {
             "mainString": "were",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "Past tense of \"are\""
             },
             {
             "mainString": "torn",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "past tense of \"to tear\" (to rip apart)"
             },
             {
             "mainString": "again",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "When something happens often, you say: \"Here we go…!\""
             },
             {
             "mainString": ".",
@@ -1744,12 +1759,14 @@
             {
             "mainString": "slept",
             "isSpecial": false,
-            "roots": []
+            "roots": ["overslept"],
+            "hint": "Past tense of \"sleep\""
             },
             {
             "mainString": "through",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "If you are a ghost, you can go … the walls"
             },
             {
             "mainString": "the",
@@ -1759,7 +1776,8 @@
             {
             "mainString": "night",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "When sun goes down and day ends,… begins"
             },
             {
             "mainString": "and",
@@ -1769,32 +1787,38 @@
             {
             "mainString": "didn't",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "Past tense of \"don't\""
             },
             {
             "mainString": "see",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "What's the third letter of the alphabet, but also means \"to watch\""
             },
             {
             "mainString": "where",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "If you don't see something, you may wonder …it is"
             },
             {
             "mainString": "they",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "When you are talking about a group of people, you say …"
             },
             {
             "mainString": "went",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "Past tense of \"to go\""
             },
             {
             "mainString": "dancing",
             "isSpecial": false,
-            "roots": []
+            "roots": ["dancing", "dance", "dances", "danced"],
+            "hint": "People move in a funny way when they hear music, but they call it …"
             },
             {
             "mainString": "!",
@@ -1813,17 +1837,19 @@
             "mainString": "young",
             "isSpecial": false,
             "roots": [],
-            "hint": "When sun goes down and day ends,… begins"
+            "hint": "What is the opposite of \"old\""
             },
             {
             "mainString": "man",
             "isSpecial": false,
-            "roots": []
+            "roots": ["men"],
+            "hint": "What is the opposite of \"women\""
             },
             {
             "mainString": "failed",
             "isSpecial": false,
-            "roots": []
+            "roots": ["fail", "failing", "fails"],
+            "hint": "When you try, but don't succeed"
             },
             {
             "mainString": ",",
@@ -1845,19 +1871,20 @@
             {
             "mainString": "thrown",
             "isSpecial": false,
-            "roots": ["guards"],
-            "hint": "How would you call a person whose job is to protect the castle?"
+            "roots": ["throw", "threw"],
+            "hint": "You can say \"toss\" a ball, or you can use another word"
             },
             {
             "mainString": "into",
             "isSpecial": false,
             "roots": [],
-            "hint": "On an envelope, you put \"from\" and \"…\" whom the letter is sent"
+            "hint": "You can say \"enter\" or go…"
             },
             {
             "mainString": "jail",
             "isSpecial": false,
-            "roots": []
+            "roots": ["jailed"],
+            "hint": "People go there if they commit a crime"
             },
             {
             "mainString": ".",
@@ -1868,12 +1895,13 @@
             "mainString": "Others",
             "isSpecial": false,
             "roots": [],
-            "hint": "A daughter of a king is called..?"
+            "hint": "There is a saying: \"Treat ….how you want to be treated yourself.\""
             },
             {
-            "mainString": "came'",
+            "mainString": "came",
             "isSpecial": false,
-            "roots": []
+            "roots": ["come", "comes", "coming"],
+            "hint": "I love it when friends … over to my house "
             },
             {
             "mainString": "to",
@@ -1884,18 +1912,20 @@
             {
             "mainString": "try",
             "isSpecial": false,
-            "roots": []
+            "roots": ["trying"],
+            "hint": "If you don't get the result you want, you keep …"
             },
             {
             "mainString": "their",
             "isSpecial": false,
-            "roots": ["lock"],
-            "hint": "When you leave the house, don’t forget to … the door"
+            "roots": [],
+            "hint": "If a toy belongs to a few girls, you would say it's …. (belonging to them) toy. "
             },
             {
             "mainString": "luck",
             "isSpecial": false,
-            "roots": []
+            "roots": ["lucky"],
+            "hint": "You want this lady to go with you to a casino!"
             },
             {
             "mainString": ",",
@@ -1905,17 +1935,20 @@
             {
             "mainString": "but",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "You can watch tv, …only after doing your homework"
             },
             {
             "mainString": "all",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "When you are referring to everyone in the room"
             },
             {
             "mainString": "failed",
             "isSpecial": false,
-            "roots": []
+            "roots": ["fail", "failing", "fails"],
+            "hint": "When you try, but don't succeed"
             },
             {
             "mainString": "and",
@@ -1925,22 +1958,27 @@
             {
             "mainString": "were",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "Past tense of \"are\""
             },
             {
             "mainString": "thrown",
             "isSpecial": false,
-            "roots": []
+            "roots": ["throw", "threw"],
+            "hint": "You can say \"toss\" a ball, or you can use another word"
+
             },
             {
             "mainString": "into",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "You can say \"enter\" or go…"
             },
             {
             "mainString": "jail",
             "isSpecial": false,
-            "roots": []
+            "roots": ["jailed"],
+            "hint": "People go there if they commit a crime"
             },
             {
             "mainString": ".",
@@ -1959,29 +1997,31 @@
             "mainString": "poor",
             "isSpecial": false,
             "roots": [],
-            "hint": "When sun goes down and day ends,… begins"
+            "hint": "Opposite of rich"
             },
             {
             "mainString": "boy",
             "isSpecial": false,
-            "roots": []
+            "roots": ["boys"],
+            "hint": "There are girls and there are…"
             },
             {
             "mainString": "that",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "If it isn't \"this,\" it's …"
             },
             {
             "mainString": "lived",
             "isSpecial": false,
-            "roots": ["kings"],
-            "hint": "A man with a crown is often called..?"
+            "roots": ["live", "lives"],
+            "hint": "I … in an apartment. Where do you…?"
             },
             {
             "mainString": "on",
             "isSpecial": false,
-            "roots": ["order"],
-            "hint": "What do you do in a restaurant when the waiter comes?"
+            "roots": [],
+            "hint": "Opposite of \"off\""
             },
             {
             "mainString": "the",
@@ -1991,8 +2031,8 @@
             {
             "mainString": "street",
             "isSpecial": false,
-            "roots": ["guards"],
-            "hint": "How would you call a person whose job is to protect the castle?"
+            "roots": ["streets"],
+            "hint": "A city is filled with them, they all have names, they cross each other and you cross them too"
             },
             {
             "mainString": ",",
@@ -2008,7 +2048,8 @@
             {
             "mainString": "telling",
             "isSpecial": false,
-            "roots": []
+            "roots": ["tell", "told"],
+            "hint": "She … me a story"
             },
             {
             "mainString": "an",
@@ -2017,20 +2058,22 @@
             "hint": "A daughter of a king is called..?"
             },
             {
-            "mainString": "old'",
+            "mainString": "old",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "Opposite of young"
             },
             {
             "mainString": "lady",
             "isSpecial": false,
-            "roots": [],
-            "hint": "Mary and Ellen go to school together, so you can say Mary goes to school …Ellen."
+            "roots": ["ladies"],
+            "hint": "…and gentlemen"
             },
             {
             "mainString": "how",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "When you want to learn to do something, you ask \"… do you do this?\""
             },
             {
             "mainString": "he",
@@ -2041,17 +2084,20 @@
             {
             "mainString": "dreams",
             "isSpecial": false,
-            "roots": []
+            "roots": ["dream", "dreaming", "dreamt"],
+            "hint": "When you sleep, though your eyes are closed, you still see these"
             },
             {
             "mainString": "about",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "When the book looks interesting, you want to know what it is .."
             },
             {
             "mainString": "following",
             "isSpecial": false,
-            "roots": []
+            "roots": ["follow", "follows", "followed"],
+            "hint": "When you don't know how to get somewhere, you … the signs"
             },
             {
             "mainString": "the",
@@ -2061,7 +2107,8 @@
             {
             "mainString": "princesses",
             "isSpecial": false,
-            "roots": []
+            "roots": ["princess"],
+            "hint": "A daughter of a king is called..?"
             },
             {
             "mainString": ",",
@@ -2071,17 +2118,20 @@
             {
             "mainString": "finding",
             "isSpecial": false,
-            "roots": []
+            "roots": ["finds", "find", "found"],
+            "hint": "Everyone wants to … a treasure."
             },
             {
             "mainString": "out",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "The opposite of \"in\""
             },
             {
             "mainString": "where",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "If you don't see something, you may wonder …it is"
             },
             {
             "mainString": "the",
@@ -2091,13 +2141,14 @@
             {
             "mainString": "they",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "When you are talking about a group of people, you say …"
             },
             {
-            "mainString": "dances",
+            "mainString": "danced",
             "isSpecial": false,
-            "roots": []
-            },
+            "roots": ["dancing", "dance", "dances"],
+            "hint": "People move in a funny way when they hear music, but they call it …"            },
             {
             "mainString": "at",
             "isSpecial": false,
@@ -2106,7 +2157,8 @@
             {
             "mainString": "night",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "When sun goes down and day ends,… begins"
             },
             {
             "mainString": ",",
@@ -2121,17 +2173,20 @@
             {
             "mainString": "then",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "First, I was playing soccer, but … I started playing basketball"
             },
             {
             "mainString": "marrying",
             "isSpecial": false,
-            "roots": []
+            "roots": ["marry", "married", "marriage"],
+            "hint": "Two people fall in love and get…"
             },
             {
             "mainString": "one",
             "isSpecial": false,
-            "roots": []
+            "roots": ["1"],
+            "hint": "It's a number…are there things/characters that you see a few of? Let's start counting!"
             },
             {
             "mainString": "of",
@@ -2141,7 +2196,8 @@
             {
             "mainString": "them",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "It wasn't us, it was …"
             },
             {
             "mainString": ",",
@@ -2156,7 +2212,8 @@
             {
             "mainString": "becoming",
             "isSpecial": false,
-            "roots": []
+            "roots": ["become", "becoming", "becomes", "became"],
+            "hint": "When you study law, you … a lawyer"
             },
             {
             "mainString": "a",
@@ -2166,17 +2223,20 @@
             {
             "mainString": "king",
             "isSpecial": false,
-            "roots": []
+            "roots": ["kings"],
+            "hint": "A man with a crown is often called..?"
             },
             {
             "mainString": "one",
             "isSpecial": false,
-            "roots": []
+            "roots": ["1"],
+            "hint": "It's a number…are there things/characters that you see a few of? Let's start counting!"
             },
             {
             "mainString": "day",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "The difference is night and …"
             },
             {
             "mainString": ".",
@@ -2195,17 +2255,19 @@
             "mainString": "old",
             "isSpecial": false,
             "roots": [],
-            "hint": "When sun goes down and day ends,… begins"
+            "hint": "Opposite of young"
             },
             {
             "mainString": "lady",
             "isSpecial": false,
-            "roots": []
+            "roots": ["ladies"],
+            "hint": "…and gentlemen"
             },
             {
             "mainString": "whispered",
             "isSpecial": false,
-            "roots": []
+            "roots": ["whisper", "whispering", "whispers"],
+            "hint": "You do it to say something to someone in secret"
             },
             {
             "mainString": "to",
@@ -2216,8 +2278,8 @@
             {
             "mainString": "him",
             "isSpecial": false,
-            "roots": ["order"],
-            "hint": "What do you do in a restaurant when the waiter comes?"
+            "roots": [],
+            "hint": "I like her, but I don't like …"
             },
             {
             "mainString": "\"",
@@ -2227,8 +2289,8 @@
             {
             "mainString": "Go",
             "isSpecial": false,
-            "roots": ["guards"],
-            "hint": "How would you call a person whose job is to protect the castle?"
+            "roots": [],
+            "hint": "A very short word that describes moving from one place to another"
             },
             {
             "mainString": "to",
@@ -2244,7 +2306,8 @@
             {
             "mainString": "king",
             "isSpecial": false,
-            "roots": []
+            "roots": ["kings"],
+            "hint": "A man with a crown is often called..?"
             },
             {
             "mainString": "to",
@@ -2255,7 +2318,8 @@
             {
             "mainString": "take",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "Another word for \"accept\""
             },
             {
             "mainString": "the",
@@ -2266,7 +2330,8 @@
             {
             "mainString": "challenge",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "Another word for \"contest\""
             },
             {
             "mainString": ",",
@@ -2286,7 +2351,8 @@
             {
             "mainString": "night",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "When sun goes down and day ends,… begins"
             },
             {
             "mainString": ",",
@@ -2296,17 +2362,20 @@
             {
             "mainString": "when",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "If you want to know someone's birthday, you ask \"… is your birthday?\""
             },
             {
             "mainString": "you",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "I am a doctor. And …?"
             },
             {
             "mainString": "come",
             "isSpecial": false,
-            "roots": []
+            "roots": ["comes", "coming", "came"],
+            "hint": "I love it when friends … over to my house"
             },
             {
             "mainString": "to",
@@ -2322,12 +2391,14 @@
             {
             "mainString": "room",
             "isSpecial": false,
-            "roots": []
+            "roots": ["rooms"],
+            "hint": "It’s an area of the house - it has a door and a window"
             },
             {
             "mainString": "next",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "When something is located very close to something else"
             },
             {
             "mainString": "to",
@@ -2343,12 +2414,14 @@
             {
             "mainString": "princesses’",
             "isSpecial": false,
-            "roots": []
+            "roots": ["princess", "princesses"],
+            "hint": "You catch it with bait"
             },
             {
             "mainString": "room",
             "isSpecial": false,
-            "roots": []
+            "roots": ["rooms"],
+            "hint": "It’s an area of the house - it has a door and a window"
             },
             {
             "mainString": ",",
@@ -2358,7 +2431,8 @@
             {
             "mainString": "one",
             "isSpecial": false,
-            "roots": []
+            "roots": ["1"],
+            "hint": "It's a number…are there things/characters that you see a few of? Let's start counting!"
             },
             {
             "mainString": "of",
@@ -2373,27 +2447,32 @@
             {
             "mainString": "sisters",
             "isSpecial": false,
-            "roots": []
+            "roots": ["sister"],
+            "hint": "Siblings who are girls are called …"
             },
             {
             "mainString": "will",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "I … be a doctor when I grow up"
             },
             {
             "mainString": "bring",
             "isSpecial": false,
-            "roots": []
+            "roots": ["brings", "bringing", "brought" ],
+            "hint": "When you tell the dog to fetch, you want him to … you the ball"
             },
             {
             "mainString": "you",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "I am a doctor. And …?"
             },
             {
             "mainString": "wine",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "A drink made from grapes"
             },
             {
             "mainString": "-",
@@ -2403,12 +2482,14 @@
             {
             "mainString": "take",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "Another word for \"accept\""
             },
             {
             "mainString": "it",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "He, she, …"
             },
             {
             "mainString": ",",
@@ -2423,22 +2504,26 @@
             {
             "mainString": "when",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "If you want to know someone's birthday, you ask \"… is your birthday?\""
             },
             {
             "mainString": "no",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "Opposite of \"yes\""
             },
             {
             "mainString": "one",
             "isSpecial": false,
-            "roots": []
+            "roots": ["1"],
+            "hint": "It's a number…are there things/characters that you see a few of? Let's start counting!"
             },
             {
             "mainString": "sees",
             "isSpecial": false,
-            "roots": []
+            "roots": ["see"],
+            "hint": "What's the third letter of the alphabet, but also means \"to watch\""
             },
             {
             "mainString": ",",
@@ -2448,17 +2533,20 @@
             {
             "mainString": "pour",
             "isSpecial": false,
-            "roots": []
+            "roots": ["pours", "poured"],
+            "hint": "When it rains, it …"
             },
             {
             "mainString": "it",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "He, she, …"
             },
             {
             "mainString": "into",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "You can say \"enter\" or go…"
             },
             {
             "mainString": "the",
@@ -2468,17 +2556,20 @@
             {
             "mainString": "flower",
             "isSpecial": false,
-            "roots": []
+            "roots": ["flowers"],
+            "hint": "They bloom"
             },
             {
             "mainString": "pot",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "A place where house plans grow and live"
             },
             {
             "mainString": "on",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "Opposite of \"off\""
             },
             {
             "mainString": "the",
@@ -2488,7 +2579,8 @@
             {
             "mainString": "window",
             "isSpecial": false,
-            "roots": []
+            "roots": ["windows"],
+            "hint": "It's located on the wall and lets you see outside"
             },
             {
             "mainString": ",",
@@ -2503,32 +2595,38 @@
             {
             "mainString": "then",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "First, I was playing soccer, but … I started playing basketball"
             },
             {
             "mainString": "pretend",
             "isSpecial": false,
-            "roots": []
+            "roots": ["pretends", "pretending", "pretended"],
+            "hint": "When you want to look like you are sleeping when you are not"
             },
             {
             "mainString": "that",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "If it isn't \"this,\" it's …"
             },
             {
             "mainString": "you",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "I am a doctor. And …?"
             },
             {
             "mainString": "fell",
             "isSpecial": false,
-            "roots": []
+            "roots": ["fall", "falls", "fallen"],
+            "hint": "If you throw something, it … on the ground"
             },
             {
             "mainString": "asleep",
             "isSpecial": false,
-            "roots": []
+            "roots": ["sleepy", "sleep", "sleeping"],
+            "hint": "The reason you go to bed at night"
             },
             {
             "mainString": ".",
@@ -2552,23 +2650,25 @@
             "mainString": "old",
             "isSpecial": false,
             "roots": [],
-            "hint": "When sun goes down and day ends,… begins"
+            "hint": "Opposite of young"
             },
             {
             "mainString": "woman",
             "isSpecial": false,
-            "roots": []
+            "roots": ["women"],
+            "hint": "Not a man, but a …"
             },
             {
             "mainString": "pulled",
             "isSpecial": false,
-            "roots": []
+            "roots": ["pull", "pulls", "pulling"],
+            "hint": "Some doors you push to open, others you …"
             },
             {
             "mainString": "out",
             "isSpecial": false,
-            "roots": ["kings"],
-            "hint": "A man with a crown is often called..?"
+            "roots": [],
+            "hint": "The opposite of \"in\""
             },
             {
             "mainString": "a",
@@ -2579,28 +2679,32 @@
             {
             "mainString": "purple",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "It's a color. What colors do you see?"
             },
             {
             "mainString": "coat",
             "isSpecial": false,
-            "roots": ["guards"],
-            "hint": "How would you call a person whose job is to protect the castle?"
+            "roots": [],
+            "hint": "It's like a jacket, but longer, and is sometimes used in the rain"
             },
             {
             "mainString": "from",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "When you send a letter, you put your name in address in the section that says …"
             },
             {
             "mainString": "her",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "f a toy belongs to a girl, you would say it's …(belonging to her) toy"
             },
             {
             "mainString": "bag",
             "isSpecial": false,
-            "roots": []
+            "roots": ["bags"],
+            "hint": "You use it to carry things, they can be plastic, paper, fabric or leather"
             },
             {
             "mainString": ",",
@@ -2610,13 +2714,14 @@
             {
             "mainString": "handed",
             "isSpecial": false,
-            "roots": []
+            "roots": ["handing"],
+            "hint": "Another word for \"giving\""
             },
             {
             "mainString": "it",
             "isSpecial": false,
             "roots": [],
-            "hint": "Mary and Ellen go to school together, so you can say Mary goes to school …Ellen."
+            "hint": "He, she, …"
             },
             {
             "mainString": "to",
@@ -2632,7 +2737,8 @@
             {
             "mainString": "boy",
             "isSpecial": false,
-            "roots": []
+            "roots": ["boys"],
+            "hint": "There are girls and there are…"
             },
             {
             "mainString": ",",
@@ -2647,7 +2753,8 @@
             {
             "mainString": "said",
             "isSpecial": false,
-            "roots": []
+            "roots": ["say", "says"],
+            "hint": "nother word for \"telling\""
             },
             {
             "mainString": ":",
@@ -2662,7 +2769,8 @@
             {
             "mainString": "It",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "He, she, …"
             },
             {
             "mainString": "is",
@@ -2677,12 +2785,14 @@
             {
             "mainString": "magic",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "When something unbelievable happens, you say it's …!"
             },
             {
             "mainString": "coat",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "It's like a jacket, but longer, and is sometimes used in the rain"
             },
             {
             "mainString": ",",
@@ -2692,47 +2802,56 @@
             {
             "mainString": "when",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "If you want to know someone's birthday, you ask \"… is your birthday?\""
             },
             {
             "mainString": "you",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "I am a doctor. And …?"
             },
             {
             "mainString": "put",
             "isSpecial": false,
-            "roots": []
+            "roots": ["puts", "putting"],
+            "hint": "When you're done playing with toys, you … them away"
             },
             {
             "mainString": "it",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "He, she, …"
             },
             {
             "mainString": "on",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "Opposite of \"off\""
             },
             {
             "mainString": "you",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "I am a doctor. And …?"
             },
             {
             "mainString": "will",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "I … be a doctor when I grow up"
             },
             {
             "mainString": "become",
             "isSpecial": false,
-            "roots": []
+            "roots": ["becoming", "becomes", "became"],
+            "hint": "When you study law, you … a lawyer"
             },
             {
             "mainString": "invisible",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "Something that cannot be seen"
             },
             {
             "mainString": "and",
@@ -2742,12 +2861,14 @@
             {
             "mainString": "can",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "The word you use to say you are able to do something. But it can also contain soda."
             },
             {
             "mainString": "follow",
             "isSpecial": false,
-            "roots": []
+            "roots": ["following", "follows", "followed"],
+            "hint": "When you don't know how to get somewhere, you … the signs"
             },
             {
             "mainString": "the",
@@ -2757,37 +2878,44 @@
             {
             "mainString": "girls",
             "isSpecial": false,
-            "roots": []
+            "roots": ["girl"],
+            "hint": "There are boys and there are …"
             },
             {
             "mainString": "while",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "You can say \"during\" or …"
             },
             {
             "mainString": "they",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "When you are talking about a group of people, you say …"
             },
             {
             "mainString": "think",
             "isSpecial": false,
-            "roots": []
+            "roots": ["thinking", "thinks", "thought"],
+            "hint": "You have to do that a lot when solving a math problem"
             },
             {
             "mainString": "you",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "I am a doctor. And …?"
             },
             {
             "mainString": "are",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "I - am, You - …"
             },
             {
             "mainString": "asleep",
             "isSpecial": false,
-            "roots": []
+            "roots": ["sleepy", "sleep", "sleeping"],
+            "hint": "The reason you go to bed at night"
             },
             {
             "mainString": "in",
@@ -2797,12 +2925,14 @@
             {
             "mainString": "your",
             "isSpecial": false,
-            "roots": []
+            "roots": ["yours"],
+            "hint": "My name is Ana. And …?"
             },
             {
             "mainString": "room",
             "isSpecial": false,
-            "roots": []
+            "roots": ["rooms"],
+            "hint": "It’s an area of the house - it has a door and a window"
             },
             {
             "mainString": ".",
