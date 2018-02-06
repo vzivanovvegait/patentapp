@@ -101,6 +101,24 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
                 self.stop()
             }
         }
+        
+        bottomToolBar.settingsAction = {
+//            DialogUtils.showMultipleChoiceActionSheet(self, anchor: self.view, title: nil, message: nil, choises: ["Level", "Info"], completion: { (result) in
+//
+//            })
+            DialogUtils.showYesNoDialogWithInput(self, title: "Save", message: nil, positive: "Save", cancel: "Cancel", completion: { (selected, text) in
+                
+            })
+        }
+        
+        bottomToolBar.restartAction = {
+            DialogUtils.showYesNoDialog(self, title: nil, message: "Are you sure you want to reset this part of the story?", completion: { (result) in
+                if result {
+                    self.storyParts[self.storyIndex].reset()
+                    self.vc.setStoryPart(storyPart: self.storyParts[self.storyIndex])
+                }
+            })
+        }
     }
     
     func setSendContainer() {

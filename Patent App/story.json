@@ -63,7 +63,8 @@
             {
             "mainString": "had",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "To own something is in other words…"
             },
             {
             "mainString": "12",
@@ -85,7 +86,7 @@
             {
             "mainString": "12",
             "isSpecial": false,
-            "roots": [],
+            "roots": ["twelve"],
             "hint": "It's a number…are there things/characters that you see a few of? Let's start counting!"
             },
             {
@@ -111,7 +112,7 @@
             {
             "mainString": "shared",
             "isSpecial": false,
-            "roots": ["share", "shared", "shares"],
+            "roots": ["share", "shares"],
             "hint": "If you eat half of an apple, and your friend eats the other half, you ….that apple; they also say: \"….. is caring\" See if you can guess!"
             },
             {
@@ -150,7 +151,7 @@
             {
             "mainString": "stood",
             "isSpecial": false,
-            "roots": ["stood", "stand", "standing"],
+            "roots": ["stand", "standing"],
             "hint": "You use your legs to walk, but furniture can only use legs to… "
             },
             {
@@ -222,13 +223,13 @@
             {
             "mainString": "others",
             "isSpecial": false,
-            "roots": [],
+            "roots": ["other"],
             "hint": "There is a saying: \"Treat ….how you want to be treated yourself.\""
             },
             {
             "mainString": "and",
             "isSpecial": false,
-            "roots": ["other"]
+            "roots": []
             },
             {
             "mainString": "had",
@@ -504,8 +505,7 @@
             {
             "mainString": "the",
             "isSpecial": false,
-            "roots": [],
-            "hint": "When sun goes down and day ends,… begins"
+            "roots": []
             },
             {
             "mainString": "morning",
@@ -555,7 +555,7 @@
             {
             "mainString": "king",
             "isSpecial": false,
-            "roots": [],
+            "roots": ["kings"],
             "hint": "A man with a crown is often called..?"
             },
             {
@@ -728,7 +728,7 @@
             {
             "mainString": "dancing",
             "isSpecial": false,
-            "roots": ["dancing", "dance", "dances", "danced"],
+            "roots": ["dance", "dances", "danced"],
             "hint": "People move in a funny way when they hear music, but they call it …"
             },
             {
@@ -828,8 +828,8 @@
             {
             "mainString": "proclaimed",
             "isSpecial": false,
-            "roots": [],
-            "hint": "What do you do in a restaurant when the waiter comes?"
+            "roots": ["proclaim"],
+            "hint": "Another word for \"announce\""
             },
             {
             "mainString": "that",
@@ -846,7 +846,7 @@
             {
             "mainString": "follows",
             "isSpecial": false,
-            "roots": ["follow", "follows", "following", "followed"],
+            "roots": ["follow", "following", "followed"],
             "hint": "When you don't know how to get somewhere, you … the signs"
             },
             {
@@ -868,7 +868,7 @@
             {
             "mainString": "finds",
             "isSpecial": false,
-            "roots": ["finds", "find", "finding", "found"],
+            "roots": ["find", "finding", "found"],
             "hint": "Everyone wants to … a treasure."
             },
             {
@@ -1301,7 +1301,7 @@
             {
             "mainString": "door",
             "isSpecial": false,
-            "roots": ["rooms"],
+            "roots": ["doors"],
             "hint": "It’s an area of the house  - it has a door and a window"
             },
             {
@@ -1452,7 +1452,7 @@
             {
             "mainString": "yawning",
             "isSpecial": false,
-            "roots": ["yawn", "yawning"],
+            "roots": ["yawn"],
             "hint": "Your mouth does it when you are tired"
             },
             {
@@ -1527,7 +1527,7 @@
             {
             "mainString": "holding",
             "isSpecial": false,
-            "roots": ["holding", "hold", "holds"],
+            "roots": ["hold", "holds"],
             "hint": "When you don't want to drop something you're …. it tightly"
             },
             {
@@ -1654,7 +1654,7 @@
             {
             "mainString": "girls'",
             "isSpecial": false,
-            "roots": ["girl", "girls"],
+            "roots": ["girl"],
             "hint": "There are boys and there are …"
             },
             {
@@ -1737,7 +1737,7 @@
             "mainString": "torn",
             "isSpecial": false,
             "roots": [],
-            "hint": "past tense of \"to tear\" (to rip apart)"
+            "hint": "Past tense of \"to tear\" (to rip apart)"
             },
             {
             "mainString": "again",

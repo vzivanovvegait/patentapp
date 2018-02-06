@@ -16,6 +16,8 @@
                 <outlet property="forwardButton" destination="fyY-ud-Pff" id="czD-yj-rIb"/>
                 <outlet property="keyboardButton" destination="K47-Cf-6JB" id="Ahf-I6-nbf"/>
                 <outlet property="notesButton" destination="38v-WP-9Mb" id="N2E-bD-46Z"/>
+                <outlet property="restartButton" destination="Dt6-c1-MYh" id="KnG-kR-IyR"/>
+                <outlet property="settingsButton" destination="P7j-II-BmG" id="kpc-TN-10D"/>
                 <outlet property="startButton" destination="A30-a0-oDi" id="XEL-7b-lLD"/>
             </connections>
         </placeholder>
@@ -25,10 +27,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K47-Cf-6JB">
-                    <rect key="frame" x="15" y="20" width="40" height="40"/>
+                    <rect key="frame" x="8" y="25" width="30" height="30"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="K47-Cf-6JB" secondAttribute="height" multiplier="1:1" id="7os-2t-QB4"/>
-                        <constraint firstAttribute="width" constant="40" id="e4r-BO-3Pb"/>
+                        <constraint firstAttribute="width" constant="30" id="e4r-BO-3Pb"/>
                     </constraints>
                     <state key="normal" image="ic_keyboard"/>
                     <connections>
@@ -54,12 +56,12 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="38v-WP-9Mb">
-                    <rect key="frame" x="330" y="25" width="30" height="30"/>
+                    <rect key="frame" x="337" y="25" width="30" height="30"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="30" id="5zM-8i-Ltx"/>
                         <constraint firstAttribute="width" secondItem="38v-WP-9Mb" secondAttribute="height" multiplier="1:1" id="iEU-Vo-LuM"/>
                     </constraints>
-                    <state key="normal" title="back" image="note">
+                    <state key="normal" image="note">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -80,6 +82,34 @@
                         <action selector="recordAudio:" destination="-1" eventType="touchUpInside" id="Yu3-r2-zo7"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P7j-II-BmG">
+                    <rect key="frame" x="299" y="25" width="30" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="P7j-II-BmG" secondAttribute="height" multiplier="1:1" id="Nkr-Sf-T9S"/>
+                        <constraint firstAttribute="width" constant="30" id="j6J-sc-zGp"/>
+                    </constraints>
+                    <state key="normal" image="gearwheel">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="settings:" destination="-1" eventType="touchUpInside" id="vsW-Gd-vps"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dt6-c1-MYh">
+                    <rect key="frame" x="46" y="25" width="30" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="30" id="dhJ-Ye-PSd"/>
+                        <constraint firstAttribute="width" secondItem="Dt6-c1-MYh" secondAttribute="height" multiplier="1:1" id="hUu-Nl-FYj"/>
+                    </constraints>
+                    <inset key="imageEdgeInsets" minX="3" minY="3" maxX="3" maxY="3"/>
+                    <state key="normal" image="restart">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="restart:" destination="-1" eventType="touchUpInside" id="q54-z2-LSK"/>
+                        <action selector="settings:" destination="-1" eventType="touchUpInside" id="721-QZ-rBY"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.94901960780000005" green="0.91372549020000005" blue="0.52549019610000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -87,15 +117,20 @@
                 <constraint firstItem="fyY-ud-Pff" firstAttribute="height" secondItem="2tT-Em-2oR" secondAttribute="height" id="7Tq-Su-D7t"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="A30-a0-oDi" secondAttribute="bottom" constant="10" id="7j0-LL-dRd"/>
                 <constraint firstItem="A30-a0-oDi" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="9tW-2k-HpC"/>
+                <constraint firstItem="Dt6-c1-MYh" firstAttribute="width" secondItem="Dt6-c1-MYh" secondAttribute="height" multiplier="1:1" id="MoR-DD-XL9"/>
+                <constraint firstItem="P7j-II-BmG" firstAttribute="centerY" secondItem="38v-WP-9Mb" secondAttribute="centerY" id="QFV-bN-GUT"/>
                 <constraint firstItem="fyY-ud-Pff" firstAttribute="width" secondItem="2tT-Em-2oR" secondAttribute="width" id="Qgw-la-GBs"/>
                 <constraint firstItem="A30-a0-oDi" firstAttribute="leading" secondItem="2tT-Em-2oR" secondAttribute="trailing" constant="15" id="Vmy-ef-BgC"/>
-                <constraint firstItem="K47-Cf-6JB" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="WdK-pV-ebw"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="38v-WP-9Mb" secondAttribute="trailing" constant="15" id="ZIH-z7-WoC"/>
+                <constraint firstItem="K47-Cf-6JB" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="WdK-pV-ebw"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="38v-WP-9Mb" secondAttribute="trailing" constant="8" id="ZIH-z7-WoC"/>
                 <constraint firstItem="38v-WP-9Mb" firstAttribute="centerY" secondItem="A30-a0-oDi" secondAttribute="centerY" id="bxI-FU-yC6"/>
                 <constraint firstItem="2tT-Em-2oR" firstAttribute="centerY" secondItem="A30-a0-oDi" secondAttribute="centerY" id="dGq-Sz-u8b"/>
                 <constraint firstItem="K47-Cf-6JB" firstAttribute="centerY" secondItem="A30-a0-oDi" secondAttribute="centerY" id="i5E-YV-vaq"/>
                 <constraint firstItem="fyY-ud-Pff" firstAttribute="leading" secondItem="A30-a0-oDi" secondAttribute="trailing" constant="15" id="n7U-2u-WA2"/>
+                <constraint firstItem="Dt6-c1-MYh" firstAttribute="centerY" secondItem="K47-Cf-6JB" secondAttribute="centerY" id="qhR-Hj-V7T"/>
                 <constraint firstItem="A30-a0-oDi" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="rkl-TS-JpJ"/>
+                <constraint firstItem="Dt6-c1-MYh" firstAttribute="leading" secondItem="K47-Cf-6JB" secondAttribute="trailing" constant="8" id="shJ-Mq-QMe"/>
+                <constraint firstItem="38v-WP-9Mb" firstAttribute="leading" secondItem="P7j-II-BmG" secondAttribute="trailing" constant="8" id="ykg-Uw-XGy"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
@@ -104,7 +139,9 @@
     <resources>
         <image name="back" width="100" height="100"/>
         <image name="forward" width="100" height="100"/>
+        <image name="gearwheel" width="200" height="200"/>
         <image name="ic_keyboard" width="512" height="512"/>
         <image name="note" width="128" height="128"/>
+        <image name="restart" width="200" height="200"/>
     </resources>
 </document>

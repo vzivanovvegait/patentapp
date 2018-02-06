@@ -48,11 +48,11 @@ final class StoryPartViewController: UIViewController {
 
 extension StoryPartViewController {
     
-    func setLabel() {
+    fileprivate func setLabel() {
         storyPartLabel.delegate = self
     }
     
-    func setImage(image: UIImage) {
+    fileprivate func setImage(image: UIImage) {
         let imageAspect = Float(image.size.width / image.size.height)
         imageViewHeightConstraint.constant = CGFloat(Float(UIScreen.main.bounds.width) / imageAspect)
         storyPartImageView.image = image

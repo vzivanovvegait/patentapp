@@ -44,7 +44,64 @@ class DialogUtils {
         
         DispatchQueue.main.async {
             controller.present(dialog, animated: true, completion: nil)
+            dialog.view.tintColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
         }
+    }
+    
+    public static func showMultipleChoiceActionSheet(_ controller: UIViewController, anchor: UIView, title: String?, message: String?, choises: [String], completion: @escaping (_ selected: String) -> ()) {
+        
+        let optionMenu = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
+        
+        for choise in choises {
+            let action = UIAlertAction(title: choise, style: .default, handler: {
+                (alert: UIAlertAction!) -> Void in
+                completion(choise)
+            })
+            optionMenu.addAction(action)
+        }
+        let cancelAction = UIAlertAction(title: "Odustani", style: .cancel, handler: {
+            (alert: UIAlertAction!) -> Void in
+        })
+        optionMenu.addAction(cancelAction)
+        if let popoverController = optionMenu.popoverPresentationController {
+            popoverController.sourceView = anchor
+            popoverController.sourceRect = anchor.bounds
+        }
+        DispatchQueue.main.async {
+            controller.present(optionMenu, animated: true, completion: nil)
+            optionMenu.view.tintColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
+        }
+    }
+    
+    public static func showYesNoDialogWithInput(_ controller: UIViewController, title: String?, message: String?, positive: String, cancel: String?, completion: @escaping (_ selected: String, _ text: String?) -> ()) -> UIAlertController {
+        
+        let dialog = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let positiveAction = UIAlertAction(title: positive, style: .default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            completion(positive, (dialog.textFields![0] as UITextField).text)
+        })
+        
+        dialog.addAction(positiveAction)
+        
+        if let cancelString = cancel {
+            let cancelAction = UIAlertAction(title: cancelString, style: .cancel, handler: {
+                (alert: UIAlertAction!) -> Void in
+                completion(cancelString, nil)
+            })
+            
+            dialog.addAction(cancelAction)
+        }
+        
+        dialog.addTextField { (textField : UITextField!) -> Void in
+        }
+        
+        DispatchQueue.main.async {
+            controller.present(dialog, animated: true, completion: nil)
+            dialog.view.tintColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
+        }
+        
+        return dialog
     }
     
 }

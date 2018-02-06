@@ -15,13 +15,17 @@ class BottomToolBar: UIView {
     var nextAction: (()->())?
     var keyboardAction: (()->())?
     var playAction:((Bool)->())?
+    var settingsAction:(()->())?
+    var restartAction:(()->())?
     
     @IBOutlet weak var startButton: RecordStopButton!
     @IBOutlet weak var keyboardButton: UIButton!
     @IBOutlet weak var notesButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var forwardButton: UIButton!
-
+    @IBOutlet weak var settingsButton: UIButton!
+    @IBOutlet weak var restartButton: UIButton!
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -57,6 +61,10 @@ class BottomToolBar: UIView {
         backButton.tintColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
         forwardButton.setImage(#imageLiteral(resourceName: "forward").withRenderingMode(.alwaysTemplate), for: .normal)
         forwardButton.tintColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
+        settingsButton.setImage(#imageLiteral(resourceName: "gearwheel").withRenderingMode(.alwaysTemplate), for: .normal)
+        settingsButton.tintColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
+        restartButton.setImage(#imageLiteral(resourceName: "restart").withRenderingMode(.alwaysTemplate), for: .normal)
+        restartButton.tintColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
         
         backButton.isEnabled = false
         forwardButton.isEnabled = true
@@ -78,6 +86,14 @@ class BottomToolBar: UIView {
 
     @IBAction func keyboard(_ sender: Any) {
         keyboardAction?()
+    }
+    
+    @IBAction func settings(_ sender: Any) {
+        settingsAction?()
+    }
+    
+    @IBAction func restart(_ sender: Any) {
+        restartAction?()
     }
     
     @IBAction func recordAudio(_ sender: Any) {
