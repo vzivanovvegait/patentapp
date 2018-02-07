@@ -102,7 +102,7 @@ extension StoryPartViewController: TTTAttributedLabelDelegate {
             if isRecording {
                 handleResponse(index: index)
             } else if words[index].isFound {
-                saveWord(word: words[index].mainString)
+                saveWord(word: words[index])
             }
         }
     }
@@ -124,23 +124,42 @@ extension StoryPartViewController: TTTAttributedLabelDelegate {
                 if result {
                     self.words[index].changeState()
                     self.setTextLabel()
+                    self.saveWord(word: self.words[index])
                 }
             })
         case .normal:
-            saveWord(word: words[index].mainString)
+            saveWord(word: words[index])
         }
     }
     
-    func saveWord(word: String) {
-        DialogUtils.showYesNoDialog(self, title: "Save", message: "Are you sure you want to save \(word.uppercased()) into notes?", completion: { (result) in
+    func saveWord(word: Word) {
+        DialogUtils.showYesNoDialog(self, title: "Save", message: "Do you want to save \(word.mainString.uppercased()) into notes?", completion: { (result) in
             if result {
-                if NoteController.shared.insertNote(word: word.lowercased(), explanation: "test") {
-                    DialogUtils.showWarningDialog(self, title: nil, message: "\(word.uppercased()) has been added in Notes!", completion: nil)
-                } else {
-                    DialogUtils.showWarningDialog(self, title: "Error", message: "\(word.uppercased()) already exist in Notes!", completion: nil)
-                }
+                self.saveDialog(word: word)
             }
         })
+    }
+    
+    func saveDialog(word: Word) {
+        DialogUtils.showSaveDialog(self, title: nil, message: "Save word with:") { (result) in
+            if result == "text" {
+                DialogUtils.showYesNoDialogWithInput(self, title: nil, message: "Save word with explanation:", positive: "Save", cancel: "Cancel", completion: { (result, text) in
+                    if result, let text = text {
+                        self.save(word: word.mainString, explanation: text)
+                    }
+                })
+            } else if result == "clue" {
+                self.save(word: word.mainString, explanation: word.hint ?? "")
+            }
+        }
+    }
+    
+    func save(word: String, explanation: String) {
+        if NoteController.shared.insertNote(word: word.lowercased(), explanation: explanation) {
+            DialogUtils.showWarningDialog(self, title: nil, message: "\(word.uppercased()) has been added in Notes!", completion: nil)
+        } else {
+            DialogUtils.showWarningDialog(self, title: "Error", message: "\(word.uppercased()) already exist in Notes!", completion: nil)
+        }
     }
 }
 

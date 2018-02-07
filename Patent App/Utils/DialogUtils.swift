@@ -59,7 +59,7 @@ class DialogUtils {
             })
             optionMenu.addAction(action)
         }
-        let cancelAction = UIAlertAction(title: "Odustani", style: .cancel, handler: {
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {
             (alert: UIAlertAction!) -> Void in
         })
         optionMenu.addAction(cancelAction)
@@ -73,13 +73,15 @@ class DialogUtils {
         }
     }
     
-    public static func showYesNoDialogWithInput(_ controller: UIViewController, title: String?, message: String?, positive: String, cancel: String?, completion: @escaping (_ selected: String, _ text: String?) -> ()) -> UIAlertController {
+    public static func showYesNoDialogWithInput(_ controller: UIViewController, title: String?, message: String?, positive: String, cancel: String?, completion: @escaping (_ selected: Bool, _ text: String?) -> ()) {
         
         let dialog = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
         let positiveAction = UIAlertAction(title: positive, style: .default, handler: {
             (alert: UIAlertAction!) -> Void in
-            completion(positive, (dialog.textFields![0] as UITextField).text)
+            if let text = (dialog.textFields![0] as UITextField).text {
+                completion(true, text)
+            }
         })
         
         dialog.addAction(positiveAction)
@@ -87,7 +89,7 @@ class DialogUtils {
         if let cancelString = cancel {
             let cancelAction = UIAlertAction(title: cancelString, style: .cancel, handler: {
                 (alert: UIAlertAction!) -> Void in
-                completion(cancelString, nil)
+                completion(false, nil)
             })
             
             dialog.addAction(cancelAction)
@@ -101,7 +103,34 @@ class DialogUtils {
             dialog.view.tintColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
         }
         
-        return dialog
+    }
+    
+    public class func showSaveDialog(_ controller: UIViewController, title: String?, message: String?, completion: @escaping (_ selected: String) -> ()) {
+        
+        let dialog = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let customAction = UIAlertAction(title: "Custom text", style: .default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            completion("text")
+        })
+        dialog.addAction(customAction)
+        
+        let clueAction = UIAlertAction(title: "Clue", style: .default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            completion("clue")
+        })
+        dialog.addAction(clueAction)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {
+            (alert: UIAlertAction!) -> Void in
+            completion("")
+        })
+        dialog.addAction(cancelAction)
+        
+        DispatchQueue.main.async {
+            controller.present(dialog, animated: true, completion: nil)
+            dialog.view.tintColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
+        }
     }
     
 }

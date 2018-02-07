@@ -103,11 +103,8 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
         }
         
         bottomToolBar.settingsAction = {
-//            DialogUtils.showMultipleChoiceActionSheet(self, anchor: self.view, title: nil, message: nil, choises: ["Level", "Info"], completion: { (result) in
-//
-//            })
-            DialogUtils.showYesNoDialogWithInput(self, title: "Save", message: nil, positive: "Save", cancel: "Cancel", completion: { (selected, text) in
-                
+            DialogUtils.showMultipleChoiceActionSheet(self, anchor: self.view, title: nil, message: nil, choises: ["Level", "Info"], completion: { (result) in
+
             })
         }
         

@@ -33,7 +33,7 @@ class NoteController {
         let newUser = NSManagedObject(entity: entity!, insertInto: context) as! Note
         
         newUser.word = word
-//        newUser.explanation = explanation
+        newUser.explanation = explanation
         do {
             try context.save()
             return true

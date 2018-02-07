@@ -82,7 +82,7 @@
                         <action selector="recordAudio:" destination="-1" eventType="touchUpInside" id="Yu3-r2-zo7"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P7j-II-BmG">
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P7j-II-BmG">
                     <rect key="frame" x="299" y="25" width="30" height="30"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="P7j-II-BmG" secondAttribute="height" multiplier="1:1" id="Nkr-Sf-T9S"/>
@@ -107,7 +107,6 @@
                     </state>
                     <connections>
                         <action selector="restart:" destination="-1" eventType="touchUpInside" id="q54-z2-LSK"/>
-                        <action selector="settings:" destination="-1" eventType="touchUpInside" id="721-QZ-rBY"/>
                     </connections>
                 </button>
             </subviews>
