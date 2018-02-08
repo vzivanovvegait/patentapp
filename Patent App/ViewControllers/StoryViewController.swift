@@ -9,16 +9,17 @@
 import UIKit
 import AVFoundation
 import googleapis
-import TTTAttributedLabel
 
 let SAMPLE_RATE = 16000
 
 final class StoryViewController: UIViewController, StoryboardInitializable, KeyboardHandlerProtocol {
     
-    let vc:StoryPartViewController = StoryPartViewController.makeFromStoryboard()
+    var pageController = UIPageViewController()
+    var viewControllers = [StoryPartViewController]()
     
     var audioData: NSMutableData!
-    var timer = Timer()
+    
+    @IBOutlet weak var restartButton: UIButton!
     
     @IBOutlet weak var bottomToolBar: BottomToolBar!
     @IBOutlet weak var sendContainerView: SendContainerView!
@@ -32,10 +33,10 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setData()
         setContainerView()
         setBottomBar()
         setSendContainer()
-        setData()
         enableDismissKeyboardOnTap()
         
         AudioController.sharedInstance.delegate = self
@@ -59,16 +60,30 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
     
     func setData() {
         storyParts = StoryController.getStory()
-        vc.setStoryPart(storyPart: storyParts[storyIndex])
+        for part in storyParts {
+            let vc:StoryPartViewController = StoryPartViewController.makeFromStoryboard()
+            vc.setStoryPart(storyPart: part)
+            viewControllers.append(vc)
+        }
     }
     
     // Set UI
     
     func setContainerView() {
-        self.addChildViewController(vc)
-        vc.view.frame = storyPartContainerView.bounds
-        storyPartContainerView.addSubview(vc.view)
-        vc.didMove(toParentViewController: self)
+        
+        pageController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
+        pageController.dataSource = self
+        pageController.setViewControllers([viewControllers.first!], direction: .forward, animated: true, completion: nil)
+        
+        self.addChildViewController(pageController)
+        pageController.view.frame = storyPartContainerView.bounds
+        storyPartContainerView.addSubview(pageController.view)
+        pageController.didMove(toParentViewController: self)
+    }
+    
+    func setUI() {
+        restartButton.setImage(#imageLiteral(resourceName: "restart").withRenderingMode(.alwaysTemplate), for: .normal)
+        restartButton.tintColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
     }
 
     func setBottomBar() {
@@ -80,18 +95,6 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
         
         bottomToolBar.keyboardAction = {
             self.sendContainerView.setFirstResponder()
-        }
-        
-        bottomToolBar.previousAction = {
-            self.storyIndex = (self.storyIndex - 1 >= 0) ? self.storyIndex - 1 : self.storyIndex
-            self.bottomToolBar.setupPrevNextButtons(index: self.storyIndex, in: self.storyParts.count)
-            self.vc.setStoryPart(storyPart: self.storyParts[self.storyIndex])
-        }
-        
-        bottomToolBar.nextAction = {
-            self.storyIndex = (self.storyIndex + 1 < self.storyParts.count) ? self.storyIndex + 1 : self.storyIndex
-            self.bottomToolBar.setupPrevNextButtons(index: self.storyIndex, in: self.storyParts.count)
-            self.vc.setStoryPart(storyPart: self.storyParts[self.storyIndex])
         }
         
         bottomToolBar.playAction = { isPlay in
@@ -108,21 +111,39 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
             })
         }
         
-        bottomToolBar.restartAction = {
-            DialogUtils.showYesNoDialog(self, title: nil, message: "Are you sure you want to reset this part of the story?", completion: { (result) in
-                if result {
-                    self.storyParts[self.storyIndex].reset()
-                    self.vc.setStoryPart(storyPart: self.storyParts[self.storyIndex])
-                }
-            })
-        }
     }
     
     func setSendContainer() {
         sendContainerView.registerView { (text) in
-            if self.vc.checkStringFromResponse(response: text) {
-                self.vc.setTextLabel()
+            if self.viewControllers[self.storyIndex].checkStringFromResponse(response: text) {
+                self.viewControllers[self.storyIndex].setTextLabel()
+            } else {
+                let systemSoundID: SystemSoundID = kSystemSoundID_Vibrate
+                AudioServicesPlayAlertSound(systemSoundID)
+                self.playAudio()
             }
+        }
+    }
+    
+    var player: AVAudioPlayer?
+    
+    func playAudio() {
+        
+        let audioSession = AVAudioSession.sharedInstance()
+        do {
+            try audioSession.setCategory(AVAudioSessionCategoryAmbient)
+        } catch { }
+        
+        let url = Bundle.main.url(forResource: "ErrorAlert", withExtension: "mp3")!
+        
+        do {
+            player = try AVAudioPlayer(contentsOf: url)
+            guard let errorSound = player else { return }
+            
+            errorSound.prepareToPlay()
+            errorSound.play()
+        } catch let error {
+            print(error.localizedDescription)
         }
     }
     
@@ -138,8 +159,6 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
         _ = AudioController.sharedInstance.prepare(specifiedSampleRate: SAMPLE_RATE)
         SpeechRecognitionService.sharedInstance.sampleRate = SAMPLE_RATE
         _ = AudioController.sharedInstance.start()
-        
-        vc.isRecording = true
     }
     
     func stop() {
@@ -147,7 +166,6 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
             _ = AudioController.sharedInstance.stop()
             SpeechRecognitionService.sharedInstance.stopStreaming()
         }
-        vc.isRecording = false
     }
     
     // IBActions
@@ -155,6 +173,15 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
     @IBAction func back(_ sender: Any) {
         stop()
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func restart(_ sender: Any) {
+        DialogUtils.showYesNoDialog(self, title: nil, message: "Are you sure you want to reset this part of the story?", completion: { (result) in
+            if result {
+                self.storyParts[self.storyIndex].reset()
+//                self.vc.setStoryPart(storyPart: self.storyParts[self.storyIndex])
+            }
+        })
     }
 }
 
@@ -188,11 +215,9 @@ extension StoryViewController: AudioControllerDelegate {
                             guard let alternative = alternative as? SpeechRecognitionAlternative else {
                                 return
                             }
-                            strongSelf.vc.setGoogleLabel(text: alternative.transcript)
-                            if result.isFinal && strongSelf.vc.checkStringFromResponse(response: alternative.transcript) {
-                                strongSelf.timer.invalidate()
-                                strongSelf.timer = Timer.scheduledTimer(timeInterval: 2, target: strongSelf, selector: #selector(strongSelf.counter), userInfo: nil, repeats: false)
-                                strongSelf.vc.setTextLabel()
+                            strongSelf.bottomToolBar.setGoogleSpeechLabel(text: alternative.transcript)
+                            if result.isFinal && strongSelf.viewControllers[strongSelf.storyIndex].checkStringFromResponse(response: alternative.transcript) {
+                                strongSelf.viewControllers[strongSelf.storyIndex].setTextLabel()
                             }
                         }
                     }
@@ -201,10 +226,47 @@ extension StoryViewController: AudioControllerDelegate {
             self.audioData = NSMutableData()
         }
     }
-    
-    @objc func counter() {
-        vc.setGoogleLabel(text: "")
-    }
 
+}
+
+extension StoryViewController: UIPageViewControllerDataSource {
+    
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        
+        guard let viewControllerIndex = viewControllers.index(of: viewController as! StoryPartViewController) else {
+            return nil
+        }
+        storyIndex = viewControllerIndex
+        let previousIndex = viewControllerIndex - 1
+
+        guard previousIndex >= 0 else {
+            return nil
+        }
+
+        guard viewControllers.count > previousIndex else {
+            return nil
+        }
+        return viewControllers[previousIndex]
+    }
+    
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        
+        guard let viewControllerIndex = viewControllers.index(of: viewController as! StoryPartViewController) else {
+            return nil
+        }
+        storyIndex = viewControllerIndex
+        let nextIndex = viewControllerIndex + 1
+        let orderedViewControllersCount = viewControllers.count
+
+        guard orderedViewControllersCount != nextIndex else {
+            return nil
+        }
+
+        guard orderedViewControllersCount > nextIndex else {
+            return nil
+        }
+        return viewControllers[nextIndex]
+    }
+    
 }
 

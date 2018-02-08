@@ -12,127 +12,125 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BottomToolBar" customModule="Patent_App" customModuleProvider="target">
             <connections>
-                <outlet property="backButton" destination="2tT-Em-2oR" id="8vq-cF-kVa"/>
-                <outlet property="forwardButton" destination="fyY-ud-Pff" id="czD-yj-rIb"/>
+                <outlet property="googleSpeechLabel" destination="9ZV-2T-NXR" id="3PJ-39-J0K"/>
                 <outlet property="keyboardButton" destination="K47-Cf-6JB" id="Ahf-I6-nbf"/>
                 <outlet property="notesButton" destination="38v-WP-9Mb" id="N2E-bD-46Z"/>
-                <outlet property="restartButton" destination="Dt6-c1-MYh" id="KnG-kR-IyR"/>
                 <outlet property="settingsButton" destination="P7j-II-BmG" id="kpc-TN-10D"/>
                 <outlet property="startButton" destination="A30-a0-oDi" id="XEL-7b-lLD"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="139"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K47-Cf-6JB">
-                    <rect key="frame" x="8" y="25" width="30" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="K47-Cf-6JB" secondAttribute="height" multiplier="1:1" id="7os-2t-QB4"/>
-                        <constraint firstAttribute="width" constant="30" id="e4r-BO-3Pb"/>
-                    </constraints>
-                    <state key="normal" image="ic_keyboard"/>
-                    <connections>
-                        <action selector="keyboard:" destination="-1" eventType="touchUpInside" id="hdJ-2m-R9Y"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2tT-Em-2oR">
-                    <rect key="frame" x="102.5" y="20" width="40" height="40"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="40" id="4iU-ji-KZg"/>
-                        <constraint firstAttribute="width" secondItem="2tT-Em-2oR" secondAttribute="height" multiplier="1:1" id="omL-M5-knx"/>
-                    </constraints>
-                    <state key="normal" image="back"/>
-                    <connections>
-                        <action selector="previous:" destination="-1" eventType="touchUpInside" id="dPW-R4-Ter"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fyY-ud-Pff">
-                    <rect key="frame" x="232.5" y="20" width="40" height="40"/>
-                    <state key="normal" image="forward"/>
-                    <connections>
-                        <action selector="next:" destination="-1" eventType="touchUpInside" id="LOO-ip-W3q"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="38v-WP-9Mb">
-                    <rect key="frame" x="337" y="25" width="30" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="30" id="5zM-8i-Ltx"/>
-                        <constraint firstAttribute="width" secondItem="38v-WP-9Mb" secondAttribute="height" multiplier="1:1" id="iEU-Vo-LuM"/>
-                    </constraints>
-                    <state key="normal" image="note">
-                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="notes:" destination="-1" eventType="touchUpInside" id="RR1-KI-xqG"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A30-a0-oDi" customClass="RecordStopButton" customModule="Patent_App" customModuleProvider="target">
-                    <rect key="frame" x="157.5" y="10" width="60" height="60"/>
-                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="A30-a0-oDi" secondAttribute="height" multiplier="1:1" id="Qa9-op-G3C"/>
-                        <constraint firstAttribute="width" constant="60" id="qea-m5-CUE"/>
-                    </constraints>
-                    <state key="normal">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="recordAudio:" destination="-1" eventType="touchUpInside" id="Yu3-r2-zo7"/>
-                    </connections>
-                </button>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P7j-II-BmG">
-                    <rect key="frame" x="299" y="25" width="30" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="P7j-II-BmG" secondAttribute="height" multiplier="1:1" id="Nkr-Sf-T9S"/>
-                        <constraint firstAttribute="width" constant="30" id="j6J-sc-zGp"/>
-                    </constraints>
-                    <state key="normal" image="gearwheel">
-                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="settings:" destination="-1" eventType="touchUpInside" id="vsW-Gd-vps"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dt6-c1-MYh">
-                    <rect key="frame" x="46" y="25" width="30" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="30" id="dhJ-Ye-PSd"/>
-                        <constraint firstAttribute="width" secondItem="Dt6-c1-MYh" secondAttribute="height" multiplier="1:1" id="hUu-Nl-FYj"/>
-                    </constraints>
-                    <inset key="imageEdgeInsets" minX="3" minY="3" maxX="3" maxY="3"/>
-                    <state key="normal" image="restart">
-                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="restart:" destination="-1" eventType="touchUpInside" id="q54-z2-LSK"/>
-                    </connections>
-                </button>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="ZvP-u7-YGP">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="139"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ZV-2T-NXR">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="67"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="0.3803921569" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lAk-Ek-9nf">
+                            <rect key="frame" x="0.0" y="69" width="375" height="70"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K47-Cf-6JB">
+                                    <rect key="frame" x="0.0" y="20" width="30" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="K47-Cf-6JB" secondAttribute="height" multiplier="1:1" id="7os-2t-QB4"/>
+                                        <constraint firstAttribute="width" constant="30" id="e4r-BO-3Pb"/>
+                                    </constraints>
+                                    <state key="normal" image="ic_keyboard"/>
+                                    <connections>
+                                        <action selector="keyboard:" destination="-1" eventType="touchUpInside" id="hdJ-2m-R9Y"/>
+                                    </connections>
+                                </button>
+                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2tT-Em-2oR">
+                                    <rect key="frame" x="187.5" y="15" width="40" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="40" id="4iU-ji-KZg"/>
+                                        <constraint firstAttribute="width" secondItem="2tT-Em-2oR" secondAttribute="height" multiplier="1:1" id="omL-M5-knx"/>
+                                    </constraints>
+                                    <state key="normal" image="back"/>
+                                </button>
+                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fyY-ud-Pff">
+                                    <rect key="frame" x="317.5" y="15" width="40" height="40"/>
+                                    <state key="normal" image="forward"/>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="38v-WP-9Mb">
+                                    <rect key="frame" x="375" y="20" width="30" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="30" id="5zM-8i-Ltx"/>
+                                        <constraint firstAttribute="width" secondItem="38v-WP-9Mb" secondAttribute="height" multiplier="1:1" id="iEU-Vo-LuM"/>
+                                    </constraints>
+                                    <state key="normal" image="note">
+                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="notes:" destination="-1" eventType="touchUpInside" id="RR1-KI-xqG"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A30-a0-oDi" customClass="RecordStopButton" customModule="Patent_App" customModuleProvider="target">
+                                    <rect key="frame" x="242.5" y="5" width="60" height="60"/>
+                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="A30-a0-oDi" secondAttribute="height" multiplier="1:1" id="Qa9-op-G3C"/>
+                                        <constraint firstAttribute="width" constant="60" id="qea-m5-CUE"/>
+                                    </constraints>
+                                    <state key="normal">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="recordAudio:" destination="-1" eventType="touchUpInside" id="Yu3-r2-zo7"/>
+                                    </connections>
+                                </button>
+                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P7j-II-BmG">
+                                    <rect key="frame" x="375" y="20" width="30" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="P7j-II-BmG" secondAttribute="height" multiplier="1:1" id="Nkr-Sf-T9S"/>
+                                        <constraint firstAttribute="width" constant="30" id="j6J-sc-zGp"/>
+                                    </constraints>
+                                    <state key="normal" image="gearwheel">
+                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="settings:" destination="-1" eventType="touchUpInside" id="vsW-Gd-vps"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="A30-a0-oDi" firstAttribute="leading" secondItem="2tT-Em-2oR" secondAttribute="trailing" constant="15" id="3BD-jW-hwO"/>
+                                <constraint firstItem="fyY-ud-Pff" firstAttribute="centerY" secondItem="A30-a0-oDi" secondAttribute="centerY" id="4up-6l-3dZ"/>
+                                <constraint firstItem="A30-a0-oDi" firstAttribute="top" secondItem="lAk-Ek-9nf" secondAttribute="top" constant="5" id="511-7H-vaN"/>
+                                <constraint firstItem="fyY-ud-Pff" firstAttribute="leading" secondItem="A30-a0-oDi" secondAttribute="trailing" constant="15" id="BLY-79-fnR"/>
+                                <constraint firstItem="K47-Cf-6JB" firstAttribute="centerY" secondItem="A30-a0-oDi" secondAttribute="centerY" id="FkM-Lf-m4Z"/>
+                                <constraint firstItem="fyY-ud-Pff" firstAttribute="width" secondItem="2tT-Em-2oR" secondAttribute="width" id="MPp-7f-3bh"/>
+                                <constraint firstItem="A30-a0-oDi" firstAttribute="centerX" secondItem="lAk-Ek-9nf" secondAttribute="centerX" id="RMS-eL-bvT"/>
+                                <constraint firstAttribute="trailing" secondItem="38v-WP-9Mb" secondAttribute="trailing" constant="10" id="TlY-4S-Ylr"/>
+                                <constraint firstAttribute="bottom" secondItem="A30-a0-oDi" secondAttribute="bottom" constant="5" id="VFK-cx-fgO"/>
+                                <constraint firstItem="P7j-II-BmG" firstAttribute="centerY" secondItem="38v-WP-9Mb" secondAttribute="centerY" id="aDF-TL-gCM"/>
+                                <constraint firstItem="fyY-ud-Pff" firstAttribute="height" secondItem="2tT-Em-2oR" secondAttribute="height" id="em2-gs-yPU"/>
+                                <constraint firstItem="38v-WP-9Mb" firstAttribute="centerY" secondItem="A30-a0-oDi" secondAttribute="centerY" id="poQ-1H-JDk"/>
+                                <constraint firstItem="38v-WP-9Mb" firstAttribute="leading" secondItem="P7j-II-BmG" secondAttribute="trailing" constant="8" id="qFP-yp-6GZ"/>
+                                <constraint firstItem="K47-Cf-6JB" firstAttribute="leading" secondItem="lAk-Ek-9nf" secondAttribute="leading" constant="10" id="vvk-3z-Cf7"/>
+                                <constraint firstItem="2tT-Em-2oR" firstAttribute="centerY" secondItem="A30-a0-oDi" secondAttribute="centerY" id="z57-ky-GgO"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                </stackView>
             </subviews>
             <color key="backgroundColor" red="0.94901960780000005" green="0.91372549020000005" blue="0.52549019610000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="fyY-ud-Pff" firstAttribute="centerY" secondItem="A30-a0-oDi" secondAttribute="centerY" id="3aQ-kO-480"/>
-                <constraint firstItem="fyY-ud-Pff" firstAttribute="height" secondItem="2tT-Em-2oR" secondAttribute="height" id="7Tq-Su-D7t"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="A30-a0-oDi" secondAttribute="bottom" constant="10" id="7j0-LL-dRd"/>
-                <constraint firstItem="A30-a0-oDi" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="9tW-2k-HpC"/>
-                <constraint firstItem="Dt6-c1-MYh" firstAttribute="width" secondItem="Dt6-c1-MYh" secondAttribute="height" multiplier="1:1" id="MoR-DD-XL9"/>
-                <constraint firstItem="P7j-II-BmG" firstAttribute="centerY" secondItem="38v-WP-9Mb" secondAttribute="centerY" id="QFV-bN-GUT"/>
-                <constraint firstItem="fyY-ud-Pff" firstAttribute="width" secondItem="2tT-Em-2oR" secondAttribute="width" id="Qgw-la-GBs"/>
-                <constraint firstItem="A30-a0-oDi" firstAttribute="leading" secondItem="2tT-Em-2oR" secondAttribute="trailing" constant="15" id="Vmy-ef-BgC"/>
-                <constraint firstItem="K47-Cf-6JB" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="WdK-pV-ebw"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="38v-WP-9Mb" secondAttribute="trailing" constant="8" id="ZIH-z7-WoC"/>
-                <constraint firstItem="38v-WP-9Mb" firstAttribute="centerY" secondItem="A30-a0-oDi" secondAttribute="centerY" id="bxI-FU-yC6"/>
-                <constraint firstItem="2tT-Em-2oR" firstAttribute="centerY" secondItem="A30-a0-oDi" secondAttribute="centerY" id="dGq-Sz-u8b"/>
-                <constraint firstItem="K47-Cf-6JB" firstAttribute="centerY" secondItem="A30-a0-oDi" secondAttribute="centerY" id="i5E-YV-vaq"/>
-                <constraint firstItem="fyY-ud-Pff" firstAttribute="leading" secondItem="A30-a0-oDi" secondAttribute="trailing" constant="15" id="n7U-2u-WA2"/>
-                <constraint firstItem="Dt6-c1-MYh" firstAttribute="centerY" secondItem="K47-Cf-6JB" secondAttribute="centerY" id="qhR-Hj-V7T"/>
-                <constraint firstItem="A30-a0-oDi" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="rkl-TS-JpJ"/>
-                <constraint firstItem="Dt6-c1-MYh" firstAttribute="leading" secondItem="K47-Cf-6JB" secondAttribute="trailing" constant="8" id="shJ-Mq-QMe"/>
-                <constraint firstItem="38v-WP-9Mb" firstAttribute="leading" secondItem="P7j-II-BmG" secondAttribute="trailing" constant="8" id="ykg-Uw-XGy"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ZvP-u7-YGP" secondAttribute="trailing" id="2SJ-9z-YCU"/>
+                <constraint firstItem="ZvP-u7-YGP" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="9qU-ac-9v9"/>
+                <constraint firstItem="ZvP-u7-YGP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="F5X-8b-Hgg"/>
+                <constraint firstAttribute="bottom" secondItem="ZvP-u7-YGP" secondAttribute="bottom" id="YaV-nZ-vOb"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="26.5" y="82.5"/>
         </view>
     </objects>
     <resources>
@@ -141,6 +139,5 @@
         <image name="gearwheel" width="200" height="200"/>
         <image name="ic_keyboard" width="512" height="512"/>
         <image name="note" width="128" height="128"/>
-        <image name="restart" width="200" height="200"/>
     </resources>
 </document>

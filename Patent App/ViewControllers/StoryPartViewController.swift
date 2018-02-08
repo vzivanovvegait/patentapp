@@ -11,39 +11,23 @@ import TTTAttributedLabel
 
 final class StoryPartViewController: UIViewController {
     
-    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var scrollView: PatentScrollView!
     
     @IBOutlet weak var storyPartLabel: PatentLabel!
     @IBOutlet weak var storyPartImageView: UIImageView!
     @IBOutlet weak var imageViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var googleSpeechLabel: UILabel!
     
-    var image:UIImage? {
-        willSet {
-            if let image = newValue {
-                storyPartImageView.image = image
-                self.setImage(image: image)
-            }
-        }
-    }
+    var image:UIImage?
     
-    var words = [Word]() {
-        willSet {
-            let result = DataUtils.createString(from: newValue)
-            storyPartLabel.setText(result.0)
-            storyPartLabel.sizeToFit()
-        }
-    }
-    
-    var isRecording = false
+    var words = [Word]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setLabel()
+        setData()
 
         // Do any additional setup after loading the view.
     }
-    
 }
 
 extension StoryPartViewController {
@@ -63,9 +47,15 @@ extension StoryPartViewController {
         words = storyPart.words
     }
     
-    func setGoogleLabel(text: String) {
-        googleSpeechLabel.text = text
+    func setData() {
+        storyPartImageView.image = image
+        if let image = image {
+            self.setImage(image: image)
+        }
+        let result = DataUtils.createString(from: words)
+        storyPartLabel.setText(result.0)
     }
+    
 }
 
 extension StoryPartViewController {
@@ -74,7 +64,7 @@ extension StoryPartViewController {
         var isFound = false
         let responseArray = response.components(separatedBy: " ")
         for index in 0..<words.count {
-            if !words[index].check(array: responseArray) {
+            if words[index].check(array: responseArray) {
                 isFound = true
             }
         }
@@ -84,14 +74,6 @@ extension StoryPartViewController {
     func setTextLabel() {
         let result = DataUtils.createString(from: words)
         storyPartLabel.setText(result.0)
-//        if result.1 {
-//            sendContainerView.removeFirstResponder()
-//            self.bottomToolBar.recordAudio(self)
-//            FinishController.shared.showFinishView {
-//                self.startButton.count = 0
-//                FinishController.shared.hideFinishView()
-//            }
-//        }
     }
 
 }
@@ -99,11 +81,7 @@ extension StoryPartViewController {
 extension StoryPartViewController: TTTAttributedLabelDelegate {
     func attributedLabel(_ label: TTTAttributedLabel!, didSelectLinkWith url: URL!) {
         if let index = Int(url.absoluteString) {
-            if isRecording {
-                handleResponse(index: index)
-            } else if words[index].isFound {
-                saveWord(word: words[index])
-            }
+            handleResponse(index: index)
         }
     }
     

@@ -10,21 +10,18 @@ import UIKit
 
 class BottomToolBar: UIView {
     
+    var timer = Timer()
+    
     var notesAction: (()->())?
-    var previousAction: (()->())?
-    var nextAction: (()->())?
     var keyboardAction: (()->())?
     var playAction:((Bool)->())?
     var settingsAction:(()->())?
-    var restartAction:(()->())?
     
     @IBOutlet weak var startButton: RecordStopButton!
     @IBOutlet weak var keyboardButton: UIButton!
     @IBOutlet weak var notesButton: UIButton!
-    @IBOutlet weak var backButton: UIButton!
-    @IBOutlet weak var forwardButton: UIButton!
     @IBOutlet weak var settingsButton: UIButton!
-    @IBOutlet weak var restartButton: UIButton!
+    @IBOutlet weak var googleSpeechLabel: UILabel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -51,37 +48,22 @@ class BottomToolBar: UIView {
     }
     
     fileprivate func setupViews() {
-        keyboardButton.isEnabled = false
+        googleSpeechLabel.isHidden = true
+        
         keyboardButton.setImage(#imageLiteral(resourceName: "ic_keyboard").withRenderingMode(.alwaysTemplate), for: .normal)
         keyboardButton.tintColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
         startButton.delegate = self
         notesButton.setImage(#imageLiteral(resourceName: "note").withRenderingMode(.alwaysTemplate), for: .normal)
         notesButton.tintColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
-        backButton.setImage(#imageLiteral(resourceName: "back").withRenderingMode(.alwaysTemplate), for: .normal)
-        backButton.tintColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
-        forwardButton.setImage(#imageLiteral(resourceName: "forward").withRenderingMode(.alwaysTemplate), for: .normal)
-        forwardButton.tintColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
         settingsButton.setImage(#imageLiteral(resourceName: "gearwheel").withRenderingMode(.alwaysTemplate), for: .normal)
         settingsButton.tintColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
-        restartButton.setImage(#imageLiteral(resourceName: "restart").withRenderingMode(.alwaysTemplate), for: .normal)
-        restartButton.tintColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
         
-        backButton.isEnabled = false
-        forwardButton.isEnabled = true
     }
     
     // Actions
     
     @IBAction func notes(_ sender: Any) {
         notesAction?()
-    }
-    
-    @IBAction func previous(_ sender: Any) {
-        previousAction?()
-    }
-    
-    @IBAction func next(_ sender: Any) {
-        nextAction?()
     }
 
     @IBAction func keyboard(_ sender: Any) {
@@ -92,29 +74,26 @@ class BottomToolBar: UIView {
         settingsAction?()
     }
     
-    @IBAction func restart(_ sender: Any) {
-        restartAction?()
-    }
-    
     @IBAction func recordAudio(_ sender: Any) {
         startButton.isSelected = !startButton.isSelected
         if (startButton.isSelected) {
             playAction?(true)
-            keyboardButton.isEnabled = true
         } else {
             playAction?(false)
-            keyboardButton.isEnabled = false
         }
     }
     
-    func setupPrevNextButtons (index: Int, in arrayCount: Int) {
-        backButton.isEnabled = true
-        forwardButton.isEnabled = true
-        if (index == 0) {
-            backButton.isEnabled = false
-        }
-        if (index == arrayCount - 1) {
-            forwardButton.isEnabled = false
+    func setGoogleSpeechLabel(text: String){
+        googleSpeechLabel.isHidden = false
+        googleSpeechLabel.text = text
+        
+        timer.invalidate()
+        timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(counter), userInfo: nil, repeats: false)
+    }
+    
+    @objc func counter() {
+        UIView.animate(withDuration: 0.2) {
+            self.googleSpeechLabel.isHidden = true
         }
     }
 }

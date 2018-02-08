@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7A3882E7F463409C143F7A5E /* Pods_Patent_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27AFEF69F4C4243AA6F86D73 /* Pods_Patent_App.framework */; };
+		E10B710E202C7FF5003F32DC /* PatentScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10B710D202C7FF5003F32DC /* PatentScrollView.swift */; };
+		E10B7110202C9973003F32DC /* ErrorAlert.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E10B710F202C9972003F32DC /* ErrorAlert.mp3 */; };
 		E140398E1FFF7B4100FF4088 /* RecordStopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E140398D1FFF7B4100FF4088 /* RecordStopButton.swift */; };
 		E146A1CD200F51D60024E6A2 /* FinishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E146A1CC200F51D60024E6A2 /* FinishView.swift */; };
 		E146A1D1200F52000024E6A2 /* FinishView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E146A1D0200F52000024E6A2 /* FinishView.xib */; };
@@ -50,6 +52,8 @@
 		27AFEF69F4C4243AA6F86D73 /* Pods_Patent_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Patent_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A19AD277406B221DC623C2C /* Pods-Patent App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Patent App.release.xcconfig"; path = "Pods/Target Support Files/Pods-Patent App/Pods-Patent App.release.xcconfig"; sourceTree = "<group>"; };
 		D4D0EA8C9B9210A9EC420EBA /* Pods-Patent App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Patent App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Patent App/Pods-Patent App.debug.xcconfig"; sourceTree = "<group>"; };
+		E10B710D202C7FF5003F32DC /* PatentScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatentScrollView.swift; sourceTree = "<group>"; };
+		E10B710F202C9972003F32DC /* ErrorAlert.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ErrorAlert.mp3; sourceTree = "<group>"; };
 		E140398D1FFF7B4100FF4088 /* RecordStopButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordStopButton.swift; sourceTree = "<group>"; };
 		E146A1CC200F51D60024E6A2 /* FinishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishView.swift; sourceTree = "<group>"; };
 		E146A1D0200F52000024E6A2 /* FinishView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FinishView.xib; sourceTree = "<group>"; };
@@ -117,6 +121,14 @@
 				7A19AD277406B221DC623C2C /* Pods-Patent App.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		E10B710C202C7FD0003F32DC /* ScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				E10B710D202C7FF5003F32DC /* PatentScrollView.swift */,
+			);
+			path = ScrollView;
 			sourceTree = "<group>";
 		};
 		E146A1CB200F51B80024E6A2 /* FinishView */ = {
@@ -210,6 +222,7 @@
 				E194D73020077A1B005D62EF /* GoogleSpeech */,
 				E19170EA1FF3985100C3BD1C /* Assets.xcassets */,
 				E19170EF1FF3985100C3BD1C /* Info.plist */,
+				E10B710F202C9972003F32DC /* ErrorAlert.mp3 */,
 				E18937B0201F81EA009776A0 /* story.json */,
 				E1ED4412201B530B00BA291A /* Patent.xcdatamodeld */,
 			);
@@ -219,6 +232,7 @@
 		E194D72A2007797B005D62EF /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				E10B710C202C7FD0003F32DC /* ScrollView */,
 				E14F66CC2023725D000C9CA4 /* Labels */,
 				E14F66C7202349DE000C9CA4 /* BottomToolBar */,
 				E188E2862010D4D200755614 /* SendContainerView */,
@@ -345,6 +359,7 @@
 				E19170E91FF3985100C3BD1C /* Main.storyboard in Resources */,
 				E14F66CB20234A26000C9CA4 /* BottomToolBar.xib in Resources */,
 				E146A1D1200F52000024E6A2 /* FinishView.xib in Resources */,
+				E10B7110202C9973003F32DC /* ErrorAlert.mp3 in Resources */,
 				E188E2852010D3DA00755614 /* SendContainerView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -449,6 +464,7 @@
 				E17D12E1201779B70040681E /* DialogUtils.swift in Sources */,
 				E194D72520076C0F005D62EF /* MenuButton.swift in Sources */,
 				E1ED4432201B609000BA291A /* Note+CoreDataProperties.swift in Sources */,
+				E10B710E202C7FF5003F32DC /* PatentScrollView.swift in Sources */,
 				E1ED4434201B654600BA291A /* CoreDataManager.swift in Sources */,
 				E146A1D3200F52D50024E6A2 /* FinishController.swift in Sources */,
 				E1ED4409201B510200BA291A /* NotesViewController.swift in Sources */,
