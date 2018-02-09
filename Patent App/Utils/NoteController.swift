@@ -25,7 +25,7 @@ class NoteController {
         return []
     }
     
-    func insertNote(word: String, explanation: String) -> Bool {
+    func insertNote(word: String, explanation: String?) -> Bool {
         let context = CoreDataManager.shared.persistentContainer.viewContext
 //        context.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
         

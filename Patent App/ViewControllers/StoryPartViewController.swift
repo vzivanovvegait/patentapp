@@ -28,6 +28,11 @@ final class StoryPartViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setTextLabel()
+    }
 }
 
 extension StoryPartViewController {
@@ -119,24 +124,10 @@ extension StoryPartViewController: TTTAttributedLabelDelegate {
     }
     
     func saveDialog(word: Word) {
-        DialogUtils.showSaveDialog(self, title: nil, message: "Save word with:") { (result) in
-            if result == "text" {
-                DialogUtils.showYesNoDialogWithInput(self, title: nil, message: "Save word with explanation:", positive: "Save", cancel: "Cancel", completion: { (result, text) in
-                    if result, let text = text {
-                        self.save(word: word.mainString, explanation: text)
-                    }
-                })
-            } else if result == "clue" {
-                self.save(word: word.mainString, explanation: word.hint ?? "")
-            }
-        }
-    }
-    
-    func save(word: String, explanation: String) {
-        if NoteController.shared.insertNote(word: word.lowercased(), explanation: explanation) {
-            DialogUtils.showWarningDialog(self, title: nil, message: "\(word.uppercased()) has been added in Notes!", completion: nil)
+        if NoteController.shared.insertNote(word: word.mainString.lowercased(), explanation: word.hint?.lowercased()) {
+            DialogUtils.showWarningDialog(self, title: nil, message: "\(word.mainString.uppercased()) has been added in Notes!", completion: nil)
         } else {
-            DialogUtils.showWarningDialog(self, title: "Error", message: "\(word.uppercased()) already exist in Notes!", completion: nil)
+            DialogUtils.showWarningDialog(self, title: "Error", message: "\(word.mainString.uppercased()) already exist in Notes!", completion: nil)
         }
     }
 }

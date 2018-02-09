@@ -14,6 +14,8 @@
 		E146A1CD200F51D60024E6A2 /* FinishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E146A1CC200F51D60024E6A2 /* FinishView.swift */; };
 		E146A1D1200F52000024E6A2 /* FinishView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E146A1D0200F52000024E6A2 /* FinishView.xib */; };
 		E146A1D3200F52D50024E6A2 /* FinishController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E146A1D2200F52D50024E6A2 /* FinishController.swift */; };
+		E148C451202D9F24003906A4 /* TopToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E148C450202D9F24003906A4 /* TopToolBar.swift */; };
+		E148C456202D9FBC003906A4 /* TopToolBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = E148C455202D9FBC003906A4 /* TopToolBar.xib */; };
 		E14F66C920234A11000C9CA4 /* BottomToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14F66C820234A11000C9CA4 /* BottomToolBar.swift */; };
 		E14F66CB20234A26000C9CA4 /* BottomToolBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = E14F66CA20234A26000C9CA4 /* BottomToolBar.xib */; };
 		E14F66CE2023727B000C9CA4 /* PatentLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14F66CD2023727B000C9CA4 /* PatentLabel.swift */; };
@@ -58,6 +60,8 @@
 		E146A1CC200F51D60024E6A2 /* FinishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishView.swift; sourceTree = "<group>"; };
 		E146A1D0200F52000024E6A2 /* FinishView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FinishView.xib; sourceTree = "<group>"; };
 		E146A1D2200F52D50024E6A2 /* FinishController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishController.swift; sourceTree = "<group>"; };
+		E148C450202D9F24003906A4 /* TopToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopToolBar.swift; sourceTree = "<group>"; };
+		E148C455202D9FBC003906A4 /* TopToolBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopToolBar.xib; sourceTree = "<group>"; };
 		E14F66C820234A11000C9CA4 /* BottomToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomToolBar.swift; sourceTree = "<group>"; };
 		E14F66CA20234A26000C9CA4 /* BottomToolBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BottomToolBar.xib; sourceTree = "<group>"; };
 		E14F66CD2023727B000C9CA4 /* PatentLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatentLabel.swift; sourceTree = "<group>"; };
@@ -138,6 +142,15 @@
 				E146A1D0200F52000024E6A2 /* FinishView.xib */,
 			);
 			path = FinishView;
+			sourceTree = "<group>";
+		};
+		E148C452202D9F7E003906A4 /* TopToolBar */ = {
+			isa = PBXGroup;
+			children = (
+				E148C450202D9F24003906A4 /* TopToolBar.swift */,
+				E148C455202D9FBC003906A4 /* TopToolBar.xib */,
+			);
+			path = TopToolBar;
 			sourceTree = "<group>";
 		};
 		E14F66C7202349DE000C9CA4 /* BottomToolBar */ = {
@@ -232,6 +245,7 @@
 		E194D72A2007797B005D62EF /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				E148C452202D9F7E003906A4 /* TopToolBar */,
 				E10B710C202C7FD0003F32DC /* ScrollView */,
 				E14F66CC2023725D000C9CA4 /* Labels */,
 				E14F66C7202349DE000C9CA4 /* BottomToolBar */,
@@ -357,6 +371,7 @@
 				E19170EB1FF3985100C3BD1C /* Assets.xcassets in Resources */,
 				E18937B1201F81EB009776A0 /* story.json in Resources */,
 				E19170E91FF3985100C3BD1C /* Main.storyboard in Resources */,
+				E148C456202D9FBC003906A4 /* TopToolBar.xib in Resources */,
 				E14F66CB20234A26000C9CA4 /* BottomToolBar.xib in Resources */,
 				E146A1D1200F52000024E6A2 /* FinishView.xib in Resources */,
 				E10B7110202C9973003F32DC /* ErrorAlert.mp3 in Resources */,
@@ -466,6 +481,7 @@
 				E1ED4432201B609000BA291A /* Note+CoreDataProperties.swift in Sources */,
 				E10B710E202C7FF5003F32DC /* PatentScrollView.swift in Sources */,
 				E1ED4434201B654600BA291A /* CoreDataManager.swift in Sources */,
+				E148C451202D9F24003906A4 /* TopToolBar.swift in Sources */,
 				E146A1D3200F52D50024E6A2 /* FinishController.swift in Sources */,
 				E1ED4409201B510200BA291A /* NotesViewController.swift in Sources */,
 				E19170E41FF3985100C3BD1C /* AppDelegate.swift in Sources */,

@@ -19,8 +19,7 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
     
     var audioData: NSMutableData!
     
-    @IBOutlet weak var restartButton: UIButton!
-    
+    @IBOutlet weak var topToolBar: TopToolBar!
     @IBOutlet weak var bottomToolBar: BottomToolBar!
     @IBOutlet weak var sendContainerView: SendContainerView!
     @IBOutlet weak var storyPartContainerView: UIView!
@@ -35,6 +34,7 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
         
         setData()
         setContainerView()
+        setTopBar()
         setBottomBar()
         setSendContainer()
         enableDismissKeyboardOnTap()
@@ -81,9 +81,26 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
         pageController.didMove(toParentViewController: self)
     }
     
-    func setUI() {
-        restartButton.setImage(#imageLiteral(resourceName: "restart").withRenderingMode(.alwaysTemplate), for: .normal)
-        restartButton.tintColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
+    func setTopBar() {
+        
+        topToolBar.backAction = {
+            self.stop()
+            self.navigationController?.popViewController(animated: true)
+        }
+        
+        topToolBar.restartAction = {
+            DialogUtils.showMoreDialog(self, title: nil, message: nil, choises: ["Start Over This Page", "Start Over Entire Story"], completion: { (result) in
+                if result == "Start Over This Page" {
+                    self.storyParts[self.storyIndex].reset()
+                    self.viewControllers[self.storyIndex].setTextLabel()
+                } else if result == "Start Over Entire Story" {
+                    for part in self.storyParts {
+                        part.reset()
+                    }
+                    self.viewControllers[self.storyIndex].setTextLabel()
+                }
+            })
+        }
     }
 
     func setBottomBar() {
@@ -118,8 +135,6 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
             if self.viewControllers[self.storyIndex].checkStringFromResponse(response: text) {
                 self.viewControllers[self.storyIndex].setTextLabel()
             } else {
-                let systemSoundID: SystemSoundID = kSystemSoundID_Vibrate
-                AudioServicesPlayAlertSound(systemSoundID)
                 self.playAudio()
             }
         }
@@ -133,6 +148,9 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
         do {
             try audioSession.setCategory(AVAudioSessionCategoryAmbient)
         } catch { }
+        
+        let systemSoundID: SystemSoundID = kSystemSoundID_Vibrate
+        AudioServicesPlayAlertSound(systemSoundID)
         
         let url = Bundle.main.url(forResource: "ErrorAlert", withExtension: "mp3")!
         
@@ -166,22 +184,6 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
             _ = AudioController.sharedInstance.stop()
             SpeechRecognitionService.sharedInstance.stopStreaming()
         }
-    }
-    
-    // IBActions
-    
-    @IBAction func back(_ sender: Any) {
-        stop()
-        self.navigationController?.popViewController(animated: true)
-    }
-    
-    @IBAction func restart(_ sender: Any) {
-        DialogUtils.showYesNoDialog(self, title: nil, message: "Are you sure you want to reset this part of the story?", completion: { (result) in
-            if result {
-                self.storyParts[self.storyIndex].reset()
-//                self.vc.setStoryPart(storyPart: self.storyParts[self.storyIndex])
-            }
-        })
     }
 }
 

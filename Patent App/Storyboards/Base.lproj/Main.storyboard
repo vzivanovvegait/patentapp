@@ -121,19 +121,6 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="523"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mB7-rx-iW2">
-                                <rect key="frame" x="10" y="27" width="30" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="0A4-nT-aKC"/>
-                                    <constraint firstAttribute="width" secondItem="mB7-rx-iW2" secondAttribute="height" multiplier="1:1" id="HLW-US-xDk"/>
-                                </constraints>
-                                <state key="normal" title="back" image="arrow">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="back:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PYd-wI-IIb"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="80" translatesAutoresizingMaskIntoConstraints="NO" id="4Da-sc-Dle" customClass="BottomToolBar" customModule="Patent_App" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="587" width="375" height="80"/>
                                 <color key="backgroundColor" red="0.94901960780000005" green="0.91372549020000005" blue="0.52549019610000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -145,37 +132,29 @@
                                     <constraint firstAttribute="height" constant="50" id="Uib-LV-chZ"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aY3-8w-rR6">
-                                <rect key="frame" x="335" y="27" width="30" height="30"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ks3-mz-qsw" customClass="TopToolBar" customModule="Patent_App" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="aY3-8w-rR6" secondAttribute="height" multiplier="1:1" id="1VK-fq-mUh"/>
-                                    <constraint firstAttribute="width" constant="30" id="C4g-ut-nmw"/>
+                                    <constraint firstAttribute="height" constant="44" id="K9f-in-oWP"/>
                                 </constraints>
-                                <inset key="imageEdgeInsets" minX="3" minY="3" maxX="3" maxY="3"/>
-                                <state key="normal" image="restart">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="restart:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ICB-QY-Jz0"/>
-                                </connections>
-                            </button>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.94901960780000005" green="0.91372549020000005" blue="0.52549019610000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="chN-RL-6xu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="44" id="AEJ-gM-BhI"/>
-                            <constraint firstItem="mB7-rx-iW2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="KnJ-Op-JwI"/>
-                            <constraint firstItem="aY3-8w-rR6" firstAttribute="centerY" secondItem="mB7-rx-iW2" secondAttribute="centerY" id="OGe-Em-apv"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ks3-mz-qsw" secondAttribute="trailing" id="84f-lQ-RK3"/>
+                            <constraint firstItem="ks3-mz-qsw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="NcM-uo-m8H"/>
+                            <constraint firstItem="chN-RL-6xu" firstAttribute="top" secondItem="ks3-mz-qsw" secondAttribute="bottom" id="RBy-aa-kEr"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4Da-sc-Dle" secondAttribute="trailing" id="Rwd-VA-Laj"/>
                             <constraint firstItem="chN-RL-6xu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="YAS-Sp-zz6"/>
                             <constraint firstItem="4Da-sc-Dle" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Zfh-jW-AxC"/>
                             <constraint firstItem="od5-S2-p1o" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ZwS-qa-Ins"/>
                             <constraint firstItem="chN-RL-6xu" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ahZ-0w-JU6"/>
                             <constraint firstItem="4Da-sc-Dle" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="b6V-Lw-HVw"/>
+                            <constraint firstItem="ks3-mz-qsw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="eRd-iR-oZI"/>
                             <constraint firstAttribute="bottom" secondItem="od5-S2-p1o" secondAttribute="bottom" constant="-50" id="fg4-I0-8As"/>
                             <constraint firstItem="od5-S2-p1o" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="nVq-iO-eOj"/>
-                            <constraint firstItem="mB7-rx-iW2" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="22" id="wXv-xq-2sx"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="chN-RL-6xu" secondAttribute="bottom" constant="50" id="yAO-4r-hqo"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aY3-8w-rR6" secondAttribute="trailing" constant="10" id="zVm-K6-xmi"/>
                             <constraint firstItem="4Da-sc-Dle" firstAttribute="top" secondItem="chN-RL-6xu" secondAttribute="bottom" priority="750" id="zwv-YA-Ute"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -183,10 +162,10 @@
                     <connections>
                         <outlet property="bottomToolBar" destination="4Da-sc-Dle" id="uv4-ei-kLN"/>
                         <outlet property="containerViewBottomConstraint" destination="yAO-4r-hqo" id="HeD-ew-vwR"/>
-                        <outlet property="restartButton" destination="aY3-8w-rR6" id="wwv-bm-tkM"/>
                         <outlet property="sendContainerView" destination="od5-S2-p1o" id="YzH-Gd-mEk"/>
                         <outlet property="sendboxBottomConstraint" destination="fg4-I0-8As" id="dgN-P4-iwD"/>
                         <outlet property="storyPartContainerView" destination="chN-RL-6xu" id="KqZ-vT-cSe"/>
+                        <outlet property="topToolBar" destination="ks3-mz-qsw" id="uf5-q4-lon"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -276,7 +255,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="59"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2kc-bd-cv4" id="9s9-Cq-ERZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="58.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5T2-Nv-n4d">
@@ -337,6 +316,5 @@
     <resources>
         <image name="1" width="1024" height="584"/>
         <image name="arrow" width="512" height="512"/>
-        <image name="restart" width="200" height="200"/>
     </resources>
 </document>

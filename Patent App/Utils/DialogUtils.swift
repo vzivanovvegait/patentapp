@@ -105,25 +105,20 @@ class DialogUtils {
         
     }
     
-    public class func showSaveDialog(_ controller: UIViewController, title: String?, message: String?, completion: @escaping (_ selected: String) -> ()) {
+    public class func showMoreDialog(_ controller: UIViewController, title: String?, message: String?, choises: [String], completion: @escaping (_ selected: String) -> ()) {
         
         let dialog = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
-        let customAction = UIAlertAction(title: "Custom text", style: .default, handler: {
-            (alert: UIAlertAction!) -> Void in
-            completion("text")
-        })
-        dialog.addAction(customAction)
-        
-        let clueAction = UIAlertAction(title: "Clue", style: .default, handler: {
-            (alert: UIAlertAction!) -> Void in
-            completion("clue")
-        })
-        dialog.addAction(clueAction)
+        for choise in choises {
+            let action = UIAlertAction(title: choise, style: .default, handler: {
+                (alert: UIAlertAction!) -> Void in
+                completion(choise)
+            })
+            dialog.addAction(action)
+        }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {
             (alert: UIAlertAction!) -> Void in
-            completion("")
         })
         dialog.addAction(cancelAction)
         
