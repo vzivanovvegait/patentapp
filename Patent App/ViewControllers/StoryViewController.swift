@@ -170,8 +170,7 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
     func play() {
         let audioSession = AVAudioSession.sharedInstance()
         do {
-            try audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
-//            try audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord, with: AVAudioSessionCategoryOptions.defaultToSpeaker)
+            try audioSession.setCategory(AVAudioSessionCategoryRecord)
         } catch { }
         
         audioData = NSMutableData()

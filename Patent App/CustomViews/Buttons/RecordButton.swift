@@ -50,35 +50,39 @@ class RecordButton: UIButton {
     }
     
     func changeToBigger() {
+        CATransaction.begin()
         let expandAnimation: CABasicAnimation = CABasicAnimation(keyPath: "path")
         expandAnimation.fromValue = ovalPathStart.cgPath
         expandAnimation.toValue = ovalPathEnd.cgPath
-        expandAnimation.duration = 0.1
+        expandAnimation.duration = 0.2
         expandAnimation.fillMode = kCAFillModeForwards
         expandAnimation.isRemovedOnCompletion = false
+        CATransaction.setCompletionBlock {
+            print("aaaaaaa")
+//            self.startAction?()
+        }
         ovalLayer.add(expandAnimation, forKey: nil)
+        CATransaction.commit()
     }
     
     func changeToSmaller() {
         let expandAnimation: CABasicAnimation = CABasicAnimation(keyPath: "path")
         expandAnimation.fromValue = ovalPathEnd.cgPath
         expandAnimation.toValue = ovalPathStart.cgPath
-        expandAnimation.duration = 0.1
+        expandAnimation.duration = 0.2
         expandAnimation.fillMode = kCAFillModeForwards
         expandAnimation.isRemovedOnCompletion = false
         ovalLayer.add(expandAnimation, forKey: nil)
     }
     
     @objc func touchDown() {
-//        setSession()
         changeToBigger()
         AudioServicesPlaySystemSound(1519)
 //        AudioServicesPlaySystemSound(1114)
-        startAction?()
+        self.startAction?()
     }
     
     @objc func touchUpInside() {
-//        setSession()
         stopAction?()
         changeToSmaller()
         AudioServicesPlaySystemSound(1519)
@@ -87,17 +91,10 @@ class RecordButton: UIButton {
     
     @objc func touchDragExit() {
         stopAction?()
-//        setSession()
         changeToSmaller()
         AudioServicesPlaySystemSound(1519)
 //        AudioServicesPlaySystemSound(1114)
     }
     
-//    func setSession() {
-//        let audioSession = AVAudioSession.sharedInstance()
-//        do {
-//            try audioSession.setCategory(AVAudioSessionCategoryAmbient)
-//        } catch { }
-//    }
 
 }
