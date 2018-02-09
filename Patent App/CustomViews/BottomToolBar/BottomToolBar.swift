@@ -17,7 +17,7 @@ class BottomToolBar: UIView {
     var playAction:((Bool)->())?
     var settingsAction:(()->())?
     
-    @IBOutlet weak var startButton: RecordStopButton!
+    @IBOutlet weak var recordButton: RecordButton!
     @IBOutlet weak var keyboardButton: UIButton!
     @IBOutlet weak var notesButton: UIButton!
     @IBOutlet weak var settingsButton: UIButton!
@@ -52,12 +52,23 @@ class BottomToolBar: UIView {
         
         keyboardButton.setImage(#imageLiteral(resourceName: "ic_keyboard").withRenderingMode(.alwaysTemplate), for: .normal)
         keyboardButton.tintColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
-        startButton.delegate = self
         notesButton.setImage(#imageLiteral(resourceName: "note").withRenderingMode(.alwaysTemplate), for: .normal)
         notesButton.tintColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
         settingsButton.setImage(#imageLiteral(resourceName: "gearwheel").withRenderingMode(.alwaysTemplate), for: .normal)
         settingsButton.tintColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
         
+        setupRecordButton()
+    }
+    
+    func setupRecordButton() {
+        
+        recordButton.startAction = {
+            self.playAction?(true)
+        }
+        
+        recordButton.stopAction = {
+            self.playAction?(false)
+        }
     }
     
     // Actions
@@ -74,15 +85,6 @@ class BottomToolBar: UIView {
         settingsAction?()
     }
     
-    @IBAction func recordAudio(_ sender: Any) {
-        startButton.isSelected = !startButton.isSelected
-        if (startButton.isSelected) {
-            playAction?(true)
-        } else {
-            playAction?(false)
-        }
-    }
-    
     func setGoogleSpeechLabel(text: String){
         googleSpeechLabel.isHidden = false
         googleSpeechLabel.text = text
@@ -95,11 +97,5 @@ class BottomToolBar: UIView {
         UIView.animate(withDuration: 0.2) {
             self.googleSpeechLabel.isHidden = true
         }
-    }
-}
-
-extension BottomToolBar: RecordStopButtonDelegate {
-    func timeExpired() {
-//        stop()
     }
 }

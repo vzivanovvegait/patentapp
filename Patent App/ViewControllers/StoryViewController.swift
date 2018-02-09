@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 import googleapis
+import AudioToolbox
 
 let SAMPLE_RATE = 16000
 
@@ -149,15 +150,14 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
             try audioSession.setCategory(AVAudioSessionCategoryAmbient)
         } catch { }
         
-        let systemSoundID: SystemSoundID = kSystemSoundID_Vibrate
-        AudioServicesPlayAlertSound(systemSoundID)
+        AudioServicesPlaySystemSound(1521)
         
         let url = Bundle.main.url(forResource: "ErrorAlert", withExtension: "mp3")!
-        
+
         do {
             player = try AVAudioPlayer(contentsOf: url)
             guard let errorSound = player else { return }
-            
+
             errorSound.prepareToPlay()
             errorSound.play()
         } catch let error {
@@ -170,7 +170,8 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
     func play() {
         let audioSession = AVAudioSession.sharedInstance()
         do {
-            try audioSession.setCategory(AVAudioSessionCategoryRecord)
+            try audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
+//            try audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord, with: AVAudioSessionCategoryOptions.defaultToSpeaker)
         } catch { }
         
         audioData = NSMutableData()
@@ -180,6 +181,7 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
     }
     
     func stop() {
+        print("---------------------------------------------")
         if AudioController.sharedInstance.remoteIOUnit != nil {
             _ = AudioController.sharedInstance.stop()
             SpeechRecognitionService.sharedInstance.stopStreaming()

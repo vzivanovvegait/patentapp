@@ -16,6 +16,7 @@
 		E146A1D3200F52D50024E6A2 /* FinishController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E146A1D2200F52D50024E6A2 /* FinishController.swift */; };
 		E148C451202D9F24003906A4 /* TopToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E148C450202D9F24003906A4 /* TopToolBar.swift */; };
 		E148C456202D9FBC003906A4 /* TopToolBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = E148C455202D9FBC003906A4 /* TopToolBar.xib */; };
+		E148C47B202DE622003906A4 /* RecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E148C47A202DE622003906A4 /* RecordButton.swift */; };
 		E14F66C920234A11000C9CA4 /* BottomToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14F66C820234A11000C9CA4 /* BottomToolBar.swift */; };
 		E14F66CB20234A26000C9CA4 /* BottomToolBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = E14F66CA20234A26000C9CA4 /* BottomToolBar.xib */; };
 		E14F66CE2023727B000C9CA4 /* PatentLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14F66CD2023727B000C9CA4 /* PatentLabel.swift */; };
@@ -62,6 +63,7 @@
 		E146A1D2200F52D50024E6A2 /* FinishController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishController.swift; sourceTree = "<group>"; };
 		E148C450202D9F24003906A4 /* TopToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopToolBar.swift; sourceTree = "<group>"; };
 		E148C455202D9FBC003906A4 /* TopToolBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopToolBar.xib; sourceTree = "<group>"; };
+		E148C47A202DE622003906A4 /* RecordButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordButton.swift; sourceTree = "<group>"; };
 		E14F66C820234A11000C9CA4 /* BottomToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomToolBar.swift; sourceTree = "<group>"; };
 		E14F66CA20234A26000C9CA4 /* BottomToolBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BottomToolBar.xib; sourceTree = "<group>"; };
 		E14F66CD2023727B000C9CA4 /* PatentLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatentLabel.swift; sourceTree = "<group>"; };
@@ -260,6 +262,7 @@
 		E194D72B200779A4005D62EF /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
+				E148C47A202DE622003906A4 /* RecordButton.swift */,
 				E194D72420076C0F005D62EF /* MenuButton.swift */,
 				E140398D1FFF7B4100FF4088 /* RecordStopButton.swift */,
 			);
@@ -464,6 +467,7 @@
 				E16503881FFE276C00D91FDF /* HomeViewController.swift in Sources */,
 				E1ED4436201B761100BA291A /* NoteController.swift in Sources */,
 				E19170E61FF3985100C3BD1C /* StoryViewController.swift in Sources */,
+				E148C47B202DE622003906A4 /* RecordButton.swift in Sources */,
 				E194D72920077657005D62EF /* StoryboardInitializable.swift in Sources */,
 				E14F66C920234A11000C9CA4 /* BottomToolBar.swift in Sources */,
 				E146A1CD200F51D60024E6A2 /* FinishView.swift in Sources */,
