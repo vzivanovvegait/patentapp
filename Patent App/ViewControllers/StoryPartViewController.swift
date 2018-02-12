@@ -25,7 +25,7 @@ final class StoryPartViewController: UIViewController {
         super.viewDidLoad()
         setLabel()
         setData()
-
+        setTapGesture()
         // Do any additional setup after loading the view.
     }
     
@@ -36,6 +36,19 @@ final class StoryPartViewController: UIViewController {
 }
 
 extension StoryPartViewController {
+    
+    fileprivate func setTapGesture() {
+        storyPartImageView.isUserInteractionEnabled = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tap))
+        storyPartImageView.addGestureRecognizer(tapGesture)
+        
+    }
+
+    @objc func tap() {
+        let vc = ZoomImageViewController.makeFromStoryboard()
+        vc.image = image
+        self.present(vc, animated: true, completion: nil)
+    }
     
     fileprivate func setLabel() {
         storyPartLabel.delegate = self

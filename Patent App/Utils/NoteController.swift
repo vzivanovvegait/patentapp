@@ -54,4 +54,15 @@ class NoteController {
             return false
         }
     }
+    
+    func saveNote() -> Bool {
+        let context = CoreDataManager.shared.persistentContainer.viewContext
+        
+        do {
+            try context.save()
+            return true
+        } catch {
+            return false
+        }
+    }
 }

@@ -45,7 +45,12 @@ class RecordButton: UIButton {
         
         ovalLayer.fillColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1).cgColor
         ovalLayer.path = ovalPathStart.cgPath
-        self.layer.addSublayer(ovalLayer)
+        self.layer.insertSublayer(ovalLayer, at: 0) //addSublayer(ovalLayer)
+        self.setImage(#imageLiteral(resourceName: "microphone_white"), for: .normal)
+        self.imageEdgeInsets = UIEdgeInsetsMake(12, 12, 12, 12)
+        if let imageView = self.imageView {
+            self.bringSubview(toFront: imageView)
+        }
         
     }
     

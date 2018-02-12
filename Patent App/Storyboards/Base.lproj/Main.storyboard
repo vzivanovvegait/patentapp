@@ -269,6 +269,9 @@
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3dp-Np-yqy">
                                                     <rect key="frame" x="166" y="8" width="201" height="42.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="750" constant="35" id="bIC-u7-g1K"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -311,6 +314,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TrU-27-DEB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="721" y="875"/>
+        </scene>
+        <!--Zoom Image View Controller-->
+        <scene sceneID="ZQs-DD-rim">
+            <objects>
+                <viewController storyboardIdentifier="ZoomImageViewController" id="g5F-gn-w3l" customClass="ZoomImageViewController" customModule="Patent_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zS1-hL-LKe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WcT-8m-Sel">
+                                <rect key="frame" x="16" y="24" width="50" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Close">
+                                    <color key="titleColor" red="0.0" green="0.3803921569" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="close:" destination="g5F-gn-w3l" eventType="touchUpInside" id="sCV-So-rlD"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.94901960780000005" green="0.91372549020000005" blue="0.52549019610000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="WcT-8m-Sel" firstAttribute="centerY" secondItem="OC3-EC-aHP" secondAttribute="top" constant="22" id="acn-t9-jya"/>
+                            <constraint firstItem="WcT-8m-Sel" firstAttribute="leading" secondItem="OC3-EC-aHP" secondAttribute="leading" constant="16" id="vj9-wG-1iG"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="OC3-EC-aHP"/>
+                    </view>
+                    <connections>
+                        <outlet property="closeButton" destination="WcT-8m-Sel" id="NzC-Gv-yYp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z3f-dE-gEr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1449" y="869"/>
         </scene>
     </scenes>
     <resources>

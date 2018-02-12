@@ -38,7 +38,6 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
         setTopBar()
         setBottomBar()
         setSendContainer()
-        enableDismissKeyboardOnTap()
         
         AudioController.sharedInstance.delegate = self
     }

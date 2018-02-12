@@ -56,24 +56,3 @@ extension KeyboardHandlerProtocol where Self: UIViewController {
     
 }
 
-extension KeyboardHandlerProtocol where Self: UIViewController {
-    func enableDismissKeyboardOnTap() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(Self.dismissKeyboard))
-        tap.delegate = self
-        view.addGestureRecognizer(tap)
-    }
-}
-
-extension UIViewController: UIGestureRecognizerDelegate {
-    @objc func dismissKeyboard() {
-        self.view.endEditing(true)
-    }
-    
-    public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-        if touch.view is UILabel {
-            return false
-        }
-        return true
-    }
-}
-

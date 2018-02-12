@@ -50,17 +50,25 @@ extension NotesViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
-    }
-    
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
-    }
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            DialogUtils.showYesNoDialog(self, title: "Delete", message: "Are you sure you want to delete \(notes[indexPath.row].word!) from notes?", completion: { (result) in
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        let editAction = UITableViewRowAction(style: .default, title: "Edit", handler: { (action, indexPath) in
+            DialogUtils.showYesNoDialogWithInput(self, title: "Update note", message: nil, positive: "Save", cancel: "Cancel", completion: { (success, text) in
+                if success {
+                    self.notes[indexPath.row].explanation = text
+                    if NoteController.shared.saveNote() {
+                        tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.fade)
+                    } else {
+                        DialogUtils.showWarningDialog(self, title: nil, message: "Error!!!", completion: nil)
+                    }
+                }
+            })
+        })
+        editAction.backgroundColor = UIColor.blue
+        
+        
+        let deleteAction = UITableViewRowAction(style: .default, title: "Delete", handler: { (action, indexPath) in
+            DialogUtils.showYesNoDialog(self, title: "Delete", message: "Are you sure you want to delete \(self.notes[indexPath.row].word!) from notes?", completion: { (result) in
                 if result {
                     if NoteController.shared.deleteNote(note: self.notes[indexPath.row]) {
                         DialogUtils.showWarningDialog(self, title: nil, message: "Note has been successfully deleted!", completion: nil)
@@ -71,9 +79,10 @@ extension NotesViewController: UITableViewDataSource, UITableViewDelegate {
                     }
                 }
             })
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-        }
+        })
+        deleteAction.backgroundColor = UIColor.red
+        
+        return [editAction, deleteAction]
     }
 }
 

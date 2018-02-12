@@ -24,12 +24,12 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="139"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ZvP-u7-YGP">
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ZvP-u7-YGP">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="139"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ZV-2T-NXR">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="66"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
                             <color key="textColor" red="0.0" green="0.3803921569" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -60,14 +60,14 @@
                                         <action selector="notes:" destination="-1" eventType="touchUpInside" id="RR1-KI-xqG"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A30-a0-oDi" customClass="RecordButton" customModule="Patent_App" customModuleProvider="target">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A30-a0-oDi" customClass="RecordButton" customModule="Patent_App" customModuleProvider="target">
                                     <rect key="frame" x="187.5" y="5" width="50" height="50"/>
                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="A30-a0-oDi" secondAttribute="height" multiplier="1:1" id="Qa9-op-G3C"/>
                                         <constraint firstAttribute="width" constant="50" id="qea-m5-CUE"/>
                                     </constraints>
-                                    <state key="normal">
+                                    <state key="normal" image="microphone_white">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                 </button>
@@ -115,6 +115,7 @@
     <resources>
         <image name="gearwheel" width="200" height="200"/>
         <image name="ic_keyboard" width="512" height="512"/>
+        <image name="microphone_white" width="512" height="512"/>
         <image name="note" width="128" height="128"/>
     </resources>
 </document>
