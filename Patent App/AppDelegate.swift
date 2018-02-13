@@ -17,8 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        let homeViewController = HomeViewController.makeFromStoryboard()
-        let navigationController = homeViewController.embedInNavigationController()
+        let categoryViewController = CategoryViewController.makeFromStoryboard()
+        let navigationController = categoryViewController.embedInNavigationController()
         navigationController.setNavigationBarHidden(true, animated: false)
         window?.rootViewController = navigationController
         

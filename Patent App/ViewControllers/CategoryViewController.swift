@@ -28,7 +28,7 @@ final class CategoryViewController: UIViewController, StoryboardInitializable {
     }
     
     @IBAction func story(_ sender: Any) {
-        let storyViewController = StoryViewController.makeFromStoryboard()
-        self.navigationController?.pushViewController(storyViewController, animated: true)
+        let listViewController = ListViewController.makeFromStoryboard()
+        self.navigationController?.pushViewController(listViewController, animated: true)
     }
 }

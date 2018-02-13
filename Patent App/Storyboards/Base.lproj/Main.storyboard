@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lFw-0H-oEG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mTj-fq-jlI">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -50,7 +50,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cDC-JI-6M7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-759" y="201"/>
+            <point key="canvasLocation" x="-1402" y="198"/>
         </scene>
         <!--Category View Controller-->
         <scene sceneID="EYD-li-31I">
@@ -75,7 +75,7 @@
                                 <rect key="frame" x="77" y="358.5" width="220" height="120"/>
                                 <state key="normal" title="FLASHCARDS"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aql-jG-tLw">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aql-jG-tLw">
                                 <rect key="frame" x="10" y="28" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Aql-jG-tLw" secondAttribute="height" multiplier="1:1" id="IgP-6M-nOK"/>
@@ -107,7 +107,67 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ObM-00-mOY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-25" y="200"/>
+            <point key="canvasLocation" x="-678" y="198"/>
+        </scene>
+        <!--List View Controller-->
+        <scene sceneID="vcC-xZ-rGR">
+            <objects>
+                <viewController storyboardIdentifier="ListViewController" id="KmG-g8-CTl" customClass="ListViewController" customModule="Patent_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6cZ-XT-JGi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1yM-za-04l">
+                                <rect key="frame" x="0.0" y="72" width="375" height="595"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="KmG-g8-CTl" id="gGn-OJ-VYD"/>
+                                    <outlet property="delegate" destination="KmG-g8-CTl" id="Hbg-NW-v2s"/>
+                                </connections>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stories" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3MD-ZN-ang">
+                                <rect key="frame" x="143" y="28" width="90" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" red="0.0" green="0.3803921569" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bXG-PM-Rjd">
+                                <rect key="frame" x="10" y="27" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="cwH-Dr-egs"/>
+                                </constraints>
+                                <state key="normal" title="back" image="arrow">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="back:" destination="KmG-g8-CTl" eventType="touchUpInside" id="Rco-2a-Frt"/>
+                                    <action selector="back:" destination="mTj-fq-jlI" eventType="touchUpInside" id="Ud5-bS-TIY"/>
+                                    <action selector="back:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZGj-cL-tEX"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bXG-PM-Rjd" firstAttribute="width" secondItem="bXG-PM-Rjd" secondAttribute="height" multiplier="1:1" id="93I-OM-5ef"/>
+                            <constraint firstItem="cCt-Lh-xbm" firstAttribute="bottom" secondItem="1yM-za-04l" secondAttribute="bottom" id="A83-BW-pNZ"/>
+                            <constraint firstItem="cCt-Lh-xbm" firstAttribute="trailing" secondItem="1yM-za-04l" secondAttribute="trailing" id="MxH-27-De5"/>
+                            <constraint firstItem="bXG-PM-Rjd" firstAttribute="leading" secondItem="cCt-Lh-xbm" secondAttribute="leading" constant="10" id="NlR-a8-W41"/>
+                            <constraint firstItem="bXG-PM-Rjd" firstAttribute="centerY" secondItem="cCt-Lh-xbm" secondAttribute="top" constant="22" id="Sn3-ed-hmn"/>
+                            <constraint firstItem="3MD-ZN-ang" firstAttribute="centerX" secondItem="cCt-Lh-xbm" secondAttribute="centerX" id="dfO-N0-b7P"/>
+                            <constraint firstItem="1yM-za-04l" firstAttribute="top" secondItem="3MD-ZN-ang" secondAttribute="bottom" constant="8" id="gUK-4b-C7r"/>
+                            <constraint firstItem="1yM-za-04l" firstAttribute="leading" secondItem="cCt-Lh-xbm" secondAttribute="leading" id="pTb-tS-4Hi"/>
+                            <constraint firstItem="3MD-ZN-ang" firstAttribute="top" secondItem="cCt-Lh-xbm" secondAttribute="top" constant="8" id="tyC-QK-a5E"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="cCt-Lh-xbm"/>
+                    </view>
+                    <connections>
+                        <outlet property="backButton" destination="bXG-PM-Rjd" id="s4g-bz-YZo"/>
+                        <outlet property="tableView" destination="1yM-za-04l" id="DXh-8h-xmz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gsJ-rA-mbX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="14" y="198"/>
         </scene>
         <!--Story View Controller-->
         <scene sceneID="tne-QT-ifu">
