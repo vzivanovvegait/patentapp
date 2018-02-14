@@ -20,6 +20,8 @@ final class StoryPartViewController: UIViewController {
     var image:UIImage?
     
     var words = [Word]()
+    
+    var index:Int!
 
     override func viewDidLoad() {
         super.viewDidLoad()

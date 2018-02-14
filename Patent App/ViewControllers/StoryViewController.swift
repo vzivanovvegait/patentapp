@@ -30,6 +30,8 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
     var storyParts = [StoryPart]()
     var storyIndex = 0
     
+    var shownOnce = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -47,6 +49,15 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
         registerForKeyboardNotifications()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if !shownOnce {
+            shownOnce = true
+            let vc = InfoViewController.makeFromStoryboard()
+            self.present(vc, animated: true, completion: nil)
+        }
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         deregisterFromKeyboardNotifications()
@@ -60,9 +71,10 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
     
     func setData() {
         storyParts = StoryController.getStory()
-        for part in storyParts {
+        for (index, part) in storyParts.enumerated() {
             let vc:StoryPartViewController = StoryPartViewController.makeFromStoryboard()
             vc.setStoryPart(storyPart: part)
+            vc.index = index
             viewControllers.append(vc)
         }
     }
@@ -73,6 +85,7 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
         
         pageController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         pageController.dataSource = self
+        pageController.delegate = self
         pageController.setViewControllers([viewControllers.first!], direction: .forward, animated: true, completion: nil)
         
         self.addChildViewController(pageController)
@@ -124,7 +137,10 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
         
         bottomToolBar.settingsAction = {
             DialogUtils.showMultipleChoiceActionSheet(self, anchor: self.view, title: nil, message: nil, choises: ["Level", "Info"], completion: { (result) in
-
+                if result == "Info" {
+                    let vc = InfoViewController.makeFromStoryboard()
+                    self.present(vc, animated: true, completion: nil)
+                }
             })
         }
         
@@ -231,14 +247,13 @@ extension StoryViewController: AudioControllerDelegate {
 
 }
 
-extension StoryViewController: UIPageViewControllerDataSource {
+extension StoryViewController: UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
         guard let viewControllerIndex = viewControllers.index(of: viewController as! StoryPartViewController) else {
             return nil
         }
-        storyIndex = viewControllerIndex
         let previousIndex = viewControllerIndex - 1
 
         guard previousIndex >= 0 else {
@@ -256,7 +271,6 @@ extension StoryViewController: UIPageViewControllerDataSource {
         guard let viewControllerIndex = viewControllers.index(of: viewController as! StoryPartViewController) else {
             return nil
         }
-        storyIndex = viewControllerIndex
         let nextIndex = viewControllerIndex + 1
         let orderedViewControllersCount = viewControllers.count
 
@@ -268,6 +282,14 @@ extension StoryViewController: UIPageViewControllerDataSource {
             return nil
         }
         return viewControllers[nextIndex]
+    }
+    
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        guard completed else { return }
+        
+        guard let index = (pageViewController.viewControllers?.first as? StoryPartViewController)?.index else { return }
+        storyIndex = index
+        print(index)
     }
     
 }
