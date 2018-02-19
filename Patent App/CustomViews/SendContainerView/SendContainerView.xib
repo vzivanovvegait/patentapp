@@ -5,7 +5,6 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -21,17 +20,19 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gd2-hh-QDl">
-                    <rect key="frame" x="325" y="5" width="40" height="40"/>
+                    <rect key="frame" x="320" y="10" width="45" height="30"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="gd2-hh-QDl" secondAttribute="height" multiplier="1:1" id="7kr-xj-fkW"/>
-                        <constraint firstAttribute="width" constant="40" id="zSo-rU-s5C"/>
+                        <constraint firstAttribute="width" constant="45" id="ZSd-3e-K0V"/>
                     </constraints>
+                    <state key="normal" title="Close">
+                        <color key="titleColor" red="0.0" green="0.3803921569" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
                     <connections>
                         <action selector="send:" destination="-1" eventType="touchUpInside" id="Cht-y3-S0d"/>
                     </connections>
                 </button>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fmn-ec-VhM">
-                    <rect key="frame" x="10" y="14" width="305" height="22"/>
+                    <rect key="frame" x="10" y="14" width="300" height="22"/>
                     <color key="textColor" red="0.0" green="0.3803921569" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                     <textInputTraits key="textInputTraits"/>

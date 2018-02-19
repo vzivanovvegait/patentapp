@@ -30,6 +30,11 @@ final class ListViewController: UIViewController {
         view.backgroundColor = UIColor(red: 242/255.0, green: 233/255.0, blue: 134/255.0, alpha: 1)
     }
 
+    @IBAction func info(_ sender: Any) {
+        let vc = InfoViewController.makeFromStoryboard()
+        self.present(vc, animated: true, completion: nil)
+    }
+    
     @IBAction func back(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }

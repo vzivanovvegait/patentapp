@@ -20,6 +20,7 @@ final class InfoPartViewController: UIViewController {
         super.viewDidLoad()
         
         imageView.image = image
+        
 
         // Do any additional setup after loading the view.
     }

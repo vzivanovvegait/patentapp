@@ -30,8 +30,6 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
     var storyParts = [StoryPart]()
     var storyIndex = 0
     
-    var shownOnce = false
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -47,15 +45,6 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         registerForKeyboardNotifications()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        if !shownOnce {
-            shownOnce = true
-            let vc = InfoViewController.makeFromStoryboard()
-            self.present(vc, animated: true, completion: nil)
-        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -149,6 +138,7 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
     func setSendContainer() {
         sendContainerView.registerView { (text) in
             if self.viewControllers[self.storyIndex].checkStringFromResponse(response: text) {
+                self.sendContainerView.removeFirstResponder()
                 self.viewControllers[self.storyIndex].setTextLabel()
             } else {
                 self.playAudio()

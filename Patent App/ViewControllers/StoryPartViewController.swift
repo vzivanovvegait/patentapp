@@ -131,11 +131,13 @@ extension StoryPartViewController: TTTAttributedLabelDelegate {
     }
     
     func saveWord(word: Word) {
-        DialogUtils.showYesNoDialog(self, title: "Save", message: "Do you want to save \(word.mainString.uppercased()) into notes?", completion: { (result) in
-            if result {
-                self.saveDialog(word: word)
-            }
-        })
+        if word.hint != nil {
+            DialogUtils.showYesNoDialog(self, title: "Save", message: "Do you want to save \(word.mainString.uppercased()) into notes?", completion: { (result) in
+                if result {
+                    self.saveDialog(word: word)
+                }
+            })
+        }
     }
     
     func saveDialog(word: Word) {

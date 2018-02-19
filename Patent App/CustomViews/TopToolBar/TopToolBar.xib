@@ -22,12 +22,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zYN-6U-b1b">
-                    <rect key="frame" x="10" y="7" width="30" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="30" id="09H-i3-ZCy"/>
-                    </constraints>
-                    <state key="normal" title="back" image="arrow">
-                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <rect key="frame" x="10" y="6" width="110" height="32"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <state key="normal" title="Back to Library">
+                        <color key="titleColor" red="0.0" green="0.3803921569" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
                         <action selector="back:" destination="-1" eventType="touchUpInside" id="ZSd-Db-if5"/>
@@ -47,12 +45,21 @@
                         <action selector="reload:" destination="-1" eventType="touchUpInside" id="rKb-Ns-bYO"/>
                     </connections>
                 </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XKE-g2-OTW">
+                    <rect key="frame" x="0.0" y="42" width="375" height="2"/>
+                    <color key="backgroundColor" red="0.0" green="0.3803921569" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="2" id="bzd-w6-vmC"/>
+                    </constraints>
+                </view>
             </subviews>
             <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="XKE-g2-OTW" secondAttribute="trailing" id="8I9-lI-TgL"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="XKE-g2-OTW" secondAttribute="bottom" id="ABe-we-fRi"/>
                 <constraint firstItem="zYN-6U-b1b" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="GjE-JG-Qf4"/>
+                <constraint firstItem="XKE-g2-OTW" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="NYq-b2-91E"/>
                 <constraint firstItem="Q1u-HA-wLc" firstAttribute="centerY" secondItem="zYN-6U-b1b" secondAttribute="centerY" id="OSQ-BN-PSP"/>
                 <constraint firstItem="Q1u-HA-wLc" firstAttribute="width" secondItem="Q1u-HA-wLc" secondAttribute="height" multiplier="1:1" id="YAA-bD-zQ9"/>
-                <constraint firstItem="zYN-6U-b1b" firstAttribute="width" secondItem="zYN-6U-b1b" secondAttribute="height" multiplier="1:1" id="hLk-Cm-8Wl"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Q1u-HA-wLc" secondAttribute="trailing" constant="10" id="iDa-xj-O8w"/>
                 <constraint firstItem="zYN-6U-b1b" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="ugV-jG-IlF"/>
             </constraints>
@@ -62,7 +69,6 @@
         </view>
     </objects>
     <resources>
-        <image name="arrow" width="512" height="512"/>
         <image name="restart" width="200" height="200"/>
     </resources>
 </document>

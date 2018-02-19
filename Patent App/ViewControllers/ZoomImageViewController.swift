@@ -27,6 +27,9 @@ final class ZoomImageViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.myOrientation = .landscape
+        
         scalingImageView.delegate = self
         scalingImageView.frame = view.bounds
         scalingImageView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -58,6 +61,8 @@ final class ZoomImageViewController: UIViewController, UIScrollViewDelegate {
     }
     
     @IBAction func close(_ sender: Any) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.myOrientation = .portrait
         dismiss(animated: true, completion: nil)
     }
 }

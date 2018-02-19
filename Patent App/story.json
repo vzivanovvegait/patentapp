@@ -576,9 +576,9 @@
             "roots": []
             },
             {
-            "mainString": "girls",
+            "mainString": "girls’",
             "isSpecial": false,
-            "roots": ["girl"],
+            "roots": ["girl", "girls"],
             "hint": "There are boys and there are …"
             },
             {
@@ -855,7 +855,7 @@
             "roots": []
             },
             {
-            "mainString": "girls’",
+            "mainString": "girls",
             "isSpecial": false,
             "roots": ["girl"],
             "hint": "There are boys and there are …"

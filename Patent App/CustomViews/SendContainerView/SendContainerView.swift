@@ -45,10 +45,7 @@ class SendContainerView: UIView {
     
     fileprivate func setupViews() {
         self.backgroundColor = .white
-        sendButton.setImage(#imageLiteral(resourceName: "ic_send").withRenderingMode(.alwaysTemplate), for: .normal)
-        sendButton.tintColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
-        
-        textField.returnKeyType = UIReturnKeyType.done
+        textField.returnKeyType = UIReturnKeyType.go
         textField.delegate = self
     }
     
@@ -65,17 +62,23 @@ class SendContainerView: UIView {
     }
     
     @IBAction func send(_ sender: Any) {
-        if let text = textField.text {
-            completionHandler(text)
-        }
         textField.text = ""
+        textField.resignFirstResponder()
+//        if let text = textField.text {
+//            completionHandler(text)
+//        }
+//        textField.text = ""
     }
 
 }
 
 extension SendContainerView: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
+//        textField.resignFirstResponder()
+        if let text = textField.text {
+            completionHandler(text)
+        }
+        textField.text = ""
         return true
     }
 }
