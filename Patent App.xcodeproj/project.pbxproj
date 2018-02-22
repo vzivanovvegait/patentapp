@@ -42,8 +42,8 @@
 		E194D72920077657005D62EF /* StoryboardInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E194D72820077657005D62EF /* StoryboardInitializable.swift */; };
 		E198AF0F2031B49000BEB074 /* ZoomImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E198AF0E2031B49000BEB074 /* ZoomImageViewController.swift */; };
 		E198AF112031C8BA00BEB074 /* INSScalingImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E198AF102031C8BA00BEB074 /* INSScalingImageView.swift */; };
-		E1BB8477203EE7DF0069E5AA /* TimerParametarVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1BB8475203EE7DE0069E5AA /* TimerParametarVC.xib */; };
-		E1BB8478203EE7DF0069E5AA /* TimerParametarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BB8476203EE7DF0069E5AA /* TimerParametarVC.swift */; };
+		E1BB8477203EE7DF0069E5AA /* SettingsViewConroller.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1BB8475203EE7DE0069E5AA /* SettingsViewConroller.xib */; };
+		E1BB8478203EE7DF0069E5AA /* SettingsViewConroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BB8476203EE7DF0069E5AA /* SettingsViewConroller.swift */; };
 		E1ED4409201B510200BA291A /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ED4408201B510200BA291A /* NotesViewController.swift */; };
 		E1ED4414201B530B00BA291A /* Patent.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E1ED4412201B530B00BA291A /* Patent.xcdatamodeld */; };
 		E1ED442E201B57DD00BA291A /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ED442D201B57DD00BA291A /* NoteCell.swift */; };
@@ -93,8 +93,8 @@
 		E194D72820077657005D62EF /* StoryboardInitializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardInitializable.swift; sourceTree = "<group>"; };
 		E198AF0E2031B49000BEB074 /* ZoomImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomImageViewController.swift; sourceTree = "<group>"; };
 		E198AF102031C8BA00BEB074 /* INSScalingImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = INSScalingImageView.swift; sourceTree = "<group>"; };
-		E1BB8475203EE7DE0069E5AA /* TimerParametarVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimerParametarVC.xib; sourceTree = "<group>"; };
-		E1BB8476203EE7DF0069E5AA /* TimerParametarVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerParametarVC.swift; sourceTree = "<group>"; };
+		E1BB8475203EE7DE0069E5AA /* SettingsViewConroller.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewConroller.xib; sourceTree = "<group>"; };
+		E1BB8476203EE7DF0069E5AA /* SettingsViewConroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewConroller.swift; sourceTree = "<group>"; };
 		E1ED4408201B510200BA291A /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 		E1ED4413201B530B00BA291A /* Patent.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Patent.xcdatamodel; sourceTree = "<group>"; };
 		E1ED442D201B57DD00BA291A /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
@@ -282,8 +282,8 @@
 				E198AF0E2031B49000BEB074 /* ZoomImageViewController.swift */,
 				E16B10802034344900356BFB /* InfoViewController.swift */,
 				E16B10822034347A00356BFB /* InfoPartViewController.swift */,
-				E1BB8476203EE7DF0069E5AA /* TimerParametarVC.swift */,
-				E1BB8475203EE7DE0069E5AA /* TimerParametarVC.xib */,
+				E1BB8476203EE7DF0069E5AA /* SettingsViewConroller.swift */,
+				E1BB8475203EE7DE0069E5AA /* SettingsViewConroller.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -368,7 +368,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1BB8477203EE7DF0069E5AA /* TimerParametarVC.xib in Resources */,
+				E1BB8477203EE7DF0069E5AA /* SettingsViewConroller.xib in Resources */,
 				E19170EE1FF3985100C3BD1C /* LaunchScreen.storyboard in Resources */,
 				E19170EB1FF3985100C3BD1C /* Assets.xcassets in Resources */,
 				E18937B1201F81EB009776A0 /* story.json in Resources */,
@@ -465,7 +465,7 @@
 				E19170E61FF3985100C3BD1C /* StoryViewController.swift in Sources */,
 				E148C47B202DE622003906A4 /* RecordButton.swift in Sources */,
 				E194D72920077657005D62EF /* StoryboardInitializable.swift in Sources */,
-				E1BB8478203EE7DF0069E5AA /* TimerParametarVC.swift in Sources */,
+				E1BB8478203EE7DF0069E5AA /* SettingsViewConroller.swift in Sources */,
 				E14F66C920234A11000C9CA4 /* BottomToolBar.swift in Sources */,
 				E19170F61FF3A08D00C3BD1C /* SpeechRecognitionService.swift in Sources */,
 				E17652B620330EB900E1C848 /* ListViewController.swift in Sources */,

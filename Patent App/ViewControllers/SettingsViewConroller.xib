@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingsViewConroller" customModule="Patent_App" customModuleProvider="target">
+            <connections>
+                <outlet property="backView" destination="e4t-t3-Qln" id="ZMD-RT-ZHj"/>
+                <outlet property="fontSizeLabel" destination="LbC-pU-EAP" id="hJ3-jT-f3y"/>
+                <outlet property="fontSlider" destination="YBS-2e-TUJ" id="7HX-Gc-zMm"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e4t-t3-Qln">
+                    <rect key="frame" x="10" y="556" width="355" height="101"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Font size" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbC-pU-EAP">
+                            <rect key="frame" x="143" y="15" width="69" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="0.3803921569" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="25" minValue="25" maxValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="YBS-2e-TUJ">
+                            <rect key="frame" x="8" y="46" width="339" height="31"/>
+                            <color key="tintColor" red="0.0" green="0.3803921569" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="changeFont:" destination="-1" eventType="valueChanged" id="dTV-cK-np3"/>
+                            </connections>
+                        </slider>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="LbC-pU-EAP" firstAttribute="centerX" secondItem="e4t-t3-Qln" secondAttribute="centerX" id="9Qa-jE-AUJ"/>
+                        <constraint firstAttribute="trailing" secondItem="YBS-2e-TUJ" secondAttribute="trailing" constant="10" id="K4g-zx-fEl"/>
+                        <constraint firstAttribute="bottom" secondItem="YBS-2e-TUJ" secondAttribute="bottom" constant="25" id="jND-zB-DgG"/>
+                        <constraint firstItem="YBS-2e-TUJ" firstAttribute="top" secondItem="LbC-pU-EAP" secondAttribute="bottom" constant="10" id="jeN-jV-kcD"/>
+                        <constraint firstItem="LbC-pU-EAP" firstAttribute="top" secondItem="e4t-t3-Qln" secondAttribute="top" constant="15" id="vB0-bN-Gjy"/>
+                        <constraint firstItem="YBS-2e-TUJ" firstAttribute="leading" secondItem="e4t-t3-Qln" secondAttribute="leading" constant="10" id="wb7-Db-tTs"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="e4t-t3-Qln" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="aLp-z2-sDj"/>
+                <constraint firstAttribute="bottom" secondItem="e4t-t3-Qln" secondAttribute="bottom" constant="10" id="dDT-hd-8po"/>
+                <constraint firstAttribute="trailing" secondItem="e4t-t3-Qln" secondAttribute="trailing" constant="10" id="kBA-MP-Fcm"/>
+            </constraints>
+            <point key="canvasLocation" x="420" y="362"/>
+        </view>
+    </objects>
+</document>

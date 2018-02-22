@@ -132,7 +132,7 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
                 }
                 
                 if result == "Level" {
-                    self.showTimerParametar()
+                    self.showTimerParametar().delegate = self
                 }
             })
         }
@@ -286,5 +286,13 @@ extension StoryViewController: UIPageViewControllerDataSource, UIPageViewControl
         print(index)
     }
     
+}
+
+extension StoryViewController: SettingsDelegate {
+    func changeFont(fontSize: CGFloat) {
+        UserDefaults.standard.set(Int(fontSize), forKey: "fontSize")
+        viewControllers[storyIndex].setTextLabel()
+        print(fontSize)
+    }
 }
 

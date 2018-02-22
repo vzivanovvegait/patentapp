@@ -33,8 +33,8 @@ class DataUtils {
             
             rangeCounter += array[index].mainString.count
         }
-        
-        attString.addAttribute(NSAttributedStringKey.font, value: UIFont.systemFont(ofSize: 34), range: NSRange(attString.string.startIndex..., in: attString.string))
+        let fontSize = UserDefaults.standard.integer(forKey: "fontSize")
+        attString.addAttribute(NSAttributedStringKey.font, value: UIFont.systemFont(ofSize: CGFloat((fontSize > 25) ? fontSize : 25)), range: NSRange(attString.string.startIndex..., in: attString.string))
         attString.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1), range: NSRange(attString.string.startIndex..., in: attString.string))
         
         if !array.contains(where: { !$0.isFound }) {

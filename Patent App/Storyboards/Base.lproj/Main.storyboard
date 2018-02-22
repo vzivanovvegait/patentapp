@@ -275,11 +275,11 @@
                                 <rect key="frame" x="0.0" y="266" width="375" height="512"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xuo-Qh-kvq" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="62"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="82.333333333333329"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3iX-3I-Qdk" customClass="PatentLabel" customModule="Patent_App" customModuleProvider="target">
-                                                <rect key="frame" x="10" y="10" width="355" height="42"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                <rect key="frame" x="10" y="10.000000000000004" width="355" height="62.333333333333343"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="52"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
