@@ -64,17 +64,12 @@ class SendContainerView: UIView {
     @IBAction func send(_ sender: Any) {
         textField.text = ""
         textField.resignFirstResponder()
-//        if let text = textField.text {
-//            completionHandler(text)
-//        }
-//        textField.text = ""
     }
 
 }
 
 extension SendContainerView: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        textField.resignFirstResponder()
         if let text = textField.text {
             completionHandler(text)
         }

@@ -130,6 +130,10 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
                     let vc = InfoViewController.makeFromStoryboard()
                     self.present(vc, animated: true, completion: nil)
                 }
+                
+                if result == "Level" {
+                    self.showTimerParametar()
+                }
             })
         }
         
@@ -224,7 +228,7 @@ extension StoryViewController: AudioControllerDelegate {
                                 return
                             }
                             strongSelf.bottomToolBar.setGoogleSpeechLabel(text: alternative.transcript)
-                            if result.isFinal && strongSelf.viewControllers[strongSelf.storyIndex].checkStringFromResponse(response: alternative.transcript) {
+                            if /*result.isFinal &&*/ strongSelf.viewControllers[strongSelf.storyIndex].checkStringFromResponse(response: alternative.transcript) {
                                 strongSelf.viewControllers[strongSelf.storyIndex].setTextLabel()
                             }
                         }

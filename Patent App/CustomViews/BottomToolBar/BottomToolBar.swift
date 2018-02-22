@@ -48,7 +48,7 @@ class BottomToolBar: UIView {
     }
     
     fileprivate func setupViews() {
-        googleSpeechLabel.isHidden = true
+        googleSpeechLabel.text = ""
         
         keyboardButton.setImage(#imageLiteral(resourceName: "ic_keyboard").withRenderingMode(.alwaysTemplate), for: .normal)
         keyboardButton.tintColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
@@ -86,7 +86,7 @@ class BottomToolBar: UIView {
     }
     
     func setGoogleSpeechLabel(text: String){
-        googleSpeechLabel.isHidden = false
+//        googleSpeechLabel.isHidden = false
         googleSpeechLabel.text = text
         
         timer.invalidate()
@@ -94,8 +94,8 @@ class BottomToolBar: UIView {
     }
     
     @objc func counter() {
-        UIView.animate(withDuration: 0.2) {
-            self.googleSpeechLabel.isHidden = true
-        }
+        UIView.transition(with: googleSpeechLabel, duration: 0.5, options: .transitionCrossDissolve, animations: { [weak self] in
+            self?.googleSpeechLabel.text = ""
+        }, completion: nil)
     }
 }
