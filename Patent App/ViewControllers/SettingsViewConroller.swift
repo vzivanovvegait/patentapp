@@ -57,7 +57,7 @@ class SettingsViewConroller: UIViewController {
     
     @IBAction func changeFont(_ sender: UISlider) {
         delegate?.changeFont(fontSize: CGFloat(roundf(sender.value)))
-        fontSizeLabel.text = "Font size: \(CGFloat(roundf(sender.value)))"
+        fontSizeLabel.text = "Font size: \(Int(roundf(sender.value)))"
     }
 }
 
@@ -86,8 +86,6 @@ extension SettingsViewConroller : UIViewControllerAnimatedTransitioning {
             
             presentedControllerView.frame = transitionContext.finalFrame(for: presentedController)
             presentedControllerView.frame.origin.y += self.view.bounds.height
-            //presentedControllerView.alpha = 0
-            //presentedControllerView.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
             
             containerView.addSubview(shadowView)
             shadowView.alpha = 0
@@ -95,27 +93,17 @@ extension SettingsViewConroller : UIViewControllerAnimatedTransitioning {
             
             UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0, options: .allowUserInteraction, animations: {
                 self.shadowView.alpha = 1
-                
                 presentedControllerView.frame.origin.y = 0
-                
-//                presentedControllerView.alpha = 1
-//                presentedControllerView.transform = CGAffineTransform(scaleX: 1, y: 1)
-                
-                }, completion: {(completed: Bool) -> Void in
+            }, completion: {(completed: Bool) -> Void in
                     transitionContext.completeTransition(completed)
             })
         }else{
             let presentedControllerView = transitionContext.view(forKey: UITransitionContextViewKey.from)!
 
             UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0, options: .allowUserInteraction, animations: {
-//                presentedControllerView.alpha = 0
-//                presentedControllerView.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
-                
                 presentedControllerView.frame.origin.y = self.view.bounds.height
-                
                 self.shadowView.alpha = 0
-                
-                }, completion: {(completed: Bool) -> Void in
+            }, completion: {(completed: Bool) -> Void in
                     transitionContext.completeTransition(completed)
             })
         }

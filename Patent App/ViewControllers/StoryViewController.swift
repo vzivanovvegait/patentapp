@@ -39,6 +39,13 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
         setBottomBar()
         setSendContainer()
         
+        let session = AVAudioSession.sharedInstance()
+        do {
+            try session.setCategory(AVAudioSessionCategoryPlayAndRecord)
+            try session.setPreferredIOBufferDuration(10)
+        } catch {
+        }
+        
         AudioController.sharedInstance.delegate = self
     }
     
@@ -125,16 +132,20 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
         }
         
         bottomToolBar.settingsAction = {
-            DialogUtils.showMultipleChoiceActionSheet(self, anchor: self.view, title: nil, message: nil, choises: ["Level", "Info"], completion: { (result) in
-                if result == "Info" {
-                    let vc = InfoViewController.makeFromStoryboard()
-                    self.present(vc, animated: true, completion: nil)
+            DialogUtils.showMultipleChoiceActionSheet(self, anchor: self.view, title: nil, message: nil, choises: ["Level", "Font"], completion: { (result) in
+                if result == "Level" {
+                    
                 }
                 
-                if result == "Level" {
+                if result == "Font" {
                     self.showTimerParametar().delegate = self
                 }
             })
+        }
+        
+        bottomToolBar.infoAction = {
+            let vc = InfoViewController.makeFromStoryboard()
+            self.present(vc, animated: true, completion: nil)
         }
         
     }
@@ -154,10 +165,10 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
     
     func playAudio() {
         
-        let audioSession = AVAudioSession.sharedInstance()
-        do {
-            try audioSession.setCategory(AVAudioSessionCategoryAmbient)
-        } catch { }
+//        let audioSession = AVAudioSession.sharedInstance()
+//        do {
+//            try audioSession.setCategory(AVAudioSessionCategoryAmbient)
+//        } catch { }
         
         AudioServicesPlaySystemSound(1521)
         
@@ -177,10 +188,10 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
     // Play/Stop actions
     
     func play() {
-        let audioSession = AVAudioSession.sharedInstance()
-        do {
-            try audioSession.setCategory(AVAudioSessionCategoryRecord)
-        } catch { }
+//        let audioSession = AVAudioSession.sharedInstance()
+//        do {
+//            try audioSession.setCategory(AVAudioSessionCategoryRecord)
+//        } catch { }
         
         audioData = NSMutableData()
         _ = AudioController.sharedInstance.prepare(specifiedSampleRate: SAMPLE_RATE)

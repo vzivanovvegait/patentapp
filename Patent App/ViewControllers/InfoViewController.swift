@@ -12,7 +12,7 @@ final class InfoViewController: UIViewController {
     
     var pageController = UIPageViewController()
     
-    var infoParts = [#imageLiteral(resourceName: "info"), #imageLiteral(resourceName: "info"), #imageLiteral(resourceName: "info")]
+    var infoParts = [#imageLiteral(resourceName: "wizard_1"), #imageLiteral(resourceName: "wizard_2"), #imageLiteral(resourceName: "wizard_3"), #imageLiteral(resourceName: "wizard_4")]
     var viewControllers = [InfoPartViewController]()
     
     @IBOutlet weak var infoPartContainerView: UIView!
@@ -26,8 +26,6 @@ final class InfoViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.view.backgroundColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
         
         setPageControl()
         

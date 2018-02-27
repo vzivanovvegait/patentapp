@@ -16,11 +16,13 @@ class BottomToolBar: UIView {
     var keyboardAction: (()->())?
     var playAction:((Bool)->())?
     var settingsAction:(()->())?
+    var infoAction:(()->())?
     
     @IBOutlet weak var recordButton: RecordButton!
     @IBOutlet weak var keyboardButton: UIButton!
     @IBOutlet weak var notesButton: UIButton!
     @IBOutlet weak var settingsButton: UIButton!
+    @IBOutlet weak var infoButton: UIButton!
     @IBOutlet weak var googleSpeechLabel: UILabel!
     
     override init(frame: CGRect) {
@@ -56,6 +58,8 @@ class BottomToolBar: UIView {
         notesButton.tintColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
         settingsButton.setImage(#imageLiteral(resourceName: "gearwheel").withRenderingMode(.alwaysTemplate), for: .normal)
         settingsButton.tintColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
+        infoButton.setImage(#imageLiteral(resourceName: "info-icon").withRenderingMode(.alwaysTemplate), for: .normal)
+        infoButton.tintColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
         
         setupRecordButton()
     }
@@ -91,6 +95,10 @@ class BottomToolBar: UIView {
         
         timer.invalidate()
         timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(counter), userInfo: nil, repeats: false)
+    }
+    
+    @IBAction func infoAction(_ sender: Any) {
+        infoAction?()
     }
     
     @objc func counter() {

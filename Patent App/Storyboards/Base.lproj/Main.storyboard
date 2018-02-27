@@ -481,7 +481,7 @@
                                 <rect key="frame" x="8" y="733" width="359" height="37"/>
                             </pageControl>
                         </subviews>
-                        <color key="backgroundColor" red="0.040383279323577881" green="0.31001442670822144" blue="0.33407637476921082" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.28235294117647058" green="0.27058823529411763" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="SVx-p0-6uP" firstAttribute="bottom" secondItem="Ybw-Xw-jky" secondAttribute="bottom" constant="8" id="18M-4u-jJH"/>
                             <constraint firstItem="ipW-OF-uQB" firstAttribute="leading" secondItem="SVx-p0-6uP" secondAttribute="leading" constant="16" id="WUj-i8-Bzv"/>

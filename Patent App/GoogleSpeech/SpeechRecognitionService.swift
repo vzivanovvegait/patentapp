@@ -60,9 +60,6 @@ class SpeechRecognitionService {
       recognitionConfig.languageCode = "en-US"
       recognitionConfig.maxAlternatives = 1
       recognitionConfig.enableWordTimeOffsets = false
-//        let speechContext = SpeechContext()
-//        speechContext.phrasesArray = ["test"]
-//      recognitionConfig.speechContextsArray = [speechContext]
 
       let streamingRecognitionConfig = StreamingRecognitionConfig()
       streamingRecognitionConfig.config = recognitionConfig

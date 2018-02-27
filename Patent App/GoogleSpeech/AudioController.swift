@@ -36,12 +36,12 @@ class AudioController {
     var status = noErr
 
     let session = AVAudioSession.sharedInstance()
-    do {
-      try session.setCategory(AVAudioSessionCategoryRecord)
-      try session.setPreferredIOBufferDuration(10)
-    } catch {
-      return -1
-    }
+//    do {
+//      try session.setCategory(AVAudioSessionCategoryRecord)
+//      try session.setPreferredIOBufferDuration(10)
+//    } catch {
+//      return -1
+//    }
 
     var sampleRate = session.sampleRate
     print("hardware sample rate = \(sampleRate), using specified rate = \(specifiedSampleRate)")
