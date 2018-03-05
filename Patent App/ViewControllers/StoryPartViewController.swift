@@ -16,6 +16,7 @@ final class StoryPartViewController: UIViewController {
     @IBOutlet weak var storyPartLabel: PatentLabel!
     @IBOutlet weak var storyPartImageView: UIImageView!
     @IBOutlet weak var imageViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var checkmarkContainerView: UIView!
     
     var image:UIImage?
     
@@ -25,6 +26,7 @@ final class StoryPartViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        checkmarkContainerView.isHidden = true
         setLabel()
         setData()
         setTapGesture()
@@ -33,7 +35,7 @@ final class StoryPartViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setTextLabel()
+        setTextLabelOnAppear()
     }
 }
 
@@ -75,7 +77,6 @@ extension StoryPartViewController {
         let result = DataUtils.createString(from: words)
         storyPartLabel.setText(result.0)
     }
-    
 }
 
 extension StoryPartViewController {
@@ -91,8 +92,26 @@ extension StoryPartViewController {
         return isFound
     }
     
+    func setTextLabelOnAppear() {
+        let result = DataUtils.createString(from: words)
+        if result.1 {
+            checkmarkContainerView.isHidden = false
+        } else {
+            checkmarkContainerView.isHidden = true
+            
+        }
+        storyPartLabel.setText(result.0)
+    }
+    
     func setTextLabel() {
         let result = DataUtils.createString(from: words)
+        if result.1 {
+            DialogUtils.showWarningDialog(self, title: "Great job, swipe to the next page!", message: nil, completion: nil)
+            checkmarkContainerView.isHidden = false
+        } else {
+            checkmarkContainerView.isHidden = true
+            
+        }
         storyPartLabel.setText(result.0)
     }
 

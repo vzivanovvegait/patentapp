@@ -25,11 +25,9 @@ class DataUtils {
                 word.addAttribute(NSAttributedStringKey.kern, value: 3, range: NSRange(location: 0, length: array[index].mainString.count))
             }
             attString.append(word)
-//            if !array[index].isFound && (array[index].hint != nil) {
             if !array[index].isSpecial {
                 attString.addAttribute(NSAttributedStringKey.link, value: "\(index)", range: NSRange(location: rangeCounter, length: array[index].mainString.count))
             }
-//            }
             
             rangeCounter += array[index].mainString.count
         }

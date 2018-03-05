@@ -12,6 +12,7 @@ final class ListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var infoButton: UIButton!
     
     override var prefersStatusBarHidden: Bool {
         return true
@@ -22,6 +23,10 @@ final class ListViewController: UIViewController {
         
         backButton.setImage(#imageLiteral(resourceName: "back").withRenderingMode(.alwaysTemplate), for: .normal)
         backButton.tintColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
+        
+        infoButton.setImage(#imageLiteral(resourceName: "info-icon").withRenderingMode(.alwaysTemplate), for: .normal)
+        infoButton.tintColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
+        infoButton.titleEdgeInsets  = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: -5)
 
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.backgroundColor = UIColor.clear

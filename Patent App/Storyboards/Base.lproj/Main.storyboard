@@ -118,7 +118,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1yM-za-04l">
-                                <rect key="frame" x="0.0" y="96" width="375" height="630"/>
+                                <rect key="frame" x="0.0" y="96" width="375" height="632"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" red="0.0" green="0.3803921569" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
@@ -147,9 +147,8 @@
                                     <action selector="back:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZGj-cL-tEX"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c5y-qO-oCR">
-                                <rect key="frame" x="8" y="734" width="359" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c5y-qO-oCR">
+                                <rect key="frame" x="8" y="736" width="359" height="34"/>
                                 <state key="normal" title="How do I play?">
                                     <color key="titleColor" red="0.0" green="0.3803921569" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -177,6 +176,7 @@
                     </view>
                     <connections>
                         <outlet property="backButton" destination="bXG-PM-Rjd" id="s4g-bz-YZo"/>
+                        <outlet property="infoButton" destination="c5y-qO-oCR" id="Ybs-Lk-Vgl"/>
                         <outlet property="tableView" destination="1yM-za-04l" id="DXh-8h-xmz"/>
                     </connections>
                 </viewController>
@@ -299,24 +299,46 @@
                                     <constraint firstAttribute="trailing" secondItem="xuo-Qh-kvq" secondAttribute="trailing" id="ivb-j5-6ZJ"/>
                                 </constraints>
                             </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l7a-tV-6O8">
+                                <rect key="frame" x="0.0" y="44" width="375" height="220"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark" translatesAutoresizingMaskIntoConstraints="NO" id="tEf-a0-LSq">
+                                        <rect key="frame" x="112.66666666666669" y="70" width="150" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="W8m-67-TJT"/>
+                                            <constraint firstAttribute="width" constant="150" id="ceK-DC-jad"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="tEf-a0-LSq" firstAttribute="centerX" secondItem="l7a-tV-6O8" secondAttribute="centerX" id="rZ4-3L-pRh"/>
+                                    <constraint firstItem="tEf-a0-LSq" firstAttribute="centerY" secondItem="l7a-tV-6O8" secondAttribute="centerY" id="tZX-ue-xH1"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="l7a-tV-6O8" firstAttribute="leading" secondItem="u1g-vb-uHI" secondAttribute="leading" id="2OT-2Y-VHh"/>
                             <constraint firstItem="bEl-s0-bZM" firstAttribute="leading" secondItem="jiA-Ub-4np" secondAttribute="leading" id="5iO-C7-eg9"/>
                             <constraint firstItem="bEl-s0-bZM" firstAttribute="bottom" secondItem="jiA-Ub-4np" secondAttribute="bottom" id="8Bn-ra-4fG"/>
                             <constraint firstItem="u1g-vb-uHI" firstAttribute="trailing" secondItem="jiA-Ub-4np" secondAttribute="trailing" id="CY8-HY-zW0"/>
                             <constraint firstItem="u1g-vb-uHI" firstAttribute="leading" secondItem="jiA-Ub-4np" secondAttribute="leading" id="Dvp-bw-aQt"/>
                             <constraint firstItem="jiA-Ub-4np" firstAttribute="trailing" secondItem="wqC-NQ-Ygn" secondAttribute="trailing" id="FgL-Zi-8MB"/>
+                            <constraint firstItem="l7a-tV-6O8" firstAttribute="bottom" secondItem="u1g-vb-uHI" secondAttribute="bottom" id="Gi9-gJ-Ngv"/>
                             <constraint firstItem="bEl-s0-bZM" firstAttribute="trailing" secondItem="jiA-Ub-4np" secondAttribute="trailing" id="Lg9-0m-7EC"/>
                             <constraint firstItem="xuo-Qh-kvq" firstAttribute="width" secondItem="gEb-21-hZp" secondAttribute="width" id="OWQ-Bk-tYv"/>
                             <constraint firstItem="u1g-vb-uHI" firstAttribute="top" secondItem="jiA-Ub-4np" secondAttribute="top" id="ZvF-b4-j4J"/>
                             <constraint firstItem="bEl-s0-bZM" firstAttribute="top" secondItem="wqC-NQ-Ygn" secondAttribute="bottom" id="f8s-vi-YYI"/>
                             <constraint firstItem="wqC-NQ-Ygn" firstAttribute="top" secondItem="u1g-vb-uHI" secondAttribute="bottom" id="jvA-hI-JZQ"/>
+                            <constraint firstItem="l7a-tV-6O8" firstAttribute="trailing" secondItem="u1g-vb-uHI" secondAttribute="trailing" id="mYA-e1-oJL"/>
                             <constraint firstItem="wqC-NQ-Ygn" firstAttribute="leading" secondItem="jiA-Ub-4np" secondAttribute="leading" id="qWd-cl-7Hb"/>
+                            <constraint firstItem="l7a-tV-6O8" firstAttribute="top" secondItem="u1g-vb-uHI" secondAttribute="top" id="tg7-RW-WA5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jiA-Ub-4np"/>
                     </view>
                     <connections>
+                        <outlet property="checkmarkContainerView" destination="l7a-tV-6O8" id="4Uc-ci-R3q"/>
                         <outlet property="imageViewHeightConstraint" destination="Rya-nM-7w6" id="sCn-S3-YVQ"/>
                         <outlet property="scrollView" destination="bEl-s0-bZM" id="B4Q-YR-TbT"/>
                         <outlet property="storyPartImageView" destination="u1g-vb-uHI" id="ic3-Ho-5JG"/>
@@ -537,5 +559,6 @@
     <resources>
         <image name="1" width="1024" height="584"/>
         <image name="arrow" width="512" height="512"/>
+        <image name="checkmark" width="2000" height="1736"/>
     </resources>
 </document>
