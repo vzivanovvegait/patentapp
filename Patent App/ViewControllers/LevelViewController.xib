@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LevelViewController" customModule="Patent_App" customModuleProvider="target">
+            <connections>
+                <outlet property="backView" destination="diq-3M-r6D" id="FjV-Ds-WNi"/>
+                <outlet property="pickerView" destination="zz8-qM-fE9" id="JUL-P5-8xu"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="diq-3M-r6D">
+                    <rect key="frame" x="10" y="484" width="355" height="170"/>
+                    <subviews>
+                        <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zz8-qM-fE9">
+                            <rect key="frame" x="0.0" y="46" width="355" height="124"/>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="HgS-FP-fWK"/>
+                                <outlet property="delegate" destination="-1" id="rfj-cg-Epd"/>
+                            </connections>
+                        </pickerView>
+                        <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u60-oc-giZ">
+                            <rect key="frame" x="307" y="8" width="40" height="30"/>
+                            <state key="normal" title="Apply">
+                                <color key="titleColor" red="0.01176470588" green="0.27450980390000002" blue="0.57647058819999997" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="displayP3"/>
+                            </state>
+                            <connections>
+                                <action selector="apply:" destination="-1" eventType="touchUpInside" id="vfd-kq-e0W"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="zz8-qM-fE9" firstAttribute="top" secondItem="u60-oc-giZ" secondAttribute="bottom" constant="8" id="SN4-KG-5ko"/>
+                        <constraint firstItem="u60-oc-giZ" firstAttribute="top" secondItem="diq-3M-r6D" secondAttribute="top" constant="8" id="TGN-e9-VMD"/>
+                        <constraint firstAttribute="height" constant="170" id="dfk-j5-a0w"/>
+                        <constraint firstAttribute="trailing" secondItem="zz8-qM-fE9" secondAttribute="trailing" id="fkA-XO-8bH"/>
+                        <constraint firstAttribute="trailing" secondItem="u60-oc-giZ" secondAttribute="trailing" constant="8" id="gbr-Vd-2FQ"/>
+                        <constraint firstAttribute="bottom" secondItem="zz8-qM-fE9" secondAttribute="bottom" id="mbx-JW-tRZ"/>
+                        <constraint firstItem="zz8-qM-fE9" firstAttribute="leading" secondItem="diq-3M-r6D" secondAttribute="leading" id="yQH-Ep-8fz"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="diq-3M-r6D" secondAttribute="trailing" constant="10" id="1E3-y8-jHr"/>
+                <constraint firstItem="diq-3M-r6D" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="BqD-hr-eTD"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="diq-3M-r6D" secondAttribute="bottom" constant="13" id="xcc-NB-Jz0"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+        </view>
+    </objects>
+</document>

@@ -13,6 +13,9 @@ final class StoryPartViewController: UIViewController {
     
     @IBOutlet weak var scrollView: PatentScrollView!
     
+    var currentLevel:Level = .easy
+    var timer = Timer()
+    
     @IBOutlet weak var storyPartLabel: PatentLabel!
     @IBOutlet weak var storyPartImageView: UIImageView!
     @IBOutlet weak var imageViewHeightConstraint: NSLayoutConstraint!
@@ -36,6 +39,10 @@ final class StoryPartViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setTextLabelOnAppear()
+    }
+    
+    func showLevel() {
+        self.showLevelParametar(level: currentLevel).delegate = self
     }
 }
 
@@ -164,6 +171,37 @@ extension StoryPartViewController: TTTAttributedLabelDelegate {
             DialogUtils.showWarningDialog(self, title: nil, message: "\(word.mainString.uppercased()) has been added in Notes!", completion: nil)
         } else {
             DialogUtils.showWarningDialog(self, title: "Error", message: "\(word.mainString.uppercased()) already exist in Notes!", completion: nil)
+        }
+    }
+}
+
+
+extension StoryPartViewController: LevelDelegate {
+    func levelChanged(level: Level) {
+        print(level.rawValue)
+        currentLevel = level
+        timer.invalidate()
+        switch level {
+        case .easy:
+            if let image = image {
+                let imageAspect = Float(image.size.width / image.size.height)
+                changeConstraint(constant: CGFloat(Float(UIScreen.main.bounds.width) / imageAspect))
+            }
+        case .medium:
+            timer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(hideImage), userInfo: nil, repeats: false)
+        case .hard:
+            timer = Timer.scheduledTimer(timeInterval: 30, target: self, selector: #selector(hideImage), userInfo: nil, repeats: false)
+        }
+    }
+    
+    @objc func hideImage() {
+        changeConstraint(constant: 0)
+    }
+    
+    func changeConstraint(constant: CGFloat) {
+        self.imageViewHeightConstraint.constant = constant
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
         }
     }
 }

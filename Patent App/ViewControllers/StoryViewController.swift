@@ -134,11 +134,11 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
         bottomToolBar.settingsAction = {
             DialogUtils.showMultipleChoiceActionSheet(self, anchor: self.view, title: nil, message: nil, choises: ["Level", "Font"], completion: { (result) in
                 if result == "Level" {
-                    
+                    self.viewControllers[self.storyIndex].showLevel()
                 }
                 
                 if result == "Font" {
-                    self.showTimerParametar().delegate = self
+                    self.showFontParametar().delegate = self
                 }
             })
         }
@@ -306,4 +306,5 @@ extension StoryViewController: SettingsDelegate {
         print(fontSize)
     }
 }
+
 
