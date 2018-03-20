@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -367,7 +368,7 @@
         <!--Notes View Controller-->
         <scene sceneID="BmO-9f-UFs">
             <objects>
-                <viewController storyboardIdentifier="NotesViewController" id="xzk-YV-thc" customClass="NotesViewController" customModule="Patent_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NotesViewController" automaticallyAdjustsScrollViewInsets="NO" id="xzk-YV-thc" customClass="NotesViewController" customModule="Patent_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VSg-V2-pvB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

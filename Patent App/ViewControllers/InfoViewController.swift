@@ -12,7 +12,7 @@ final class InfoViewController: UIViewController {
     
     var pageController = UIPageViewController()
     
-    var infoParts = [#imageLiteral(resourceName: "wizard_1"), #imageLiteral(resourceName: "wizard_2"), #imageLiteral(resourceName: "wizard_3"), #imageLiteral(resourceName: "wizard_4"), #imageLiteral(resourceName: "wizard_5"), #imageLiteral(resourceName: "wizard_6"), #imageLiteral(resourceName: "wizard_7")]
+    var infoParts = [#imageLiteral(resourceName: "wizard_1"),#imageLiteral(resourceName: "wizard_2"),#imageLiteral(resourceName: "wizard_3"),#imageLiteral(resourceName: "wizard_4"),#imageLiteral(resourceName: "wizard_5"),#imageLiteral(resourceName: "wizard_6"),#imageLiteral(resourceName: "wizard_7"),#imageLiteral(resourceName: "wizard_8")]
     var viewControllers = [InfoPartViewController]()
     
     @IBOutlet weak var infoPartContainerView: UIView!

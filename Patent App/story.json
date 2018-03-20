@@ -1635,9 +1635,9 @@
             "hint": "On an envelope, you put \"from\" and \"…\" whom the letter is sent"
             },
             {
-            "mainString": "run",
+            "mainString": "ran",
             "isSpecial": false,
-            "roots": ["running", "runs"],
+            "roots": ["running", "runs", "run"],
             "hint": "It's almost like walking, but very fast"
             },
             {
@@ -2132,11 +2132,6 @@
             "isSpecial": false,
             "roots": [],
             "hint": "If you don't see something, you may wonder …it is"
-            },
-            {
-            "mainString": "the",
-            "isSpecial": false,
-            "roots": []
             },
             {
             "mainString": "they",
@@ -2754,7 +2749,7 @@
             "mainString": "said",
             "isSpecial": false,
             "roots": ["say", "says"],
-            "hint": "nother word for \"telling\""
+            "hint": "Another word for \"telling\""
             },
             {
             "mainString": ":",

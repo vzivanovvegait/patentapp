@@ -117,9 +117,14 @@ extension StoryPartViewController {
             checkmarkContainerView.isHidden = false
         } else {
             checkmarkContainerView.isHidden = true
-            
         }
         storyPartLabel.setText(result.0)
+        
+        if let image = image {
+            let imageAspect = Float(image.size.width / image.size.height)
+            changeConstraint(constant: CGFloat(Float(UIScreen.main.bounds.width) / imageAspect))
+        }
+        setLevel()
     }
 
 }
@@ -168,7 +173,8 @@ extension StoryPartViewController: TTTAttributedLabelDelegate {
     
     func saveDialog(word: Word) {
         if NoteController.shared.insertNote(word: word.mainString.lowercased(), explanation: word.hint?.lowercased()) {
-            DialogUtils.showWarningDialog(self, title: nil, message: "\(word.mainString.uppercased()) has been added in Notes!", completion: nil)
+            let navigationController = NotesViewController.makeFromStoryboard().embedInNavigationController()
+            self.present(navigationController, animated: true, completion: nil)
         } else {
             DialogUtils.showWarningDialog(self, title: "Error", message: "\(word.mainString.uppercased()) already exist in Notes!", completion: nil)
         }
@@ -181,7 +187,11 @@ extension StoryPartViewController: LevelDelegate {
         print(level.rawValue)
         currentLevel = level
         timer.invalidate()
-        switch level {
+        setLevel()
+    }
+    
+    func setLevel() {
+        switch currentLevel {
         case .easy:
             if let image = image {
                 let imageAspect = Float(image.size.width / image.size.height)
@@ -190,7 +200,7 @@ extension StoryPartViewController: LevelDelegate {
         case .medium:
             timer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(hideImage), userInfo: nil, repeats: false)
         case .hard:
-            timer = Timer.scheduledTimer(timeInterval: 30, target: self, selector: #selector(hideImage), userInfo: nil, repeats: false)
+            timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(hideImage), userInfo: nil, repeats: false)
         }
     }
     
