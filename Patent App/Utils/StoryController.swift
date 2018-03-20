@@ -10,6 +10,21 @@ import UIKit
 
 class StoryController: NSObject {
     
+    class func getStories() -> [DBStory] {
+        let context = CoreDataManager.shared.persistentContainer.viewContext
+        let storiesFetch = DBStory.fetchStories()
+        do {
+            let fetchedStories = try context.fetch(storiesFetch)
+            return fetchedStories
+        } catch {
+            fatalError("Failed to fetch employees: \(error)")
+        }
+        return []
+    }
+    
+    
+    
+    
     class func getStory() -> [StoryPart] {
         var storyParts = [StoryPart]()
         if let path = Bundle.main.path(forResource: "story", ofType: "json") {

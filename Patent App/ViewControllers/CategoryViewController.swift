@@ -17,6 +17,8 @@ final class CategoryViewController: UIViewController, StoryboardInitializable {
         super.viewDidLoad()
         
         view.backgroundColor = UIColor(red: 242/255.0, green: 233/255.0, blue: 134/255.0, alpha: 1)
+        
+        print(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0])
     }
     
     override var prefersStatusBarHidden: Bool {

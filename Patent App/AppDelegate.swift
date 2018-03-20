@@ -18,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        StoryManager.populateStories()
+        
         let categoryViewController = CategoryViewController.makeFromStoryboard()
         let navigationController = categoryViewController.embedInNavigationController()
         navigationController.setNavigationBarHidden(true, animated: false)

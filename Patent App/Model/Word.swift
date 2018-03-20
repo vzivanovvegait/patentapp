@@ -8,15 +8,15 @@
 
 import Foundation
 
+enum State: Int16 {
+    case oneline = 1
+    case underlined
+    case clue
+    case firstLastLetter
+    case normal
+}
+
 class Word {
-    
-    enum State {
-        case oneline
-        case underlined
-        case clue
-        case firstLastLetter
-        case normal
-    }
     
     var mainString:String = ""
     

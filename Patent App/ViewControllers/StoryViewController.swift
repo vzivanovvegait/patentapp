@@ -28,6 +28,9 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
     @IBOutlet weak var containerViewBottomConstraint: NSLayoutConstraint!
     
     var storyParts = [StoryPart]()
+    
+    var parts = Set<DBStoryPart>()
+    
     var storyIndex = 0
     
     override func viewDidLoad() {
@@ -66,8 +69,8 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
     // Set data
     
     func setData() {
-        storyParts = StoryController.getStory()
-        for (index, part) in storyParts.enumerated() {
+//        storyParts = StoryController.getStory()
+        for (index, part) in parts.enumerated() {
             let vc:StoryPartViewController = StoryPartViewController.makeFromStoryboard()
             vc.setStoryPart(storyPart: part)
             vc.index = index

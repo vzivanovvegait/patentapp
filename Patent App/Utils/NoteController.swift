@@ -27,7 +27,6 @@ class NoteController {
     
     func insertNote(word: String, explanation: String?) -> Bool {
         let context = CoreDataManager.shared.persistentContainer.viewContext
-//        context.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
         
         let entity = NSEntityDescription.entity(forEntityName: "Note", in: context)
         let newUser = NSManagedObject(entity: entity!, insertInto: context) as! Note

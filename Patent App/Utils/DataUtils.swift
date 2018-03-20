@@ -10,12 +10,12 @@ import UIKit
 
 class DataUtils {
     
-    class func createString(from array:[Word]) -> (NSMutableAttributedString, Bool) {
+    class func createString(from array:[DBStoryWord]) -> (NSMutableAttributedString, Bool) {
         let attString = NSMutableAttributedString(string: "")
         var rangeCounter = 0
         for index in 0..<array.count {
             if index != 0 {
-                if ![".", ",", ":", "?", "!", "?!"].contains(array[index].mainString) {
+                if ![".", ",", ":", "?", "!", "?!"].contains(array[index].mainString!) {
                     attString.append(NSMutableAttributedString(string: " "))
                     rangeCounter += 1
                 }
@@ -26,10 +26,10 @@ class DataUtils {
             }
             attString.append(word)
             if !array[index].isSpecial {
-                attString.addAttribute(NSAttributedStringKey.link, value: "\(index)", range: NSRange(location: rangeCounter, length: array[index].mainString.count))
+                attString.addAttribute(NSAttributedStringKey.link, value: "\(index)", range: NSRange(location: rangeCounter, length: array[index].mainString!.count))
             }
             
-            rangeCounter += array[index].mainString.count
+            rangeCounter += array[index].mainString!.count
         }
         let fontSize = UserDefaults.standard.integer(forKey: "fontSize")
         attString.addAttribute(NSAttributedStringKey.font, value: UIFont.systemFont(ofSize: CGFloat((fontSize > 25) ? fontSize : 25)), range: NSRange(attString.string.startIndex..., in: attString.string))

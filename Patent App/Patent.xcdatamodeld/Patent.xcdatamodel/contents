@@ -1,5 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="16G1212" minimumToolsVersion="Xcode 9.0" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="DBRoot" representedClassName="DBRoot" syncable="YES">
+        <attribute name="word" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="DBStory" representedClassName="DBStory" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="parts" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="DBStoryPart" inverseName="story" inverseEntity="DBStoryPart" syncable="YES"/>
+    </entity>
+    <entity name="DBStoryPart" representedClassName="DBStoryPart" syncable="YES">
+        <attribute name="imageURL" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="story" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DBStory" inverseName="parts" inverseEntity="DBStory" syncable="YES"/>
+        <relationship name="words" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="DBStoryWord" inverseName="storyPart" inverseEntity="DBStoryWord" syncable="YES"/>
+    </entity>
+    <entity name="DBStoryWord" representedClassName="DBStoryWord" syncable="YES">
+        <attribute name="hint" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isFound" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isSpecial" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="mainString" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="wordState" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="roots" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DBRoot" syncable="YES"/>
+        <relationship name="storyPart" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DBStoryPart" inverseName="words" inverseEntity="DBStoryPart" syncable="YES"/>
+    </entity>
     <entity name="Note" representedClassName="Note" syncable="YES">
         <attribute name="explanation" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="word" optional="YES" attributeType="String" syncable="YES"/>
@@ -11,5 +32,9 @@
     </entity>
     <elements>
         <element name="Note" positionX="-54" positionY="-9" width="128" height="75"/>
+        <element name="DBStory" positionX="-54" positionY="9" width="128" height="75"/>
+        <element name="DBStoryPart" positionX="-45" positionY="18" width="128" height="90"/>
+        <element name="DBStoryWord" positionX="-36" positionY="45" width="128" height="150"/>
+        <element name="DBRoot" positionX="-27" positionY="81" width="128" height="60"/>
     </elements>
 </model>

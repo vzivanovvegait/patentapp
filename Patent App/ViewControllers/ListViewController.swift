@@ -14,12 +14,20 @@ final class ListViewController: UIViewController {
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var infoButton: UIButton!
     
+    var stories = [DBStory]() {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    
     override var prefersStatusBarHidden: Bool {
         return true
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        stories = StoryController.getStories()
         
         backButton.setImage(#imageLiteral(resourceName: "back").withRenderingMode(.alwaysTemplate), for: .normal)
         backButton.tintColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
@@ -48,13 +56,13 @@ final class ListViewController: UIViewController {
 extension ListViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return stories.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
         cell.textLabel?.textColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
-        cell.textLabel?.text = "Torn Shoes"
+        cell.textLabel?.text = stories[indexPath.row].name // "Torn Shoes"
         cell.textLabel?.font = UIFont.systemFont(ofSize: 20)
         cell.textLabel?.textAlignment = .center
         cell.backgroundColor = UIColor.clear
@@ -68,6 +76,7 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyViewController = StoryViewController.makeFromStoryboard()
+        storyViewController.parts = stories[indexPath.row].parts
         self.navigationController?.pushViewController(storyViewController, animated: true)
     }
     

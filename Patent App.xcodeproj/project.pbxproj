@@ -22,6 +22,16 @@
 		E16503881FFE276C00D91FDF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16503871FFE276C00D91FDF /* HomeViewController.swift */; };
 		E16B10812034344900356BFB /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16B10802034344900356BFB /* InfoViewController.swift */; };
 		E16B10832034347A00356BFB /* InfoPartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16B10822034347A00356BFB /* InfoPartViewController.swift */; };
+		E16E274B2061434700370739 /* DBStory+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16E27432061434700370739 /* DBStory+CoreDataClass.swift */; };
+		E16E274C2061434700370739 /* DBStory+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16E27442061434700370739 /* DBStory+CoreDataProperties.swift */; };
+		E16E274D2061434700370739 /* DBRoot+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16E27452061434700370739 /* DBRoot+CoreDataClass.swift */; };
+		E16E274E2061434700370739 /* DBRoot+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16E27462061434700370739 /* DBRoot+CoreDataProperties.swift */; };
+		E16E274F2061434700370739 /* DBStoryWord+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16E27472061434700370739 /* DBStoryWord+CoreDataClass.swift */; };
+		E16E27502061434700370739 /* DBStoryWord+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16E27482061434700370739 /* DBStoryWord+CoreDataProperties.swift */; };
+		E16E27512061434700370739 /* DBStoryPart+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16E27492061434700370739 /* DBStoryPart+CoreDataClass.swift */; };
+		E16E27522061434700370739 /* DBStoryPart+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16E274A2061434700370739 /* DBStoryPart+CoreDataProperties.swift */; };
+		E16E2754206147DE00370739 /* StoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16E2753206147DE00370739 /* StoryManager.swift */; };
+		E16E2756206157C000370739 /* StoryPartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16E2755206157C000370739 /* StoryPartController.swift */; };
 		E17652B620330EB900E1C848 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17652B520330EB900E1C848 /* ListViewController.swift */; };
 		E17A1295202066AC00C37AFB /* StoryPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17A1294202066AC00C37AFB /* StoryPart.swift */; };
 		E17A12972020677100C37AFB /* StoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17A12962020677100C37AFB /* StoryController.swift */; };
@@ -73,6 +83,16 @@
 		E16503871FFE276C00D91FDF /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		E16B10802034344900356BFB /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		E16B10822034347A00356BFB /* InfoPartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPartViewController.swift; sourceTree = "<group>"; };
+		E16E27432061434700370739 /* DBStory+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DBStory+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E16E27442061434700370739 /* DBStory+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DBStory+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E16E27452061434700370739 /* DBRoot+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DBRoot+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E16E27462061434700370739 /* DBRoot+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DBRoot+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E16E27472061434700370739 /* DBStoryWord+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DBStoryWord+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E16E27482061434700370739 /* DBStoryWord+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DBStoryWord+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E16E27492061434700370739 /* DBStoryPart+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DBStoryPart+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E16E274A2061434700370739 /* DBStoryPart+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DBStoryPart+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E16E2753206147DE00370739 /* StoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryManager.swift; sourceTree = "<group>"; };
+		E16E2755206157C000370739 /* StoryPartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryPartController.swift; sourceTree = "<group>"; };
 		E17652B520330EB900E1C848 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		E17A1294202066AC00C37AFB /* StoryPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryPart.swift; sourceTree = "<group>"; };
 		E17A12962020677100C37AFB /* StoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryController.swift; sourceTree = "<group>"; };
@@ -179,6 +199,8 @@
 				E1ED4433201B654600BA291A /* CoreDataManager.swift */,
 				E1ED4435201B761100BA291A /* NoteController.swift */,
 				E17A12962020677100C37AFB /* StoryController.swift */,
+				E16E2753206147DE00370739 /* StoryManager.swift */,
+				E16E2755206157C000370739 /* StoryPartController.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -186,6 +208,14 @@
 		E1529DB1201601AC003CD7C6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E16E27432061434700370739 /* DBStory+CoreDataClass.swift */,
+				E16E27442061434700370739 /* DBStory+CoreDataProperties.swift */,
+				E16E27452061434700370739 /* DBRoot+CoreDataClass.swift */,
+				E16E27462061434700370739 /* DBRoot+CoreDataProperties.swift */,
+				E16E27472061434700370739 /* DBStoryWord+CoreDataClass.swift */,
+				E16E27482061434700370739 /* DBStoryWord+CoreDataProperties.swift */,
+				E16E27492061434700370739 /* DBStoryPart+CoreDataClass.swift */,
+				E16E274A2061434700370739 /* DBStoryPart+CoreDataProperties.swift */,
 				E1ED442F201B609000BA291A /* Note+CoreDataClass.swift */,
 				E1ED4430201B609000BA291A /* Note+CoreDataProperties.swift */,
 				E1529DB2201601BC003CD7C6 /* Word.swift */,
@@ -465,15 +495,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				E14F66CE2023727B000C9CA4 /* PatentLabel.swift in Sources */,
+				E16E27502061434700370739 /* DBStoryWord+CoreDataProperties.swift in Sources */,
+				E16E274D2061434700370739 /* DBRoot+CoreDataClass.swift in Sources */,
 				E194D72720077306005D62EF /* CategoryViewController.swift in Sources */,
 				E14FF70E200E43B000B12E39 /* DataUtils.swift in Sources */,
+				E16E274C2061434700370739 /* DBStory+CoreDataProperties.swift in Sources */,
 				E16503881FFE276C00D91FDF /* HomeViewController.swift in Sources */,
 				E1ED4436201B761100BA291A /* NoteController.swift in Sources */,
 				E19170E61FF3985100C3BD1C /* StoryViewController.swift in Sources */,
+				E16E2754206147DE00370739 /* StoryManager.swift in Sources */,
 				E148C47B202DE622003906A4 /* RecordButton.swift in Sources */,
 				E194D72920077657005D62EF /* StoryboardInitializable.swift in Sources */,
 				E1BB8478203EE7DF0069E5AA /* SettingsViewConroller.swift in Sources */,
+				E16E274B2061434700370739 /* DBStory+CoreDataClass.swift in Sources */,
 				E14F66C920234A11000C9CA4 /* BottomToolBar.swift in Sources */,
+				E16E27512061434700370739 /* DBStoryPart+CoreDataClass.swift in Sources */,
 				E19170F61FF3A08D00C3BD1C /* SpeechRecognitionService.swift in Sources */,
 				E17652B620330EB900E1C848 /* ListViewController.swift in Sources */,
 				E198AF0F2031B49000BEB074 /* ZoomImageViewController.swift in Sources */,
@@ -484,16 +520,20 @@
 				E1529DB3201601BC003CD7C6 /* Word.swift in Sources */,
 				E188E2832010D3BE00755614 /* SendContainerView.swift in Sources */,
 				E1ED442E201B57DD00BA291A /* NoteCell.swift in Sources */,
+				E16E2756206157C000370739 /* StoryPartController.swift in Sources */,
 				E17A1295202066AC00C37AFB /* StoryPart.swift in Sources */,
 				E17A12972020677100C37AFB /* StoryController.swift in Sources */,
 				E17D12E1201779B70040681E /* DialogUtils.swift in Sources */,
+				E16E274E2061434700370739 /* DBRoot+CoreDataProperties.swift in Sources */,
 				E194D72520076C0F005D62EF /* MenuButton.swift in Sources */,
 				E16B10832034347A00356BFB /* InfoPartViewController.swift in Sources */,
 				E1ED4432201B609000BA291A /* Note+CoreDataProperties.swift in Sources */,
 				E10B710E202C7FF5003F32DC /* PatentScrollView.swift in Sources */,
 				E1ED4434201B654600BA291A /* CoreDataManager.swift in Sources */,
 				E148C451202D9F24003906A4 /* TopToolBar.swift in Sources */,
+				E16E274F2061434700370739 /* DBStoryWord+CoreDataClass.swift in Sources */,
 				E1ED4409201B510200BA291A /* NotesViewController.swift in Sources */,
+				E16E27522061434700370739 /* DBStoryPart+CoreDataProperties.swift in Sources */,
 				E19170E41FF3985100C3BD1C /* AppDelegate.swift in Sources */,
 				E19D55B3204E855D007B3243 /* LevelViewController.swift in Sources */,
 				E1ED4414201B530B00BA291A /* Patent.xcdatamodeld in Sources */,

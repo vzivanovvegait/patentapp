@@ -23,7 +23,7 @@ final class StoryPartViewController: UIViewController {
     
     var image:UIImage?
     
-    var words = [Word]()
+    var words = Set<DBStoryWord>()
     
     var index:Int!
 
@@ -71,8 +71,10 @@ extension StoryPartViewController {
         storyPartImageView.image = image
     }
     
-    func setStoryPart(storyPart: StoryPart) {
-        self.image = UIImage(named: storyPart.image)
+    func setStoryPart(storyPart: DBStoryPart) {
+        if let image = storyPart.imageURL {
+            self.image = UIImage(named: image)
+        }
         words = storyPart.words
     }
     
