@@ -27,9 +27,9 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
     @IBOutlet weak var sendboxBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var containerViewBottomConstraint: NSLayoutConstraint!
     
-    var storyParts = [StoryPart]()
+//    var storyParts = [StoryPart]()
     
-    var parts = Set<DBStoryPart>()
+    var parts = NSOrderedSet()
     
     var storyIndex = 0
     
@@ -69,12 +69,13 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
     // Set data
     
     func setData() {
-//        storyParts = StoryController.getStory()
         for (index, part) in parts.enumerated() {
-            let vc:StoryPartViewController = StoryPartViewController.makeFromStoryboard()
-            vc.setStoryPart(storyPart: part)
-            vc.index = index
-            viewControllers.append(vc)
+            if part is DBStoryPart {
+                let vc:StoryPartViewController = StoryPartViewController.makeFromStoryboard()
+                vc.setStoryPart(storyPart: part as! DBStoryPart)
+                vc.index = index
+                viewControllers.append(vc)
+            }
         }
     }
     
@@ -102,15 +103,15 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
         
         topToolBar.restartAction = {
             DialogUtils.showMoreDialog(self, title: nil, message: nil, choises: ["Start Over This Page", "Start Over Entire Story"], completion: { (result) in
-                if result == "Start Over This Page" {
-                    self.storyParts[self.storyIndex].reset()
-                    self.viewControllers[self.storyIndex].setTextLabel()
-                } else if result == "Start Over Entire Story" {
-                    for part in self.storyParts {
-                        part.reset()
-                    }
-                    self.viewControllers[self.storyIndex].setTextLabel()
-                }
+//                if result == "Start Over This Page" {
+//                    self.storyParts[self.storyIndex].reset()
+//                    self.viewControllers[self.storyIndex].setTextLabel()
+//                } else if result == "Start Over Entire Story" {
+//                    for part in self.storyParts {
+//                        part.reset()
+//                    }
+//                    self.viewControllers[self.storyIndex].setTextLabel()
+//                }
             })
         }
     }

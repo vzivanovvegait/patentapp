@@ -23,7 +23,7 @@ final class StoryPartViewController: UIViewController {
     
     var image:UIImage?
     
-    var words = Set<DBStoryWord>()
+    var words: NSOrderedSet!
     
     var index:Int!
 
@@ -72,14 +72,12 @@ extension StoryPartViewController {
     }
     
     func setStoryPart(storyPart: DBStoryPart) {
-        if let image = storyPart.imageURL {
-            self.image = UIImage(named: image)
-        }
+        self.image = UIImage(named: storyPart.imageURL)
         words = storyPart.words
     }
     
     func setData() {
-        storyPartImageView.image = image
+        storyPartImageView.image = self.image
         if let image = image {
             self.setImage(image: image)
         }
@@ -94,39 +92,39 @@ extension StoryPartViewController {
         var isFound = false
         let responseArray = response.components(separatedBy: " ")
         for index in 0..<words.count {
-            if words[index].check(array: responseArray) {
-                isFound = true
-            }
+//            if words[index].check(array: responseArray) {
+//                isFound = true
+//            }
         }
         return isFound
     }
     
     func setTextLabelOnAppear() {
-        let result = DataUtils.createString(from: words)
-        if result.1 {
-            checkmarkContainerView.isHidden = false
-        } else {
-            checkmarkContainerView.isHidden = true
-            
-        }
-        storyPartLabel.setText(result.0)
+//        let result = DataUtils.createString(from: words)
+//        if result.1 {
+//            checkmarkContainerView.isHidden = false
+//        } else {
+//            checkmarkContainerView.isHidden = true
+//
+//        }
+//        storyPartLabel.setText(result.0)
     }
     
     func setTextLabel() {
-        let result = DataUtils.createString(from: words)
-        if result.1 {
-            DialogUtils.showWarningDialog(self, title: "Great job, swipe to the next page!", message: nil, completion: nil)
-            checkmarkContainerView.isHidden = false
-        } else {
-            checkmarkContainerView.isHidden = true
-        }
-        storyPartLabel.setText(result.0)
-        
-        if let image = image {
-            let imageAspect = Float(image.size.width / image.size.height)
-            changeConstraint(constant: CGFloat(Float(UIScreen.main.bounds.width) / imageAspect))
-        }
-        setLevel()
+//        let result = DataUtils.createString(from: words)
+//        if result.1 {
+//            DialogUtils.showWarningDialog(self, title: "Great job, swipe to the next page!", message: nil, completion: nil)
+//            checkmarkContainerView.isHidden = false
+//        } else {
+//            checkmarkContainerView.isHidden = true
+//        }
+//        storyPartLabel.setText(result.0)
+//
+//        if let image = image {
+//            let imageAspect = Float(image.size.width / image.size.height)
+//            changeConstraint(constant: CGFloat(Float(UIScreen.main.bounds.width) / imageAspect))
+//        }
+//        setLevel()
     }
 
 }
@@ -139,28 +137,28 @@ extension StoryPartViewController: TTTAttributedLabelDelegate {
     }
     
     func handleResponse(index: Int) {
-        switch words[index].wordState {
-        case .oneline, .underlined:
-            words[index].changeState()
-            self.setTextLabel()
-        case .firstLastLetter:
-            words[index].changeState()
-            if words[index].hint != nil {
-                DialogUtils.showWarningDialog(self, title: "Clue", message: words[index].hint, completion: nil)
-            } else {
-                DialogUtils.showWarningDialog(self, title: "Clue", message: "The word has no a clue", completion: nil)
-            }
-        case .clue:
-            DialogUtils.showYesNoDialog(self, title: nil, message: "Are you sure you want to give up and see what it is?", completion: { (result) in
-                if result {
-                    self.words[index].changeState()
-                    self.setTextLabel()
-                    self.saveWord(word: self.words[index])
-                }
-            })
-        case .normal:
-            saveWord(word: words[index])
-        }
+//        switch words[index].wordState {
+//        case .oneline, .underlined:
+//            words[index].changeState()
+//            self.setTextLabel()
+//        case .firstLastLetter:
+//            words[index].changeState()
+//            if words[index].hint != nil {
+//                DialogUtils.showWarningDialog(self, title: "Clue", message: words[index].hint, completion: nil)
+//            } else {
+//                DialogUtils.showWarningDialog(self, title: "Clue", message: "The word has no a clue", completion: nil)
+//            }
+//        case .clue:
+//            DialogUtils.showYesNoDialog(self, title: nil, message: "Are you sure you want to give up and see what it is?", completion: { (result) in
+//                if result {
+//                    self.words[index].changeState()
+//                    self.setTextLabel()
+//                    self.saveWord(word: self.words[index])
+//                }
+//            })
+//        case .normal:
+//            saveWord(word: words[index])
+//        }
     }
     
     func saveWord(word: Word) {

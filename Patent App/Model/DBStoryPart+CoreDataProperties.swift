@@ -2,7 +2,7 @@
 //  DBStoryPart+CoreDataProperties.swift
 //  Patent App
 //
-//  Created by Vladimir Zivanov on 3/20/18.
+//  Created by Vladimir Zivanov on 3/21/18.
 //  Copyright © 2018 Vladimir Zivanov. All rights reserved.
 //
 //
@@ -17,14 +17,32 @@ extension DBStoryPart {
         return NSFetchRequest<DBStoryPart>(entityName: "DBStoryPart")
     }
 
-    @NSManaged public var imageURL: String?
-    @NSManaged public var story: DBStory?
-    @NSManaged public var words: Set<DBStoryWord>
+    @NSManaged public var imageURL: String
+    @NSManaged public var story: DBStory
+    @NSManaged public var words: NSOrderedSet?
 
 }
 
 // MARK: Generated accessors for words
 extension DBStoryPart {
+
+    @objc(insertObject:inWordsAtIndex:)
+    @NSManaged public func insertIntoWords(_ value: DBStoryWord, at idx: Int)
+
+    @objc(removeObjectFromWordsAtIndex:)
+    @NSManaged public func removeFromWords(at idx: Int)
+
+    @objc(insertWords:atIndexes:)
+    @NSManaged public func insertIntoWords(_ values: [DBStoryWord], at indexes: NSIndexSet)
+
+    @objc(removeWordsAtIndexes:)
+    @NSManaged public func removeFromWords(at indexes: NSIndexSet)
+
+    @objc(replaceObjectInWordsAtIndex:withObject:)
+    @NSManaged public func replaceWords(at idx: Int, with value: DBStoryWord)
+
+    @objc(replaceWordsAtIndexes:withWords:)
+    @NSManaged public func replaceWords(at indexes: NSIndexSet, with values: [DBStoryWord])
 
     @objc(addWordsObject:)
     @NSManaged public func addToWords(_ value: DBStoryWord)
@@ -33,9 +51,9 @@ extension DBStoryPart {
     @NSManaged public func removeFromWords(_ value: DBStoryWord)
 
     @objc(addWords:)
-    @NSManaged public func addToWords(_ values: NSSet)
+    @NSManaged public func addToWords(_ values: NSOrderedSet)
 
     @objc(removeWords:)
-    @NSManaged public func removeFromWords(_ values: NSSet)
+    @NSManaged public func removeFromWords(_ values: NSOrderedSet)
 
 }

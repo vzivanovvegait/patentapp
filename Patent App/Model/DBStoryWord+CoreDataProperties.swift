@@ -2,7 +2,7 @@
 //  DBStoryWord+CoreDataProperties.swift
 //  Patent App
 //
-//  Created by Vladimir Zivanov on 3/20/18.
+//  Created by Vladimir Zivanov on 3/21/18.
 //  Copyright © 2018 Vladimir Zivanov. All rights reserved.
 //
 //
@@ -17,11 +17,11 @@ extension DBStoryWord {
         return NSFetchRequest<DBStoryWord>(entityName: "DBStoryWord")
     }
 
-    @NSManaged public var mainString: String?
-    @NSManaged public var isSpecial: Bool
-    @NSManaged public var isFound: Bool
-    @NSManaged public var wordState: Int16
     @NSManaged public var hint: String?
+    @NSManaged public var isFound: Bool
+    @NSManaged public var isSpecial: Bool
+    @NSManaged public var mainString: String
+    @NSManaged public var wordState: Int16
     @NSManaged public var roots: NSSet?
     @NSManaged public var storyPart: DBStoryPart?
 
@@ -44,23 +44,23 @@ extension DBStoryWord {
     
     func getString() -> String {
         if self.isFound {
-            return mainString!
+            return mainString
         } else {
-            if let state = State(rawValue: self.wordState){
+            if let state = State(rawValue: self.wordState) {
                 switch state {
                 case .oneline, .underlined:
-                    return mainString!.mapString()
+                    return mainString.mapString()
                 case .firstLastLetter, .clue:
-                    if mainString!.count > 2 {
-                        return mainString!.mapFirstLastString()
+                    if mainString.count > 2 {
+                        return mainString.mapFirstLastString()
                     } else {
-                        return mainString!.mapString()
+                        return mainString.mapString()
                     }
                 case .normal:
-                    return mainString!
+                    return mainString
                 }
             } else {
-                return mainString!
+                return mainString
             }
         }
     }
