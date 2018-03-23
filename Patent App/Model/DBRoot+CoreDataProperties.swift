@@ -17,6 +17,6 @@ extension DBRoot {
         return NSFetchRequest<DBRoot>(entityName: "DBRoot")
     }
 
-    @NSManaged public var word: String?
+    @NSManaged public var word: String
 
 }

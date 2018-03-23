@@ -94,24 +94,36 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
         pageController.didMove(toParentViewController: self)
     }
     
+    func save() -> Bool {
+        let context = CoreDataManager.shared.persistentContainer.viewContext
+        
+        do {
+            try context.save()
+            return true
+        } catch {
+            return false
+        }
+    }
+    
     func setTopBar() {
         
         topToolBar.backAction = {
             self.stop()
+            self.save()
             self.navigationController?.popViewController(animated: true)
         }
         
         topToolBar.restartAction = {
             DialogUtils.showMoreDialog(self, title: nil, message: nil, choises: ["Start Over This Page", "Start Over Entire Story"], completion: { (result) in
-//                if result == "Start Over This Page" {
-//                    self.storyParts[self.storyIndex].reset()
-//                    self.viewControllers[self.storyIndex].setTextLabel()
-//                } else if result == "Start Over Entire Story" {
-//                    for part in self.storyParts {
-//                        part.reset()
-//                    }
-//                    self.viewControllers[self.storyIndex].setTextLabel()
-//                }
+                if result == "Start Over This Page" {
+                    (self.parts[self.storyIndex] as! DBStoryPart).reset()
+                    self.viewControllers[self.storyIndex].setTextLabel()
+                } else if result == "Start Over Entire Story" {
+                    for part in self.parts {
+                        (part as! DBStoryPart).reset()
+                    }
+                    self.viewControllers[self.storyIndex].setTextLabel()
+                }
             })
         }
     }

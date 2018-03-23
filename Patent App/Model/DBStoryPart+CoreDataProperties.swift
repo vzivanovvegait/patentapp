@@ -19,7 +19,7 @@ extension DBStoryPart {
 
     @NSManaged public var imageURL: String
     @NSManaged public var story: DBStory
-    @NSManaged public var words: NSOrderedSet?
+    @NSManaged public var words: NSOrderedSet
 
 }
 
@@ -55,5 +55,14 @@ extension DBStoryPart {
 
     @objc(removeWords:)
     @NSManaged public func removeFromWords(_ values: NSOrderedSet)
+    
+    func reset() {
+        for word in words {
+            if let word = word as? DBStoryWord, !word.isSpecial {
+                word.isFound = false
+                word.wordState = State.oneline.rawValue
+            }
+        }
+    }
 
 }

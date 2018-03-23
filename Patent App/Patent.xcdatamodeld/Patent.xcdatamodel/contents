@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17D102" minimumToolsVersion="Xcode 9.0" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="16G1212" minimumToolsVersion="Xcode 9.0" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="DBRoot" representedClassName="DBRoot" syncable="YES">
-        <attribute name="word" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="word" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="DBStory" representedClassName="DBStory" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>

@@ -92,39 +92,39 @@ extension StoryPartViewController {
         var isFound = false
         let responseArray = response.components(separatedBy: " ")
         for index in 0..<words.count {
-//            if words[index].check(array: responseArray) {
-//                isFound = true
-//            }
+            if let word = words[index] as? DBStoryWord, word.check(array: responseArray) {
+                isFound = true
+            }
         }
         return isFound
     }
     
     func setTextLabelOnAppear() {
-//        let result = DataUtils.createString(from: words)
-//        if result.1 {
-//            checkmarkContainerView.isHidden = false
-//        } else {
-//            checkmarkContainerView.isHidden = true
-//
-//        }
-//        storyPartLabel.setText(result.0)
+        let result = DataUtils.createString(from: words)
+        if result.1 {
+            checkmarkContainerView.isHidden = false
+        } else {
+            checkmarkContainerView.isHidden = true
+
+        }
+        storyPartLabel.setText(result.0)
     }
     
     func setTextLabel() {
-//        let result = DataUtils.createString(from: words)
-//        if result.1 {
-//            DialogUtils.showWarningDialog(self, title: "Great job, swipe to the next page!", message: nil, completion: nil)
-//            checkmarkContainerView.isHidden = false
-//        } else {
-//            checkmarkContainerView.isHidden = true
-//        }
-//        storyPartLabel.setText(result.0)
-//
-//        if let image = image {
-//            let imageAspect = Float(image.size.width / image.size.height)
-//            changeConstraint(constant: CGFloat(Float(UIScreen.main.bounds.width) / imageAspect))
-//        }
-//        setLevel()
+        let result = DataUtils.createString(from: words)
+        if result.1 {
+            DialogUtils.showWarningDialog(self, title: "Great job, swipe to the next page!", message: nil, completion: nil)
+            checkmarkContainerView.isHidden = false
+        } else {
+            checkmarkContainerView.isHidden = true
+        }
+        storyPartLabel.setText(result.0)
+
+        if let image = image {
+            let imageAspect = Float(image.size.width / image.size.height)
+            changeConstraint(constant: CGFloat(Float(UIScreen.main.bounds.width) / imageAspect))
+        }
+        setLevel()
     }
 
 }
@@ -137,31 +137,33 @@ extension StoryPartViewController: TTTAttributedLabelDelegate {
     }
     
     func handleResponse(index: Int) {
-//        switch words[index].wordState {
-//        case .oneline, .underlined:
-//            words[index].changeState()
-//            self.setTextLabel()
-//        case .firstLastLetter:
-//            words[index].changeState()
-//            if words[index].hint != nil {
-//                DialogUtils.showWarningDialog(self, title: "Clue", message: words[index].hint, completion: nil)
-//            } else {
-//                DialogUtils.showWarningDialog(self, title: "Clue", message: "The word has no a clue", completion: nil)
-//            }
-//        case .clue:
-//            DialogUtils.showYesNoDialog(self, title: nil, message: "Are you sure you want to give up and see what it is?", completion: { (result) in
-//                if result {
-//                    self.words[index].changeState()
-//                    self.setTextLabel()
-//                    self.saveWord(word: self.words[index])
-//                }
-//            })
-//        case .normal:
-//            saveWord(word: words[index])
-//        }
+        if let word = words[index] as? DBStoryWord, let state = State(rawValue: word.wordState) {
+            switch state {
+            case .oneline, .underlined:
+                word.changeState()
+                self.setTextLabel()
+            case .firstLastLetter:
+                word.changeState()
+                if word.hint != nil {
+                    DialogUtils.showWarningDialog(self, title: "Clue", message: word.hint, completion: nil)
+                } else {
+                    DialogUtils.showWarningDialog(self, title: "Clue", message: "The word has no a clue", completion: nil)
+                }
+            case .clue:
+                DialogUtils.showYesNoDialog(self, title: nil, message: "Are you sure you want to give up and see what it is?", completion: { (result) in
+                    if result {
+                        word.changeState()
+                        self.setTextLabel()
+                        self.saveWord(word: word)
+                    }
+                })
+            case .normal:
+                saveWord(word: word)
+            }
+        }
     }
     
-    func saveWord(word: Word) {
+    func saveWord(word: DBStoryWord) {
         if word.hint != nil {
             DialogUtils.showYesNoDialog(self, title: "Save", message: "Do you want to save \(word.mainString.uppercased()) into notes?", completion: { (result) in
                 if result {
@@ -171,7 +173,7 @@ extension StoryPartViewController: TTTAttributedLabelDelegate {
         }
     }
     
-    func saveDialog(word: Word) {
+    func saveDialog(word: DBStoryWord) {
         if NoteController.shared.insertNote(word: word.mainString.lowercased(), explanation: word.hint?.lowercased()) {
             let navigationController = NotesViewController.makeFromStoryboard().embedInNavigationController()
             self.present(navigationController, animated: true, completion: nil)

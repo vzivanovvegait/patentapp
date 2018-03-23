@@ -18,7 +18,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        StoryManager.populateStories()
+        if (UserDefaults.standard.bool(forKey: "HasLaunchedOnce")) {
+            // App already launched
+            
+        } else {
+            
+            StoryManager.populateStories()
+            
+            UserDefaults.standard.set(true, forKey: "HasLaunchedOnce")
+            UserDefaults.standard.synchronize()
+        }
         
         let categoryViewController = CategoryViewController.makeFromStoryboard()
         let navigationController = categoryViewController.embedInNavigationController()
