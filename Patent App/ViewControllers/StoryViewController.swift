@@ -109,7 +109,7 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
         
         topToolBar.backAction = {
             self.stop()
-            self.save()
+            let _ = self.save()
             self.navigationController?.popViewController(animated: true)
         }
         
