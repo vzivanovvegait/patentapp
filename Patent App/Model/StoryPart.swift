@@ -8,17 +8,18 @@
 
 import Foundation
 
-class StoryPart {
-    
-    var image:String = ""
-    var words:[Word] = []
-    
-    func reset() {
-        for word in words {
-            if !word.isSpecial {
-                word.isFound = false
-                word.wordState = .oneline
-            }
-        }
-    }
-}
+//class StoryPart {
+//    
+//    var image:String = ""
+//    var words:[Word] = []
+//    
+//    func reset() {
+//        for word in words {
+//            if !word.isSpecial {
+//                word.isFound = false
+//                word.wordState = .oneline
+//            }
+//        }
+//    }
+//}
+

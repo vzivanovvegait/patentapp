@@ -27,8 +27,6 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
     @IBOutlet weak var sendboxBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var containerViewBottomConstraint: NSLayoutConstraint!
     
-//    var storyParts = [StoryPart]()
-    
     var parts = NSOrderedSet()
     
     var storyIndex = 0
@@ -109,8 +107,14 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
         
         topToolBar.backAction = {
             self.stop()
-            let _ = self.save()
-            self.navigationController?.popViewController(animated: true)
+            
+            DialogUtils.showYesNoDialog(self, title: nil, message: "Do you want to save the progress?", completion: { (result) in
+                if result {
+                    let _ = self.save()
+                }
+                self.navigationController?.popViewController(animated: true)
+            })
+            
         }
         
         topToolBar.restartAction = {
