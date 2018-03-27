@@ -202,7 +202,7 @@ extension StoryPartViewController: LevelDelegate {
         case .medium:
             timer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(hideImage), userInfo: nil, repeats: false)
         case .hard:
-            timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(hideImage), userInfo: nil, repeats: false)
+            timer = Timer.scheduledTimer(timeInterval: 30, target: self, selector: #selector(hideImage), userInfo: nil, repeats: false)
         }
     }
     

@@ -31,7 +31,8 @@
             {
             "mainString": "there",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "Not \"here\", but ..."
             },
             {
             "mainString": "was",
@@ -58,7 +59,8 @@
             {
             "mainString": "who",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "You see that you peanut butter is gone, and think to yourself:\"... ateit?\""
             },
             {
             "mainString": "had",
@@ -157,7 +159,8 @@
             {
             "mainString": "side",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "Front, back, top, bottom. What is mising?"
             },
             {
             "mainString": "by",
@@ -167,7 +170,8 @@
             {
             "mainString": "side",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "Front, back, top, bottom. What is mising?"
             },
             {
             "mainString": "in",
@@ -218,7 +222,8 @@
             {
             "mainString": "than",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "I like science more ... math"
             },
             {
             "mainString": "others",
@@ -347,7 +352,8 @@
             {
             "mainString": "shoeshelf",
             "isSpecial": false,
-            "roots": ["shoeshelfs"]
+            "roots": ["shoeshelfs"],
+            "hint": "Piece of furniture that can holds shoes"
             },
             {
             "mainString": "with",
@@ -994,7 +1000,7 @@
             "mainString": "Many",
             "isSpecial": false,
             "roots": [],
-            "hint": "What do you say when there are"
+            "hint": "Not few, but ..."
             },
             {
             "mainString": "young",
@@ -1017,7 +1023,8 @@
             {
             "mainString": "up",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "Opposite of \"down\""
             },
             {
             "mainString": "to",
@@ -1093,7 +1100,8 @@
             {
             "mainString": "dining",
             "isSpecial": false,
-            "roots": []
+            "roots": [],
+            "hint": "You eat dinner at a ... table"
             },
             {
             "mainString": "room",
