@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/v.zivanov/patentapp/Patent App/Model/Flashcard+CoreDataClass.swift">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/v.zivanov/patentapp/Patent App/Model/Flashcard+CoreDataProperties.swift">
+   </FileRef>
+   <FileRef
       location = "group:Patent App.xcodeproj">
    </FileRef>
    <FileRef

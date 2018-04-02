@@ -21,6 +21,12 @@
         <relationship name="roots" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="DBRoot" syncable="YES"/>
         <relationship name="storyPart" maxCount="1" deletionRule="Nullify" destinationEntity="DBStoryPart" inverseName="words" inverseEntity="DBStoryPart" syncable="YES"/>
     </entity>
+    <entity name="Flashcard" representedClassName="Flashcard" syncable="YES">
+        <attribute name="answer" attributeType="String" syncable="YES"/>
+        <attribute name="isOrdered" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="question" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="Note" representedClassName="Note" syncable="YES">
         <attribute name="explanation" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="word" optional="YES" attributeType="String" syncable="YES"/>
@@ -36,5 +42,6 @@
         <element name="DBStoryPart" positionX="-45" positionY="18" width="128" height="90"/>
         <element name="DBStoryWord" positionX="-36" positionY="45" width="128" height="150"/>
         <element name="Note" positionX="-54" positionY="-9" width="128" height="75"/>
+        <element name="Flashcard" positionX="-36" positionY="81" width="128" height="105"/>
     </elements>
 </model>

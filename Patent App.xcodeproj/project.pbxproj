@@ -33,6 +33,13 @@
 		E16B10832034347A00356BFB /* InfoPartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16B10822034347A00356BFB /* InfoPartViewController.swift */; };
 		E16E2754206147DE00370739 /* StoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16E2753206147DE00370739 /* StoryManager.swift */; };
 		E16E2756206157C000370739 /* StoryPartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16E2755206157C000370739 /* StoryPartController.swift */; };
+		E170A1932072680F00463C65 /* FlashcardsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E170A1912072680F00463C65 /* FlashcardsListViewController.swift */; };
+		E170A19920726FCD00463C65 /* CreateFlashcardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E170A19820726FCD00463C65 /* CreateFlashcardViewController.swift */; };
+		E170A19B2072704B00463C65 /* KeyboardHandlerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E170A19A2072704B00463C65 /* KeyboardHandlerDelegate.swift */; };
+		E170A19D2072728000463C65 /* UITextViewPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E170A19C2072728000463C65 /* UITextViewPlaceholder.swift */; };
+		E170A1A02072768900463C65 /* Flashcard+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E170A19E2072768700463C65 /* Flashcard+CoreDataClass.swift */; };
+		E170A1A12072768900463C65 /* Flashcard+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E170A19F2072768800463C65 /* Flashcard+CoreDataProperties.swift */; };
+		E170A1A3207276B100463C65 /* FlashcardsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E170A1A2207276B100463C65 /* FlashcardsManager.swift */; };
 		E17652B620330EB900E1C848 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17652B520330EB900E1C848 /* ListViewController.swift */; };
 		E17A1295202066AC00C37AFB /* StoryPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17A1294202066AC00C37AFB /* StoryPart.swift */; };
 		E17A12972020677100C37AFB /* StoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17A12962020677100C37AFB /* StoryController.swift */; };
@@ -95,6 +102,13 @@
 		E16B10822034347A00356BFB /* InfoPartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPartViewController.swift; sourceTree = "<group>"; };
 		E16E2753206147DE00370739 /* StoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryManager.swift; sourceTree = "<group>"; };
 		E16E2755206157C000370739 /* StoryPartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryPartController.swift; sourceTree = "<group>"; };
+		E170A1912072680F00463C65 /* FlashcardsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardsListViewController.swift; sourceTree = "<group>"; };
+		E170A19820726FCD00463C65 /* CreateFlashcardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFlashcardViewController.swift; sourceTree = "<group>"; };
+		E170A19A2072704B00463C65 /* KeyboardHandlerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyboardHandlerDelegate.swift; path = "../../../DPS-iOS/DPS/Utils/Protocols/KeyboardHandlerDelegate.swift"; sourceTree = "<group>"; };
+		E170A19C2072728000463C65 /* UITextViewPlaceholder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextViewPlaceholder.swift; sourceTree = "<group>"; };
+		E170A19E2072768700463C65 /* Flashcard+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Flashcard+CoreDataClass.swift"; path = "/Users/v.zivanov/patentapp/Patent App/Model/Flashcard+CoreDataClass.swift"; sourceTree = "<absolute>"; };
+		E170A19F2072768800463C65 /* Flashcard+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Flashcard+CoreDataProperties.swift"; path = "/Users/v.zivanov/patentapp/Patent App/Model/Flashcard+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
+		E170A1A2207276B100463C65 /* FlashcardsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardsManager.swift; sourceTree = "<group>"; };
 		E17652B520330EB900E1C848 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		E17A1294202066AC00C37AFB /* StoryPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryPart.swift; sourceTree = "<group>"; };
 		E17A12962020677100C37AFB /* StoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryController.swift; sourceTree = "<group>"; };
@@ -203,6 +217,7 @@
 				E17A12962020677100C37AFB /* StoryController.swift */,
 				E16E2753206147DE00370739 /* StoryManager.swift */,
 				E16E2755206157C000370739 /* StoryPartController.swift */,
+				E170A1A2207276B100463C65 /* FlashcardsManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -210,6 +225,8 @@
 		E1529DB1201601AC003CD7C6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E170A19E2072768700463C65 /* Flashcard+CoreDataClass.swift */,
+				E170A19F2072768800463C65 /* Flashcard+CoreDataProperties.swift */,
 				22FE855020625EB700AB6E47 /* DBStoryPart+CoreDataClass.swift */,
 				22FE855120625EB700AB6E47 /* DBStoryPart+CoreDataProperties.swift */,
 				22FE855220625EB700AB6E47 /* DBStory+CoreDataClass.swift */,
@@ -224,6 +241,40 @@
 				E17A1294202066AC00C37AFB /* StoryPart.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		E170A1952072683000463C65 /* Story */ = {
+			isa = PBXGroup;
+			children = (
+				E16B10822034347A00356BFB /* InfoPartViewController.swift */,
+				E16B10802034344900356BFB /* InfoViewController.swift */,
+				E198AF0E2031B49000BEB074 /* ZoomImageViewController.swift */,
+				E1ED4408201B510200BA291A /* NotesViewController.swift */,
+				E16481E6202473C400702D2B /* StoryPartViewController.swift */,
+				E19170E51FF3985100C3BD1C /* StoryViewController.swift */,
+				E17652B520330EB900E1C848 /* ListViewController.swift */,
+			);
+			path = Story;
+			sourceTree = "<group>";
+		};
+		E170A1962072686700463C65 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				E1BB8476203EE7DF0069E5AA /* SettingsViewConroller.swift */,
+				E1BB8475203EE7DE0069E5AA /* SettingsViewConroller.xib */,
+				E19D55B1204E855D007B3243 /* LevelViewController.swift */,
+				E19D55B2204E855D007B3243 /* LevelViewController.xib */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		E170A1972072688000463C65 /* Flashcards */ = {
+			isa = PBXGroup;
+			children = (
+				E170A1912072680F00463C65 /* FlashcardsListViewController.swift */,
+				E170A19820726FCD00463C65 /* CreateFlashcardViewController.swift */,
+			);
+			path = Flashcards;
 			sourceTree = "<group>";
 		};
 		E188E2862010D4D200755614 /* SendContainerView */ = {
@@ -276,6 +327,7 @@
 		E194D72A2007797B005D62EF /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				E170A19C2072728000463C65 /* UITextViewPlaceholder.swift */,
 				E148C452202D9F7E003906A4 /* TopToolBar */,
 				E10B710C202C7FD0003F32DC /* ScrollView */,
 				E14F66CC2023725D000C9CA4 /* Labels */,
@@ -301,6 +353,7 @@
 			isa = PBXGroup;
 			children = (
 				E188E2802010ABA300755614 /* KeyboardHandlerProtocol.swift */,
+				E170A19A2072704B00463C65 /* KeyboardHandlerDelegate.swift */,
 				E194D72820077657005D62EF /* StoryboardInitializable.swift */,
 				22FE85602062902A00AB6E47 /* String + Extension.swift */,
 			);
@@ -312,17 +365,9 @@
 			children = (
 				E16503871FFE276C00D91FDF /* HomeViewController.swift */,
 				E194D72620077306005D62EF /* CategoryViewController.swift */,
-				E17652B520330EB900E1C848 /* ListViewController.swift */,
-				E19170E51FF3985100C3BD1C /* StoryViewController.swift */,
-				E16481E6202473C400702D2B /* StoryPartViewController.swift */,
-				E1ED4408201B510200BA291A /* NotesViewController.swift */,
-				E198AF0E2031B49000BEB074 /* ZoomImageViewController.swift */,
-				E16B10802034344900356BFB /* InfoViewController.swift */,
-				E16B10822034347A00356BFB /* InfoPartViewController.swift */,
-				E1BB8476203EE7DF0069E5AA /* SettingsViewConroller.swift */,
-				E1BB8475203EE7DE0069E5AA /* SettingsViewConroller.xib */,
-				E19D55B1204E855D007B3243 /* LevelViewController.swift */,
-				E19D55B2204E855D007B3243 /* LevelViewController.xib */,
+				E170A1952072683000463C65 /* Story */,
+				E170A1972072688000463C65 /* Flashcards */,
+				E170A1962072686700463C65 /* Settings */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -498,11 +543,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E14F66CE2023727B000C9CA4 /* PatentLabel.swift in Sources */,
+				E170A19920726FCD00463C65 /* CreateFlashcardViewController.swift in Sources */,
 				E194D72720077306005D62EF /* CategoryViewController.swift in Sources */,
 				E14FF70E200E43B000B12E39 /* DataUtils.swift in Sources */,
 				E16503881FFE276C00D91FDF /* HomeViewController.swift in Sources */,
 				E1ED4436201B761100BA291A /* NoteController.swift in Sources */,
 				E19170E61FF3985100C3BD1C /* StoryViewController.swift in Sources */,
+				E170A19B2072704B00463C65 /* KeyboardHandlerDelegate.swift in Sources */,
 				E16E2754206147DE00370739 /* StoryManager.swift in Sources */,
 				22FE855B20625EB700AB6E47 /* DBStory+CoreDataProperties.swift in Sources */,
 				E148C47B202DE622003906A4 /* RecordButton.swift in Sources */,
@@ -512,10 +559,13 @@
 				E14F66C920234A11000C9CA4 /* BottomToolBar.swift in Sources */,
 				E19170F61FF3A08D00C3BD1C /* SpeechRecognitionService.swift in Sources */,
 				E17652B620330EB900E1C848 /* ListViewController.swift in Sources */,
+				E170A1A3207276B100463C65 /* FlashcardsManager.swift in Sources */,
 				E198AF0F2031B49000BEB074 /* ZoomImageViewController.swift in Sources */,
 				E188E2812010ABA300755614 /* KeyboardHandlerProtocol.swift in Sources */,
 				E198AF112031C8BA00BEB074 /* INSScalingImageView.swift in Sources */,
+				E170A1A12072768900463C65 /* Flashcard+CoreDataProperties.swift in Sources */,
 				22FE855820625EB700AB6E47 /* DBStoryPart+CoreDataClass.swift in Sources */,
+				E170A1A02072768900463C65 /* Flashcard+CoreDataClass.swift in Sources */,
 				E19170F81FF3A09500C3BD1C /* AudioController.swift in Sources */,
 				E1ED4431201B609000BA291A /* Note+CoreDataClass.swift in Sources */,
 				E1529DB3201601BC003CD7C6 /* Word.swift in Sources */,
@@ -526,6 +576,7 @@
 				E17A12972020677100C37AFB /* StoryController.swift in Sources */,
 				22FE855A20625EB700AB6E47 /* DBStory+CoreDataClass.swift in Sources */,
 				E17D12E1201779B70040681E /* DialogUtils.swift in Sources */,
+				E170A1932072680F00463C65 /* FlashcardsListViewController.swift in Sources */,
 				22FE855920625EB700AB6E47 /* DBStoryPart+CoreDataProperties.swift in Sources */,
 				E194D72520076C0F005D62EF /* MenuButton.swift in Sources */,
 				E16B10832034347A00356BFB /* InfoPartViewController.swift in Sources */,
@@ -535,6 +586,7 @@
 				E1ED4434201B654600BA291A /* CoreDataManager.swift in Sources */,
 				E148C451202D9F24003906A4 /* TopToolBar.swift in Sources */,
 				E1ED4409201B510200BA291A /* NotesViewController.swift in Sources */,
+				E170A19D2072728000463C65 /* UITextViewPlaceholder.swift in Sources */,
 				E19170E41FF3985100C3BD1C /* AppDelegate.swift in Sources */,
 				22FE855C20625EB700AB6E47 /* DBStoryWord+CoreDataClass.swift in Sources */,
 				22FE85612062902A00AB6E47 /* String + Extension.swift in Sources */,

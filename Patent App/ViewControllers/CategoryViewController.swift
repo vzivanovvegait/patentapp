@@ -29,6 +29,11 @@ final class CategoryViewController: UIViewController, StoryboardInitializable {
         self.navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func flashcards(_ sender: Any) {
+        let flashcardsListViewController = FlashcardsListViewController.makeFromStoryboard()
+        self.navigationController?.pushViewController(flashcardsListViewController, animated: true)
+    }
+    
     @IBAction func story(_ sender: Any) {
         let listViewController = ListViewController.makeFromStoryboard()
         self.navigationController?.pushViewController(listViewController, animated: true)
