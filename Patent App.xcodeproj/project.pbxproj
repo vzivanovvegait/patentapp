@@ -17,6 +17,7 @@
 		22FE855F20625EB700AB6E47 /* DBRoot+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE855720625EB700AB6E47 /* DBRoot+CoreDataProperties.swift */; };
 		22FE85612062902A00AB6E47 /* String + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE85602062902A00AB6E47 /* String + Extension.swift */; };
 		7A3882E7F463409C143F7A5E /* Pods_Patent_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27AFEF69F4C4243AA6F86D73 /* Pods_Patent_App.framework */; };
+		E1078B6D2073BCEE00239D78 /* FlashcardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1078B6C2073BCEE00239D78 /* FlashcardViewController.swift */; };
 		E10B710E202C7FF5003F32DC /* PatentScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10B710D202C7FF5003F32DC /* PatentScrollView.swift */; };
 		E10B7110202C9973003F32DC /* ErrorAlert.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E10B710F202C9972003F32DC /* ErrorAlert.mp3 */; };
 		E148C451202D9F24003906A4 /* TopToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E148C450202D9F24003906A4 /* TopToolBar.swift */; };
@@ -86,6 +87,7 @@
 		27AFEF69F4C4243AA6F86D73 /* Pods_Patent_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Patent_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A19AD277406B221DC623C2C /* Pods-Patent App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Patent App.release.xcconfig"; path = "Pods/Target Support Files/Pods-Patent App/Pods-Patent App.release.xcconfig"; sourceTree = "<group>"; };
 		D4D0EA8C9B9210A9EC420EBA /* Pods-Patent App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Patent App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Patent App/Pods-Patent App.debug.xcconfig"; sourceTree = "<group>"; };
+		E1078B6C2073BCEE00239D78 /* FlashcardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardViewController.swift; sourceTree = "<group>"; };
 		E10B710D202C7FF5003F32DC /* PatentScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatentScrollView.swift; sourceTree = "<group>"; };
 		E10B710F202C9972003F32DC /* ErrorAlert.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ErrorAlert.mp3; sourceTree = "<group>"; };
 		E148C450202D9F24003906A4 /* TopToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopToolBar.swift; sourceTree = "<group>"; };
@@ -271,8 +273,9 @@
 		E170A1972072688000463C65 /* Flashcards */ = {
 			isa = PBXGroup;
 			children = (
-				E170A1912072680F00463C65 /* FlashcardsListViewController.swift */,
 				E170A19820726FCD00463C65 /* CreateFlashcardViewController.swift */,
+				E170A1912072680F00463C65 /* FlashcardsListViewController.swift */,
+				E1078B6C2073BCEE00239D78 /* FlashcardViewController.swift */,
 			);
 			path = Flashcards;
 			sourceTree = "<group>";
@@ -589,6 +592,7 @@
 				E170A19D2072728000463C65 /* UITextViewPlaceholder.swift in Sources */,
 				E19170E41FF3985100C3BD1C /* AppDelegate.swift in Sources */,
 				22FE855C20625EB700AB6E47 /* DBStoryWord+CoreDataClass.swift in Sources */,
+				E1078B6D2073BCEE00239D78 /* FlashcardViewController.swift in Sources */,
 				22FE85612062902A00AB6E47 /* String + Extension.swift in Sources */,
 				E19D55B3204E855D007B3243 /* LevelViewController.swift in Sources */,
 				E1ED4414201B530B00BA291A /* Patent.xcdatamodeld in Sources */,

@@ -22,6 +22,8 @@ final class CreateFlashcardViewController: UIViewController, KeyboardHandlerDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.navigationBar.tintColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
+        
         registerForKeyboardNotifications()
         enableDismissKeyboardOnTap()
 
@@ -36,15 +38,27 @@ final class CreateFlashcardViewController: UIViewController, KeyboardHandlerDele
     }
     
     func setupViews() {
-        view.backgroundColor = UIColor(red: 242/255.0, green: 233/255.0, blue: 134/255.0, alpha: 1)
+        view.backgroundColor = UIColor.white
         
         nameTextField.placeholder = "Flashcard name"
         questionTextView.placeholder = "Question"
         answerTextView.placeholder = "Answer"
         
+        nameTextField.setLeftPaddingPoints(5)
+        
+        nameTextField.textColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
+        questionTextView.textColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
+        answerTextView.textColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
+        
         nameTextField.layer.cornerRadius = 5
+        nameTextField.layer.borderColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1).cgColor
+        nameTextField.layer.borderWidth = 1
         questionTextView.layer.cornerRadius = 5
+        questionTextView.layer.borderColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1).cgColor
+        questionTextView.layer.borderWidth = 1
         answerTextView.layer.cornerRadius = 5
+        answerTextView.layer.borderColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1).cgColor
+        answerTextView.layer.borderWidth = 1
     }
     
     func enableDismissKeyboardOnTap() {
@@ -74,4 +88,17 @@ final class CreateFlashcardViewController: UIViewController, KeyboardHandlerDele
 
 extension CreateFlashcardViewController: StoryboardInitializable {
     
+}
+
+extension UITextField {
+    func setLeftPaddingPoints(_ amount:CGFloat){
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: amount, height: self.frame.size.height))
+        self.leftView = paddingView
+        self.leftViewMode = .always
+    }
+    func setRightPaddingPoints(_ amount:CGFloat) {
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: amount, height: self.frame.size.height))
+        self.rightView = paddingView
+        self.rightViewMode = .always
+    }
 }

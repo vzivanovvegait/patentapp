@@ -12,6 +12,7 @@ final class FlashcardsListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var addButton: UIButton!
     
     var flashcards = [Flashcard]() {
         didSet {
@@ -26,10 +27,11 @@ final class FlashcardsListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
-        
         backButton.setImage(#imageLiteral(resourceName: "back").withRenderingMode(.alwaysTemplate), for: .normal)
         backButton.tintColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
+        
+        addButton.setImage(#imageLiteral(resourceName: "plus_icon").withRenderingMode(.alwaysTemplate), for: .normal)
+        addButton.tintColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.backgroundColor = UIColor.clear
@@ -76,9 +78,9 @@ extension FlashcardsListViewController: UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let storyViewController = StoryViewController.makeFromStoryboard()
+        let flashcardsViewController = FlashcardViewController.makeFromStoryboard()
 //        storyViewController.parts = stories[indexPath.row].parts
-//        self.navigationController?.pushViewController(storyViewController, animated: true)
+        self.navigationController?.pushViewController(flashcardsViewController, animated: true)
     }
     
 }
