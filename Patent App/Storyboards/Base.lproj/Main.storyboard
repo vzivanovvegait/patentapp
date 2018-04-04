@@ -225,17 +225,17 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="570"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aSO-O4-AKQ">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="618.66666666666663"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="126.33333333333333"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="adsa           fsdfs " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kt6-Yj-y8T">
-                                                        <rect key="frame" x="10" y="10" width="355" height="264"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kt6-Yj-y8T" customClass="PatentLabel" customModule="Patent_App" customModuleProvider="target">
+                                                        <rect key="frame" x="10" y="10" width="355" height="40.666666666666664"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label      hujkkkjh    ffjsdhfj     afjhjsakf" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f4w-1M-0s3">
-                                                        <rect key="frame" x="10" y="284" width="355" height="324.66666666666674"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f4w-1M-0s3" customClass="PatentLabel" customModule="Patent_App" customModuleProvider="target">
+                                                        <rect key="frame" x="10" y="75.666666666666657" width="355" height="40.666666666666657"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -244,10 +244,9 @@
                                                 <constraints>
                                                     <constraint firstItem="Kt6-Yj-y8T" firstAttribute="leading" secondItem="aSO-O4-AKQ" secondAttribute="leading" constant="10" id="AgS-fz-Qd1"/>
                                                     <constraint firstAttribute="bottom" secondItem="f4w-1M-0s3" secondAttribute="bottom" constant="10" id="X5b-zk-Sfb"/>
-                                                    <constraint firstItem="f4w-1M-0s3" firstAttribute="top" secondItem="Kt6-Yj-y8T" secondAttribute="bottom" constant="10" id="ZGi-iK-yBt"/>
+                                                    <constraint firstItem="f4w-1M-0s3" firstAttribute="top" secondItem="Kt6-Yj-y8T" secondAttribute="bottom" constant="25" id="ZGi-iK-yBt"/>
                                                     <constraint firstItem="Kt6-Yj-y8T" firstAttribute="top" secondItem="aSO-O4-AKQ" secondAttribute="top" constant="10" id="lzG-yU-Rwo"/>
                                                     <constraint firstAttribute="trailing" secondItem="Kt6-Yj-y8T" secondAttribute="trailing" constant="10" id="mhn-Fd-Qdm"/>
-                                                    <constraint firstItem="f4w-1M-0s3" firstAttribute="top" secondItem="Kt6-Yj-y8T" secondAttribute="bottom" constant="10" id="q6e-eM-bTe"/>
                                                     <constraint firstItem="f4w-1M-0s3" firstAttribute="leading" secondItem="aSO-O4-AKQ" secondAttribute="leading" constant="10" id="qNX-Yt-M40"/>
                                                     <constraint firstAttribute="trailing" secondItem="f4w-1M-0s3" secondAttribute="trailing" constant="10" id="up1-7A-QBK"/>
                                                 </constraints>
@@ -292,8 +291,10 @@
                         <viewLayoutGuide key="safeArea" id="aTf-bh-P26"/>
                     </view>
                     <connections>
+                        <outlet property="answerLabel" destination="f4w-1M-0s3" id="k26-rs-lqg"/>
                         <outlet property="bottomToolBar" destination="O1s-AU-naS" id="dcp-I2-05r"/>
                         <outlet property="containerViewBottomConstraint" destination="eTM-85-5PE" id="TFS-ZZ-5Qc"/>
+                        <outlet property="questionLabel" destination="Kt6-Yj-y8T" id="cZq-T2-GPC"/>
                         <outlet property="sendContainerView" destination="HOh-0r-kmE" id="1J1-g9-uHx"/>
                         <outlet property="sendboxBottomConstraint" destination="2hP-ET-gIM" id="S2C-3v-noK"/>
                         <outlet property="topToolBar" destination="1Hb-lL-E0j" id="ea5-a3-tYZ"/>

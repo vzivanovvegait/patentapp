@@ -79,7 +79,8 @@ extension FlashcardsListViewController: UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let flashcardsViewController = FlashcardViewController.makeFromStoryboard()
-//        storyViewController.parts = stories[indexPath.row].parts
+        flashcardsViewController.question = flashcards[indexPath.row].question
+        flashcardsViewController.answer = flashcards[indexPath.row].answer
         self.navigationController?.pushViewController(flashcardsViewController, animated: true)
     }
     

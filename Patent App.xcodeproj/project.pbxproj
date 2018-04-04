@@ -36,7 +36,6 @@
 		E16E2756206157C000370739 /* StoryPartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16E2755206157C000370739 /* StoryPartController.swift */; };
 		E170A1932072680F00463C65 /* FlashcardsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E170A1912072680F00463C65 /* FlashcardsListViewController.swift */; };
 		E170A19920726FCD00463C65 /* CreateFlashcardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E170A19820726FCD00463C65 /* CreateFlashcardViewController.swift */; };
-		E170A19B2072704B00463C65 /* KeyboardHandlerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E170A19A2072704B00463C65 /* KeyboardHandlerDelegate.swift */; };
 		E170A19D2072728000463C65 /* UITextViewPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E170A19C2072728000463C65 /* UITextViewPlaceholder.swift */; };
 		E170A1A02072768900463C65 /* Flashcard+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E170A19E2072768700463C65 /* Flashcard+CoreDataClass.swift */; };
 		E170A1A12072768900463C65 /* Flashcard+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E170A19F2072768800463C65 /* Flashcard+CoreDataProperties.swift */; };
@@ -72,6 +71,7 @@
 		E1ED4432201B609000BA291A /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ED4430201B609000BA291A /* Note+CoreDataProperties.swift */; };
 		E1ED4434201B654600BA291A /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ED4433201B654600BA291A /* CoreDataManager.swift */; };
 		E1ED4436201B761100BA291A /* NoteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ED4435201B761100BA291A /* NoteController.swift */; };
+		E1F62BB22074CE28005FE688 /* KeyboardHandlerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F62BB12074CE28005FE688 /* KeyboardHandlerDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -106,7 +106,6 @@
 		E16E2755206157C000370739 /* StoryPartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryPartController.swift; sourceTree = "<group>"; };
 		E170A1912072680F00463C65 /* FlashcardsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardsListViewController.swift; sourceTree = "<group>"; };
 		E170A19820726FCD00463C65 /* CreateFlashcardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFlashcardViewController.swift; sourceTree = "<group>"; };
-		E170A19A2072704B00463C65 /* KeyboardHandlerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyboardHandlerDelegate.swift; path = "../../../DPS-iOS/DPS/Utils/Protocols/KeyboardHandlerDelegate.swift"; sourceTree = "<group>"; };
 		E170A19C2072728000463C65 /* UITextViewPlaceholder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextViewPlaceholder.swift; sourceTree = "<group>"; };
 		E170A19E2072768700463C65 /* Flashcard+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Flashcard+CoreDataClass.swift"; path = "/Users/v.zivanov/patentapp/Patent App/Model/Flashcard+CoreDataClass.swift"; sourceTree = "<absolute>"; };
 		E170A19F2072768800463C65 /* Flashcard+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Flashcard+CoreDataProperties.swift"; path = "/Users/v.zivanov/patentapp/Patent App/Model/Flashcard+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
@@ -144,6 +143,7 @@
 		E1ED4430201B609000BA291A /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E1ED4433201B654600BA291A /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		E1ED4435201B761100BA291A /* NoteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteController.swift; sourceTree = "<group>"; };
+		E1F62BB12074CE28005FE688 /* KeyboardHandlerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardHandlerDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -355,8 +355,8 @@
 		E194D72D200779DA005D62EF /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				E1F62BB12074CE28005FE688 /* KeyboardHandlerDelegate.swift */,
 				E188E2802010ABA300755614 /* KeyboardHandlerProtocol.swift */,
-				E170A19A2072704B00463C65 /* KeyboardHandlerDelegate.swift */,
 				E194D72820077657005D62EF /* StoryboardInitializable.swift */,
 				22FE85602062902A00AB6E47 /* String + Extension.swift */,
 			);
@@ -552,7 +552,6 @@
 				E16503881FFE276C00D91FDF /* HomeViewController.swift in Sources */,
 				E1ED4436201B761100BA291A /* NoteController.swift in Sources */,
 				E19170E61FF3985100C3BD1C /* StoryViewController.swift in Sources */,
-				E170A19B2072704B00463C65 /* KeyboardHandlerDelegate.swift in Sources */,
 				E16E2754206147DE00370739 /* StoryManager.swift in Sources */,
 				22FE855B20625EB700AB6E47 /* DBStory+CoreDataProperties.swift in Sources */,
 				E148C47B202DE622003906A4 /* RecordButton.swift in Sources */,
@@ -572,6 +571,7 @@
 				E19170F81FF3A09500C3BD1C /* AudioController.swift in Sources */,
 				E1ED4431201B609000BA291A /* Note+CoreDataClass.swift in Sources */,
 				E1529DB3201601BC003CD7C6 /* Word.swift in Sources */,
+				E1F62BB22074CE28005FE688 /* KeyboardHandlerDelegate.swift in Sources */,
 				E188E2832010D3BE00755614 /* SendContainerView.swift in Sources */,
 				E1ED442E201B57DD00BA291A /* NoteCell.swift in Sources */,
 				E16E2756206157C000370739 /* StoryPartController.swift in Sources */,

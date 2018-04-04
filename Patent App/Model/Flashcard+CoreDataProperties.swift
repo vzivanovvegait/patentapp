@@ -17,8 +17,8 @@ extension Flashcard {
     }
 
     @NSManaged public var name: String?
-    @NSManaged public var question: String?
-    @NSManaged public var answer: String?
+    @NSManaged public var question: String
+    @NSManaged public var answer: String
     @NSManaged public var isOrdered: Bool
 
 }

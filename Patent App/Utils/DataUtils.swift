@@ -46,5 +46,114 @@ class DataUtils {
         
         return (attString, false)
     }
+    
+    class func createArrayOfElements(string: String) -> [Element] {
+        let wordArray = string.components(separatedBy: " ")
+        var words = [Element]()
+        
+        for word in wordArray {
+            if word.contains(",") {
+                if let character = word.last, character == "," {
+                    let element = Element()
+                    element.text = String(word.dropLast())
+                    words.append(element)
+                    
+                    let character = Element()
+                    character.text = ","
+                    character.isSpecial = true
+                    character.isFound = true
+                    words.append(character)
+                }
+            } else if word.contains(".") {
+                if let character = word.last, character == "." {
+                    let element = Element()
+                    element.text = String(word.dropLast())
+                    words.append(element)
+                    
+                    let character = Element()
+                    character.isSpecial = true
+                    character.isFound = true
+                    character.text = "."
+                    words.append(character)
+                }
+            }  else if word.contains(":") {
+                if let character = word.last, character == ":" {
+                    let element = Element()
+                    element.text = String(word.dropLast())
+                    words.append(element)
+                    
+                    let character = Element()
+                    character.isSpecial = true
+                    character.isFound = true
+                    character.text = "."
+                    words.append(character)
+                }
+            }  else if word.contains("!") {
+                if let character = word.last, character == "!" {
+                    let element = Element()
+                    element.text = String(word.dropLast())
+                    words.append(element)
+                    
+                    let character = Element()
+                    character.isSpecial = true
+                    character.isFound = true
+                    character.text = "."
+                    words.append(character)
+                }
+            } else if word.contains("?") {
+                if let character = word.last, character == "?" {
+                    let element = Element()
+                    element.text = String(word.dropLast())
+                    words.append(element)
+                    
+                    let character = Element()
+                    character.isSpecial = true
+                    character.isFound = true
+                    character.text = "."
+                    words.append(character)
+                }
+            } else {
+                let element = Element()
+                element.text = word
+                words.append(element)
+            }
+        }
+        
+        return words
+    }
+    
+    class func createFlashcardString(from array: [Element]) -> (NSMutableAttributedString, Bool) {
+        let attString = NSMutableAttributedString(string: "")
+        var rangeCounter = 0
+        for (index, element) in array.enumerated() {
+                if index != 0 {
+                    if ![".", ",", ":", "?", "!", "?!"].contains(element.text) {
+                        attString.append(NSMutableAttributedString(string: " "))
+                        rangeCounter += 1
+                    }
+                }
+                let word = NSMutableAttributedString(string: element.getString())
+                attString.append(word)
+        }
+        let fontSize = UserDefaults.standard.integer(forKey: "fontSize")
+        attString.addAttribute(NSAttributedStringKey.font, value: UIFont.systemFont(ofSize: CGFloat((fontSize > 25) ? fontSize : 25)), range: NSRange(attString.string.startIndex..., in: attString.string))
+        attString.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1), range: NSRange(attString.string.startIndex..., in: attString.string))
+        
+        if !array.contains(where: { !$0.isFound }) {
+            return (attString, true)
+        }
+        
+        return (attString, false)
+    }
+    
+    class func createQuestionString(from string: String) -> NSMutableAttributedString {
+        let attString = NSMutableAttributedString(string: string)
+        
+        let fontSize = UserDefaults.standard.integer(forKey: "fontSize")
+        attString.addAttribute(NSAttributedStringKey.font, value: UIFont.systemFont(ofSize: CGFloat((fontSize > 25) ? fontSize : 25)), range: NSRange(attString.string.startIndex..., in: attString.string))
+        attString.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1), range: NSRange(attString.string.startIndex..., in: attString.string))
+        
+        return attString
+    }
 
 }

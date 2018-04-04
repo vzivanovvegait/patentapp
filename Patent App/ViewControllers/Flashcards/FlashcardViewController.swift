@@ -11,6 +11,33 @@ import AVFoundation
 import googleapis
 import AudioToolbox
 
+class Element {
+    var text: String = ""
+    var isSpecial: Bool = false
+    var isFound = false
+    
+    func getString() -> String {
+        if self.isFound {
+            return text
+        } else {
+            return text.mapString()
+        }
+    }
+    
+    func check(array: [String]) -> Bool {
+        if checkString(in: array) {
+            self.isFound = true
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    fileprivate func checkString(in array: [String]) -> Bool {
+        return array.contains(where: { $0.uppercased() == text.uppercased() }) ? true : false
+    }
+}
+
 final class FlashcardViewController: UIViewController, StoryboardInitializable, KeyboardHandlerProtocol {
     
     @IBOutlet weak var topToolBar: TopToolBar!
@@ -18,14 +45,27 @@ final class FlashcardViewController: UIViewController, StoryboardInitializable, 
     @IBOutlet weak var sendContainerView: SendContainerView!
     @IBOutlet weak var sendboxBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var containerViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var questionLabel: PatentLabel!
+    @IBOutlet weak var answerLabel: PatentLabel!
+    
+    var question: String = ""
+    var answer: String = ""
+    var words = [Element]()
     
     var audioData: NSMutableData!
     
+    var player: AVAudioPlayer?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        words = DataUtils.createArrayOfElements(string: answer)
 
         setTopBar()
         setBottomBar()
+        setSendContainer()
+        
+        setLabels()
         
         let session = AVAudioSession.sharedInstance()
         do {
@@ -47,21 +87,36 @@ final class FlashcardViewController: UIViewController, StoryboardInitializable, 
         deregisterFromKeyboardNotifications()
     }
     
+    func setLabels() {
+        questionLabel.setText(DataUtils.createQuestionString(from: question))
+        let result = DataUtils.createFlashcardString(from: words)
+        answerLabel.setText(result.0)
+    }
+    
+    func setSendContainer() {
+        sendContainerView.registerView { (text) in
+            
+            if self.checkStringFromResponse(response: text) {
+                let result = DataUtils.createFlashcardString(from: self.words)
+                self.answerLabel.setText(result.0)
+            } else {
+                self.playAudio()
+            }
+        }
+    }
+    
     func setTopBar() {
         
         topToolBar.backAction = {
             self.navigationController?.popViewController(animated: true)
         }
         
-        topToolBar.restartAction = {
-            
-        }
+        topToolBar.reloadButton.isHidden = true
     }
     
     func setBottomBar() {
         
-        bottomToolBar.notesAction = {
-        }
+        bottomToolBar.notesButton.isHidden = true
         
         bottomToolBar.keyboardAction = {
             self.sendContainerView.setFirstResponder()
@@ -75,12 +130,9 @@ final class FlashcardViewController: UIViewController, StoryboardInitializable, 
             }
         }
         
-        bottomToolBar.settingsAction = {
-        }
+        bottomToolBar.settingsButton.isHidden = true
         
-        bottomToolBar.infoAction = {
-            
-        }
+        bottomToolBar.infoButton.isHidden = true
         
     }
 
@@ -97,6 +149,23 @@ final class FlashcardViewController: UIViewController, StoryboardInitializable, 
         if AudioController.sharedInstance.remoteIOUnit != nil {
             _ = AudioController.sharedInstance.stop()
             SpeechRecognitionService.sharedInstance.stopStreaming()
+        }
+    }
+    
+    func playAudio() {
+        
+        AudioServicesPlaySystemSound(1521)
+        
+        let url = Bundle.main.url(forResource: "ErrorAlert", withExtension: "mp3")!
+        
+        do {
+            player = try AVAudioPlayer(contentsOf: url)
+            guard let errorSound = player else { return }
+            
+            errorSound.prepareToPlay()
+            errorSound.play()
+        } catch let error {
+            print(error.localizedDescription)
         }
     }
 
@@ -133,15 +202,28 @@ extension FlashcardViewController: AudioControllerDelegate {
                                 return
                             }
                             strongSelf.bottomToolBar.setGoogleSpeechLabel(text: alternative.transcript)
-//                            if /*result.isFinal &&*/ strongSelf.viewControllers[strongSelf.storyIndex].checkStringFromResponse(response: alternative.transcript) {
-//                                strongSelf.viewControllers[strongSelf.storyIndex].setTextLabel()
-//                            }
+                            
+                            if strongSelf.checkStringFromResponse(response: alternative.transcript) {
+                                let result = DataUtils.createFlashcardString(from: strongSelf.words)
+                                strongSelf.answerLabel.setText(result.0)
+                            }
                         }
                     }
                 }
             })
             self.audioData = NSMutableData()
         }
+    }
+    
+    func checkStringFromResponse(response: String) -> Bool {
+        var isFound = false
+        let responseArray = response.components(separatedBy: " ")
+        for word in words {
+            if word.check(array: responseArray) {
+                isFound = true
+            }
+        }
+        return isFound
     }
     
 }
