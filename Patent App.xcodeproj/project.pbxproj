@@ -107,8 +107,8 @@
 		E170A1912072680F00463C65 /* FlashcardsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardsListViewController.swift; sourceTree = "<group>"; };
 		E170A19820726FCD00463C65 /* CreateFlashcardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFlashcardViewController.swift; sourceTree = "<group>"; };
 		E170A19C2072728000463C65 /* UITextViewPlaceholder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextViewPlaceholder.swift; sourceTree = "<group>"; };
-		E170A19E2072768700463C65 /* Flashcard+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Flashcard+CoreDataClass.swift"; path = "/Users/v.zivanov/patentapp/Patent App/Model/Flashcard+CoreDataClass.swift"; sourceTree = "<absolute>"; };
-		E170A19F2072768800463C65 /* Flashcard+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Flashcard+CoreDataProperties.swift"; path = "/Users/v.zivanov/patentapp/Patent App/Model/Flashcard+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
+		E170A19E2072768700463C65 /* Flashcard+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Flashcard+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E170A19F2072768800463C65 /* Flashcard+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Flashcard+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E170A1A2207276B100463C65 /* FlashcardsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardsManager.swift; sourceTree = "<group>"; };
 		E17652B520330EB900E1C848 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		E17A1294202066AC00C37AFB /* StoryPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryPart.swift; sourceTree = "<group>"; };

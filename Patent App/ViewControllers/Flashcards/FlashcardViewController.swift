@@ -50,6 +50,7 @@ final class FlashcardViewController: UIViewController, StoryboardInitializable, 
     
     var question: String = ""
     var answer: String = ""
+    var isOrdered: Bool = false
     var words = [Element]()
     
     var audioData: NSMutableData!
@@ -218,9 +219,13 @@ extension FlashcardViewController: AudioControllerDelegate {
     func checkStringFromResponse(response: String) -> Bool {
         var isFound = false
         let responseArray = response.components(separatedBy: " ")
-        for word in words {
-            if word.check(array: responseArray) {
-                isFound = true
+        if isOrdered {
+            
+        } else {
+            for word in words {
+                if word.check(array: responseArray) {
+                    isFound = true
+                }
             }
         }
         return isFound

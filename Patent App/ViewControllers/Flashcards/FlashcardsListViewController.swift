@@ -81,6 +81,7 @@ extension FlashcardsListViewController: UITableViewDataSource, UITableViewDelega
         let flashcardsViewController = FlashcardViewController.makeFromStoryboard()
         flashcardsViewController.question = flashcards[indexPath.row].question
         flashcardsViewController.answer = flashcards[indexPath.row].answer
+        flashcardsViewController.isOrdered = flashcards[indexPath.row].isOrdered
         self.navigationController?.pushViewController(flashcardsViewController, animated: true)
     }
     

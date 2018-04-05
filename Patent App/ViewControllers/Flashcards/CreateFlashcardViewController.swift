@@ -14,6 +14,8 @@ final class CreateFlashcardViewController: UIViewController, KeyboardHandlerDele
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var questionTextView: UITextView!
     @IBOutlet weak var answerTextView: UITextView!
+    @IBOutlet weak var strictOrderSwitch: UISwitch!
+    @IBOutlet weak var strictOrderLabel: UILabel!
     
     override var prefersStatusBarHidden: Bool {
         return true
@@ -44,6 +46,8 @@ final class CreateFlashcardViewController: UIViewController, KeyboardHandlerDele
         questionTextView.placeholder = "Question"
         answerTextView.placeholder = "Answer"
         
+        strictOrderLabel.textColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
+        
         nameTextField.setLeftPaddingPoints(5)
         
         nameTextField.textColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
@@ -72,7 +76,7 @@ final class CreateFlashcardViewController: UIViewController, KeyboardHandlerDele
 
     @objc func done() {
         if let name = nameTextField.text, name != "", let question = questionTextView.text, question != "", let answer = answerTextView.text, answer != "" {
-            if FlashcardsManager.shared.insertFlashcard(name: name, question: question, answer: answer) {
+            if FlashcardsManager.shared.insertFlashcard(name: name, question: question, answer: answer, strictOrder: strictOrderSwitch.isOn) {
                 DialogUtils.showWarningDialog(self, title: nil, message: "Flashcard is saved.", completion: {
                     self.dismiss(animated: true, completion: nil)
                 })
