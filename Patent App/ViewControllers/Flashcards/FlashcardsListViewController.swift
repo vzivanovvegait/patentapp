@@ -85,6 +85,40 @@ extension FlashcardsListViewController: UITableViewDataSource, UITableViewDelega
         self.navigationController?.pushViewController(flashcardsViewController, animated: true)
     }
     
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        let editAction = UITableViewRowAction(style: .default, title: "Edit", handler: { (action, indexPath) in
+//            DialogUtils.showYesNoDialogWithInput(self, title: "Update note", message: nil, positive: "Save", cancel: "Cancel", completion: { (success, text) in
+//                if success {
+//                    self.notes[indexPath.row].explanation = text
+//                    if NoteController.shared.saveNote() {
+//                        tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.fade)
+//                    } else {
+//                        DialogUtils.showWarningDialog(self, title: nil, message: "Error!!!", completion: nil)
+//                    }
+//                }
+//            })
+        })
+        editAction.backgroundColor = UIColor.blue
+        
+        
+        let deleteAction = UITableViewRowAction(style: .default, title: "Delete", handler: { (action, indexPath) in
+            DialogUtils.showYesNoDialog(self, title: "Delete", message: "Are you sure you want to delete flashcard?", completion: { (result) in
+                if result {
+                    if FlashcardsManager.shared.deleteFlashcard(flashcard: self.flashcards[indexPath.row]) {
+                        self.flashcards.remove(at: indexPath.row)
+                        tableView.reloadData()
+                    } else {
+                        DialogUtils.showWarningDialog(self, title: nil, message: "Error!!!", completion: nil)
+                    }
+                }
+            })
+        })
+        deleteAction.backgroundColor = UIColor.red
+        
+        return [editAction, deleteAction]
+    }
+    
 }
 
 extension FlashcardsListViewController: StoryboardInitializable {

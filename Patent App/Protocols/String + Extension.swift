@@ -31,3 +31,18 @@ extension String {
         self = String(chars)
     }
 }
+
+extension String {
+    var wordList: [String] {
+        var characterSet = CharacterSet.alphanumerics
+        characterSet.insert(charactersIn: "'")
+        return components(separatedBy: characterSet.inverted).filter { !$0.isEmpty }
+    }
+}
+
+extension CharacterSet {
+    func contains(_ character: Character) -> Bool {
+        let string = String(character)
+        return string.rangeOfCharacter(from: self, options: [], range: string.startIndex..<string.endIndex) != nil
+    }
+}

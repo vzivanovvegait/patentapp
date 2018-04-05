@@ -45,7 +45,7 @@ class FlashcardsManager {
         }
     }
     
-    func deleteNote(flashcard: Flashcard) -> Bool {
+    func deleteFlashcard(flashcard: Flashcard) -> Bool {
         let context = CoreDataManager.shared.persistentContainer.viewContext
         
         context.delete(flashcard)

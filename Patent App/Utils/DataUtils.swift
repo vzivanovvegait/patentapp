@@ -47,6 +47,17 @@ class DataUtils {
         return (attString, false)
     }
     
+    class func createArray(sentence: String) -> [Element] {
+        var elements = [Element]()
+        let strings = sentence.wordList
+        for string in strings {
+            let element = Element()
+            element.text = string
+            elements.append(element)
+        }
+        return elements
+    }
+    
     class func createArrayOfElements(string: String) -> [Element] {
         let wordArray = string.components(separatedBy: " ")
         var words = [Element]()
@@ -148,6 +159,23 @@ class DataUtils {
     
     class func createQuestionString(from string: String) -> NSMutableAttributedString {
         let attString = NSMutableAttributedString(string: string)
+        
+        let fontSize = UserDefaults.standard.integer(forKey: "fontSize")
+        attString.addAttribute(NSAttributedStringKey.font, value: UIFont.systemFont(ofSize: CGFloat((fontSize > 25) ? fontSize : 25)), range: NSRange(attString.string.startIndex..., in: attString.string))
+        attString.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1), range: NSRange(attString.string.startIndex..., in: attString.string))
+        
+        return attString
+    }
+    
+    class func createAnswerString(from string: String) -> NSMutableAttributedString {
+        var characterSet = CharacterSet.alphanumerics
+        characterSet.insert(charactersIn: "'")
+        
+        let replacedString = String(string.map {
+            characterSet.contains($0) ? "_" : $0
+        })
+        
+        let attString = NSMutableAttributedString(string: replacedString)
         
         let fontSize = UserDefaults.standard.integer(forKey: "fontSize")
         attString.addAttribute(NSAttributedStringKey.font, value: UIFont.systemFont(ofSize: CGFloat((fontSize > 25) ? fontSize : 25)), range: NSRange(attString.string.startIndex..., in: attString.string))
