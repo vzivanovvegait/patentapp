@@ -88,16 +88,11 @@ extension FlashcardsListViewController: UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
         let editAction = UITableViewRowAction(style: .default, title: "Edit", handler: { (action, indexPath) in
-//            DialogUtils.showYesNoDialogWithInput(self, title: "Update note", message: nil, positive: "Save", cancel: "Cancel", completion: { (success, text) in
-//                if success {
-//                    self.notes[indexPath.row].explanation = text
-//                    if NoteController.shared.saveNote() {
-//                        tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.fade)
-//                    } else {
-//                        DialogUtils.showWarningDialog(self, title: nil, message: "Error!!!", completion: nil)
-//                    }
-//                }
-//            })
+            let createFlashcardViewController = CreateFlashcardViewController.makeFromStoryboard()
+            createFlashcardViewController.flashcard = self.flashcards[indexPath.row]
+            let navigationController = createFlashcardViewController.embedInNavigationController()
+            
+            self.present(navigationController, animated: true, completion: nil)
         })
         editAction.backgroundColor = UIColor.blue
         

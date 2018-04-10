@@ -17,6 +17,8 @@ final class CreateFlashcardViewController: UIViewController, KeyboardHandlerDele
     @IBOutlet weak var strictOrderSwitch: UISwitch!
     @IBOutlet weak var strictOrderLabel: UILabel!
     
+    var flashcard: Flashcard?
+    
     override var prefersStatusBarHidden: Bool {
         return true
     }
@@ -36,6 +38,18 @@ final class CreateFlashcardViewController: UIViewController, KeyboardHandlerDele
         
         let barButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.done))
         navigationItem.rightBarButtonItem = barButtonItem
+        
+        if let flashcard = flashcard {
+            nameTextField.text = flashcard.name
+            if let placeholderLabel = questionTextView.viewWithTag(100) as? UILabel {
+                placeholderLabel.isHidden = true
+            }
+            if let placeholderLabel = answerTextView.viewWithTag(100) as? UILabel {
+                placeholderLabel.isHidden = true
+            }
+            questionTextView.text = flashcard.question
+            answerTextView.text = flashcard.answer
+        }
 
     }
     
@@ -76,10 +90,19 @@ final class CreateFlashcardViewController: UIViewController, KeyboardHandlerDele
 
     @objc func done() {
         if let name = nameTextField.text, name != "", let question = questionTextView.text, question != "", let answer = answerTextView.text, answer != "" {
-            if FlashcardsManager.shared.insertFlashcard(name: name, question: question, answer: answer, strictOrder: strictOrderSwitch.isOn) {
-                DialogUtils.showWarningDialog(self, title: nil, message: "Flashcard is saved.", completion: {
+            if let flashcard = flashcard {
+                flashcard.name = name
+                flashcard.question = question
+                flashcard.answer = answer
+                if FlashcardsManager.shared.saveFlashcard() {
                     self.dismiss(animated: true, completion: nil)
-                })
+                }
+            } else {
+                if FlashcardsManager.shared.insertFlashcard(name: name, question: question, answer: answer, strictOrder: strictOrderSwitch.isOn) {
+                    DialogUtils.showWarningDialog(self, title: nil, message: "Flashcard is saved.", completion: {
+                        self.dismiss(animated: true, completion: nil)
+                    })
+                }
             }
         }
     }

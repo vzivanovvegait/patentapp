@@ -57,7 +57,7 @@ class FlashcardsManager {
         }
     }
     
-    func saveNote() -> Bool {
+    func saveFlashcard() -> Bool {
         let context = CoreDataManager.shared.persistentContainer.viewContext
         
         do {

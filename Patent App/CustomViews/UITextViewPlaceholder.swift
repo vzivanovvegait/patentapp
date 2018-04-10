@@ -34,6 +34,12 @@ extension UITextView: UITextViewDelegate {
         }
     }
     
+//    override var text: String! {
+//        didSet {
+//            // Do your stuff here
+//        }
+//    }
+    
     /// The UITextView placeholder text
     public var placeholder: String? {
         get {
