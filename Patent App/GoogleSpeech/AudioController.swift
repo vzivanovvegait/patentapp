@@ -17,13 +17,13 @@
 import Foundation
 import AVFoundation
 
-protocol AudioControllerDelegate {
+protocol AudioControllerDelegate: class {
   func processSampleData(_ data:Data) -> Void
 }
 
 class AudioController {
   var remoteIOUnit: AudioComponentInstance? // optional to allow it to be an inout argument
-  var delegate : AudioControllerDelegate!
+  weak var delegate : AudioControllerDelegate?
 
   static var sharedInstance = AudioController()
 
@@ -156,7 +156,7 @@ func recordingCallback(
 
   let data = Data(bytes:  buffers[0].mData!, count: Int(buffers[0].mDataByteSize))
   DispatchQueue.main.async {
-    AudioController.sharedInstance.delegate.processSampleData(data)
+    AudioController.sharedInstance.delegate?.processSampleData(data)
   }
 
   return noErr

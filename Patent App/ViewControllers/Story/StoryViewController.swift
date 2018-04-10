@@ -39,7 +39,7 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
         setTopBar()
         setBottomBar()
         setSendContainer()
-        
+
         let session = AVAudioSession.sharedInstance()
         do {
             try session.setCategory(AVAudioSessionCategoryPlayAndRecord)
@@ -48,6 +48,14 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
         }
         
         AudioController.sharedInstance.delegate = self
+    }
+    
+    deinit {
+        print("deinit")
+    }
+    
+    @IBAction func back(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -105,28 +113,38 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
     
     func setTopBar() {
         
-        topToolBar.backAction = {
-            self.stop()
+        topToolBar.backAction = { [weak self] in
             
-            DialogUtils.showYesNoDialog(self, title: nil, message: "Do you want to save the progress?", completion: { (result) in
+            guard let strongSelf = self else {
+                return
+            }
+            
+            strongSelf.stop()
+            
+            DialogUtils.showYesNoDialog(strongSelf, title: nil, message: "Do you want to save the progress?", completion: { (result) in
                 if result {
-                    let _ = self.save()
+                    let _ = strongSelf.save()
                 }
-                self.navigationController?.popViewController(animated: true)
+                strongSelf.navigationController?.popViewController(animated: true)
             })
             
         }
         
-        topToolBar.restartAction = {
-            DialogUtils.showMoreDialog(self, title: nil, message: nil, choises: ["Start Over This Page", "Start Over Entire Story"], completion: { (result) in
+        topToolBar.restartAction = { [weak self] in
+            
+            guard let strongSelf = self else {
+                return
+            }
+            
+            DialogUtils.showMoreDialog(strongSelf, title: nil, message: nil, choises: ["Start Over This Page", "Start Over Entire Story"], completion: { (result) in
                 if result == "Start Over This Page" {
-                    (self.parts[self.storyIndex] as! DBStoryPart).reset()
-                    self.viewControllers[self.storyIndex].setTextLabel()
+                    (strongSelf.parts[strongSelf.storyIndex] as! DBStoryPart).reset()
+                    strongSelf.viewControllers[strongSelf.storyIndex].setTextLabel()
                 } else if result == "Start Over Entire Story" {
-                    for part in self.parts {
+                    for part in strongSelf.parts {
                         (part as! DBStoryPart).reset()
                     }
-                    self.viewControllers[self.storyIndex].setTextLabel()
+                    strongSelf.viewControllers[strongSelf.storyIndex].setTextLabel()
                 }
             })
         }
@@ -134,49 +152,59 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
 
     func setBottomBar() {
         
-        bottomToolBar.notesAction = {
+        bottomToolBar.notesAction = { [weak self] in
             let navigationController = NotesViewController.makeFromStoryboard().embedInNavigationController()
-            self.present(navigationController, animated: true, completion: nil)
+            self?.present(navigationController, animated: true, completion: nil)
         }
         
-        bottomToolBar.keyboardAction = {
-            self.sendContainerView.setFirstResponder()
+        bottomToolBar.keyboardAction = { [weak self] in
+            self?.sendContainerView.setFirstResponder()
         }
         
-        bottomToolBar.playAction = { isPlay in
+        bottomToolBar.playAction = { [weak self] isPlay in
             if isPlay {
-                self.play()
+                self?.play()
             } else {
-                self.stop()
+                self?.stop()
             }
         }
         
-        bottomToolBar.settingsAction = {
-            DialogUtils.showMultipleChoiceActionSheet(self, anchor: self.view, title: nil, message: nil, choises: ["Level", "Font"], completion: { (result) in
+        bottomToolBar.settingsAction = { [weak self] in
+            
+            guard let strongSelf = self else {
+                return
+            }
+            
+            DialogUtils.showMultipleChoiceActionSheet(strongSelf, anchor: strongSelf.view, title: nil, message: nil, choises: ["Level", "Font"], completion: { (result) in
                 if result == "Level" {
-                    self.viewControllers[self.storyIndex].showLevel()
+                    strongSelf.viewControllers[strongSelf.storyIndex].showLevel()
                 }
                 
                 if result == "Font" {
-                    self.showFontParametar().delegate = self
+                    strongSelf.showFontParametar().delegate = self
                 }
             })
         }
         
-        bottomToolBar.infoAction = {
+        bottomToolBar.infoAction = { [weak self] in
             let vc = InfoViewController.makeFromStoryboard()
-            self.present(vc, animated: true, completion: nil)
+            self?.present(vc, animated: true, completion: nil)
         }
         
     }
     
     func setSendContainer() {
-        sendContainerView.registerView { (text) in
-            if self.viewControllers[self.storyIndex].checkStringFromResponse(response: text) {
-                self.sendContainerView.removeFirstResponder()
-                self.viewControllers[self.storyIndex].setTextLabel()
+        sendContainerView.registerView { [weak self] (text) in
+            
+            guard let strongSelf = self else {
+                return
+            }
+            
+            if strongSelf.viewControllers[strongSelf.storyIndex].checkStringFromResponse(response: text) {
+                strongSelf.sendContainerView.removeFirstResponder()
+                strongSelf.viewControllers[strongSelf.storyIndex].setTextLabel()
             } else {
-                self.playAudio()
+                strongSelf.playAudio()
             }
         }
     }

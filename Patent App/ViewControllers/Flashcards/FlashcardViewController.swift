@@ -60,6 +60,10 @@ final class FlashcardViewController: UIViewController, StoryboardInitializable, 
         AudioController.sharedInstance.delegate = self
     }
     
+    deinit {
+        print("deinit")
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         registerForKeyboardNotifications()
@@ -76,19 +80,24 @@ final class FlashcardViewController: UIViewController, StoryboardInitializable, 
     }
     
     func setSendContainer() {
-        sendContainerView.registerView { (text) in
-            if self.checkString(googleString: text) {
-                self.sendContainerView.removeFirstResponder()
+        sendContainerView.registerView { [weak self] (text) in
+            
+            guard let strongSelf = self else {
+                return
+            }
+            
+            if strongSelf.checkString(googleString: text) {
+                strongSelf.sendContainerView.removeFirstResponder()
             } else {
-               self.playAudio()
+               strongSelf.playAudio()
             }
         }
     }
     
     func setTopBar() {
         
-        topToolBar.backAction = {
-            self.navigationController?.popViewController(animated: true)
+        topToolBar.backAction = { [weak self] in
+            self?.navigationController?.popViewController(animated: true)
         }
         
         topToolBar.reloadButton.isHidden = true
@@ -98,15 +107,15 @@ final class FlashcardViewController: UIViewController, StoryboardInitializable, 
         
         bottomToolBar.notesButton.isHidden = true
         
-        bottomToolBar.keyboardAction = {
-            self.sendContainerView.setFirstResponder()
+        bottomToolBar.keyboardAction = { [weak self] in
+            self?.sendContainerView.setFirstResponder()
         }
         
-        bottomToolBar.playAction = { isPlay in
+        bottomToolBar.playAction = { [weak self] isPlay in
             if isPlay {
-                self.play()
+                self?.play()
             } else {
-                self.stop()
+                self?.stop()
             }
         }
         
@@ -191,6 +200,22 @@ extension FlashcardViewController: AudioControllerDelegate {
         }
     }
     
+//    func checkOrderString(googleString: String) {
+//        let arrayOfString = googleString.lowercased().components(separatedBy: " ")
+//        for string in arrayOfString {
+//            let result = words.filter { $0.isFound == false }.first
+//            if let result = result {
+//                if result.text == string {
+//                    let ranges = findRanges(for: result.text, in: answer)
+//                    for range in ranges {
+//                        replacedString.replaceSubrange(range, with: result.text)
+//                        answerLabel.setText(DataUtils.createAttributtedString(from: replacedString))
+//                    }
+//                }
+//            }
+//        }
+//    }
+    
     func checkString(googleString: String) -> Bool {
         var isFound = false
         let arrayOfString = googleString.lowercased().components(separatedBy: " ")
@@ -202,6 +227,9 @@ extension FlashcardViewController: AudioControllerDelegate {
                 for range in ranges {
                     replacedString.replaceSubrange(range, with: e.text)
                     answerLabel.setText(DataUtils.createAttributtedString(from: replacedString))
+                    if !words.contains(where: { !$0.isFound }) {
+                        DialogUtils.showWarningDialog(self, title: "Great job!", message: nil, completion: nil)
+                    }
                 }
             }
         }
@@ -209,7 +237,10 @@ extension FlashcardViewController: AudioControllerDelegate {
     }
     
     func findString(googleString: String) -> [Element] {
-        let results = words.filter { $0.text.lowercased() == googleString.lowercased() }
+        let results = words.filter { $0.text.lowercased() == googleString.lowercased() && $0.isFound == false }
+        for result in results {
+            result.isFound = true
+        }
         return results
     }
     
