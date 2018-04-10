@@ -35,7 +35,7 @@ extension String {
 extension String {
     var wordList: [String] {
         var characterSet = CharacterSet.alphanumerics
-        characterSet.insert(charactersIn: "'")
+        characterSet.insert(charactersIn: "’")
         return components(separatedBy: characterSet.inverted).filter { !$0.isEmpty }
     }
 }

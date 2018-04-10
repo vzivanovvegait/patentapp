@@ -15,27 +15,6 @@ class Element {
     var text: String = ""
     var isSpecial: Bool = false
     var isFound = false
-    
-    func getString() -> String {
-        if self.isFound {
-            return text
-        } else {
-            return text.mapString()
-        }
-    }
-    
-    func check(array: [String]) -> Bool {
-        if checkString(in: array) {
-            self.isFound = true
-            return true
-        } else {
-            return false
-        }
-    }
-    
-    fileprivate func checkString(in array: [String]) -> Bool {
-        return array.contains(where: { $0.uppercased() == text.uppercased() }) ? true : false
-    }
 }
 
 final class FlashcardViewController: UIViewController, StoryboardInitializable, KeyboardHandlerProtocol {
@@ -57,10 +36,13 @@ final class FlashcardViewController: UIViewController, StoryboardInitializable, 
     
     var player: AVAudioPlayer?
     
+    var replacedString: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        words = DataUtils.createArrayOfElements(string: answer)
+        words = DataUtils.createArray(sentence: answer)
+        replacedString = DataUtils.createAnswerString(from: answer)
 
         setTopBar()
         setBottomBar()
@@ -89,19 +71,16 @@ final class FlashcardViewController: UIViewController, StoryboardInitializable, 
     }
     
     func setLabels() {
-        questionLabel.setText(DataUtils.createQuestionString(from: question))
-        let result = DataUtils.createFlashcardString(from: words)
-        answerLabel.setText(result.0)
+        questionLabel.setText(DataUtils.createAttributtedString(from: question))
+        answerLabel.setText(DataUtils.createAttributtedString(from: replacedString))
     }
     
     func setSendContainer() {
         sendContainerView.registerView { (text) in
-            
-            if self.checkStringFromResponse(response: text) {
-                let result = DataUtils.createFlashcardString(from: self.words)
-                self.answerLabel.setText(result.0)
+            if self.checkString(googleString: text) {
+                self.sendContainerView.removeFirstResponder()
             } else {
-                self.playAudio()
+               self.playAudio()
             }
         }
     }
@@ -203,11 +182,7 @@ extension FlashcardViewController: AudioControllerDelegate {
                                 return
                             }
                             strongSelf.bottomToolBar.setGoogleSpeechLabel(text: alternative.transcript)
-                            
-                            if strongSelf.checkStringFromResponse(response: alternative.transcript) {
-                                let result = DataUtils.createFlashcardString(from: strongSelf.words)
-                                strongSelf.answerLabel.setText(result.0)
-                            }
+                            let _ = strongSelf.checkString(googleString: alternative.transcript)
                         }
                     }
                 }
@@ -216,19 +191,41 @@ extension FlashcardViewController: AudioControllerDelegate {
         }
     }
     
-    func checkStringFromResponse(response: String) -> Bool {
+    func checkString(googleString: String) -> Bool {
         var isFound = false
-        let responseArray = response.components(separatedBy: " ")
-        if isOrdered {
-            
-        } else {
-            for word in words {
-                if word.check(array: responseArray) {
-                    isFound = true
+        let arrayOfString = googleString.lowercased().components(separatedBy: " ")
+        for string in arrayOfString {
+            let array = findString(googleString: string)
+            for e in array {
+                isFound = true
+                let ranges = findRanges(for: e.text, in: answer)
+                for range in ranges {
+                    replacedString.replaceSubrange(range, with: e.text)
+                    answerLabel.setText(DataUtils.createAttributtedString(from: replacedString))
                 }
             }
         }
         return isFound
+    }
+    
+    func findString(googleString: String) -> [Element] {
+        let results = words.filter { $0.text.lowercased() == googleString.lowercased() }
+        return results
+    }
+    
+    func findRanges(for word: String, in text: String) -> [Range<String.Index>] {
+        do {
+            let regex = try NSRegularExpression(pattern: "\\b\(word)\\b", options: [])
+            
+            let fullStringRange = NSRange(text.startIndex..., in: text)
+            let matches = regex.matches(in: text, options: [], range: fullStringRange)
+            return matches.map {
+                Range($0.range, in: text)!
+            }
+        }
+        catch {
+            return []
+        }
     }
     
 }
