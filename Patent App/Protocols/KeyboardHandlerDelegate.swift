@@ -16,11 +16,11 @@ protocol KeyboardHandlerDelegate {
 
 extension KeyboardHandlerDelegate where Self: UIViewController {
     func registerForKeyboardNotifications() {
-        NotificationCenter.default.addObserver(forName: NSNotification.Name.UIKeyboardWillShow, object: nil, queue: nil) { notification in
-            self.keyboardWillShow(notification)
+        NotificationCenter.default.addObserver(forName: NSNotification.Name.UIKeyboardWillShow, object: nil, queue: nil) { [weak self] notification in
+            self?.keyboardWillShow(notification)
         }
-        NotificationCenter.default.addObserver(forName: NSNotification.Name.UIKeyboardWillHide, object: nil, queue: nil) { notification in
-            self.keyboardWillHide(notification)
+        NotificationCenter.default.addObserver(forName: NSNotification.Name.UIKeyboardWillHide, object: nil, queue: nil) { [weak self] notification in
+            self?.keyboardWillHide(notification)
         }
     }
     

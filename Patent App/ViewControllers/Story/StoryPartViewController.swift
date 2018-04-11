@@ -15,11 +15,13 @@ final class StoryPartViewController: UIViewController {
     
     var currentLevel:Level = .easy
     var timer = Timer()
+    var seconds: Int = 0
     
     @IBOutlet weak var storyPartLabel: PatentLabel!
     @IBOutlet weak var storyPartImageView: UIImageView!
     @IBOutlet weak var imageViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var checkmarkContainerView: UIView!
+    @IBOutlet weak var timerLabel: UILabel!
     
     var image:UIImage?
     
@@ -30,6 +32,7 @@ final class StoryPartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         checkmarkContainerView.isHidden = true
+        timerLabel.isHidden = true
         setLabel()
         setData()
         setTapGesture()
@@ -195,19 +198,32 @@ extension StoryPartViewController: LevelDelegate {
     func setLevel() {
         switch currentLevel {
         case .easy:
+            timerLabel.isHidden = true
             if let image = image {
                 let imageAspect = Float(image.size.width / image.size.height)
                 changeConstraint(constant: CGFloat(Float(UIScreen.main.bounds.width) / imageAspect))
             }
         case .medium:
-            timer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(hideImage), userInfo: nil, repeats: false)
+            seconds = 60
+            timerLabel.isHidden = false
+            timerLabel.text = "\(seconds)"
+            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(hideImage), userInfo: nil, repeats: true)
         case .hard:
-            timer = Timer.scheduledTimer(timeInterval: 30, target: self, selector: #selector(hideImage), userInfo: nil, repeats: false)
+            seconds = 30
+            timerLabel.isHidden = false
+            timerLabel.text = "\(seconds)"
+            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(hideImage), userInfo: nil, repeats: true)
         }
     }
     
     @objc func hideImage() {
-        changeConstraint(constant: 0)
+        seconds = seconds - 1
+        timerLabel.text = "\(seconds)"
+        if seconds == 0 {
+            timer.invalidate()
+            changeConstraint(constant: 0)
+            timerLabel.isHidden = true
+        }
     }
     
     func changeConstraint(constant: CGFloat) {

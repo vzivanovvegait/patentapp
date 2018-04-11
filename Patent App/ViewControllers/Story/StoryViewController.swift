@@ -54,10 +54,6 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
         print("deinit")
     }
     
-    @IBAction func back(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         registerForKeyboardNotifications()
