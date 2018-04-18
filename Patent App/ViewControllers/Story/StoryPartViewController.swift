@@ -136,13 +136,13 @@ extension StoryPartViewController {
         }
         storyPartLabel.setText(result.0)
 
-        if let image = image {
-            let imageAspect = Float(image.size.width / image.size.height)
-            changeConstraint(constant: CGFloat(Float(UIScreen.main.bounds.width) / imageAspect))
-        }
-        if !timer.isValid {
-            setLevel()
-        }
+//        if let image = image {
+//            let imageAspect = Float(image.size.width / image.size.height)
+//            changeConstraint(constant: CGFloat(Float(UIScreen.main.bounds.width) / imageAspect))
+//        }
+//        if !timer.isValid {
+//            setLevel()
+//        }
     }
 
 }
@@ -214,10 +214,7 @@ extension StoryPartViewController: LevelDelegate {
         switch currentLevel {
         case .easy:
             delegate?.timer(isValid: timer.isValid, time: seconds)
-            if let image = image {
-                let imageAspect = Float(image.size.width / image.size.height)
-                changeConstraint(constant: CGFloat(Float(UIScreen.main.bounds.width) / imageAspect))
-            }
+            changeConstraint(isFull: true)
         case .medium:
             seconds = 60
             delegate?.timer(isValid: timer.isValid, time: seconds)
@@ -236,13 +233,21 @@ extension StoryPartViewController: LevelDelegate {
         }
         if seconds == 0 {
             timer.invalidate()
-            changeConstraint(constant: 0)
+            changeConstraint(isFull: false)
             delegate?.timer(isValid: timer.isValid, time: seconds)
         }
     }
     
-    func changeConstraint(constant: CGFloat) {
-        self.imageViewHeightConstraint.constant = constant
+    func changeConstraint(isFull: Bool) {
+        if isFull {
+            if let image = image {
+                let imageAspect = Float(image.size.width / image.size.height)
+                self.imageViewHeightConstraint.constant = CGFloat(Float(UIScreen.main.bounds.width) / imageAspect)
+            }
+        } else {
+            self.imageViewHeightConstraint.constant = 0
+        }
+        
         UIView.animate(withDuration: 0.3) {
             self.view.layoutIfNeeded()
         }

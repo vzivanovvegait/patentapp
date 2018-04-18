@@ -146,11 +146,15 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
                 if result == "Start Over This Page" {
                     (strongSelf.parts[strongSelf.storyIndex] as! DBStoryPart).reset()
                     strongSelf.viewControllers[strongSelf.storyIndex].setTextLabel()
+                    strongSelf.viewControllers[strongSelf.storyIndex].setLevel()
+                    strongSelf.viewControllers[strongSelf.storyIndex].changeConstraint(isFull: true)
                 } else if result == "Start Over Entire Story" {
                     for part in strongSelf.parts {
                         (part as! DBStoryPart).reset()
                     }
                     strongSelf.viewControllers[strongSelf.storyIndex].setTextLabel()
+                    strongSelf.viewControllers[strongSelf.storyIndex].setLevel()
+                    strongSelf.viewControllers[strongSelf.storyIndex].changeConstraint(isFull: true)
                 }
             })
         }

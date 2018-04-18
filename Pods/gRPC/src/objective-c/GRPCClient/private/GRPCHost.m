@@ -87,13 +87,14 @@ static GRPCConnectivityMonitor *connectivityMonitor = nil;
       _address = address;
       _secure = YES;
       kHostCache[address] = self;
+      _compressAlgorithm = GRPC_COMPRESS_NONE;
     }
     // Keep a single monitor to flush the cache if the connectivity status changes
     // Thread safety guarded by @synchronized(kHostCache)
     if (!connectivityMonitor) {
       connectivityMonitor =
       [GRPCConnectivityMonitor monitorWithHost:hostURL.host];
-      void (^handler)() = ^{
+      void (^handler)(void) = ^{
         [GRPCHost flushChannelCache];
       };
       [connectivityMonitor handleLossWithHandler:handler
@@ -121,6 +122,7 @@ static GRPCConnectivityMonitor *connectivityMonitor = nil;
 
 - (nullable grpc_call *)unmanagedCallWithPath:(NSString *)path
                                    serverName:(NSString *)serverName
+                                      timeout:(NSTimeInterval)timeout
                               completionQueue:(GRPCCompletionQueue *)queue {
   GRPCChannel *channel;
   // This is racing -[GRPCHost disconnect].
@@ -130,7 +132,10 @@ static GRPCConnectivityMonitor *connectivityMonitor = nil;
     }
     channel = _channel;
   }
-  return [channel unmanagedCallWithPath:path serverName:serverName completionQueue:queue];
+  return [channel unmanagedCallWithPath:path
+                             serverName:serverName
+                                timeout:timeout
+                        completionQueue:queue];
 }
 
 - (BOOL)setTLSPEMRootCerts:(nullable NSString *)pemRootCerts
@@ -220,8 +225,12 @@ static GRPCConnectivityMonitor *connectivityMonitor = nil;
   if (_responseSizeLimitOverride) {
     args[@GRPC_ARG_MAX_RECEIVE_MESSAGE_LENGTH] = _responseSizeLimitOverride;
   }
-  // Use 10000ms initial backoff time for correct behavior on bad/slow networks  
-  args[@GRPC_ARG_INITIAL_RECONNECT_BACKOFF_MS] = @10000;
+
+  if (_compressAlgorithm != GRPC_COMPRESS_NONE) {
+    args[@GRPC_COMPRESSION_CHANNEL_DEFAULT_ALGORITHM] =
+        [NSNumber numberWithInt:_compressAlgorithm];
+  }
+
   return args;
 }
 

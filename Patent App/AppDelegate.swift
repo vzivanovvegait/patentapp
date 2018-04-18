@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreData
+import Fabric
+import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -33,6 +35,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navigationController = categoryViewController.embedInNavigationController()
         navigationController.setNavigationBarHidden(true, animated: false)
         window?.rootViewController = navigationController
+        
+        Fabric.with([Crashlytics.self])
         
         return true
     }

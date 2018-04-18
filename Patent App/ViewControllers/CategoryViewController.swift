@@ -8,6 +8,7 @@
 
 import UIKit
 import TTTAttributedLabel
+import Crashlytics
 
 final class CategoryViewController: UIViewController, StoryboardInitializable {
 

@@ -1,71 +1,96 @@
 PODS:
-  - !ProtoCompiler (3.4.0):
+  - "!ProtoCompiler (3.5.0)":
     - Protobuf (~> 3.0)
-  - !ProtoCompiler-gRPCPlugin (1.6.5):
-    - !ProtoCompiler (= 3.4.0)
-    - gRPC-ProtoRPC (= 1.6.5)
-  - BoringSSL (9.0):
-    - BoringSSL/Implementation (= 9.0)
-    - BoringSSL/Interface (= 9.0)
-  - BoringSSL/Implementation (9.0):
-    - BoringSSL/Interface (= 9.0)
-  - BoringSSL/Interface (9.0)
+  - "!ProtoCompiler-gRPCPlugin (1.10.0)":
+    - "!ProtoCompiler (= 3.5.0)"
+    - gRPC-ProtoRPC (= 1.10.0)
+  - BoringSSL (10.0.2):
+    - BoringSSL/Implementation (= 10.0.2)
+    - BoringSSL/Interface (= 10.0.2)
+  - BoringSSL/Implementation (10.0.2):
+    - BoringSSL/Interface (= 10.0.2)
+  - BoringSSL/Interface (10.0.2)
+  - Crashlytics (3.10.1):
+    - Fabric (~> 1.7.5)
+  - Fabric (1.7.6)
   - googleapis (0.0.1):
-    - !ProtoCompiler-gRPCPlugin (~> 1.0)
+    - "!ProtoCompiler-gRPCPlugin (~> 1.0)"
     - googleapis/Messages (= 0.0.1)
     - googleapis/Services (= 0.0.1)
   - googleapis/Messages (0.0.1):
-    - !ProtoCompiler-gRPCPlugin (~> 1.0)
+    - "!ProtoCompiler-gRPCPlugin (~> 1.0)"
     - Protobuf
   - googleapis/Services (0.0.1):
-    - !ProtoCompiler-gRPCPlugin (~> 1.0)
+    - "!ProtoCompiler-gRPCPlugin (~> 1.0)"
     - googleapis/Messages
     - gRPC-ProtoRPC
-  - gRPC (1.6.5):
-    - gRPC-Core (= 1.6.5)
-    - gRPC-RxLibrary (= 1.6.5)
-  - gRPC-Core (1.6.5):
-    - gRPC-Core/Implementation (= 1.6.5)
-    - gRPC-Core/Interface (= 1.6.5)
-  - gRPC-Core/Implementation (1.6.5):
-    - BoringSSL (~> 9.0)
-    - gRPC-Core/Interface (= 1.6.5)
+  - gRPC (1.10.0):
+    - gRPC-RxLibrary (= 1.10.0)
+    - gRPC/Main (= 1.10.0)
+  - gRPC-Core (1.10.0):
+    - gRPC-Core/Implementation (= 1.10.0)
+    - gRPC-Core/Interface (= 1.10.0)
+  - gRPC-Core/Implementation (1.10.0):
+    - BoringSSL (~> 10.0)
+    - gRPC-Core/Interface (= 1.10.0)
     - nanopb (~> 0.3)
-  - gRPC-Core/Interface (1.6.5)
-  - gRPC-ProtoRPC (1.6.5):
-    - gRPC (= 1.6.5)
-    - gRPC-RxLibrary (= 1.6.5)
+  - gRPC-Core/Interface (1.10.0)
+  - gRPC-ProtoRPC (1.10.0):
+    - gRPC (= 1.10.0)
+    - gRPC-RxLibrary (= 1.10.0)
     - Protobuf (~> 3.0)
-  - gRPC-RxLibrary (1.6.5)
+  - gRPC-RxLibrary (1.10.0)
+  - gRPC/Main (1.10.0):
+    - gRPC-Core (= 1.10.0)
+    - gRPC-RxLibrary (= 1.10.0)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
-  - Protobuf (3.4.0)
+  - Protobuf (3.5.0)
   - TTTAttributedLabel (2.0.0)
 
 DEPENDENCIES:
+  - Crashlytics
+  - Fabric
   - googleapis (from `.`)
   - TTTAttributedLabel
 
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - "!ProtoCompiler"
+    - "!ProtoCompiler-gRPCPlugin"
+    - BoringSSL
+    - Crashlytics
+    - Fabric
+    - gRPC
+    - gRPC-Core
+    - gRPC-ProtoRPC
+    - gRPC-RxLibrary
+    - nanopb
+    - Protobuf
+    - TTTAttributedLabel
+
 EXTERNAL SOURCES:
   googleapis:
-    :path: .
+    :path: "."
 
 SPEC CHECKSUMS:
-  !ProtoCompiler: 07d0c441bc00e7f01e84debf7c53794683fbca7c
-  !ProtoCompiler-gRPCPlugin: dfc8eead3e132b22750b0ec7f5fe4774ef98362a
-  BoringSSL: 19083b821ef3ae0f758fae15482e183003b1e265
-  googleapis: aca6318130c96d3f627ec57af5eb3c9f1dbcf963
-  gRPC: 42f915ce322b1abc5241621acc776f2fdb0a2039
-  gRPC-Core: 54211a073d238ec8569be06e1a939a72f081a3e9
-  gRPC-ProtoRPC: 4299db62f86df58c88844ccb50f5c48993e704f6
-  gRPC-RxLibrary: 1b1c9c9cf666709ad7714cb0e0f3c44dc0cbfb0b
+  "!ProtoCompiler": 3e9dc8340c8f1bbab40aa0f5acb965a4be02f849
+  "!ProtoCompiler-gRPCPlugin": 0aff40e77da3e31fc74052e94c39d5c02c8d8199
+  BoringSSL: 60dd24df4af296bf41d78e5841dbb95d75f88c0d
+  Crashlytics: aee1a064cbbf99b32efa3f056a5f458d846bc8ff
+  Fabric: f8d42c893bb187326a7968b62abe55c36a987a46
+  googleapis: d6f6cbea54df52583737ed6d07b02a08006cb6ed
+  gRPC: f54f0e6d603052b4562447da442ce2ff30bcdacc
+  gRPC-Core: a030b1678ded49c88ec5ba7c90ee8ee5f47ec6e1
+  gRPC-ProtoRPC: 22712b23eb1bda656a59715fa5c1da0ea1493ea4
+  gRPC-RxLibrary: a41a4652d220f230ba1c0491a94ce2ee04c6180a
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
-  Protobuf: 03eef2ee0b674770735cf79d9c4d3659cf6908e8
+  Protobuf: 8a9838fba8dae3389230e1b7f8c104aa32389c03
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
 
-PODFILE CHECKSUM: 5603364568efd5dd308a2b9fa11940ab8bfca2ba
+PODFILE CHECKSUM: 3c5cbdd941101f546c6e3090ad8018017b3b5c4a
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.5.0

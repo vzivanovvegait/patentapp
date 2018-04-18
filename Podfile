@@ -7,5 +7,7 @@ target 'Patent App' do
 
   pod 'googleapis', :path => '.'
 	pod 'TTTAttributedLabel'
+    pod 'Fabric'
+    pod 'Crashlytics'
 
 end

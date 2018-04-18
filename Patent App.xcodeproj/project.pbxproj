@@ -405,7 +405,7 @@
 				E19170DD1FF3985100C3BD1C /* Frameworks */,
 				E19170DE1FF3985100C3BD1C /* Resources */,
 				30596A52BB6652A682786126 /* [CP] Embed Pods Frameworks */,
-				570BB01670C8E3BA5D386DB0 /* [CP] Copy Pods Resources */,
+				E1C54EA72087526E00E4AB1E /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -505,20 +505,18 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Patent App/Pods-Patent App-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		570BB01670C8E3BA5D386DB0 /* [CP] Copy Pods Resources */ = {
+		E1C54EA72087526E00E4AB1E /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Patent App/Pods-Patent App-resources.sh\"\n";
-			showEnvVarsInLog = 0;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" e79125c4c3210b061e01af254bf03b5a117ed775 5a4c747525d63514b300000c974b928bc222b137f6c5cb7e1855c01d313402aa\n";
 		};
 		FB625EC32FD4917E3AE2B2D8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -737,7 +735,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = RC7W8BPRW2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = "Patent App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -755,6 +758,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RC7W8BPRW2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = "Patent App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
