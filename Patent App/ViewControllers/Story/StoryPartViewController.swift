@@ -9,7 +9,13 @@
 import UIKit
 import TTTAttributedLabel
 
+protocol StoryPartDelegate: class {
+    func timer(isValid: Bool, time: Int)
+}
+
 final class StoryPartViewController: UIViewController {
+    
+    weak var delegate:StoryPartDelegate?
     
     @IBOutlet weak var scrollView: PatentScrollView!
     
@@ -21,18 +27,18 @@ final class StoryPartViewController: UIViewController {
     @IBOutlet weak var storyPartImageView: UIImageView!
     @IBOutlet weak var imageViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var checkmarkContainerView: UIView!
-    @IBOutlet weak var timerLabel: UILabel!
     
     var image:UIImage?
     
     var words: NSOrderedSet!
     
     var index:Int!
+    
+    var isActive: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
         checkmarkContainerView.isHidden = true
-        timerLabel.isHidden = true
         setLabel()
         setData()
         setTapGesture()
@@ -42,6 +48,13 @@ final class StoryPartViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setTextLabelOnAppear()
+        isActive = true
+        delegate?.timer(isValid: timer.isValid, time: seconds)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        isActive = false
     }
     
     func showLevel() {
@@ -127,7 +140,9 @@ extension StoryPartViewController {
             let imageAspect = Float(image.size.width / image.size.height)
             changeConstraint(constant: CGFloat(Float(UIScreen.main.bounds.width) / imageAspect))
         }
-        setLevel()
+        if !timer.isValid {
+            setLevel()
+        }
     }
 
 }
@@ -198,31 +213,31 @@ extension StoryPartViewController: LevelDelegate {
     func setLevel() {
         switch currentLevel {
         case .easy:
-            timerLabel.isHidden = true
+            delegate?.timer(isValid: timer.isValid, time: seconds)
             if let image = image {
                 let imageAspect = Float(image.size.width / image.size.height)
                 changeConstraint(constant: CGFloat(Float(UIScreen.main.bounds.width) / imageAspect))
             }
         case .medium:
             seconds = 60
-            timerLabel.isHidden = false
-            timerLabel.text = "\(seconds)"
+            delegate?.timer(isValid: timer.isValid, time: seconds)
             timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(hideImage), userInfo: nil, repeats: true)
         case .hard:
             seconds = 30
-            timerLabel.isHidden = false
-            timerLabel.text = "\(seconds)"
+            delegate?.timer(isValid: timer.isValid, time: seconds)
             timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(hideImage), userInfo: nil, repeats: true)
         }
     }
     
     @objc func hideImage() {
         seconds = seconds - 1
-        timerLabel.text = "\(seconds)"
+        if isActive {
+            delegate?.timer(isValid: timer.isValid, time: seconds)
+        }
         if seconds == 0 {
             timer.invalidate()
             changeConstraint(constant: 0)
-            timerLabel.isHidden = true
+            delegate?.timer(isValid: timer.isValid, time: seconds)
         }
     }
     

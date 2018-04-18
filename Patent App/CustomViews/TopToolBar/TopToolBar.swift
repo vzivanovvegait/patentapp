@@ -15,6 +15,7 @@ class TopToolBar: UIView {
     
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var reloadButton: UIButton!
+    @IBOutlet weak var timerLabel: UILabel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -47,7 +48,7 @@ class TopToolBar: UIView {
 //        backButton.tintColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
         reloadButton.setImage(#imageLiteral(resourceName: "restart").withRenderingMode(.alwaysTemplate), for: .normal)
         reloadButton.tintColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
-        
+        timerLabel.isHidden = true
     }
     
     // Actions

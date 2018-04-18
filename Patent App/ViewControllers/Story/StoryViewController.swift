@@ -48,6 +48,9 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
         }
         
         AudioController.sharedInstance.delegate = self
+        
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(appMovedToBackground), name: Notification.Name.UIApplicationWillResignActive, object: nil)
     }
     
     deinit {
@@ -74,6 +77,7 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
         for (index, part) in parts.enumerated() {
             if part is DBStoryPart {
                 let vc:StoryPartViewController = StoryPartViewController.makeFromStoryboard()
+                vc.delegate = self
                 vc.setStoryPart(storyPart: part as! DBStoryPart)
                 vc.index = index
                 viewControllers.append(vc)
@@ -96,14 +100,20 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
         pageController.didMove(toParentViewController: self)
     }
     
-    func save() -> Bool {
+    @objc func appMovedToBackground() {
+        save()
+    }
+    
+    func save() {
         let context = CoreDataManager.shared.persistentContainer.viewContext
         
         do {
             try context.save()
-            return true
         } catch {
-            return false
+        }
+        
+        if bottomToolBar.recordButton.isSelected {
+            bottomToolBar.recordButton.isSelected = false
         }
     }
     
@@ -119,7 +129,7 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
             
             DialogUtils.showYesNoDialog(strongSelf, title: nil, message: "Do you want to save the progress?", completion: { (result) in
                 if result {
-                    let _ = strongSelf.save()
+                    strongSelf.save()
                 }
                 strongSelf.navigationController?.popViewController(animated: true)
             })
@@ -336,9 +346,8 @@ extension StoryViewController: UIPageViewControllerDataSource, UIPageViewControl
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         guard completed else { return }
         
-        guard let index = (pageViewController.viewControllers?.first as? StoryPartViewController)?.index else { return }
+        guard let controller = pageViewController.viewControllers?.first as? StoryPartViewController, let index = controller.index else { return }
         storyIndex = index
-        print(index)
     }
     
 }
@@ -348,6 +357,13 @@ extension StoryViewController: SettingsDelegate {
         UserDefaults.standard.set(Int(fontSize), forKey: "fontSize")
         viewControllers[storyIndex].setTextLabel()
         print(fontSize)
+    }
+}
+
+extension StoryViewController: StoryPartDelegate {
+    func timer(isValid: Bool, time: Int) {
+        topToolBar.timerLabel.isHidden = !isValid
+        topToolBar.timerLabel.text = "\(time)"
     }
 }
 

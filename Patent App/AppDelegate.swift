@@ -40,6 +40,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
         return myOrientation
     }
+    
+    func applicationWillTerminate(_ application: UIApplication) {
+        print("App is terminated!")
+        
+        _ = save()
+    }
+    
+    func save() -> Bool {
+        let context = CoreDataManager.shared.persistentContainer.viewContext
+        
+        do {
+            try context.save()
+            return true
+        } catch {
+            return false
+        }
+    }
 
 }
 

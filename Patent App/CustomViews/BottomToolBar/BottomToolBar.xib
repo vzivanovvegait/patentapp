@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -66,7 +67,7 @@
                                 <constraint firstAttribute="width" secondItem="A30-a0-oDi" secondAttribute="height" multiplier="1:1" id="Qa9-op-G3C"/>
                                 <constraint firstAttribute="width" constant="50" id="qea-m5-CUE"/>
                             </constraints>
-                            <state key="normal" image="microphone_white">
+                            <state key="normal">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                         </button>
@@ -140,8 +141,7 @@
     <resources>
         <image name="gearwheel" width="200" height="200"/>
         <image name="ic_keyboard" width="512" height="512"/>
-        <image name="info-icon" width="512" height="512"/>
-        <image name="microphone_white" width="512" height="512"/>
+        <image name="info-icon" width="30" height="30"/>
         <image name="note" width="128" height="128"/>
     </resources>
 </document>

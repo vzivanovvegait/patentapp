@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -14,6 +15,7 @@
             <connections>
                 <outlet property="backButton" destination="zYN-6U-b1b" id="fMS-A4-ZV8"/>
                 <outlet property="reloadButton" destination="Q1u-HA-wLc" id="KZz-Ol-0AG"/>
+                <outlet property="timerLabel" destination="Tff-iO-pdy" id="FCb-ca-gE4"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -52,16 +54,24 @@
                         <constraint firstAttribute="height" constant="2" id="bzd-w6-vmC"/>
                     </constraints>
                 </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tff-iO-pdy">
+                    <rect key="frame" x="163.5" y="10" width="48" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <color key="textColor" red="0.0" green="0.3803921569" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="XKE-g2-OTW" secondAttribute="trailing" id="8I9-lI-TgL"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="XKE-g2-OTW" secondAttribute="bottom" id="ABe-we-fRi"/>
                 <constraint firstItem="zYN-6U-b1b" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="GjE-JG-Qf4"/>
+                <constraint firstItem="Tff-iO-pdy" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="GlX-fc-R5Q"/>
                 <constraint firstItem="XKE-g2-OTW" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="NYq-b2-91E"/>
                 <constraint firstItem="Q1u-HA-wLc" firstAttribute="centerY" secondItem="zYN-6U-b1b" secondAttribute="centerY" id="OSQ-BN-PSP"/>
                 <constraint firstItem="Q1u-HA-wLc" firstAttribute="width" secondItem="Q1u-HA-wLc" secondAttribute="height" multiplier="1:1" id="YAA-bD-zQ9"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Q1u-HA-wLc" secondAttribute="trailing" constant="10" id="iDa-xj-O8w"/>
                 <constraint firstItem="zYN-6U-b1b" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="ugV-jG-IlF"/>
+                <constraint firstItem="Tff-iO-pdy" firstAttribute="centerY" secondItem="zYN-6U-b1b" secondAttribute="centerY" id="zbb-8r-mff"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
