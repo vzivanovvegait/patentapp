@@ -126,14 +126,11 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
             }
             
             strongSelf.stop()
-            
-            DialogUtils.showYesNoDialog(strongSelf, title: nil, message: "Do you want to save the progress?", completion: { (result) in
-                if result {
-                    strongSelf.save()
-                }
-                strongSelf.navigationController?.popViewController(animated: true)
-            })
-            
+            if strongSelf.bottomToolBar.recordButton.isSelected {
+                strongSelf.bottomToolBar.recordButton.isSelected = false
+            }
+            strongSelf.navigationController?.popViewController(animated: true)
+
         }
         
         topToolBar.restartAction = { [weak self] in

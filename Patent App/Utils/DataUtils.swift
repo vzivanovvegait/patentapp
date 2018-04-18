@@ -40,10 +40,7 @@ class DataUtils {
         if !Array(array).contains(where: { !($0 as! DBStoryWord).isFound }) {
             return (attString, true)
         }
-//        if !array.contains(where: { !$0.isFound }) {
-//            return (attString, true)
-//        }
-        
+
         return (attString, false)
     }
     
