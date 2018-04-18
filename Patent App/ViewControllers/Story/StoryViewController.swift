@@ -142,6 +142,7 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
             DialogUtils.showMoreDialog(strongSelf, title: nil, message: nil, choises: ["Start Over This Page", "Start Over Entire Story"], completion: { (result) in
                 if result == "Start Over This Page" {
                     (strongSelf.parts[strongSelf.storyIndex] as! DBStoryPart).reset()
+                    strongSelf.viewControllers[strongSelf.storyIndex].isSolved = false
                     strongSelf.viewControllers[strongSelf.storyIndex].setTextLabel()
                     strongSelf.viewControllers[strongSelf.storyIndex].setLevel()
                     strongSelf.viewControllers[strongSelf.storyIndex].changeConstraint(isFull: true)
@@ -149,6 +150,7 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
                     for part in strongSelf.parts {
                         (part as! DBStoryPart).reset()
                     }
+                    strongSelf.viewControllers[strongSelf.storyIndex].isSolved = false
                     strongSelf.viewControllers[strongSelf.storyIndex].setTextLabel()
                     strongSelf.viewControllers[strongSelf.storyIndex].setLevel()
                     strongSelf.viewControllers[strongSelf.storyIndex].changeConstraint(isFull: true)

@@ -35,6 +35,8 @@ final class StoryPartViewController: UIViewController {
     var index:Int!
     
     var isActive: Bool = false
+    
+    var isSolved: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -119,20 +121,24 @@ extension StoryPartViewController {
         let result = DataUtils.createString(from: words)
         if result.1 {
             checkmarkContainerView.isHidden = false
+            isSolved = true
         } else {
             checkmarkContainerView.isHidden = true
-
+            isSolved = false
         }
         storyPartLabel.setText(result.0)
     }
     
     func setTextLabel() {
         let result = DataUtils.createString(from: words)
-        if result.1 {
-            DialogUtils.showWarningDialog(self, title: "Great job, swipe to the next page!", message: nil, completion: nil)
-            checkmarkContainerView.isHidden = false
-        } else {
-            checkmarkContainerView.isHidden = true
+        if !isSolved {
+            if result.1 {
+                DialogUtils.showWarningDialog(self, title: "Great job, swipe to the next page!", message: nil, completion: nil)
+                checkmarkContainerView.isHidden = false
+                isSolved = true
+            } else {
+                checkmarkContainerView.isHidden = true
+            }
         }
         storyPartLabel.setText(result.0)
 
