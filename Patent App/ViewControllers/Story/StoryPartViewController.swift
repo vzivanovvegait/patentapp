@@ -136,19 +136,14 @@ extension StoryPartViewController {
                 DialogUtils.showWarningDialog(self, title: "Great job, swipe to the next page!", message: nil, completion: nil)
                 checkmarkContainerView.isHidden = false
                 isSolved = true
+                timer.invalidate()
+                delegate?.timer(isValid: timer.isValid, time: seconds)
+                changeConstraint(isFull: true)
             } else {
                 checkmarkContainerView.isHidden = true
             }
         }
         storyPartLabel.setText(result.0)
-
-//        if let image = image {
-//            let imageAspect = Float(image.size.width / image.size.height)
-//            changeConstraint(constant: CGFloat(Float(UIScreen.main.bounds.width) / imageAspect))
-//        }
-//        if !timer.isValid {
-//            setLevel()
-//        }
     }
 
 }
