@@ -73,7 +73,7 @@ class DialogUtils {
         }
     }
     
-    public static func showYesNoDialogWithInput(_ controller: UIViewController, title: String?, message: String?, positive: String, cancel: String?, completion: @escaping (_ selected: Bool, _ text: String?) -> ()) {
+    public static func showYesNoDialogWithInput(_ controller: UIViewController, title: String?, message: String?, positive: String, cancel: String?, editText:String = "", completion: @escaping (_ selected: Bool, _ text: String?) -> ()) {
         
         let dialog = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
@@ -96,6 +96,7 @@ class DialogUtils {
         }
         
         dialog.addTextField { (textField : UITextField!) -> Void in
+            textField.text = editText
         }
         
         DispatchQueue.main.async {

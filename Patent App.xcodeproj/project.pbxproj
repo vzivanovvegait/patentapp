@@ -64,6 +64,10 @@
 		E19D55B4204E855D007B3243 /* LevelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E19D55B2204E855D007B3243 /* LevelViewController.xib */; };
 		E1BB8477203EE7DF0069E5AA /* SettingsViewConroller.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1BB8475203EE7DE0069E5AA /* SettingsViewConroller.xib */; };
 		E1BB8478203EE7DF0069E5AA /* SettingsViewConroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BB8476203EE7DF0069E5AA /* SettingsViewConroller.swift */; };
+		E1D8476D208DC972009CE29F /* FlashcardSetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D8476C208DC972009CE29F /* FlashcardSetsViewController.swift */; };
+		E1D84770208DCBCF009CE29F /* FlashcardSet+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D8476E208DCBCF009CE29F /* FlashcardSet+CoreDataClass.swift */; };
+		E1D84771208DCBCF009CE29F /* FlashcardSet+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D8476F208DCBCF009CE29F /* FlashcardSet+CoreDataProperties.swift */; };
+		E1D84773208DD369009CE29F /* FlashcardSetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D84772208DD369009CE29F /* FlashcardSetManager.swift */; };
 		E1ED4409201B510200BA291A /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ED4408201B510200BA291A /* NotesViewController.swift */; };
 		E1ED4414201B530B00BA291A /* Patent.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E1ED4412201B530B00BA291A /* Patent.xcdatamodeld */; };
 		E1ED442E201B57DD00BA291A /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ED442D201B57DD00BA291A /* NoteCell.swift */; };
@@ -136,6 +140,10 @@
 		E19D55B2204E855D007B3243 /* LevelViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LevelViewController.xib; sourceTree = "<group>"; };
 		E1BB8475203EE7DE0069E5AA /* SettingsViewConroller.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewConroller.xib; sourceTree = "<group>"; };
 		E1BB8476203EE7DF0069E5AA /* SettingsViewConroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewConroller.swift; sourceTree = "<group>"; };
+		E1D8476C208DC972009CE29F /* FlashcardSetsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardSetsViewController.swift; sourceTree = "<group>"; };
+		E1D8476E208DCBCF009CE29F /* FlashcardSet+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FlashcardSet+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E1D8476F208DCBCF009CE29F /* FlashcardSet+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FlashcardSet+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E1D84772208DD369009CE29F /* FlashcardSetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardSetManager.swift; sourceTree = "<group>"; };
 		E1ED4408201B510200BA291A /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 		E1ED4413201B530B00BA291A /* Patent.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Patent.xcdatamodel; sourceTree = "<group>"; };
 		E1ED442D201B57DD00BA291A /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
@@ -220,6 +228,7 @@
 				E16E2753206147DE00370739 /* StoryManager.swift */,
 				E16E2755206157C000370739 /* StoryPartController.swift */,
 				E170A1A2207276B100463C65 /* FlashcardsManager.swift */,
+				E1D84772208DD369009CE29F /* FlashcardSetManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -227,6 +236,8 @@
 		E1529DB1201601AC003CD7C6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E1D8476E208DCBCF009CE29F /* FlashcardSet+CoreDataClass.swift */,
+				E1D8476F208DCBCF009CE29F /* FlashcardSet+CoreDataProperties.swift */,
 				E170A19E2072768700463C65 /* Flashcard+CoreDataClass.swift */,
 				E170A19F2072768800463C65 /* Flashcard+CoreDataProperties.swift */,
 				22FE855020625EB700AB6E47 /* DBStoryPart+CoreDataClass.swift */,
@@ -274,6 +285,7 @@
 			isa = PBXGroup;
 			children = (
 				E170A19820726FCD00463C65 /* CreateFlashcardViewController.swift */,
+				E1D8476C208DC972009CE29F /* FlashcardSetsViewController.swift */,
 				E170A1912072680F00463C65 /* FlashcardsListViewController.swift */,
 				E1078B6C2073BCEE00239D78 /* FlashcardViewController.swift */,
 			);
@@ -553,6 +565,7 @@
 				E16E2754206147DE00370739 /* StoryManager.swift in Sources */,
 				22FE855B20625EB700AB6E47 /* DBStory+CoreDataProperties.swift in Sources */,
 				E148C47B202DE622003906A4 /* RecordButton.swift in Sources */,
+				E1D8476D208DC972009CE29F /* FlashcardSetsViewController.swift in Sources */,
 				E194D72920077657005D62EF /* StoryboardInitializable.swift in Sources */,
 				E1BB8478203EE7DF0069E5AA /* SettingsViewConroller.swift in Sources */,
 				22FE855E20625EB700AB6E47 /* DBRoot+CoreDataClass.swift in Sources */,
@@ -567,12 +580,14 @@
 				22FE855820625EB700AB6E47 /* DBStoryPart+CoreDataClass.swift in Sources */,
 				E170A1A02072768900463C65 /* Flashcard+CoreDataClass.swift in Sources */,
 				E19170F81FF3A09500C3BD1C /* AudioController.swift in Sources */,
+				E1D84773208DD369009CE29F /* FlashcardSetManager.swift in Sources */,
 				E1ED4431201B609000BA291A /* Note+CoreDataClass.swift in Sources */,
 				E1529DB3201601BC003CD7C6 /* Word.swift in Sources */,
 				E1F62BB22074CE28005FE688 /* KeyboardHandlerDelegate.swift in Sources */,
 				E188E2832010D3BE00755614 /* SendContainerView.swift in Sources */,
 				E1ED442E201B57DD00BA291A /* NoteCell.swift in Sources */,
 				E16E2756206157C000370739 /* StoryPartController.swift in Sources */,
+				E1D84771208DCBCF009CE29F /* FlashcardSet+CoreDataProperties.swift in Sources */,
 				E17A1295202066AC00C37AFB /* StoryPart.swift in Sources */,
 				E17A12972020677100C37AFB /* StoryController.swift in Sources */,
 				22FE855A20625EB700AB6E47 /* DBStory+CoreDataClass.swift in Sources */,
@@ -596,6 +611,7 @@
 				E1ED4414201B530B00BA291A /* Patent.xcdatamodeld in Sources */,
 				E16B10812034344900356BFB /* InfoViewController.swift in Sources */,
 				22FE855D20625EB700AB6E47 /* DBStoryWord+CoreDataProperties.swift in Sources */,
+				E1D84770208DCBCF009CE29F /* FlashcardSet+CoreDataClass.swift in Sources */,
 				E16481E7202473C400702D2B /* StoryPartViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

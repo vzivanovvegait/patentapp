@@ -31,8 +31,8 @@ final class CategoryViewController: UIViewController, StoryboardInitializable {
     }
     
     @IBAction func flashcards(_ sender: Any) {
-        let flashcardsListViewController = FlashcardsListViewController.makeFromStoryboard()
-        self.navigationController?.pushViewController(flashcardsListViewController, animated: true)
+        let flashcardSetListViewController = FlashcardSetsViewController.makeFromStoryboard()
+        self.navigationController?.pushViewController(flashcardSetListViewController, animated: true)
     }
     
     @IBAction func story(_ sender: Any) {

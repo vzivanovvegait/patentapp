@@ -1,8 +1,9 @@
 //
 //  Flashcard+CoreDataProperties.swift
-//  
+//  Patent App
 //
-//  Created by Vladimir Zivanov on 4/2/18.
+//  Created by Vladimir Zivanov on 4/23/18.
+//  Copyright © 2018 Vladimir Zivanov. All rights reserved.
 //
 //
 
@@ -16,9 +17,11 @@ extension Flashcard {
         return NSFetchRequest<Flashcard>(entityName: "Flashcard")
     }
 
-    @NSManaged public var name: String?
-    @NSManaged public var question: String
     @NSManaged public var answer: String
     @NSManaged public var isOrdered: Bool
+    @NSManaged public var name: String
+    @NSManaged public var question: String
+    @NSManaged public var imageData: NSData?
+    @NSManaged public var flashcardSet: FlashcardSet?
 
 }

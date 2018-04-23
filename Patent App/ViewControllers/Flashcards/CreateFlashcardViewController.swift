@@ -17,6 +17,8 @@ final class CreateFlashcardViewController: UIViewController, KeyboardHandlerDele
     @IBOutlet weak var strictOrderSwitch: UISwitch!
     @IBOutlet weak var strictOrderLabel: UILabel!
     
+    var flashcardSet: FlashcardSet!
+    
     var flashcard: Flashcard?
     
     override var prefersStatusBarHidden: Bool {
@@ -98,7 +100,7 @@ final class CreateFlashcardViewController: UIViewController, KeyboardHandlerDele
                     self.dismiss(animated: true, completion: nil)
                 }
             } else {
-                if FlashcardsManager.shared.insertFlashcard(name: name, question: question, answer: answer, strictOrder: strictOrderSwitch.isOn) {
+                if FlashcardsManager.shared.insertFlashcard(set: flashcardSet, name: name, question: question, answer: answer, strictOrder: strictOrderSwitch.isOn) {
                     DialogUtils.showWarningDialog(self, title: nil, message: "Flashcard is saved.", completion: {
                         self.dismiss(animated: true, completion: nil)
                     })

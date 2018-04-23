@@ -1,41 +1,37 @@
 //
-//  FlashcardsManager.swift
+//  FlashcardSetManager.swift
 //  Patent App
 //
-//  Created by Vladimir Zivanov on 4/2/18.
+//  Created by Vladimir Zivanov on 4/23/18.
 //  Copyright © 2018 Vladimir Zivanov. All rights reserved.
 //
 
 import Foundation
 import CoreData
 
-class FlashcardsManager {
+class FlashcardSetManager {
     
-    static let shared = FlashcardsManager()
+    static let shared = FlashcardSetManager()
     
-    func getFlashcards() -> [Flashcard] {
+    func getFlashcardSet() -> [FlashcardSet] {
         let context = CoreDataManager.shared.persistentContainer.viewContext
-        let flashcardsFetch = Flashcard.fetchFlashcards()
+        let flashcardSetFetch = FlashcardSet.fetchFlashcardSet()
         do {
-            let fetchedFlashcards = try context.fetch(flashcardsFetch)
-            return fetchedFlashcards
+            let fetchedFlashcardSets = try context.fetch(flashcardSetFetch)
+            return fetchedFlashcardSets
         } catch {
             fatalError("\(error)")
         }
         return []
     }
     
-    func insertFlashcard(set: FlashcardSet, name: String, question: String, answer: String, strictOrder: Bool) -> Bool {
+    func insertFlashcardSet(name: String) -> Bool {
         let context = CoreDataManager.shared.persistentContainer.viewContext
         
-        let entity = NSEntityDescription.entity(forEntityName: "Flashcard", in: context)
-        let newFlashcard = NSManagedObject(entity: entity!, insertInto: context) as! Flashcard
+        let entity = NSEntityDescription.entity(forEntityName: "FlashcardSet", in: context)
+        let newFlashcardSet = NSManagedObject(entity: entity!, insertInto: context) as! FlashcardSet
         
-        newFlashcard.flashcardSet = set
-        newFlashcard.name = name
-        newFlashcard.question = question
-        newFlashcard.answer = answer
-        newFlashcard.isOrdered = strictOrder
+        newFlashcardSet.name = name
         
         do {
             try context.save()
@@ -46,10 +42,10 @@ class FlashcardsManager {
         }
     }
     
-    func deleteFlashcard(flashcard: Flashcard) -> Bool {
+    func deleteFlashcardSet(flashcardSet: FlashcardSet) -> Bool {
         let context = CoreDataManager.shared.persistentContainer.viewContext
         
-        context.delete(flashcard)
+        context.delete(flashcardSet)
         do {
             try context.save()
             return true
@@ -58,7 +54,7 @@ class FlashcardsManager {
         }
     }
     
-    func saveFlashcard() -> Bool {
+    func saveFlashcardSet() -> Bool {
         let context = CoreDataManager.shared.persistentContainer.viewContext
         
         do {

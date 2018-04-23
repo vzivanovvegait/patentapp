@@ -187,6 +187,84 @@
             </objects>
             <point key="canvasLocation" x="14" y="-477"/>
         </scene>
+        <!--Flashcard Sets View Controller-->
+        <scene sceneID="4Vl-8d-mz7">
+            <objects>
+                <viewController storyboardIdentifier="FlashcardSetsViewController" id="KmC-HW-QlS" customClass="FlashcardSetsViewController" customModule="Patent_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oso-w5-Cln">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zjn-dx-5ON">
+                                <rect key="frame" x="0.0" y="96" width="375" height="682"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" red="0.0" green="0.3803921569" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="KmC-HW-QlS" id="Tbd-DK-kRS"/>
+                                    <outlet property="delegate" destination="KmC-HW-QlS" id="Cr4-eW-rtu"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fe0-Ix-PTh">
+                                <rect key="frame" x="10" y="51" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="aCm-hl-5oB"/>
+                                </constraints>
+                                <state key="normal" title="back">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="back:" destination="ew5-cR-IzU" eventType="touchUpInside" id="Gol-6D-Kq9"/>
+                                    <action selector="back:" destination="KmC-HW-QlS" eventType="touchUpInside" id="a0c-7L-g1M"/>
+                                    <action selector="back:" destination="KmG-g8-CTl" eventType="touchUpInside" id="gvI-ch-12e"/>
+                                    <action selector="back:" destination="mTj-fq-jlI" eventType="touchUpInside" id="rjk-zx-3kh"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sets" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gy6-VZ-19b">
+                                <rect key="frame" x="158.66666666666666" y="52" width="58" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" red="0.0" green="0.3803921569" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AmK-qP-4lp">
+                                <rect key="frame" x="329" y="55" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="PE3-3Y-UxG"/>
+                                    <constraint firstAttribute="width" secondItem="AmK-qP-4lp" secondAttribute="height" multiplier="1:1" id="sea-T4-cCC"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="addFlashcard:" destination="ew5-cR-IzU" eventType="touchUpInside" id="mYp-zC-xtC"/>
+                                    <action selector="addFlashcardSet:" destination="KmC-HW-QlS" eventType="touchUpInside" id="EUh-uK-4yg"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="zjn-dx-5ON" firstAttribute="bottom" secondItem="NFL-zc-amu" secondAttribute="bottom" id="GEm-nV-fax"/>
+                            <constraint firstItem="fe0-Ix-PTh" firstAttribute="width" secondItem="fe0-Ix-PTh" secondAttribute="height" multiplier="1:1" id="Guw-V6-GHv"/>
+                            <constraint firstItem="NFL-zc-amu" firstAttribute="trailing" secondItem="AmK-qP-4lp" secondAttribute="trailing" constant="16" id="Huc-xw-tLM"/>
+                            <constraint firstItem="AmK-qP-4lp" firstAttribute="width" secondItem="AmK-qP-4lp" secondAttribute="height" multiplier="1:1" id="Jzo-WN-S0I"/>
+                            <constraint firstItem="zjn-dx-5ON" firstAttribute="leading" secondItem="NFL-zc-amu" secondAttribute="leading" id="K1r-Mc-suZ"/>
+                            <constraint firstItem="Gy6-VZ-19b" firstAttribute="centerX" secondItem="NFL-zc-amu" secondAttribute="centerX" id="kwK-7a-o6k"/>
+                            <constraint firstItem="fe0-Ix-PTh" firstAttribute="leading" secondItem="NFL-zc-amu" secondAttribute="leading" constant="10" id="lwt-By-XFK"/>
+                            <constraint firstItem="Gy6-VZ-19b" firstAttribute="top" secondItem="NFL-zc-amu" secondAttribute="top" constant="8" id="mey-Tr-FOK"/>
+                            <constraint firstItem="fe0-Ix-PTh" firstAttribute="centerY" secondItem="NFL-zc-amu" secondAttribute="top" constant="22" id="orS-1a-HJ2"/>
+                            <constraint firstItem="zjn-dx-5ON" firstAttribute="top" secondItem="Gy6-VZ-19b" secondAttribute="bottom" constant="8" id="r4f-2g-tvo"/>
+                            <constraint firstItem="AmK-qP-4lp" firstAttribute="centerY" secondItem="Gy6-VZ-19b" secondAttribute="centerY" id="uSK-mr-qmu"/>
+                            <constraint firstItem="zjn-dx-5ON" firstAttribute="trailing" secondItem="NFL-zc-amu" secondAttribute="trailing" id="ytm-dk-ab7"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="NFL-zc-amu"/>
+                    </view>
+                    <connections>
+                        <outlet property="addButton" destination="AmK-qP-4lp" id="pOW-nj-6at"/>
+                        <outlet property="backButton" destination="fe0-Ix-PTh" id="6b4-OS-Lab"/>
+                        <outlet property="tableView" destination="zjn-dx-5ON" id="saU-J3-cag"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O3O-ld-cVF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="729" y="-481"/>
+        </scene>
         <!--Flashcard View Controller-->
         <scene sceneID="q4Y-r0-Kzf">
             <objects>
@@ -300,7 +378,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5TS-lP-YTx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="721" y="-477"/>
+            <point key="canvasLocation" x="1510" y="-477"/>
         </scene>
         <!--Create Flashcard View Controller-->
         <scene sceneID="ibU-QT-rFX">
