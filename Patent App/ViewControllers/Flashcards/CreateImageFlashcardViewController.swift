@@ -18,12 +18,16 @@ final class CreateImageFlashcardViewController: UIViewController, KeyboardHandle
     
     var flashcard: Flashcard?
     
+    let imagePicker = UIImagePickerController()
+    
     override var prefersStatusBarHidden: Bool {
         return true
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        imagePickerSetup()
 
         self.navigationController?.navigationBar.tintColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
         
@@ -98,8 +102,29 @@ final class CreateImageFlashcardViewController: UIViewController, KeyboardHandle
         self.dismiss(animated: true, completion: nil)
     }
 
+    @IBAction func openCamera(_ sender: Any) {
+        present(imagePicker, animated: true, completion: nil)
+    }
 }
 
 extension CreateImageFlashcardViewController: StoryboardInitializable {
     
+}
+
+extension CreateImageFlashcardViewController : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerSetup() {
+        
+        imagePicker.delegate = self
+        imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
+        
+    }
+    
+    // When an image is "picked" it will return through this function
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+        
+        self.dismiss(animated: true, completion: nil)
+//        prepareImageForSaving(image)
+        
+    }
 }

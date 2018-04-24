@@ -511,6 +511,9 @@
                                                 <rect key="frame" x="203" y="151" width="91" height="35"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                 <state key="normal" title="Add image"/>
+                                                <connections>
+                                                    <action selector="openCamera:" destination="sYd-OI-Hdi" eventType="touchUpInside" id="wGx-cZ-fzy"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
