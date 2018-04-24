@@ -27,9 +27,8 @@ final class FlashcardViewController: UIViewController, StoryboardInitializable, 
     @IBOutlet weak var questionLabel: PatentLabel!
     @IBOutlet weak var answerLabel: PatentLabel!
     
-    var question: String = ""
+    var question: String? = ""
     var answer: String = ""
-    var isOrdered: Bool = false
     var words = [Element]()
     
     var audioData: NSMutableData!
@@ -75,7 +74,7 @@ final class FlashcardViewController: UIViewController, StoryboardInitializable, 
     }
     
     func setLabels() {
-        questionLabel.setText(DataUtils.createAttributtedString(from: question))
+        questionLabel.setText(DataUtils.createAttributtedString(from: question!))
         answerLabel.setText(DataUtils.createAttributtedString(from: replacedString))
     }
     

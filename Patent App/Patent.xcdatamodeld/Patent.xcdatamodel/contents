@@ -24,9 +24,8 @@
     <entity name="Flashcard" representedClassName="Flashcard" syncable="YES">
         <attribute name="answer" attributeType="String" syncable="YES"/>
         <attribute name="imageData" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
-        <attribute name="isOrdered" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
-        <attribute name="question" attributeType="String" syncable="YES"/>
+        <attribute name="question" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="flashcardSet" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FlashcardSet" inverseName="flashcards" inverseEntity="FlashcardSet" syncable="YES"/>
     </entity>
     <entity name="FlashcardSet" representedClassName="FlashcardSet" syncable="YES">
@@ -47,8 +46,8 @@
         <element name="DBStory" positionX="-54" positionY="9" width="128" height="75"/>
         <element name="DBStoryPart" positionX="-45" positionY="18" width="128" height="90"/>
         <element name="DBStoryWord" positionX="-36" positionY="45" width="128" height="150"/>
-        <element name="Flashcard" positionX="-36" positionY="81" width="128" height="135"/>
-        <element name="Note" positionX="-54" positionY="-9" width="128" height="75"/>
+        <element name="Flashcard" positionX="-36" positionY="81" width="128" height="120"/>
         <element name="FlashcardSet" positionX="-36" positionY="81" width="128" height="75"/>
+        <element name="Note" positionX="-54" positionY="-9" width="128" height="75"/>
     </elements>
 </model>

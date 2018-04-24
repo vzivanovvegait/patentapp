@@ -66,7 +66,10 @@ final class FlashcardsListViewController: UIViewController {
                 let navigationController = createFlashcardViewController.embedInNavigationController()
                 self.present(navigationController, animated: true, completion: nil)
             } else if result == "Add image flashcard" {
-                
+                let createImageFlashcardViewController = CreateImageFlashcardViewController.makeFromStoryboard()
+//                createFlashcardViewController.flashcardSet = self.flashcardSet
+                let navigationController = createImageFlashcardViewController.embedInNavigationController()
+                self.present(navigationController, animated: true, completion: nil)
             }
         })
     }
@@ -97,7 +100,6 @@ extension FlashcardsListViewController: UITableViewDataSource, UITableViewDelega
         let flashcardsViewController = FlashcardViewController.makeFromStoryboard()
         flashcardsViewController.question = (flashcards[indexPath.row] as! Flashcard).question
         flashcardsViewController.answer = (flashcards[indexPath.row] as! Flashcard).answer
-        flashcardsViewController.isOrdered = (flashcards[indexPath.row] as! Flashcard).isOrdered
         self.navigationController?.pushViewController(flashcardsViewController, animated: true)
     }
     
