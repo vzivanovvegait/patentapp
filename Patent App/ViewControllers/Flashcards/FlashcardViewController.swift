@@ -33,7 +33,7 @@ final class FlashcardViewController: UIViewController, StoryboardInitializable, 
     var answer: String = ""
     var words = [Element]()
     
-    var audioData: NSMutableData!
+    var audioData: NSMutableData = NSMutableData()
     
     var player: AVAudioPlayer?
     

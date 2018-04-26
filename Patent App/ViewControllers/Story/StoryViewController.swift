@@ -18,7 +18,7 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
     var pageController = UIPageViewController()
     var viewControllers = [StoryPartViewController]()
     
-    var audioData: NSMutableData!
+    var audioData: NSMutableData = NSMutableData()
     
     @IBOutlet weak var topToolBar: TopToolBar!
     @IBOutlet weak var bottomToolBar: BottomToolBar!
