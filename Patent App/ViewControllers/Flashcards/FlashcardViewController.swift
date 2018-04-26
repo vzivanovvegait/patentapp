@@ -24,10 +24,12 @@ final class FlashcardViewController: UIViewController, StoryboardInitializable, 
     @IBOutlet weak var sendContainerView: SendContainerView!
     @IBOutlet weak var sendboxBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var containerViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var questionLabel: PatentLabel!
     @IBOutlet weak var answerLabel: PatentLabel!
     
-    var question: String? = ""
+    var image:UIImage?
+    var question: String?
     var answer: String = ""
     var words = [Element]()
     
@@ -74,7 +76,15 @@ final class FlashcardViewController: UIViewController, StoryboardInitializable, 
     }
     
     func setLabels() {
-        questionLabel.setText(DataUtils.createAttributtedString(from: question!))
+        if let question = question {
+            questionLabel.isHidden = false
+            imageView.isHidden = true
+            questionLabel.setText(DataUtils.createAttributtedString(from: question))
+        } else {
+            questionLabel.isHidden = true
+            imageView.isHidden = false
+            imageView.image = image
+        }
         answerLabel.setText(DataUtils.createAttributtedString(from: replacedString))
     }
     

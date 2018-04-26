@@ -13,12 +13,15 @@ final class CreateImageFlashcardViewController: UIViewController, KeyboardHandle
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var answerTextView: UITextView!
+    @IBOutlet weak var imageView: UIImageView!
     
     var flashcardSet: FlashcardSet!
     
     var flashcard: Flashcard?
     
     let imagePicker = UIImagePickerController()
+    
+    var imageData:NSData?
     
     override var prefersStatusBarHidden: Bool {
         return true
@@ -46,6 +49,10 @@ final class CreateImageFlashcardViewController: UIViewController, KeyboardHandle
             nameTextField.text = flashcard.name
             if let placeholderLabel = answerTextView.viewWithTag(100) as? UILabel {
                 placeholderLabel.isHidden = true
+            }
+            if let data = flashcard.imageData as Data?, let image = UIImage(data: data) {
+                imageData = data as NSData?
+                imageView.image = image
             }
             answerTextView.text = flashcard.answer
         }
@@ -80,22 +87,22 @@ final class CreateImageFlashcardViewController: UIViewController, KeyboardHandle
     }
     
     @objc func done() {
-//        if let name = nameTextField.text, name != "", let question = questionTextView.text, question != "", let answer = answerTextView.text, answer != "" {
-//            if let flashcard = flashcard {
-//                flashcard.name = name
-//                flashcard.question = question
-//                flashcard.answer = answer
-//                if FlashcardsManager.shared.saveFlashcard() {
-//                    self.dismiss(animated: true, completion: nil)
-//                }
-//            } else {
-//                if FlashcardsManager.shared.insertFlashcard(set: flashcardSet, name: name, question: question, answer: answer) {
-//                    DialogUtils.showWarningDialog(self, title: nil, message: "Flashcard is saved.", completion: {
-//                        self.dismiss(animated: true, completion: nil)
-//                    })
-//                }
-//            }
-//        }
+        if let name = nameTextField.text, name != "", let answer = answerTextView.text, answer != "", let data = imageData {
+            if let flashcard = flashcard {
+                flashcard.name = name
+                flashcard.answer = answer
+                flashcard.imageData = imageData
+                if FlashcardsManager.shared.saveFlashcard() {
+                    self.dismiss(animated: true, completion: nil)
+                }
+            } else {
+                if FlashcardsManager.shared.insertFlashcard(set: flashcardSet, name: name, imageData: data, answer: answer) {
+                    DialogUtils.showWarningDialog(self, title: nil, message: "Flashcard is saved.", completion: {
+                        self.dismiss(animated: true, completion: nil)
+                    })
+                }
+            }
+        }
     }
     
     @objc func close() {
@@ -103,7 +110,17 @@ final class CreateImageFlashcardViewController: UIViewController, KeyboardHandle
     }
 
     @IBAction func openCamera(_ sender: Any) {
-        present(imagePicker, animated: true, completion: nil)
+        DialogUtils.showMultipleChoiceActionSheet(self, anchor: self.view, title: nil, message: nil, choises: ["Camera", "Library"], completion: { (result) in
+            if result == "Camera" {
+                self.imagePicker.sourceType = UIImagePickerControllerSourceType.camera
+                self.present(self.imagePicker, animated: true, completion: nil)
+            }
+            if result == "Library" {
+                self.imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
+                self.present(self.imagePicker, animated: true, completion: nil)
+            }
+        })
+        
     }
 }
 
@@ -116,15 +133,19 @@ extension CreateImageFlashcardViewController : UIImagePickerControllerDelegate, 
     func imagePickerSetup() {
         
         imagePicker.delegate = self
-        imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
         
     }
     
-    // When an image is "picked" it will return through this function
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
-        self.dismiss(animated: true, completion: nil)
-//        prepareImageForSaving(image)
+        picker.dismiss(animated: true, completion: nil)
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            imageView.image = image
+            
+            imageData = UIImageJPEGRepresentation(image, 0.5) as NSData?
+            
+        }
         
     }
+    
 }

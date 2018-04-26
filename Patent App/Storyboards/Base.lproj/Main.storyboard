@@ -301,30 +301,41 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="570"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aSO-O4-AKQ">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="126.33333333333333"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="321.33333333333331"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kt6-Yj-y8T" customClass="PatentLabel" customModule="Patent_App" customModuleProvider="target">
-                                                        <rect key="frame" x="10" y="10" width="355" height="40.666666666666664"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="34"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f4w-1M-0s3" customClass="PatentLabel" customModule="Patent_App" customModuleProvider="target">
-                                                        <rect key="frame" x="10" y="75.666666666666657" width="355" height="40.666666666666657"/>
+                                                        <rect key="frame" x="10" y="270.66666666666669" width="355" height="40.666666666666686"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="GmV-iy-PWe">
+                                                        <rect key="frame" x="10" y="9.9999999999999858" width="355" height="240.66666666666663"/>
+                                                        <subviews>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="m3Q-Pk-3GN">
+                                                                <rect key="frame" x="57.666666666666686" y="0.0" width="240" height="200"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="200" id="U0i-KA-xXL"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kt6-Yj-y8T" customClass="PatentLabel" customModule="Patent_App" customModuleProvider="target">
+                                                                <rect key="frame" x="137.33333333333334" y="200" width="80.333333333333343" height="40.666666666666657"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstItem="Kt6-Yj-y8T" firstAttribute="leading" secondItem="aSO-O4-AKQ" secondAttribute="leading" constant="10" id="AgS-fz-Qd1"/>
+                                                    <constraint firstAttribute="trailing" secondItem="GmV-iy-PWe" secondAttribute="trailing" constant="10" id="5Bo-qX-izp"/>
+                                                    <constraint firstItem="f4w-1M-0s3" firstAttribute="top" secondItem="GmV-iy-PWe" secondAttribute="bottom" constant="20" id="7CN-f6-yWR"/>
                                                     <constraint firstAttribute="bottom" secondItem="f4w-1M-0s3" secondAttribute="bottom" constant="10" id="X5b-zk-Sfb"/>
-                                                    <constraint firstItem="f4w-1M-0s3" firstAttribute="top" secondItem="Kt6-Yj-y8T" secondAttribute="bottom" constant="25" id="ZGi-iK-yBt"/>
-                                                    <constraint firstItem="Kt6-Yj-y8T" firstAttribute="top" secondItem="aSO-O4-AKQ" secondAttribute="top" constant="10" id="lzG-yU-Rwo"/>
-                                                    <constraint firstAttribute="trailing" secondItem="Kt6-Yj-y8T" secondAttribute="trailing" constant="10" id="mhn-Fd-Qdm"/>
+                                                    <constraint firstItem="GmV-iy-PWe" firstAttribute="leading" secondItem="aSO-O4-AKQ" secondAttribute="leading" constant="10" id="XaB-ba-ifl"/>
                                                     <constraint firstItem="f4w-1M-0s3" firstAttribute="leading" secondItem="aSO-O4-AKQ" secondAttribute="leading" constant="10" id="qNX-Yt-M40"/>
                                                     <constraint firstAttribute="trailing" secondItem="f4w-1M-0s3" secondAttribute="trailing" constant="10" id="up1-7A-QBK"/>
+                                                    <constraint firstItem="GmV-iy-PWe" firstAttribute="top" secondItem="aSO-O4-AKQ" secondAttribute="top" constant="10" id="xuw-U6-Kbk"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -370,6 +381,7 @@
                         <outlet property="answerLabel" destination="f4w-1M-0s3" id="k26-rs-lqg"/>
                         <outlet property="bottomToolBar" destination="O1s-AU-naS" id="dcp-I2-05r"/>
                         <outlet property="containerViewBottomConstraint" destination="eTM-85-5PE" id="TFS-ZZ-5Qc"/>
+                        <outlet property="imageView" destination="m3Q-Pk-3GN" id="70y-Md-wWZ"/>
                         <outlet property="questionLabel" destination="Kt6-Yj-y8T" id="cZq-T2-GPC"/>
                         <outlet property="sendContainerView" destination="HOh-0r-kmE" id="1J1-g9-uHx"/>
                         <outlet property="sendboxBottomConstraint" destination="2hP-ET-gIM" id="S2C-3v-noK"/>
@@ -500,7 +512,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tId-yg-0cf">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tId-yg-0cf">
                                                 <rect key="frame" x="20" y="68" width="150" height="200"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="200" id="Xkb-OB-Rg2"/>
@@ -510,7 +522,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ybb-uh-Qu5">
                                                 <rect key="frame" x="203" y="151" width="91" height="35"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                                <state key="normal" title="Add image"/>
+                                                <state key="normal" title="Add image">
+                                                    <color key="titleColor" red="0.0" green="0.3803921569" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="openCamera:" destination="sYd-OI-Hdi" eventType="touchUpInside" id="wGx-cZ-fzy"/>
                                                 </connections>
@@ -552,6 +566,7 @@
                     </view>
                     <connections>
                         <outlet property="answerTextView" destination="d95-aJ-WNf" id="Okh-PB-dHT"/>
+                        <outlet property="imageView" destination="tId-yg-0cf" id="bDV-HK-4e1"/>
                         <outlet property="nameTextField" destination="nhY-QD-AOn" id="eDq-AM-quW"/>
                         <outlet property="scrollView" destination="B65-vE-EDm" id="2cs-Mz-Bj8"/>
                     </connections>

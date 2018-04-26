@@ -25,7 +25,7 @@ class FlashcardsManager {
         return []
     }
     
-    func insertFlashcard(set: FlashcardSet, name: String, question: String, answer: String) -> Bool {
+    func insertFlashcard(set: FlashcardSet, name: String, question: String? = nil, imageData: NSData? = nil, answer: String) -> Bool {
         let context = CoreDataManager.shared.persistentContainer.viewContext
         
         let entity = NSEntityDescription.entity(forEntityName: "Flashcard", in: context)
@@ -35,6 +35,7 @@ class FlashcardsManager {
         newFlashcard.name = name
         newFlashcard.question = question
         newFlashcard.answer = answer
+        newFlashcard.imageData = imageData
         
         do {
             try context.save()

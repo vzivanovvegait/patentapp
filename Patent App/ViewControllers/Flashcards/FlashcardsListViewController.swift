@@ -67,7 +67,7 @@ final class FlashcardsListViewController: UIViewController {
                 self.present(navigationController, animated: true, completion: nil)
             } else if result == "Add image flashcard" {
                 let createImageFlashcardViewController = CreateImageFlashcardViewController.makeFromStoryboard()
-//                createFlashcardViewController.flashcardSet = self.flashcardSet
+                createImageFlashcardViewController.flashcardSet = self.flashcardSet
                 let navigationController = createImageFlashcardViewController.embedInNavigationController()
                 self.present(navigationController, animated: true, completion: nil)
             }
@@ -98,7 +98,11 @@ extension FlashcardsListViewController: UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let flashcardsViewController = FlashcardViewController.makeFromStoryboard()
-        flashcardsViewController.question = (flashcards[indexPath.row] as! Flashcard).question
+        if let data = (flashcards[indexPath.row] as! Flashcard).imageData as Data?, let image = UIImage(data: data) {
+            flashcardsViewController.image = image
+        } else {
+            flashcardsViewController.question = (flashcards[indexPath.row] as! Flashcard).question
+        }
         flashcardsViewController.answer = (flashcards[indexPath.row] as! Flashcard).answer
         self.navigationController?.pushViewController(flashcardsViewController, animated: true)
     }
@@ -106,11 +110,17 @@ extension FlashcardsListViewController: UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
         let editAction = UITableViewRowAction(style: .default, title: "Edit", handler: { (action, indexPath) in
-            let createFlashcardViewController = CreateFlashcardViewController.makeFromStoryboard()
-            createFlashcardViewController.flashcard = (self.flashcards[indexPath.row] as! Flashcard)
-            let navigationController = createFlashcardViewController.embedInNavigationController()
-            
-            self.present(navigationController, animated: true, completion: nil)
+            if ((self.flashcards[indexPath.row] as! Flashcard).imageData as Data?) != nil {
+                let createImageFlashcardViewController = CreateImageFlashcardViewController.makeFromStoryboard()
+                createImageFlashcardViewController.flashcard = (self.flashcards[indexPath.row] as! Flashcard)
+                let navigationController = createImageFlashcardViewController.embedInNavigationController()
+                self.present(navigationController, animated: true, completion: nil)
+            } else {
+                let createFlashcardViewController = CreateFlashcardViewController.makeFromStoryboard()
+                createFlashcardViewController.flashcard = (self.flashcards[indexPath.row] as! Flashcard)
+                let navigationController = createFlashcardViewController.embedInNavigationController()
+                self.present(navigationController, animated: true, completion: nil)
+            }
         })
         editAction.backgroundColor = UIColor.blue
         
