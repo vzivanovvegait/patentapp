@@ -124,7 +124,18 @@ final class FlashcardViewController: UIViewController, StoryboardInitializable, 
             strongSelf.navigationController?.popViewController(animated: true)
         }
         
-        topToolBar.reloadButton.isHidden = true
+        topToolBar.restartAction = { [weak self] in
+            guard let strongSelf = self else {
+                return
+            }
+            DialogUtils.showYesNoDialog(strongSelf, title: nil, message: "Start over flashcard?", completion: { (result) in
+                if result {
+                    strongSelf.words = DataUtils.createArray(sentence: strongSelf.answer)
+                    strongSelf.replacedString = DataUtils.createAnswerString(from: strongSelf.answer)
+                    strongSelf.answerLabel.setText(DataUtils.createAttributtedString(from: strongSelf.replacedString))
+                }
+            })
+        }
     }
     
     func setBottomBar() {
@@ -270,6 +281,9 @@ extension FlashcardViewController: AudioControllerDelegate {
                     answerLabel.setText(DataUtils.createAttributtedString(from: replacedString))
                     if !words.contains(where: { !$0.isFound }) {
                         DialogUtils.showWarningDialog(self, title: "Great job!", message: nil, completion: nil)
+                        if bottomToolBar.recordButton.isSelected {
+                            bottomToolBar.recordButton.isSelected = false
+                        }
                     }
                 }
             }
