@@ -261,13 +261,13 @@
 		E170A1952072683000463C65 /* Story */ = {
 			isa = PBXGroup;
 			children = (
+				E17652B520330EB900E1C848 /* ListViewController.swift */,
+				E19170E51FF3985100C3BD1C /* StoryViewController.swift */,
+				E16481E6202473C400702D2B /* StoryPartViewController.swift */,
+				E1ED4408201B510200BA291A /* NotesViewController.swift */,
 				E16B10822034347A00356BFB /* InfoPartViewController.swift */,
 				E16B10802034344900356BFB /* InfoViewController.swift */,
 				E198AF0E2031B49000BEB074 /* ZoomImageViewController.swift */,
-				E1ED4408201B510200BA291A /* NotesViewController.swift */,
-				E19170E51FF3985100C3BD1C /* StoryViewController.swift */,
-				E16481E6202473C400702D2B /* StoryPartViewController.swift */,
-				E17652B520330EB900E1C848 /* ListViewController.swift */,
 			);
 			path = Story;
 			sourceTree = "<group>";

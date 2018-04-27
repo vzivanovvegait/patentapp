@@ -11,6 +11,7 @@ import TTTAttributedLabel
 
 protocol StoryPartDelegate: class {
     func timer(isValid: Bool, time: Int)
+    func pageSolved()
 }
 
 final class StoryPartViewController: UIViewController {
@@ -52,11 +53,14 @@ final class StoryPartViewController: UIViewController {
         setTextLabelOnAppear()
         isActive = true
         delegate?.timer(isValid: timer.isValid, time: seconds)
+        
+        UIApplication.shared.isIdleTimerDisabled = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         isActive = false
+        UIApplication.shared.isIdleTimerDisabled = false
     }
     
     func showLevel() {
@@ -134,6 +138,7 @@ extension StoryPartViewController {
         if !isSolved {
             if result.1 {
                 DialogUtils.showWarningDialog(self, title: "Great job, swipe to the next page!", message: nil, completion: nil)
+                delegate?.pageSolved()
                 checkmarkContainerView.isHidden = false
                 isSolved = true
                 timer.invalidate()

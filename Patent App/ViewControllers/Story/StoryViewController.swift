@@ -222,11 +222,6 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
     
     func playAudio() {
         
-//        let audioSession = AVAudioSession.sharedInstance()
-//        do {
-//            try audioSession.setCategory(AVAudioSessionCategoryAmbient)
-//        } catch { }
-        
         AudioServicesPlaySystemSound(1521)
         
         let url = Bundle.main.url(forResource: "ErrorAlert", withExtension: "mp3")!
@@ -245,10 +240,6 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
     // Play/Stop actions
     
     func play() {
-//        let audioSession = AVAudioSession.sharedInstance()
-//        do {
-//            try audioSession.setCategory(AVAudioSessionCategoryRecord)
-//        } catch { }
         
         audioData = NSMutableData()
         _ = AudioController.sharedInstance.prepare(specifiedSampleRate: SAMPLE_RATE)
@@ -367,6 +358,13 @@ extension StoryViewController: StoryPartDelegate {
     func timer(isValid: Bool, time: Int) {
         topToolBar.timerLabel.isHidden = !isValid
         topToolBar.timerLabel.text = "\(time)"
+    }
+    
+    func pageSolved() {
+        stop()
+        if bottomToolBar.recordButton.isSelected {
+            bottomToolBar.recordButton.isSelected = false
+        }
     }
 }
 

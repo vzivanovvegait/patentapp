@@ -59,6 +59,9 @@ final class FlashcardViewController: UIViewController, StoryboardInitializable, 
         }
         
         AudioController.sharedInstance.delegate = self
+        
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(appMovedToBackground), name: Notification.Name.UIApplicationWillResignActive, object: nil)
     }
     
     deinit {
@@ -68,11 +71,14 @@ final class FlashcardViewController: UIViewController, StoryboardInitializable, 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         registerForKeyboardNotifications()
+        
+        UIApplication.shared.isIdleTimerDisabled = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         deregisterFromKeyboardNotifications()
+        UIApplication.shared.isIdleTimerDisabled = false
     }
     
     func setLabels() {
@@ -106,7 +112,16 @@ final class FlashcardViewController: UIViewController, StoryboardInitializable, 
     func setTopBar() {
         
         topToolBar.backAction = { [weak self] in
-            self?.navigationController?.popViewController(animated: true)
+            
+            guard let strongSelf = self else {
+                return
+            }
+            
+            strongSelf.stop()
+            if strongSelf.bottomToolBar.recordButton.isSelected {
+                strongSelf.bottomToolBar.recordButton.isSelected = false
+            }
+            strongSelf.navigationController?.popViewController(animated: true)
         }
         
         topToolBar.reloadButton.isHidden = true
@@ -164,6 +179,23 @@ final class FlashcardViewController: UIViewController, StoryboardInitializable, 
             errorSound.play()
         } catch let error {
             print(error.localizedDescription)
+        }
+    }
+    
+    @objc func appMovedToBackground() {
+        save()
+    }
+    
+    func save() {
+        let context = CoreDataManager.shared.persistentContainer.viewContext
+        
+        do {
+            try context.save()
+        } catch {
+        }
+        
+        if bottomToolBar.recordButton.isSelected {
+            bottomToolBar.recordButton.isSelected = false
         }
     }
 

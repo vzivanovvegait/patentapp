@@ -50,21 +50,34 @@ extension NotesViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        DialogUtils.showYesNoDialogWithInput(self, title: "Update note", message: nil, positive: "Save", cancel: "Cancel", completion: { (success, text) in
+            if success {
+                self.notes[indexPath.row].explanation = text
+                if NoteController.shared.saveNote() {
+                    tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.fade)
+                } else {
+                    DialogUtils.showWarningDialog(self, title: nil, message: "Error!!!", completion: nil)
+                }
+            }
+        })
+    }
+    
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
-        let editAction = UITableViewRowAction(style: .default, title: "Edit", handler: { (action, indexPath) in
-            DialogUtils.showYesNoDialogWithInput(self, title: "Update note", message: nil, positive: "Save", cancel: "Cancel", completion: { (success, text) in
-                if success {
-                    self.notes[indexPath.row].explanation = text
-                    if NoteController.shared.saveNote() {
-                        tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.fade)
-                    } else {
-                        DialogUtils.showWarningDialog(self, title: nil, message: "Error!!!", completion: nil)
-                    }
-                }
-            })
-        })
-        editAction.backgroundColor = UIColor.blue
+//        let editAction = UITableViewRowAction(style: .default, title: "Edit", handler: { (action, indexPath) in
+//            DialogUtils.showYesNoDialogWithInput(self, title: "Update note", message: nil, positive: "Save", cancel: "Cancel", completion: { (success, text) in
+//                if success {
+//                    self.notes[indexPath.row].explanation = text
+//                    if NoteController.shared.saveNote() {
+//                        tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.fade)
+//                    } else {
+//                        DialogUtils.showWarningDialog(self, title: nil, message: "Error!!!", completion: nil)
+//                    }
+//                }
+//            })
+//        })
+//        editAction.backgroundColor = UIColor.blue
         
         
         let deleteAction = UITableViewRowAction(style: .default, title: "Delete", handler: { (action, indexPath) in
@@ -82,7 +95,7 @@ extension NotesViewController: UITableViewDataSource, UITableViewDelegate {
         })
         deleteAction.backgroundColor = UIColor.red
         
-        return [editAction, deleteAction]
+        return [deleteAction]
     }
 }
 

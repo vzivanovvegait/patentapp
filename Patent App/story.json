@@ -350,7 +350,13 @@
             "roots": []
             },
             {
-            "mainString": "shoeshelf",
+            "mainString": "shoe",
+            "isSpecial": false,
+            "roots": ["shoes"],
+            "hint": "Those things you put on your feet to walk"
+            },
+            {
+            "mainString": "shelf",
             "isSpecial": false,
             "roots": ["shoeshelfs"],
             "hint": "Piece of furniture that can holds shoes"
@@ -529,6 +535,11 @@
             "isSpecial": false,
             "roots": [],
             "hint": "If you want to know someone's birthday, you ask \"… is your birthday?\""
+            },
+            {
+            "mainString": "the",
+            "isSpecial": false,
+            "roots": []
             },
             {
             "mainString": "sun",

@@ -69,6 +69,10 @@ final class CreateImageFlashcardViewController: UIViewController, KeyboardHandle
         nameTextField.textColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
         answerTextView.textColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
         
+        imageView.layer.cornerRadius = 5
+        imageView.layer.borderColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1).cgColor
+        imageView.layer.borderWidth = 1
+        
         nameTextField.layer.cornerRadius = 5
         nameTextField.layer.borderColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1).cgColor
         nameTextField.layer.borderWidth = 1
