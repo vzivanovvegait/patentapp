@@ -14,6 +14,7 @@ final class CreateImageFlashcardViewController: UIViewController, KeyboardHandle
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var answerTextView: UITextView!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var addImageButton: UIButton!
     
     var flashcardSet: FlashcardSet!
     
@@ -54,7 +55,10 @@ final class CreateImageFlashcardViewController: UIViewController, KeyboardHandle
                 imageData = data as NSData?
                 imageView.image = image
             }
+            imageView.isHidden = false
             answerTextView.text = flashcard.answer
+        } else {
+            imageView.isHidden = true
         }
     }
     
@@ -64,14 +68,17 @@ final class CreateImageFlashcardViewController: UIViewController, KeyboardHandle
         nameTextField.placeholder = "Flashcard name"
         answerTextView.placeholder = "Answer"
         
+        addImageButton.setImage(#imageLiteral(resourceName: "image_icon").withRenderingMode(.alwaysTemplate), for: .normal)
+        addImageButton.tintColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
+        
         nameTextField.setLeftPaddingPoints(5)
         
         nameTextField.textColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
         answerTextView.textColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
         
-        imageView.layer.cornerRadius = 5
-        imageView.layer.borderColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1).cgColor
-        imageView.layer.borderWidth = 1
+//        imageView.layer.cornerRadius = 5
+//        imageView.layer.borderColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1).cgColor
+//        imageView.layer.borderWidth = 1
         
         nameTextField.layer.cornerRadius = 5
         nameTextField.layer.borderColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1).cgColor
@@ -114,16 +121,16 @@ final class CreateImageFlashcardViewController: UIViewController, KeyboardHandle
     }
 
     @IBAction func openCamera(_ sender: Any) {
-        DialogUtils.showMultipleChoiceActionSheet(self, anchor: self.view, title: nil, message: nil, choises: ["Camera", "Library"], completion: { (result) in
-            if result == "Camera" {
-                self.imagePicker.sourceType = UIImagePickerControllerSourceType.camera
-                self.present(self.imagePicker, animated: true, completion: nil)
-            }
-            if result == "Library" {
+//        DialogUtils.showMultipleChoiceActionSheet(self, anchor: self.view, title: nil, message: nil, choises: ["Camera", "Library"], completion: { (result) in
+//            if result == "Camera" {
+//                self.imagePicker.sourceType = UIImagePickerControllerSourceType.camera
+//                self.present(self.imagePicker, animated: true, completion: nil)
+//            }
+//            if result == "Library" {
                 self.imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
                 self.present(self.imagePicker, animated: true, completion: nil)
-            }
-        })
+//            }
+//        })
         
     }
 }
@@ -144,6 +151,9 @@ extension CreateImageFlashcardViewController : UIImagePickerControllerDelegate, 
         
         picker.dismiss(animated: true, completion: nil)
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            
+            self.imageView.isHidden = false
+            
             imageView.image = image
             
             imageData = UIImageJPEGRepresentation(image, 0.5) as NSData?
