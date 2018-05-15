@@ -548,6 +548,12 @@
             "hint": "It's in the sky, it is round, yellow and hot"
             },
             {
+            "mainString": "was",
+            "isSpecial": false,
+            "roots": [],
+            "hint": "What is the past tense of the word \"is\""
+            },
+            {
             "mainString": "shining",
             "isSpecial": false,
             "roots": [],
@@ -1201,7 +1207,7 @@
             {
             "mainString": "veggies",
             "isSpecial": false,
-            "roots": [],
+            "roots": ["vegetables"],
             "hint": "One word that can describe carrots, beets, peppers, zucchini..?"
             },
             {

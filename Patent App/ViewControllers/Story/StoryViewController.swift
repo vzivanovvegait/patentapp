@@ -60,11 +60,15 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         registerForKeyboardNotifications()
+        
+        UIApplication.shared.isIdleTimerDisabled = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         deregisterFromKeyboardNotifications()
+        
+        UIApplication.shared.isIdleTimerDisabled = false
     }
     
     override var prefersStatusBarHidden: Bool {

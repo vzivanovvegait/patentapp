@@ -54,13 +54,11 @@ final class StoryPartViewController: UIViewController {
         isActive = true
         delegate?.timer(isValid: timer.isValid, time: seconds)
         
-        UIApplication.shared.isIdleTimerDisabled = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         isActive = false
-        UIApplication.shared.isIdleTimerDisabled = false
     }
     
     func showLevel() {
