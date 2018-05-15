@@ -103,6 +103,7 @@ extension FlashcardsListViewController: UITableViewDataSource, UITableViewDelega
         } else {
             flashcardsViewController.question = (flashcards[indexPath.row] as! Flashcard).question
         }
+        flashcardsViewController.flashcards = flashcards
         flashcardsViewController.answer = (flashcards[indexPath.row] as! Flashcard).answer
         self.navigationController?.pushViewController(flashcardsViewController, animated: true)
     }

@@ -19,37 +19,37 @@ class Element {
 
 final class FlashcardViewController: UIViewController, StoryboardInitializable, KeyboardHandlerProtocol {
     
+    var pageController = UIPageViewController()
+    var viewControllers = [FlashcardPartViewController]()
+    
     @IBOutlet weak var topToolBar: TopToolBar!
     @IBOutlet weak var bottomToolBar: BottomToolBar!
     @IBOutlet weak var sendContainerView: SendContainerView!
     @IBOutlet weak var sendboxBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var containerViewBottomConstraint: NSLayoutConstraint!
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var questionLabel: PatentLabel!
-    @IBOutlet weak var answerLabel: PatentLabel!
+    @IBOutlet weak var containerView: UIView!
+    
+    var flashcards = NSMutableOrderedSet()
     
     var image:UIImage?
     var question: String?
     var answer: String = ""
-    var words = [Element]()
+    
+    var storyIndex = 0
     
     var audioData: NSMutableData = NSMutableData()
     
     var player: AVAudioPlayer?
     
-    var replacedString: String = ""
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        words = DataUtils.createArray(sentence: answer)
-        replacedString = DataUtils.createAnswerString(from: answer)
-
+        setData()
+        setContainerView()
+        
         setTopBar()
         setBottomBar()
         setSendContainer()
-        
-        setLabels()
         
         let session = AVAudioSession.sharedInstance()
         do {
@@ -81,17 +81,38 @@ final class FlashcardViewController: UIViewController, StoryboardInitializable, 
         UIApplication.shared.isIdleTimerDisabled = false
     }
     
-    func setLabels() {
-        if let question = question {
-            questionLabel.isHidden = false
-            imageView.isHidden = true
-            questionLabel.setText(DataUtils.createAttributtedString(from: question))
+    // Set data
+    
+    func setData() {
+        for (index, flashcard) in flashcards.enumerated() {
+//            if part is DBStoryPart {
+        let vc:FlashcardPartViewController = FlashcardPartViewController.makeFromStoryboard()
+        vc.index = index
+        if let data = (flashcard as! Flashcard).imageData as Data?, let image = UIImage(data: data) {
+            vc.image = image
         } else {
-            questionLabel.isHidden = true
-            imageView.isHidden = false
-            imageView.image = image
+            vc.question = (flashcard as! Flashcard).question
         }
-        answerLabel.setText(DataUtils.createAttributtedString(from: replacedString))
+        vc.answer = (flashcard as! Flashcard).answer
+        vc.delegate = self
+        viewControllers.append(vc)
+//            }
+        }
+    }
+    
+    // Set UI
+    
+    func setContainerView() {
+        
+        pageController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
+        pageController.dataSource = self
+        pageController.delegate = self
+        pageController.setViewControllers([viewControllers.first!], direction: .forward, animated: true, completion: nil)
+        
+        self.addChildViewController(pageController)
+        pageController.view.frame = containerView.bounds
+        containerView.addSubview(pageController.view)
+        pageController.didMove(toParentViewController: self)
     }
     
     func setSendContainer() {
@@ -100,8 +121,7 @@ final class FlashcardViewController: UIViewController, StoryboardInitializable, 
             guard let strongSelf = self else {
                 return
             }
-            
-            if strongSelf.checkString(googleString: text) {
+            if strongSelf.viewControllers[strongSelf.storyIndex].checkString(googleString: text) {
                 strongSelf.sendContainerView.removeFirstResponder()
             } else {
                strongSelf.playAudio()
@@ -130,9 +150,7 @@ final class FlashcardViewController: UIViewController, StoryboardInitializable, 
             }
             DialogUtils.showYesNoDialog(strongSelf, title: nil, message: "Start over flashcard?", completion: { (result) in
                 if result {
-                    strongSelf.words = DataUtils.createArray(sentence: strongSelf.answer)
-                    strongSelf.replacedString = DataUtils.createAnswerString(from: strongSelf.answer)
-                    strongSelf.answerLabel.setText(DataUtils.createAttributtedString(from: strongSelf.replacedString))
+                    strongSelf.viewControllers[strongSelf.storyIndex].resetFlashcard()
                 }
             })
         }
@@ -243,7 +261,7 @@ extension FlashcardViewController: AudioControllerDelegate {
                                 return
                             }
                             strongSelf.bottomToolBar.setGoogleSpeechLabel(text: alternative.transcript)
-                            let _ = strongSelf.checkString(googleString: alternative.transcript)
+                            let _ = strongSelf.viewControllers[strongSelf.storyIndex].checkString(googleString: alternative.transcript)
                         }
                     }
                 }
@@ -252,66 +270,59 @@ extension FlashcardViewController: AudioControllerDelegate {
         }
     }
     
-//    func checkOrderString(googleString: String) {
-//        let arrayOfString = googleString.lowercased().components(separatedBy: " ")
-//        for string in arrayOfString {
-//            let result = words.filter { $0.isFound == false }.first
-//            if let result = result {
-//                if result.text == string {
-//                    let ranges = findRanges(for: result.text, in: answer)
-//                    for range in ranges {
-//                        replacedString.replaceSubrange(range, with: result.text)
-//                        answerLabel.setText(DataUtils.createAttributtedString(from: replacedString))
-//                    }
-//                }
-//            }
-//        }
-//    }
+}
+
+extension FlashcardViewController: UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     
-    func checkString(googleString: String) -> Bool {
-        var isFound = false
-        let arrayOfString = googleString.lowercased().components(separatedBy: " ")
-        for string in arrayOfString {
-            let array = findString(googleString: string)
-            for e in array {
-                isFound = true
-                let ranges = findRanges(for: e.text, in: answer)
-                for range in ranges {
-                    replacedString.replaceSubrange(range, with: e.text)
-                    answerLabel.setText(DataUtils.createAttributtedString(from: replacedString))
-                    if !words.contains(where: { !$0.isFound }) {
-                        DialogUtils.showWarningDialog(self, title: "Great job!", message: nil, completion: nil)
-                        if bottomToolBar.recordButton.isSelected {
-                            bottomToolBar.recordButton.isSelected = false
-                        }
-                    }
-                }
-            }
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        
+        guard let viewControllerIndex = viewControllers.index(of: viewController as! FlashcardPartViewController) else {
+            return nil
         }
-        return isFound
+        let previousIndex = viewControllerIndex - 1
+        
+        guard previousIndex >= 0 else {
+            return nil
+        }
+        
+        guard viewControllers.count > previousIndex else {
+            return nil
+        }
+        return viewControllers[previousIndex]
     }
     
-    func findString(googleString: String) -> [Element] {
-        let results = words.filter { $0.text.lowercased() == googleString.lowercased() && $0.isFound == false }
-        for result in results {
-            result.isFound = true
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        
+        guard let viewControllerIndex = viewControllers.index(of: viewController as! FlashcardPartViewController) else {
+            return nil
         }
-        return results
+        let nextIndex = viewControllerIndex + 1
+        let orderedViewControllersCount = viewControllers.count
+        
+        guard orderedViewControllersCount != nextIndex else {
+            return nil
+        }
+        
+        guard orderedViewControllersCount > nextIndex else {
+            return nil
+        }
+        return viewControllers[nextIndex]
     }
     
-    func findRanges(for word: String, in text: String) -> [Range<String.Index>] {
-        do {
-            let regex = try NSRegularExpression(pattern: "\\b\(word)\\b", options: [])
-            
-            let fullStringRange = NSRange(text.startIndex..., in: text)
-            let matches = regex.matches(in: text, options: [], range: fullStringRange)
-            return matches.map {
-                Range($0.range, in: text)!
-            }
-        }
-        catch {
-            return []
-        }
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        guard completed else { return }
+
+        guard let controller = pageViewController.viewControllers?.first as? FlashcardPartViewController, let index = controller.index else { return }
+        storyIndex = index
     }
     
+}
+
+extension FlashcardViewController: FlashcardPartDelegate {
+    func pageSolved() {
+        stop()
+        if bottomToolBar.recordButton.isSelected {
+            bottomToolBar.recordButton.isSelected = false
+        }
+    }
 }

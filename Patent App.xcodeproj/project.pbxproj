@@ -63,6 +63,7 @@
 		E19D55B3204E855D007B3243 /* LevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D55B1204E855D007B3243 /* LevelViewController.swift */; };
 		E19D55B4204E855D007B3243 /* LevelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E19D55B2204E855D007B3243 /* LevelViewController.xib */; };
 		E1AEAD48208F4ED8007DAFE9 /* CreateImageFlashcardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AEAD47208F4ED8007DAFE9 /* CreateImageFlashcardViewController.swift */; };
+		E1B995BB20AACFE60046E530 /* FlashcardPartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B995BA20AACFE60046E530 /* FlashcardPartViewController.swift */; };
 		E1BB8477203EE7DF0069E5AA /* SettingsViewConroller.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1BB8475203EE7DE0069E5AA /* SettingsViewConroller.xib */; };
 		E1BB8478203EE7DF0069E5AA /* SettingsViewConroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BB8476203EE7DF0069E5AA /* SettingsViewConroller.swift */; };
 		E1D8476D208DC972009CE29F /* FlashcardSetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D8476C208DC972009CE29F /* FlashcardSetsViewController.swift */; };
@@ -140,6 +141,7 @@
 		E19D55B1204E855D007B3243 /* LevelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelViewController.swift; sourceTree = "<group>"; };
 		E19D55B2204E855D007B3243 /* LevelViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LevelViewController.xib; sourceTree = "<group>"; };
 		E1AEAD47208F4ED8007DAFE9 /* CreateImageFlashcardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateImageFlashcardViewController.swift; sourceTree = "<group>"; };
+		E1B995BA20AACFE60046E530 /* FlashcardPartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardPartViewController.swift; sourceTree = "<group>"; };
 		E1BB8475203EE7DE0069E5AA /* SettingsViewConroller.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewConroller.xib; sourceTree = "<group>"; };
 		E1BB8476203EE7DF0069E5AA /* SettingsViewConroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewConroller.swift; sourceTree = "<group>"; };
 		E1D8476C208DC972009CE29F /* FlashcardSetsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardSetsViewController.swift; sourceTree = "<group>"; };
@@ -291,6 +293,7 @@
 				E1D8476C208DC972009CE29F /* FlashcardSetsViewController.swift */,
 				E170A1912072680F00463C65 /* FlashcardsListViewController.swift */,
 				E1078B6C2073BCEE00239D78 /* FlashcardViewController.swift */,
+				E1B995BA20AACFE60046E530 /* FlashcardPartViewController.swift */,
 			);
 			path = Flashcards;
 			sourceTree = "<group>";
@@ -560,6 +563,7 @@
 			files = (
 				E14F66CE2023727B000C9CA4 /* PatentLabel.swift in Sources */,
 				E170A19920726FCD00463C65 /* CreateFlashcardViewController.swift in Sources */,
+				E1B995BB20AACFE60046E530 /* FlashcardPartViewController.swift in Sources */,
 				E194D72720077306005D62EF /* CategoryViewController.swift in Sources */,
 				E14FF70E200E43B000B12E39 /* DataUtils.swift in Sources */,
 				E16503881FFE276C00D91FDF /* HomeViewController.swift in Sources */,
