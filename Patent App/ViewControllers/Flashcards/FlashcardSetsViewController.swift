@@ -88,6 +88,7 @@ extension FlashcardSetsViewController: UITableViewDataSource, UITableViewDelegat
         if let flashcards = flashcardSet[indexPath.row].flashcards?.array as? [Flashcard] {
             let flashcardsListViewController = FlashcardsListViewController.makeFromStoryboard()
             flashcardsListViewController.flashcardSet = flashcardSet[indexPath.row]
+            flashcardsListViewController.flashcardSetIndex = indexPath.row
             flashcardsListViewController.flashcards = flashcards
             self.navigationController?.pushViewController(flashcardsListViewController, animated: true)
         }

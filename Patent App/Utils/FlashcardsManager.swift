@@ -25,6 +25,7 @@ class FlashcardsManager {
         return []
     }
     
+    
     func insertFlashcard(set: FlashcardSet, name: String, question: String? = nil, imageData: NSData? = nil, answer: String) -> Bool {
         let context = CoreDataManager.shared.persistentContainer.viewContext
         

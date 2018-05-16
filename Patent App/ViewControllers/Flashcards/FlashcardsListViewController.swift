@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol FlashcardCreationDelegate: class {
+    func flashcardCreated(isImage: Bool)
+}
+
 final class FlashcardsListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
@@ -15,7 +19,7 @@ final class FlashcardsListViewController: UIViewController {
     @IBOutlet weak var addButton: UIButton!
     
     var flashcardSet: FlashcardSet!
-    
+    var flashcardSetIndex = Int()
     var flashcards = [Flashcard]()
     
     override var prefersStatusBarHidden: Bool {
@@ -35,17 +39,10 @@ final class FlashcardsListViewController: UIViewController {
         tableView.backgroundColor = UIColor.clear
         tableView.separatorColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
         tableView.tableFooterView = UIView()
-        
+        tableView.register(UINib(nibName: String(describing: FlashcardCell.self), bundle: nil), forCellReuseIdentifier: String(describing: FlashcardCell.self))
+
         view.backgroundColor = UIColor(red: 242/255.0, green: 233/255.0, blue: 134/255.0, alpha: 1)
         
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        if let set = flashcardSet.flashcards?.array as? [Flashcard] {
-            flashcards = set
-            tableView.reloadData()
-        }
     }
     
     @IBAction func back(_ sender: Any) {
@@ -57,11 +54,13 @@ final class FlashcardsListViewController: UIViewController {
             if result == "Add text flashcard" {
                 let createFlashcardViewController = CreateFlashcardViewController.makeFromStoryboard()
                 createFlashcardViewController.flashcardSet = self.flashcardSet
+                createFlashcardViewController.delegate = self
                 let navigationController = createFlashcardViewController.embedInNavigationController()
                 self.present(navigationController, animated: true, completion: nil)
             } else if result == "Add image flashcard" {
                 let createImageFlashcardViewController = CreateImageFlashcardViewController.makeFromStoryboard()
                 createImageFlashcardViewController.flashcardSet = self.flashcardSet
+                createImageFlashcardViewController.delegate = self
                 let navigationController = createImageFlashcardViewController.embedInNavigationController()
                 self.present(navigationController, animated: true, completion: nil)
             }
@@ -89,13 +88,41 @@ extension FlashcardsListViewController: UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
-        cell.textLabel?.textColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
-        cell.textLabel?.text = flashcards[indexPath.row].name
-        cell.textLabel?.font = UIFont.systemFont(ofSize: 20)
-        cell.textLabel?.textAlignment = .center
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: FlashcardCell.self)) as! FlashcardCell
+        cell.flashcard = flashcards[indexPath.row]
         cell.backgroundColor = UIColor.clear
         cell.selectionStyle = .none
+        
+        cell.buttonActionFlashcardAction = { (flashcard, delete) in
+            if delete {
+                DialogUtils.showYesNoDialog(self, title: "Delete", message: "Are you sure you want to delete flashcard?", completion: { (result) in
+                    if result {
+                        if FlashcardsManager.shared.deleteFlashcard(flashcard: flashcard) {
+                            self.flashcards.remove(at: indexPath.row) //.removeObject(at: indexPath.row)
+                            
+                            self.flashcardSet = FlashcardSetManager.shared.getFlashcardSet()[self.flashcardSetIndex]
+                            tableView.reloadData()
+                        } else {
+                            DialogUtils.showWarningDialog(self, title: nil, message: "Error!!!", completion: nil)
+                        }
+                    }
+                })
+            } else {
+                if (flashcard.imageData as Data?) != nil {
+                    let createImageFlashcardViewController = CreateImageFlashcardViewController.makeFromStoryboard()
+                    createImageFlashcardViewController.flashcard = self.flashcards[indexPath.row]
+                    let navigationController = createImageFlashcardViewController.embedInNavigationController()
+                    self.present(navigationController, animated: true, completion: nil)
+                } else {
+                    let createFlashcardViewController = CreateFlashcardViewController.makeFromStoryboard()
+                    createFlashcardViewController.flashcard = self.flashcards[indexPath.row]
+                    let navigationController = createFlashcardViewController.embedInNavigationController()
+                    self.present(navigationController, animated: true, completion: nil)
+                }
+            }
+        }
+        
         return cell
     }
     
@@ -146,6 +173,15 @@ extension FlashcardsListViewController: UITableViewDataSource, UITableViewDelega
 
 extension FlashcardsListViewController: StoryboardInitializable {
     
+}
+
+extension FlashcardsListViewController: FlashcardCreationDelegate {
+    func flashcardCreated(isImage: Bool) {
+        if let set = flashcardSet.flashcards?.array as? [Flashcard] {
+            flashcards = set
+            tableView.reloadData()
+        }
+    }
 }
 
 extension MutableCollection {

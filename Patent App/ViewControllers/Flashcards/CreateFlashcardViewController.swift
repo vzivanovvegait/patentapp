@@ -19,6 +19,8 @@ final class CreateFlashcardViewController: UIViewController, KeyboardHandlerDele
     
     var flashcard: Flashcard?
     
+    weak var delegate: FlashcardCreationDelegate?
+    
     override var prefersStatusBarHidden: Bool {
         return true
     }
@@ -98,7 +100,9 @@ final class CreateFlashcardViewController: UIViewController, KeyboardHandlerDele
             } else {
                 if FlashcardsManager.shared.insertFlashcard(set: flashcardSet, name: name, question: question, answer: answer) {
                     DialogUtils.showWarningDialog(self, title: nil, message: "Flashcard is saved.", completion: {
-                        self.dismiss(animated: true, completion: nil)
+                        self.dismiss(animated: true, completion: {
+                            self.delegate?.flashcardCreated(isImage: false)
+                        })
                     })
                 }
             }
