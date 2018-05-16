@@ -100,6 +100,8 @@ extension FlashcardsListViewController: UITableViewDataSource, UITableViewDelega
         cell.backgroundColor = UIColor.clear
         cell.selectionStyle = .none
         
+        cell.flashcardNameLabel.text = flashcards[indexPath.row].name
+        
         cell.buttonActionFlashcardAction = { (flashcard, delete) in
             if delete {
                 DialogUtils.showYesNoDialog(self, title: "Delete", message: "Are you sure you want to delete flashcard?", completion: { (result) in
@@ -136,7 +138,8 @@ extension FlashcardsListViewController: UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         flashcards[indexPath.row].isSelected = !flashcards[indexPath.row].isSelected
-        tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.fade)
+        let cell = tableView.cellForRow(at: indexPath) as! FlashcardCell
+        cell.flashcard = flashcards[indexPath.row]
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {

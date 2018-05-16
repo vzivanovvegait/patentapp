@@ -6,13 +6,14 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FlashcardCell" rowHeight="70" id="KGk-i7-Jjw" customClass="FlashcardCell" customModule="Patent_App" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="FlashcardCell" rowHeight="70" id="KGk-i7-Jjw" customClass="FlashcardCell" customModule="Patent_App" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -20,27 +21,23 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GI4-a3-9rn">
-                        <rect key="frame" x="56" y="34" width="187" height="0.0"/>
+                        <rect key="frame" x="56" y="34" width="207" height="0.0"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wop-IK-OFt">
-                        <rect key="frame" x="309" y="9" width="50" height="50"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="50" id="9rI-A9-1JM"/>
-                            <constraint firstAttribute="height" constant="50" id="kmS-Fx-duE"/>
-                        </constraints>
+                        <rect key="frame" x="319" y="14" width="40" height="40"/>
                         <state key="normal" image="ic_delete"/>
                         <connections>
                             <action selector="deleteAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="j46-jZ-Z5a"/>
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jjw-do-aS0">
-                        <rect key="frame" x="251" y="9" width="50" height="50"/>
+                        <rect key="frame" x="271" y="14" width="40" height="40"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="50" id="Xod-KA-1ig"/>
-                            <constraint firstAttribute="width" constant="50" id="utQ-pt-cxc"/>
+                            <constraint firstAttribute="width" constant="40" id="utQ-pt-cxc"/>
+                            <constraint firstAttribute="width" secondItem="Jjw-do-aS0" secondAttribute="height" multiplier="1:1" id="w1z-by-gQO"/>
                         </constraints>
                         <state key="normal" image="ic_edit"/>
                         <connections>
@@ -62,6 +59,8 @@
                     <constraint firstItem="Wop-IK-OFt" firstAttribute="leading" secondItem="Jjw-do-aS0" secondAttribute="trailing" constant="8" id="HRB-5Y-7YJ"/>
                     <constraint firstItem="GI4-a3-9rn" firstAttribute="centerY" secondItem="doC-yv-tsU" secondAttribute="centerY" id="NYT-DI-b4B"/>
                     <constraint firstItem="Jjw-do-aS0" firstAttribute="leading" secondItem="GI4-a3-9rn" secondAttribute="trailing" constant="8" id="Xsh-H7-tYM"/>
+                    <constraint firstItem="Wop-IK-OFt" firstAttribute="height" secondItem="Jjw-do-aS0" secondAttribute="height" id="itk-Qa-HAw"/>
+                    <constraint firstItem="Wop-IK-OFt" firstAttribute="width" secondItem="Jjw-do-aS0" secondAttribute="width" id="myb-Rp-JPZ"/>
                     <constraint firstItem="doC-yv-tsU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="oIV-er-90z"/>
                     <constraint firstItem="Jjw-do-aS0" firstAttribute="centerY" secondItem="Wop-IK-OFt" secondAttribute="centerY" id="tow-Rw-ZqA"/>
                     <constraint firstItem="Wop-IK-OFt" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="yvk-Oo-y07"/>

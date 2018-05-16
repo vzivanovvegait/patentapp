@@ -19,11 +19,10 @@ class FlashcardCell: UITableViewCell {
     
     var flashcard: Flashcard! {
         didSet {
-            flashcardNameLabel.text = flashcard.name
             if flashcard.isSelected {
-                checkmarkImageView.image = #imageLiteral(resourceName: "ic_full_checkmark")
+                checkmarkImageView.image = #imageLiteral(resourceName: "ic_full_checkmark").withRenderingMode(.alwaysTemplate)
             } else {
-                checkmarkImageView.image = #imageLiteral(resourceName: "ic_empty_checkmark")
+                checkmarkImageView.image = #imageLiteral(resourceName: "ic_empty_checkmark").withRenderingMode(.alwaysTemplate)
             }
         }
     }
@@ -33,6 +32,8 @@ class FlashcardCell: UITableViewCell {
         // Initialization code
         flashcardNameLabel.font = UIFont.systemFont(ofSize: 20)
         flashcardNameLabel.textColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
+        
+        checkmarkImageView.tintColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
 
     }
 
