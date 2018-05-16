@@ -70,15 +70,20 @@ final class FlashcardsListViewController: UIViewController {
     
     @IBAction func practice(_ sender: Any) {
         let flashcardsViewController = FlashcardViewController.makeFromStoryboard()
-        var flashcardSet = flashcards
+        var flashcardSet = flashcards.filter({$0.isSelected == true })
         
-        DialogUtils.showYesNoDialog(self, title: nil, message: "Shuffle cards?") { (result) in
-            if result {
-                flashcardSet.shuffle()
+        if flashcardSet.count > 0 {
+            DialogUtils.showYesNoDialog(self, title: nil, message: "Shuffle cards?") { (result) in
+                if result {
+                    flashcardSet.shuffle()
+                }
+                flashcardsViewController.flashcards = flashcardSet
+                self.navigationController?.pushViewController(flashcardsViewController, animated: true)
             }
-            flashcardsViewController.flashcards = flashcardSet
-            self.navigationController?.pushViewController(flashcardsViewController, animated: true)
+        } else {
+            DialogUtils.showWarningDialog(self, title: nil, message: "Please select at least one flashcard.", completion: nil)
         }
+        
     }
 }
 
@@ -130,7 +135,8 @@ extension FlashcardsListViewController: UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        flashcards[indexPath.row].isSelected = !flashcards[indexPath.row].isSelected
+        tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.fade)
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {

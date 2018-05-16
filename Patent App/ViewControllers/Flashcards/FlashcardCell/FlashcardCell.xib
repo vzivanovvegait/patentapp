@@ -20,7 +20,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GI4-a3-9rn">
-                        <rect key="frame" x="16" y="34.666666666666664" width="219" height="0.0"/>
+                        <rect key="frame" x="56" y="34" width="187" height="0.0"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -47,19 +47,29 @@
                             <action selector="editAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="S4r-k5-BWG"/>
                         </connections>
                     </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="ic_empty_checkmark" translatesAutoresizingMaskIntoConstraints="NO" id="doC-yv-tsU">
+                        <rect key="frame" x="8" y="18" width="32" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="32" id="Fe3-3b-e1n"/>
+                            <constraint firstAttribute="height" constant="32" id="bV5-MP-YI3"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="GI4-a3-9rn" firstAttribute="leading" secondItem="doC-yv-tsU" secondAttribute="trailing" constant="16" id="0e8-3U-v8i"/>
+                    <constraint firstItem="doC-yv-tsU" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="3HQ-dY-7sP"/>
                     <constraint firstAttribute="trailing" secondItem="Wop-IK-OFt" secondAttribute="trailing" constant="16" id="EZP-jk-UzJ"/>
                     <constraint firstItem="Wop-IK-OFt" firstAttribute="leading" secondItem="Jjw-do-aS0" secondAttribute="trailing" constant="8" id="HRB-5Y-7YJ"/>
-                    <constraint firstItem="GI4-a3-9rn" firstAttribute="centerY" secondItem="Jjw-do-aS0" secondAttribute="centerY" id="M2A-O2-lre"/>
-                    <constraint firstItem="Jjw-do-aS0" firstAttribute="leading" secondItem="GI4-a3-9rn" secondAttribute="trailing" constant="16" id="mAh-Xi-DhA"/>
-                    <constraint firstItem="GI4-a3-9rn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="tJc-Ei-CP8"/>
+                    <constraint firstItem="GI4-a3-9rn" firstAttribute="centerY" secondItem="doC-yv-tsU" secondAttribute="centerY" id="NYT-DI-b4B"/>
+                    <constraint firstItem="Jjw-do-aS0" firstAttribute="leading" secondItem="GI4-a3-9rn" secondAttribute="trailing" constant="8" id="Xsh-H7-tYM"/>
+                    <constraint firstItem="doC-yv-tsU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="oIV-er-90z"/>
                     <constraint firstItem="Jjw-do-aS0" firstAttribute="centerY" secondItem="Wop-IK-OFt" secondAttribute="centerY" id="tow-Rw-ZqA"/>
                     <constraint firstItem="Wop-IK-OFt" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="yvk-Oo-y07"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="checkmarkImageView" destination="doC-yv-tsU" id="hWY-SR-RKl"/>
                 <outlet property="deleteButton" destination="Wop-IK-OFt" id="2cE-DV-Lg7"/>
                 <outlet property="editButton" destination="Jjw-do-aS0" id="UnW-Yf-5kK"/>
                 <outlet property="flashcardNameLabel" destination="GI4-a3-9rn" id="rvG-cr-BsP"/>
@@ -70,5 +80,6 @@
     <resources>
         <image name="ic_delete" width="64" height="64"/>
         <image name="ic_edit" width="64" height="64"/>
+        <image name="ic_empty_checkmark" width="64" height="64"/>
     </resources>
 </document>

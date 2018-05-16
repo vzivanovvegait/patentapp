@@ -13,12 +13,18 @@ class FlashcardCell: UITableViewCell {
     @IBOutlet weak var flashcardNameLabel: UILabel!
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
-    
+    @IBOutlet weak var checkmarkImageView: UIImageView!
+
     var buttonActionFlashcardAction: ((Flashcard, Bool)->())?
     
     var flashcard: Flashcard! {
         didSet {
             flashcardNameLabel.text = flashcard.name
+            if flashcard.isSelected {
+                checkmarkImageView.image = #imageLiteral(resourceName: "ic_full_checkmark")
+            } else {
+                checkmarkImageView.image = #imageLiteral(resourceName: "ic_empty_checkmark")
+            }
         }
     }
     
