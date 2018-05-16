@@ -29,7 +29,7 @@ final class FlashcardViewController: UIViewController, StoryboardInitializable, 
     @IBOutlet weak var containerViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var containerView: UIView!
     
-    var flashcards = NSMutableOrderedSet()
+    var flashcards = [Flashcard]()
     
     var image:UIImage?
     var question: String?
@@ -88,12 +88,12 @@ final class FlashcardViewController: UIViewController, StoryboardInitializable, 
 //            if part is DBStoryPart {
         let vc:FlashcardPartViewController = FlashcardPartViewController.makeFromStoryboard()
         vc.index = index
-        if let data = (flashcard as! Flashcard).imageData as Data?, let image = UIImage(data: data) {
+        if let data = flashcard.imageData as Data?, let image = UIImage(data: data) {
             vc.image = image
         } else {
-            vc.question = (flashcard as! Flashcard).question
+            vc.question = flashcard.question
         }
-        vc.answer = (flashcard as! Flashcard).answer
+        vc.answer = flashcard.answer
         vc.delegate = self
         viewControllers.append(vc)
 //            }

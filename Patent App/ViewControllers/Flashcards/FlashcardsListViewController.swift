@@ -16,11 +16,7 @@ final class FlashcardsListViewController: UIViewController {
     
     var flashcardSet: FlashcardSet!
     
-    var flashcards = NSMutableOrderedSet() {
-        didSet {
-            tableView.reloadData()
-        }
-    }
+    var flashcards = [Flashcard]()
     
     override var prefersStatusBarHidden: Bool {
         return true
@@ -42,15 +38,13 @@ final class FlashcardsListViewController: UIViewController {
         
         view.backgroundColor = UIColor(red: 242/255.0, green: 233/255.0, blue: 134/255.0, alpha: 1)
         
-        if let set = flashcardSet.flashcards {
-            flashcards = set as! NSMutableOrderedSet
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        if let set = flashcardSet.flashcards {
-            flashcards = set as! NSMutableOrderedSet
+        if let set = flashcardSet.flashcards?.array as? [Flashcard] {
+            flashcards = set
+            tableView.reloadData()
         }
     }
     
@@ -73,6 +67,19 @@ final class FlashcardsListViewController: UIViewController {
             }
         })
     }
+    
+    @IBAction func practice(_ sender: Any) {
+        let flashcardsViewController = FlashcardViewController.makeFromStoryboard()
+        var flashcardSet = flashcards
+        
+        DialogUtils.showYesNoDialog(self, title: nil, message: "Shuffle cards?") { (result) in
+            if result {
+                flashcardSet.shuffle()
+            }
+            flashcardsViewController.flashcards = flashcardSet
+            self.navigationController?.pushViewController(flashcardsViewController, animated: true)
+        }
+    }
 }
 
 extension FlashcardsListViewController: UITableViewDataSource, UITableViewDelegate {
@@ -84,7 +91,7 @@ extension FlashcardsListViewController: UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
         cell.textLabel?.textColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
-        cell.textLabel?.text = (flashcards[indexPath.row] as! Flashcard).name
+        cell.textLabel?.text = flashcards[indexPath.row].name
         cell.textLabel?.font = UIFont.systemFont(ofSize: 20)
         cell.textLabel?.textAlignment = .center
         cell.backgroundColor = UIColor.clear
@@ -97,28 +104,20 @@ extension FlashcardsListViewController: UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let flashcardsViewController = FlashcardViewController.makeFromStoryboard()
-        if let data = (flashcards[indexPath.row] as! Flashcard).imageData as Data?, let image = UIImage(data: data) {
-            flashcardsViewController.image = image
-        } else {
-            flashcardsViewController.question = (flashcards[indexPath.row] as! Flashcard).question
-        }
-        flashcardsViewController.flashcards = flashcards
-        flashcardsViewController.answer = (flashcards[indexPath.row] as! Flashcard).answer
-        self.navigationController?.pushViewController(flashcardsViewController, animated: true)
+        
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
         let editAction = UITableViewRowAction(style: .default, title: "Edit", handler: { (action, indexPath) in
-            if ((self.flashcards[indexPath.row] as! Flashcard).imageData as Data?) != nil {
+            if (self.flashcards[indexPath.row].imageData as Data?) != nil {
                 let createImageFlashcardViewController = CreateImageFlashcardViewController.makeFromStoryboard()
-                createImageFlashcardViewController.flashcard = (self.flashcards[indexPath.row] as! Flashcard)
+                createImageFlashcardViewController.flashcard = self.flashcards[indexPath.row]
                 let navigationController = createImageFlashcardViewController.embedInNavigationController()
                 self.present(navigationController, animated: true, completion: nil)
             } else {
                 let createFlashcardViewController = CreateFlashcardViewController.makeFromStoryboard()
-                createFlashcardViewController.flashcard = (self.flashcards[indexPath.row] as! Flashcard)
+                createFlashcardViewController.flashcard = self.flashcards[indexPath.row]
                 let navigationController = createFlashcardViewController.embedInNavigationController()
                 self.present(navigationController, animated: true, completion: nil)
             }
@@ -129,8 +128,8 @@ extension FlashcardsListViewController: UITableViewDataSource, UITableViewDelega
         let deleteAction = UITableViewRowAction(style: .default, title: "Delete", handler: { (action, indexPath) in
             DialogUtils.showYesNoDialog(self, title: "Delete", message: "Are you sure you want to delete flashcard?", completion: { (result) in
                 if result {
-                    if FlashcardsManager.shared.deleteFlashcard(flashcard: (self.flashcards[indexPath.row] as! Flashcard)) {
-                        self.flashcards.removeObject(at: indexPath.row)
+                    if FlashcardsManager.shared.deleteFlashcard(flashcard: self.flashcards[indexPath.row]) {
+                        self.flashcards.remove(at: indexPath.row) //.removeObject(at: indexPath.row)
                         tableView.reloadData()
                     } else {
                         DialogUtils.showWarningDialog(self, title: nil, message: "Error!!!", completion: nil)
@@ -147,4 +146,19 @@ extension FlashcardsListViewController: UITableViewDataSource, UITableViewDelega
 
 extension FlashcardsListViewController: StoryboardInitializable {
     
+}
+
+extension MutableCollection {
+    /// Shuffles the contents of this collection.
+    mutating func shuffle() {
+        let c = count
+        guard c > 1 else { return }
+        
+        for (firstUnshuffled, unshuffledCount) in zip(indices, stride(from: c, to: 1, by: -1)) {
+            // Change `Int` in the next line to `IndexDistance` in < Swift 4.1
+            let d: Int = numericCast(arc4random_uniform(numericCast(unshuffledCount)))
+            let i = index(firstUnshuffled, offsetBy: d)
+            swapAt(firstUnshuffled, i)
+        }
+    }
 }
