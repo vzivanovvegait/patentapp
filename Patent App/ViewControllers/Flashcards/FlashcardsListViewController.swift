@@ -19,7 +19,6 @@ final class FlashcardsListViewController: UIViewController {
     @IBOutlet weak var addButton: UIButton!
     
     var flashcardSet: FlashcardSet!
-    var flashcardSetIndex = Int()
     var flashcards = [Flashcard]()
     
     override var prefersStatusBarHidden: Bool {
@@ -42,6 +41,8 @@ final class FlashcardsListViewController: UIViewController {
         tableView.register(UINib(nibName: String(describing: FlashcardCell.self), bundle: nil), forCellReuseIdentifier: String(describing: FlashcardCell.self))
 
         view.backgroundColor = UIColor(red: 242/255.0, green: 233/255.0, blue: 134/255.0, alpha: 1)
+        
+        flashcards = FlashcardsManager.shared.getFlashcards(by: flashcardSet)
         
     }
     
@@ -99,10 +100,8 @@ extension FlashcardsListViewController: UITableViewDataSource, UITableViewDelega
                 DialogUtils.showYesNoDialog(self, title: "Delete", message: "Are you sure you want to delete flashcard?", completion: { (result) in
                     if result {
                         if FlashcardsManager.shared.deleteFlashcard(flashcard: flashcard) {
-                            self.flashcards.remove(at: indexPath.row) //.removeObject(at: indexPath.row)
-                            
-                            self.flashcardSet = FlashcardSetManager.shared.getFlashcardSet()[self.flashcardSetIndex]
-                            tableView.reloadData()
+                            self.flashcards.remove(at: indexPath.row)
+                            tableView.deleteRows(at: [indexPath], with: .fade)
                         } else {
                             DialogUtils.showWarningDialog(self, title: nil, message: "Error!!!", completion: nil)
                         }

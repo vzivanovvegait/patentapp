@@ -13,9 +13,10 @@ class FlashcardsManager {
     
     static let shared = FlashcardsManager()
     
-    func getFlashcards() -> [Flashcard] {
+    func getFlashcards(by set: FlashcardSet) -> [Flashcard] {
         let context = CoreDataManager.shared.persistentContainer.viewContext
         let flashcardsFetch = Flashcard.fetchFlashcards()
+        flashcardsFetch.predicate = NSPredicate(format: "flashcardSet == %@", set)
         do {
             let fetchedFlashcards = try context.fetch(flashcardsFetch)
             return fetchedFlashcards

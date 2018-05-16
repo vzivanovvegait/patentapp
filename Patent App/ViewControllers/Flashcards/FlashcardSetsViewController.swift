@@ -85,13 +85,13 @@ extension FlashcardSetsViewController: UITableViewDataSource, UITableViewDelegat
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let flashcards = flashcardSet[indexPath.row].flashcards?.array as? [Flashcard] {
+//        if let flashcards = flashcardSet[indexPath.row].flashcards?.array as? [Flashcard] {
             let flashcardsListViewController = FlashcardsListViewController.makeFromStoryboard()
             flashcardsListViewController.flashcardSet = flashcardSet[indexPath.row]
-            flashcardsListViewController.flashcardSetIndex = indexPath.row
-            flashcardsListViewController.flashcards = flashcards
+//            flashcardsListViewController.flashcardSetIndex = indexPath.row
+//            flashcardsListViewController.flashcards = flashcards
             self.navigationController?.pushViewController(flashcardsListViewController, animated: true)
-        }
+//        }
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
