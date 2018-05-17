@@ -68,7 +68,7 @@ final class CreateImageFlashcardViewController: UIViewController, KeyboardHandle
         view.backgroundColor = UIColor.white
         
         nameTextField.placeholder = "Flashcard name"
-        answerTextView.placeholder = "Answer"
+        answerTextView.placeholder = "Definition"
         
         addImageButton.setImage(#imageLiteral(resourceName: "image_icon").withRenderingMode(.alwaysTemplate), for: .normal)
         addImageButton.tintColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)

@@ -11,7 +11,6 @@ import UIKit
 final class CreateFlashcardViewController: UIViewController, KeyboardHandlerDelegate {
 
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var questionTextView: UITextView!
     @IBOutlet weak var answerTextView: UITextView!
     
@@ -42,7 +41,6 @@ final class CreateFlashcardViewController: UIViewController, KeyboardHandlerDele
         navigationItem.rightBarButtonItem = barButtonItem
         
         if let flashcard = flashcard {
-            nameTextField.text = flashcard.name
             if let placeholderLabel = questionTextView.viewWithTag(100) as? UILabel {
                 placeholderLabel.isHidden = true
             }
@@ -58,19 +56,12 @@ final class CreateFlashcardViewController: UIViewController, KeyboardHandlerDele
     func setupViews() {
         view.backgroundColor = UIColor.white
         
-        nameTextField.placeholder = "Flashcard name"
-        questionTextView.placeholder = "Question"
-        answerTextView.placeholder = "Answer"
+        questionTextView.placeholder = "Term"
+        answerTextView.placeholder = "Definition"
         
-        nameTextField.setLeftPaddingPoints(5)
-        
-        nameTextField.textColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
         questionTextView.textColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
         answerTextView.textColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
         
-        nameTextField.layer.cornerRadius = 5
-        nameTextField.layer.borderColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1).cgColor
-        nameTextField.layer.borderWidth = 1
         questionTextView.layer.cornerRadius = 5
         questionTextView.layer.borderColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1).cgColor
         questionTextView.layer.borderWidth = 1
@@ -89,16 +80,18 @@ final class CreateFlashcardViewController: UIViewController, KeyboardHandlerDele
     }
 
     @objc func done() {
-        if let name = nameTextField.text, name != "", let question = questionTextView.text, question != "", let answer = answerTextView.text, answer != "" {
+        if let question = questionTextView.text, question != "", let answer = answerTextView.text, answer != "" {
             if let flashcard = flashcard {
-                flashcard.name = name
                 flashcard.question = question
                 flashcard.answer = answer
                 if FlashcardsManager.shared.saveFlashcard() {
-                    self.dismiss(animated: true, completion: nil)
+                 //   self.dismiss(animated: true, completion: nil)
+                    self.dismiss(animated: true, completion: {
+                        self.delegate?.flashcardCreated(isImage: false)
+                    })
                 }
             } else {
-                if FlashcardsManager.shared.insertFlashcard(set: flashcardSet, name: name, question: question, answer: answer) {
+                if FlashcardsManager.shared.insertFlashcard(set: flashcardSet, name: nil, question: question, answer: answer) {
                     DialogUtils.showWarningDialog(self, title: nil, message: "Flashcard is saved.", completion: {
                         self.dismiss(animated: true, completion: {
                             self.delegate?.flashcardCreated(isImage: false)

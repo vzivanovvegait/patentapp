@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14133" systemVersion="17E199" minimumToolsVersion="Xcode 9.0" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14133" systemVersion="17E202" minimumToolsVersion="Xcode 9.0" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="DBRoot" representedClassName="DBRoot" syncable="YES">
         <attribute name="word" attributeType="String" syncable="YES"/>
     </entity>
@@ -24,7 +24,7 @@
     <entity name="Flashcard" representedClassName="Flashcard" syncable="YES">
         <attribute name="answer" attributeType="String" syncable="YES"/>
         <attribute name="imageData" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
-        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="question" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="flashcardSet" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="FlashcardSet" inverseName="flashcards" inverseEntity="FlashcardSet" syncable="YES"/>
     </entity>

@@ -11,6 +11,7 @@ import UIKit
 class NoteCell: UITableViewCell {
     
     @IBOutlet weak var wordLabel: UILabel!
-    @IBOutlet weak var explanationLabel: UILabel!
+    @IBOutlet weak var explanationTextView: UITextView!
+    //    @IBOutlet weak var explanationLabel: UILabel!
 
 }

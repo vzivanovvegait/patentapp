@@ -15,7 +15,7 @@
 		22FE855D20625EB700AB6E47 /* DBStoryWord+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE855520625EB700AB6E47 /* DBStoryWord+CoreDataProperties.swift */; };
 		22FE855E20625EB700AB6E47 /* DBRoot+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE855620625EB700AB6E47 /* DBRoot+CoreDataClass.swift */; };
 		22FE855F20625EB700AB6E47 /* DBRoot+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE855720625EB700AB6E47 /* DBRoot+CoreDataProperties.swift */; };
-		22FE85612062902A00AB6E47 /* String + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE85602062902A00AB6E47 /* String + Extension.swift */; };
+		22FE85612062902A00AB6E47 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE85602062902A00AB6E47 /* Extensions.swift */; };
 		2E28F02A20AC3FBC00D5E609 /* FlashcardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E28F02820AC3FBC00D5E609 /* FlashcardCell.swift */; };
 		2E28F02B20AC3FBC00D5E609 /* FlashcardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E28F02920AC3FBC00D5E609 /* FlashcardCell.xib */; };
 		7A3882E7F463409C143F7A5E /* Pods_Patent_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27AFEF69F4C4243AA6F86D73 /* Pods_Patent_App.framework */; };
@@ -91,7 +91,7 @@
 		22FE855520625EB700AB6E47 /* DBStoryWord+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DBStoryWord+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		22FE855620625EB700AB6E47 /* DBRoot+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DBRoot+CoreDataClass.swift"; sourceTree = "<group>"; };
 		22FE855720625EB700AB6E47 /* DBRoot+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DBRoot+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		22FE85602062902A00AB6E47 /* String + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extension.swift"; sourceTree = "<group>"; };
+		22FE85602062902A00AB6E47 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		27AFEF69F4C4243AA6F86D73 /* Pods_Patent_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Patent_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E28F02820AC3FBC00D5E609 /* FlashcardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardCell.swift; sourceTree = "<group>"; };
 		2E28F02920AC3FBC00D5E609 /* FlashcardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FlashcardCell.xib; sourceTree = "<group>"; };
@@ -390,7 +390,7 @@
 				E1F62BB12074CE28005FE688 /* KeyboardHandlerDelegate.swift */,
 				E188E2802010ABA300755614 /* KeyboardHandlerProtocol.swift */,
 				E194D72820077657005D62EF /* StoryboardInitializable.swift */,
-				22FE85602062902A00AB6E47 /* String + Extension.swift */,
+				22FE85602062902A00AB6E47 /* Extensions.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -645,7 +645,7 @@
 				E19170E41FF3985100C3BD1C /* AppDelegate.swift in Sources */,
 				22FE855C20625EB700AB6E47 /* DBStoryWord+CoreDataClass.swift in Sources */,
 				E1078B6D2073BCEE00239D78 /* FlashcardViewController.swift in Sources */,
-				22FE85612062902A00AB6E47 /* String + Extension.swift in Sources */,
+				22FE85612062902A00AB6E47 /* Extensions.swift in Sources */,
 				E19D55B3204E855D007B3243 /* LevelViewController.swift in Sources */,
 				E1ED4414201B530B00BA291A /* Patent.xcdatamodeld in Sources */,
 				E16B10812034344900356BFB /* InfoViewController.swift in Sources */,

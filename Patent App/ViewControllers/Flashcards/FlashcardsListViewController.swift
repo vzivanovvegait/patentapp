@@ -47,6 +47,9 @@ final class FlashcardsListViewController: UIViewController {
     }
     
     @IBAction func back(_ sender: Any) {
+        for flashcard in flashcards {
+            flashcard.isSelected = false
+        }
         self.navigationController?.popViewController(animated: true)
     }
 
@@ -68,20 +71,33 @@ final class FlashcardsListViewController: UIViewController {
         })
     }
     
+    @IBAction func practiceAll(_ sender: Any) {
+        if flashcards.count > 0 {
+            play(flashcards: flashcards)
+        } else {
+            DialogUtils.showWarningDialog(self, title: nil, message: "Flashcards list is empty!", completion: nil)
+        }
+    }
+    
     @IBAction func practice(_ sender: Any) {
-        let flashcardsViewController = FlashcardViewController.makeFromStoryboard()
-        var flashcardSet = flashcards.filter({$0.isSelected == true })
-        
+        let flashcardSet = flashcards.filter({$0.isSelected == true })
         if flashcardSet.count > 0 {
-            DialogUtils.showYesNoDialog(self, title: nil, message: "Shuffle cards?") { (result) in
-                if result {
-                    flashcardSet.shuffle()
-                }
-                flashcardsViewController.flashcards = flashcardSet
-                self.navigationController?.pushViewController(flashcardsViewController, animated: true)
-            }
+            play(flashcards: flashcardSet)
         } else {
             DialogUtils.showWarningDialog(self, title: nil, message: "Please select at least one flashcard.", completion: nil)
+        }
+    }
+    
+    func play( flashcards: [Flashcard]) {
+        let flashcardsViewController = FlashcardViewController.makeFromStoryboard()
+        var flashcardSet = flashcards
+        
+        DialogUtils.showYesNoDialog(self, title: nil, message: "Shuffle cards?") { (result) in
+            if result {
+                flashcardSet.shuffle()
+            }
+            flashcardsViewController.flashcards = flashcardSet
+            self.navigationController?.pushViewController(flashcardsViewController, animated: true)
         }
         
     }
@@ -100,7 +116,11 @@ extension FlashcardsListViewController: UITableViewDataSource, UITableViewDelega
         cell.backgroundColor = UIColor.clear
         cell.selectionStyle = .none
         
-        cell.flashcardNameLabel.text = flashcards[indexPath.row].name
+        if let name = flashcards[indexPath.row].name {
+            cell.flashcardNameLabel.text = name
+        } else {
+            cell.flashcardNameLabel.text = flashcards[indexPath.row].question
+        }
         
         cell.buttonActionFlashcardAction = { (flashcard, delete) in
             if delete {
@@ -118,11 +138,13 @@ extension FlashcardsListViewController: UITableViewDataSource, UITableViewDelega
                 if (flashcard.imageData as Data?) != nil {
                     let createImageFlashcardViewController = CreateImageFlashcardViewController.makeFromStoryboard()
                     createImageFlashcardViewController.flashcard = self.flashcards[indexPath.row]
+                    createImageFlashcardViewController.delegate = self
                     let navigationController = createImageFlashcardViewController.embedInNavigationController()
                     self.present(navigationController, animated: true, completion: nil)
                 } else {
                     let createFlashcardViewController = CreateFlashcardViewController.makeFromStoryboard()
                     createFlashcardViewController.flashcard = self.flashcards[indexPath.row]
+                    createFlashcardViewController.delegate = self
                     let navigationController = createFlashcardViewController.embedInNavigationController()
                     self.present(navigationController, animated: true, completion: nil)
                 }
@@ -142,40 +164,40 @@ extension FlashcardsListViewController: UITableViewDataSource, UITableViewDelega
         cell.flashcard = flashcards[indexPath.row]
     }
     
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        
-        let editAction = UITableViewRowAction(style: .default, title: "Edit", handler: { (action, indexPath) in
-            if (self.flashcards[indexPath.row].imageData as Data?) != nil {
-                let createImageFlashcardViewController = CreateImageFlashcardViewController.makeFromStoryboard()
-                createImageFlashcardViewController.flashcard = self.flashcards[indexPath.row]
-                let navigationController = createImageFlashcardViewController.embedInNavigationController()
-                self.present(navigationController, animated: true, completion: nil)
-            } else {
-                let createFlashcardViewController = CreateFlashcardViewController.makeFromStoryboard()
-                createFlashcardViewController.flashcard = self.flashcards[indexPath.row]
-                let navigationController = createFlashcardViewController.embedInNavigationController()
-                self.present(navigationController, animated: true, completion: nil)
-            }
-        })
-        editAction.backgroundColor = UIColor.blue
-        
-        
-        let deleteAction = UITableViewRowAction(style: .default, title: "Delete", handler: { (action, indexPath) in
-            DialogUtils.showYesNoDialog(self, title: "Delete", message: "Are you sure you want to delete flashcard?", completion: { (result) in
-                if result {
-                    if FlashcardsManager.shared.deleteFlashcard(flashcard: self.flashcards[indexPath.row]) {
-                        self.flashcards.remove(at: indexPath.row) //.removeObject(at: indexPath.row)
-                        tableView.reloadData()
-                    } else {
-                        DialogUtils.showWarningDialog(self, title: nil, message: "Error!!!", completion: nil)
-                    }
-                }
-            })
-        })
-        deleteAction.backgroundColor = UIColor.red
-        
-        return [editAction, deleteAction]
-    }
+//    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+//        
+//        let editAction = UITableViewRowAction(style: .default, title: "Edit", handler: { (action, indexPath) in
+//            if (self.flashcards[indexPath.row].imageData as Data?) != nil {
+//                let createImageFlashcardViewController = CreateImageFlashcardViewController.makeFromStoryboard()
+//                createImageFlashcardViewController.flashcard = self.flashcards[indexPath.row]
+//                let navigationController = createImageFlashcardViewController.embedInNavigationController()
+//                self.present(navigationController, animated: true, completion: nil)
+//            } else {
+//                let createFlashcardViewController = CreateFlashcardViewController.makeFromStoryboard()
+//                createFlashcardViewController.flashcard = self.flashcards[indexPath.row]
+//                let navigationController = createFlashcardViewController.embedInNavigationController()
+//                self.present(navigationController, animated: true, completion: nil)
+//            }
+//        })
+//        editAction.backgroundColor = UIColor.blue
+//        
+//        
+//        let deleteAction = UITableViewRowAction(style: .default, title: "Delete", handler: { (action, indexPath) in
+//            DialogUtils.showYesNoDialog(self, title: "Delete", message: "Are you sure you want to delete flashcard?", completion: { (result) in
+//                if result {
+//                    if FlashcardsManager.shared.deleteFlashcard(flashcard: self.flashcards[indexPath.row]) {
+//                        self.flashcards.remove(at: indexPath.row) //.removeObject(at: indexPath.row)
+//                        tableView.reloadData()
+//                    } else {
+//                        DialogUtils.showWarningDialog(self, title: nil, message: "Error!!!", completion: nil)
+//                    }
+//                }
+//            })
+//        })
+//        deleteAction.backgroundColor = UIColor.red
+//        
+//        return [editAction, deleteAction]
+//    }
     
 }
 
@@ -188,21 +210,6 @@ extension FlashcardsListViewController: FlashcardCreationDelegate {
         if let set = flashcardSet.flashcards?.array as? [Flashcard] {
             flashcards = set
             tableView.reloadData()
-        }
-    }
-}
-
-extension MutableCollection {
-    /// Shuffles the contents of this collection.
-    mutating func shuffle() {
-        let c = count
-        guard c > 1 else { return }
-        
-        for (firstUnshuffled, unshuffledCount) in zip(indices, stride(from: c, to: 1, by: -1)) {
-            // Change `Int` in the next line to `IndexDistance` in < Swift 4.1
-            let d: Int = numericCast(arc4random_uniform(numericCast(unshuffledCount)))
-            let i = index(firstUnshuffled, offsetBy: d)
-            swapAt(firstUnshuffled, i)
         }
     }
 }
