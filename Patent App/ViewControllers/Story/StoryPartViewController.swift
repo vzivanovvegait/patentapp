@@ -208,7 +208,6 @@ extension StoryPartViewController: TTTAttributedLabelDelegate {
 
 extension StoryPartViewController: LevelDelegate {
     func levelChanged(level: Level) {
-        print(level.rawValue)
         currentLevel = level
         timer.invalidate()
         setLevel()

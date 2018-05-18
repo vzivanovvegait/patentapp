@@ -9,6 +9,7 @@
 import UIKit
 
 protocol FlashcardPartDelegate: class {
+    func timer(isValid: Bool, time: Int)
     func pageSolved()
 }
 
@@ -20,6 +21,10 @@ final class FlashcardPartViewController: UIViewController {
     
     weak var delegate:FlashcardPartDelegate?
     
+    var currentLevel:Level = .easy
+    var timer = Timer()
+    var seconds: Int = 0
+    
     var index:Int!
     
     var image:UIImage?
@@ -28,6 +33,8 @@ final class FlashcardPartViewController: UIViewController {
     
     var words = [Element]()
     var replacedString: String = ""
+    
+    var isActive: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +45,12 @@ final class FlashcardPartViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         resetFlashcard()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        isActive = false
     }
     
     // Set UI
@@ -75,6 +88,15 @@ extension FlashcardPartViewController {
                     if !words.contains(where: { !$0.isFound }) {
                         DialogUtils.showWarningDialog(self, title: "Great job!", message: nil, completion: nil)
                         delegate?.pageSolved()
+                        timer.invalidate()
+                        if question != nil {
+                            questionLabel.isHidden = false
+                            imageView.isHidden = true
+                        } else {
+                            questionLabel.isHidden = true
+                            imageView.isHidden = false
+                        }
+                        delegate?.timer(isValid: timer.isValid, time: seconds)
                     }
                 }
             }
@@ -108,7 +130,91 @@ extension FlashcardPartViewController {
     func resetFlashcard() {
         words = DataUtils.createArray(sentence: answer)
         replacedString = DataUtils.createAnswerString(from: answer)
+        if let question = question {
+            questionLabel.setText(DataUtils.createAttributtedString(from: question))
+        }
         answerLabel.setText(DataUtils.createAttributtedString(from: replacedString))
+        
+        timer.invalidate()
+        
+        if question != nil {
+            questionLabel.isHidden = false
+            imageView.isHidden = true
+        } else {
+            questionLabel.isHidden = true
+            imageView.isHidden = false
+        }
+        
+        currentLevel = .easy
+        
+        isActive = true
+        delegate?.timer(isValid: timer.isValid, time: seconds)
+    }
+    
+    func increaseFont() {
+        if let question = question {
+            questionLabel.setText(DataUtils.createAttributtedString(from: question))
+        }
+        answerLabel.setText(DataUtils.createAttributtedString(from: replacedString))
+    }
+    
+    func showLevel() {
+        self.showLevelParametar(level: currentLevel, type: LevelType.flashcard).delegate = self
+    }
+    
+    func showDefinition() {
+        answerLabel.setText(DataUtils.createAttributtedString(from: answer))
+    }
+}
+
+extension FlashcardPartViewController: LevelDelegate {
+    func levelChanged(level: Level) {
+        currentLevel = level
+        timer.invalidate()
+        setLevel()
+    }
+    
+    func setLevel() {
+        switch currentLevel {
+        case .easy:
+            delegate?.timer(isValid: timer.isValid, time: seconds)
+            changeConstraint(isFull: true)
+        case .medium:
+            seconds = 10
+            delegate?.timer(isValid: timer.isValid, time: seconds)
+            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(hide), userInfo: nil, repeats: true)
+        case .hard:
+            seconds = 5
+            delegate?.timer(isValid: timer.isValid, time: seconds)
+            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(hide), userInfo: nil, repeats: true)
+        }
+    }
+    
+    @objc func hide() {
+        seconds = seconds - 1
+        if isActive {
+            delegate?.timer(isValid: timer.isValid, time: seconds)
+        }
+        if seconds == 0 {
+            timer.invalidate()
+            changeConstraint(isFull: false)
+            delegate?.timer(isValid: timer.isValid, time: seconds)
+        }
+    }
+
+    func changeConstraint(isFull: Bool) {
+        if isFull {
+            if question != nil {
+                questionLabel.isHidden = false
+                imageView.isHidden = true
+            } else {
+                questionLabel.isHidden = true
+                imageView.isHidden = false
+            }
+        } else {
+            questionLabel.isHidden = true
+            imageView.isHidden = true
+        }
     }
 }
 

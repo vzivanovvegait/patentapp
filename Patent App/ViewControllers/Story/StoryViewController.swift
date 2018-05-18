@@ -165,6 +165,8 @@ final class StoryViewController: UIViewController, StoryboardInitializable, Keyb
 
     func setBottomBar() {
         
+        bottomToolBar.showButton.isHidden = true
+        
         bottomToolBar.notesAction = { [weak self] in
             let navigationController = NotesViewController.makeFromStoryboard().embedInNavigationController()
             self?.present(navigationController, animated: true, completion: nil)

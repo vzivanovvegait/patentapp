@@ -12,6 +12,7 @@ class BottomToolBar: UIView {
     
     var timer = Timer()
     
+    var showAction: (()->())?
     var notesAction: (()->())?
     var keyboardAction: (()->())?
     var playAction:((Bool)->())?
@@ -24,6 +25,7 @@ class BottomToolBar: UIView {
     @IBOutlet weak var settingsButton: UIButton!
     @IBOutlet weak var infoButton: UIButton!
     @IBOutlet weak var googleSpeechLabel: UILabel!
+    @IBOutlet weak var showButton: UIButton!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -52,6 +54,8 @@ class BottomToolBar: UIView {
     fileprivate func setupViews() {
         googleSpeechLabel.text = ""
         
+        showButton.setImage(#imageLiteral(resourceName: "eye").withRenderingMode(.alwaysTemplate), for: .normal)
+        showButton.tintColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
         keyboardButton.setImage(#imageLiteral(resourceName: "ic_keyboard").withRenderingMode(.alwaysTemplate), for: .normal)
         keyboardButton.tintColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
         notesButton.setImage(#imageLiteral(resourceName: "note").withRenderingMode(.alwaysTemplate), for: .normal)
@@ -76,6 +80,10 @@ class BottomToolBar: UIView {
     }
     
     // Actions
+    
+    @IBAction func show(_ sender: Any) {
+        showAction?()
+    }
     
     @IBAction func notes(_ sender: Any) {
         notesAction?()

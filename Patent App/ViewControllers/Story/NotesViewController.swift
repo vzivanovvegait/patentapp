@@ -41,6 +41,7 @@ final class NotesViewController: UIViewController {
     @objc func close() {
         
         let _ = NoteController.shared.saveNote()
+        self.view.endEditing(true)
         self.dismiss(animated: true, completion: nil)
     }
 

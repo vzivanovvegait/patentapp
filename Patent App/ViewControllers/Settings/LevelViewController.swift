@@ -12,8 +12,34 @@ protocol LevelDelegate: class {
     func levelChanged(level: Level)
 }
 
-enum Level: String {
-    case easy = "Without time", medium = "60 seconds", hard = "30 seconds"
+enum Level {
+    case easy, medium, hard
+    
+    func getStoryLevel() -> String {
+        switch self {
+        case .easy:
+            return "Without time"
+        case .medium:
+            return "60 seconds"
+        case .hard:
+            return "30 seconds"
+        }
+    }
+    
+    func getFlashcardLevel() -> String {
+        switch self {
+        case .easy:
+            return "Without time"
+        case .medium:
+            return "10 seconds"
+        case .hard:
+            return "5 seconds"
+        }
+    }
+}
+
+enum LevelType {
+    case story, flashcard
 }
 
 class LevelViewController: UIViewController {
@@ -24,6 +50,8 @@ class LevelViewController: UIViewController {
     @IBOutlet weak var pickerView: UIPickerView!
     
     let levels = [Level.easy, Level.medium, Level.hard]
+    
+    var type = LevelType.story
     
     var currentLevel:Level!
     
@@ -154,7 +182,7 @@ extension LevelViewController : UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         
-        return NSAttributedString(string: levels[row].rawValue, attributes: [NSAttributedStringKey.foregroundColor: UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)])
+        return NSAttributedString(string: (type == .story) ? levels[row].getStoryLevel() : levels[row].getFlashcardLevel(), attributes: [NSAttributedStringKey.foregroundColor: UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)])
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
@@ -164,9 +192,10 @@ extension LevelViewController : UIPickerViewDelegate, UIPickerViewDataSource {
 }
 
 extension UIViewController {
-    func showLevelParametar(level: Level) -> LevelViewController {
+    func showLevelParametar(level: Level, type: LevelType = .story) -> LevelViewController {
         let vc = LevelViewController()
         vc.currentLevel = level
+        vc.type = type
         self.present(vc, animated: true, completion: nil)
         return vc
     }

@@ -85,18 +85,16 @@ final class FlashcardViewController: UIViewController, StoryboardInitializable, 
     
     func setData() {
         for (index, flashcard) in flashcards.enumerated() {
-//            if part is DBStoryPart {
-        let vc:FlashcardPartViewController = FlashcardPartViewController.makeFromStoryboard()
-        vc.index = index
-        if let data = flashcard.imageData as Data?, let image = UIImage(data: data) {
-            vc.image = image
-        } else {
-            vc.question = flashcard.question
-        }
-        vc.answer = flashcard.answer
-        vc.delegate = self
-        viewControllers.append(vc)
-//            }
+            let vc:FlashcardPartViewController = FlashcardPartViewController.makeFromStoryboard()
+            vc.index = index
+            if let data = flashcard.imageData as Data?, let image = UIImage(data: data) {
+                vc.image = image
+            } else {
+                vc.question = flashcard.question
+            }
+            vc.answer = flashcard.answer
+            vc.delegate = self
+            viewControllers.append(vc)
         }
     }
     
@@ -160,6 +158,15 @@ final class FlashcardViewController: UIViewController, StoryboardInitializable, 
         
         bottomToolBar.notesButton.isHidden = true
         
+        bottomToolBar.showAction = { [weak self] in
+            
+            guard let strongSelf = self else {
+                return
+            }
+            
+            strongSelf.viewControllers[strongSelf.storyIndex].showDefinition()
+        }
+        
         bottomToolBar.keyboardAction = { [weak self] in
             self?.sendContainerView.setFirstResponder()
         }
@@ -172,7 +179,22 @@ final class FlashcardViewController: UIViewController, StoryboardInitializable, 
             }
         }
         
-        bottomToolBar.settingsButton.isHidden = true
+        bottomToolBar.settingsAction = { [weak self] in
+            
+            guard let strongSelf = self else {
+                return
+            }
+            
+            DialogUtils.showMultipleChoiceActionSheet(strongSelf, anchor: strongSelf.view, title: nil, message: nil, choises: ["Level", "Font"], completion: { (result) in
+                if result == "Level" {
+                    strongSelf.viewControllers[strongSelf.storyIndex].showLevel()
+                }
+                
+                if result == "Font" {
+                    strongSelf.showFontParametar().delegate = self
+                }
+            })
+        }
         
         bottomToolBar.infoButton.isHidden = true
         
@@ -319,10 +341,23 @@ extension FlashcardViewController: UIPageViewControllerDataSource, UIPageViewCon
 }
 
 extension FlashcardViewController: FlashcardPartDelegate {
+    func timer(isValid: Bool, time: Int) {
+        topToolBar.timerLabel.isHidden = !isValid
+        topToolBar.timerLabel.text = "\(time)"
+    }
+    
     func pageSolved() {
         stop()
         if bottomToolBar.recordButton.isSelected {
             bottomToolBar.recordButton.isSelected = false
         }
+    }
+    
+}
+
+extension FlashcardViewController: SettingsDelegate {
+    func changeFont(fontSize: CGFloat) {
+        UserDefaults.standard.set(Int(fontSize), forKey: "fontSize")
+        viewControllers[storyIndex].increaseFont()
     }
 }
