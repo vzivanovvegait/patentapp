@@ -96,9 +96,39 @@ extension FlashcardPartViewController {
             let array = findString(googleString: string)
             for e in array {
                 isFound = true
-                let ranges = findRanges(for: e.text, in: answer)
+                let ranges = findRanges(for: e.text.lowercased(), in: answer.lowercased())
                 for range in ranges {
                     replacedString.replaceSubrange(range, with: e.text)
+                    answerLabel.setText(DataUtils.createAttributtedString(from: replacedString))
+                    if !words.contains(where: { !$0.isFound }) {
+                        DialogUtils.showWarningDialog(self, title: "Great job!", message: nil, completion: nil)
+                        delegate?.pageSolved()
+                        timer.invalidate()
+                        if question != nil {
+                            questionLabel.isHidden = false
+                            imageView.isHidden = true
+                        } else {
+                            questionLabel.isHidden = true
+                            imageView.isHidden = false
+                        }
+                        delegate?.timer(isValid: timer.isValid, time: seconds)
+                    }
+                }
+            }
+        }
+        return isFound
+    }
+    
+    func checkOrederedString(googleString: String) -> Bool {
+        var isFound = false
+        let arrayOfString = googleString.lowercased().components(separatedBy: " ")
+        for string in arrayOfString {
+            if let element = findOrderedString(googleString: string) {
+                isFound = true
+                let ranges = findRanges(for: element.text.lowercased(), in: answer.lowercased())
+                let foundElemnts = words.filter { $0.text.lowercased() == string.lowercased() && $0.isFound == true }
+                if let lastElement = foundElemnts.last, let index = foundElemnts.index(where: {$0 === lastElement}) {
+                    replacedString.replaceSubrange(ranges[index], with: element.text)
                     answerLabel.setText(DataUtils.createAttributtedString(from: replacedString))
                     if !words.contains(where: { !$0.isFound }) {
                         DialogUtils.showWarningDialog(self, title: "Great job!", message: nil, completion: nil)
@@ -125,6 +155,15 @@ extension FlashcardPartViewController {
             result.isFound = true
         }
         return results
+    }
+    
+    func findOrderedString(googleString: String) -> Element? {
+        let results = words.filter { $0.isFound == false }
+        if let result = results.first, result.text.lowercased() == googleString.lowercased() {
+            result.isFound = true
+            return result
+        }
+        return nil
     }
     
     func findRanges(for word: String, in text: String) -> [Range<String.Index>] {

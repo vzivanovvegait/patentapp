@@ -121,10 +121,18 @@ final class FlashcardViewController: UIViewController, StoryboardInitializable, 
             guard let strongSelf = self else {
                 return
             }
-            if strongSelf.viewControllers[strongSelf.storyIndex].checkString(googleString: text) {
-                strongSelf.sendContainerView.removeFirstResponder()
+            if strongSelf.strictOrder {
+                if strongSelf.viewControllers[strongSelf.storyIndex].checkOrederedString(googleString: text) {
+                    strongSelf.sendContainerView.removeFirstResponder()
+                } else {
+                    strongSelf.playAudio()
+                }
             } else {
-               strongSelf.playAudio()
+                if strongSelf.viewControllers[strongSelf.storyIndex].checkString(googleString: text) {
+                    strongSelf.sendContainerView.removeFirstResponder()
+                } else {
+                    strongSelf.playAudio()
+                }
             }
         }
     }

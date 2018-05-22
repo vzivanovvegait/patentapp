@@ -1,9 +1,9 @@
 PODS:
-  - "!ProtoCompiler (3.5.0)":
+  - !ProtoCompiler (3.5.0):
     - Protobuf (~> 3.0)
-  - "!ProtoCompiler-gRPCPlugin (1.10.0)":
-    - "!ProtoCompiler (= 3.5.0)"
-    - gRPC-ProtoRPC (= 1.10.0)
+  - !ProtoCompiler-gRPCPlugin (1.12.0):
+    - !ProtoCompiler (= 3.5.0)
+    - gRPC-ProtoRPC (= 1.12.0)
   - BoringSSL (10.0.2):
     - BoringSSL/Implementation (= 10.0.2)
     - BoringSSL/Interface (= 10.0.2)
@@ -14,35 +14,35 @@ PODS:
     - Fabric (~> 1.7.5)
   - Fabric (1.7.6)
   - googleapis (0.0.1):
-    - "!ProtoCompiler-gRPCPlugin (~> 1.0)"
+    - !ProtoCompiler-gRPCPlugin (~> 1.0)
     - googleapis/Messages (= 0.0.1)
     - googleapis/Services (= 0.0.1)
   - googleapis/Messages (0.0.1):
-    - "!ProtoCompiler-gRPCPlugin (~> 1.0)"
+    - !ProtoCompiler-gRPCPlugin (~> 1.0)
     - Protobuf
   - googleapis/Services (0.0.1):
-    - "!ProtoCompiler-gRPCPlugin (~> 1.0)"
+    - !ProtoCompiler-gRPCPlugin (~> 1.0)
     - googleapis/Messages
     - gRPC-ProtoRPC
-  - gRPC (1.10.0):
-    - gRPC-RxLibrary (= 1.10.0)
-    - gRPC/Main (= 1.10.0)
-  - gRPC-Core (1.10.0):
-    - gRPC-Core/Implementation (= 1.10.0)
-    - gRPC-Core/Interface (= 1.10.0)
-  - gRPC-Core/Implementation (1.10.0):
+  - gRPC (1.12.0):
+    - gRPC-RxLibrary (= 1.12.0)
+    - gRPC/Main (= 1.12.0)
+  - gRPC-Core (1.12.0):
+    - gRPC-Core/Implementation (= 1.12.0)
+    - gRPC-Core/Interface (= 1.12.0)
+  - gRPC-Core/Implementation (1.12.0):
     - BoringSSL (~> 10.0)
-    - gRPC-Core/Interface (= 1.10.0)
+    - gRPC-Core/Interface (= 1.12.0)
     - nanopb (~> 0.3)
-  - gRPC-Core/Interface (1.10.0)
-  - gRPC-ProtoRPC (1.10.0):
-    - gRPC (= 1.10.0)
-    - gRPC-RxLibrary (= 1.10.0)
+  - gRPC-Core/Interface (1.12.0)
+  - gRPC-ProtoRPC (1.12.0):
+    - gRPC (= 1.12.0)
+    - gRPC-RxLibrary (= 1.12.0)
     - Protobuf (~> 3.0)
-  - gRPC-RxLibrary (1.10.0)
-  - gRPC/Main (1.10.0):
-    - gRPC-Core (= 1.10.0)
-    - gRPC-RxLibrary (= 1.10.0)
+  - gRPC-RxLibrary (1.12.0)
+  - gRPC/Main (1.12.0):
+    - gRPC-Core (= 1.12.0)
+    - gRPC-RxLibrary (= 1.12.0)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
     - nanopb/encode (= 0.3.8)
@@ -57,40 +57,25 @@ DEPENDENCIES:
   - googleapis (from `.`)
   - TTTAttributedLabel
 
-SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
-    - "!ProtoCompiler"
-    - "!ProtoCompiler-gRPCPlugin"
-    - BoringSSL
-    - Crashlytics
-    - Fabric
-    - gRPC
-    - gRPC-Core
-    - gRPC-ProtoRPC
-    - gRPC-RxLibrary
-    - nanopb
-    - Protobuf
-    - TTTAttributedLabel
-
 EXTERNAL SOURCES:
   googleapis:
-    :path: "."
+    :path: .
 
 SPEC CHECKSUMS:
-  "!ProtoCompiler": 3e9dc8340c8f1bbab40aa0f5acb965a4be02f849
-  "!ProtoCompiler-gRPCPlugin": 0aff40e77da3e31fc74052e94c39d5c02c8d8199
+  !ProtoCompiler: 3e9dc8340c8f1bbab40aa0f5acb965a4be02f849
+  !ProtoCompiler-gRPCPlugin: 6f829fc44faf551947dc9f99452e2ed981497718
   BoringSSL: 60dd24df4af296bf41d78e5841dbb95d75f88c0d
   Crashlytics: aee1a064cbbf99b32efa3f056a5f458d846bc8ff
   Fabric: f8d42c893bb187326a7968b62abe55c36a987a46
   googleapis: d6f6cbea54df52583737ed6d07b02a08006cb6ed
-  gRPC: f54f0e6d603052b4562447da442ce2ff30bcdacc
-  gRPC-Core: a030b1678ded49c88ec5ba7c90ee8ee5f47ec6e1
-  gRPC-ProtoRPC: 22712b23eb1bda656a59715fa5c1da0ea1493ea4
-  gRPC-RxLibrary: a41a4652d220f230ba1c0491a94ce2ee04c6180a
+  gRPC: 9362451032695e2dfb7bafcd3740e3a27939e4ff
+  gRPC-Core: 9696b220565b283e021cf2722d473a4a74b7622a
+  gRPC-ProtoRPC: a1bd56fb1991a8dae4581250d7259eddabb66779
+  gRPC-RxLibrary: 1ed5314e8b38cd6e55c9bfa048387136ae925ce9
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   Protobuf: 8a9838fba8dae3389230e1b7f8c104aa32389c03
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
 
 PODFILE CHECKSUM: 3c5cbdd941101f546c6e3090ad8018017b3b5c4a
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.4.0
