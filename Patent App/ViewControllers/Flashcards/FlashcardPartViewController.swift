@@ -35,11 +35,14 @@ final class FlashcardPartViewController: UIViewController {
     var replacedString: String = ""
     
     var isActive: Bool = false
+    
+    var strictOrder: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setLabels()
+        setTapGesture()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -69,6 +72,18 @@ final class FlashcardPartViewController: UIViewController {
             imageView.image = image
         }
         answerLabel.setText(DataUtils.createAttributtedString(from: replacedString))
+    }
+    
+    fileprivate func setTapGesture() {
+        imageView.isUserInteractionEnabled = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tap))
+        imageView.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func tap() {
+        let vc = ZoomImageViewController.makeFromStoryboard()
+        vc.image = image
+        self.present(vc, animated: true, completion: nil)
     }
 
 }

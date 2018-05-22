@@ -41,6 +41,8 @@ final class FlashcardViewController: UIViewController, StoryboardInitializable, 
     
     var player: AVAudioPlayer?
     
+    var strictOrder: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -146,7 +148,7 @@ final class FlashcardViewController: UIViewController, StoryboardInitializable, 
             guard let strongSelf = self else {
                 return
             }
-            DialogUtils.showYesNoDialog(strongSelf, title: nil, message: "Start over flashcard?", completion: { (result) in
+            DialogUtils.showYesNoDialog(strongSelf, title: nil, message: "Start over this practice session?", completion: { (result) in
                 if result {
                     strongSelf.viewControllers[strongSelf.storyIndex].resetFlashcard()
                 }
@@ -185,7 +187,20 @@ final class FlashcardViewController: UIViewController, StoryboardInitializable, 
                 return
             }
             
-            DialogUtils.showMultipleChoiceActionSheet(strongSelf, anchor: strongSelf.view, title: nil, message: nil, choises: ["Level", "Font"], completion: { (result) in
+            DialogUtils.showMultipleChoiceActionSheet(strongSelf, anchor: strongSelf.view, title: nil, message: nil, choises: ["Strict Order", "Level", "Font"], completion: { (result) in
+                
+                if result == "Strict Order" {
+                    DialogUtils.showYesNoDialog(strongSelf, title: nil, message: "Turn \(strongSelf.strictOrder ? "off" : "on") strict order?", completion: { (result) in
+                        if result {
+                            strongSelf.strictOrder = !strongSelf.strictOrder
+                            
+                            for vc in strongSelf.viewControllers {
+                                vc.strictOrder = strongSelf.strictOrder
+                            }
+                        }
+                    })
+                }
+                
                 if result == "Level" {
                     strongSelf.viewControllers[strongSelf.storyIndex].showLevel()
                 }

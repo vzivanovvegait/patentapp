@@ -64,6 +64,8 @@
 		E198AF112031C8BA00BEB074 /* INSScalingImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E198AF102031C8BA00BEB074 /* INSScalingImageView.swift */; };
 		E19D55B3204E855D007B3243 /* LevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D55B1204E855D007B3243 /* LevelViewController.swift */; };
 		E19D55B4204E855D007B3243 /* LevelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E19D55B2204E855D007B3243 /* LevelViewController.xib */; };
+		E1ABBF8A20B4588B001761C3 /* FlashcardSetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ABBF8820B4588B001761C3 /* FlashcardSetTableViewCell.swift */; };
+		E1ABBF8B20B4588B001761C3 /* FlashcardSetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1ABBF8920B4588B001761C3 /* FlashcardSetTableViewCell.xib */; };
 		E1AEAD48208F4ED8007DAFE9 /* CreateImageFlashcardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AEAD47208F4ED8007DAFE9 /* CreateImageFlashcardViewController.swift */; };
 		E1B995BB20AACFE60046E530 /* FlashcardPartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B995BA20AACFE60046E530 /* FlashcardPartViewController.swift */; };
 		E1BB8477203EE7DF0069E5AA /* SettingsViewConroller.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1BB8475203EE7DE0069E5AA /* SettingsViewConroller.xib */; };
@@ -144,6 +146,8 @@
 		E198AF102031C8BA00BEB074 /* INSScalingImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = INSScalingImageView.swift; sourceTree = "<group>"; };
 		E19D55B1204E855D007B3243 /* LevelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelViewController.swift; sourceTree = "<group>"; };
 		E19D55B2204E855D007B3243 /* LevelViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LevelViewController.xib; sourceTree = "<group>"; };
+		E1ABBF8820B4588B001761C3 /* FlashcardSetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardSetTableViewCell.swift; sourceTree = "<group>"; };
+		E1ABBF8920B4588B001761C3 /* FlashcardSetTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FlashcardSetTableViewCell.xib; sourceTree = "<group>"; };
 		E1AEAD47208F4ED8007DAFE9 /* CreateImageFlashcardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateImageFlashcardViewController.swift; sourceTree = "<group>"; };
 		E1B995BA20AACFE60046E530 /* FlashcardPartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardPartViewController.swift; sourceTree = "<group>"; };
 		E1BB8475203EE7DE0069E5AA /* SettingsViewConroller.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewConroller.xib; sourceTree = "<group>"; };
@@ -179,6 +183,8 @@
 			children = (
 				2E28F02820AC3FBC00D5E609 /* FlashcardCell.swift */,
 				2E28F02920AC3FBC00D5E609 /* FlashcardCell.xib */,
+				E1ABBF8820B4588B001761C3 /* FlashcardSetTableViewCell.swift */,
+				E1ABBF8920B4588B001761C3 /* FlashcardSetTableViewCell.xib */,
 			);
 			path = FlashcardCell;
 			sourceTree = "<group>";
@@ -282,7 +288,6 @@
 				E1ED4408201B510200BA291A /* NotesViewController.swift */,
 				E16B10822034347A00356BFB /* InfoPartViewController.swift */,
 				E16B10802034344900356BFB /* InfoViewController.swift */,
-				E198AF0E2031B49000BEB074 /* ZoomImageViewController.swift */,
 			);
 			path = Story;
 			sourceTree = "<group>";
@@ -400,6 +405,7 @@
 			children = (
 				E16503871FFE276C00D91FDF /* HomeViewController.swift */,
 				E194D72620077306005D62EF /* CategoryViewController.swift */,
+				E198AF0E2031B49000BEB074 /* ZoomImageViewController.swift */,
 				E170A1952072683000463C65 /* Story */,
 				E170A1972072688000463C65 /* Flashcards */,
 				E170A1962072686700463C65 /* Settings */,
@@ -489,6 +495,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1BB8477203EE7DF0069E5AA /* SettingsViewConroller.xib in Resources */,
+				E1ABBF8B20B4588B001761C3 /* FlashcardSetTableViewCell.xib in Resources */,
 				E19D55B4204E855D007B3243 /* LevelViewController.xib in Resources */,
 				E19170EE1FF3985100C3BD1C /* LaunchScreen.storyboard in Resources */,
 				E19170EB1FF3985100C3BD1C /* Assets.xcassets in Resources */,
@@ -629,6 +636,7 @@
 				E1D84771208DCBCF009CE29F /* FlashcardSet+CoreDataProperties.swift in Sources */,
 				E17A1295202066AC00C37AFB /* StoryPart.swift in Sources */,
 				E17A12972020677100C37AFB /* StoryController.swift in Sources */,
+				E1ABBF8A20B4588B001761C3 /* FlashcardSetTableViewCell.swift in Sources */,
 				22FE855A20625EB700AB6E47 /* DBStory+CoreDataClass.swift in Sources */,
 				E17D12E1201779B70040681E /* DialogUtils.swift in Sources */,
 				E170A1932072680F00463C65 /* FlashcardsListViewController.swift in Sources */,

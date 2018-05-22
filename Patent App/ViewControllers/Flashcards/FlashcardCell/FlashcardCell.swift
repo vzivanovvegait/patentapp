@@ -34,6 +34,11 @@ class FlashcardCell: UITableViewCell {
         flashcardNameLabel.textColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
         
         checkmarkImageView.tintColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
+        
+        editButton.setImage(#imageLiteral(resourceName: "ic_edit").withRenderingMode(.alwaysTemplate), for: .normal)
+        editButton.tintColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
+        deleteButton.setImage(#imageLiteral(resourceName: "ic_delete").withRenderingMode(.alwaysTemplate), for: .normal)
+        deleteButton.tintColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
 
     }
 

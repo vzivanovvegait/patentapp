@@ -24,6 +24,10 @@ final class FlashcardsListViewController: UIViewController {
     override var prefersStatusBarHidden: Bool {
         return true
     }
+    
+    deinit {
+        print("deinit")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,10 +96,15 @@ final class FlashcardsListViewController: UIViewController {
         let flashcardsViewController = FlashcardViewController.makeFromStoryboard()
         var flashcardSet = flashcards
         
-        DialogUtils.showYesNoDialog(self, title: nil, message: "Shuffle cards?") { (result) in
-            if result {
-                flashcardSet.shuffle()
+        if flashcardSet.count > 1 {
+            DialogUtils.showYesNoDialog(self, title: nil, message: "Shuffle cards?") { (result) in
+                if result {
+                    flashcardSet.shuffle()
+                }
+                flashcardsViewController.flashcards = flashcardSet
+                self.navigationController?.pushViewController(flashcardsViewController, animated: true)
             }
+        } else {
             flashcardsViewController.flashcards = flashcardSet
             self.navigationController?.pushViewController(flashcardsViewController, animated: true)
         }
@@ -122,31 +131,34 @@ extension FlashcardsListViewController: UITableViewDataSource, UITableViewDelega
             cell.flashcardNameLabel.text = flashcards[indexPath.row].question
         }
         
-        cell.buttonActionFlashcardAction = { (flashcard, delete) in
+        cell.buttonActionFlashcardAction = { [weak self] (flashcard, delete) in
+            guard let strongSelf = self else {
+                return
+            }
             if delete {
-                DialogUtils.showYesNoDialog(self, title: "Delete", message: "Are you sure you want to delete flashcard?", completion: { (result) in
+                DialogUtils.showYesNoDialog(strongSelf, title: "Delete", message: "Are you sure you want to delete flashcard?", completion: { (result) in
                     if result {
                         if FlashcardsManager.shared.deleteFlashcard(flashcard: flashcard) {
-                            self.flashcards.remove(at: indexPath.row)
+                            strongSelf.flashcards.remove(at: indexPath.row)
                             tableView.deleteRows(at: [indexPath], with: .fade)
                         } else {
-                            DialogUtils.showWarningDialog(self, title: nil, message: "Error!!!", completion: nil)
+                            DialogUtils.showWarningDialog(strongSelf, title: nil, message: "Error!!!", completion: nil)
                         }
                     }
                 })
             } else {
                 if (flashcard.imageData as Data?) != nil {
                     let createImageFlashcardViewController = CreateImageFlashcardViewController.makeFromStoryboard()
-                    createImageFlashcardViewController.flashcard = self.flashcards[indexPath.row]
+                    createImageFlashcardViewController.flashcard = strongSelf.flashcards[indexPath.row]
                     createImageFlashcardViewController.delegate = self
                     let navigationController = createImageFlashcardViewController.embedInNavigationController()
-                    self.present(navigationController, animated: true, completion: nil)
+                    strongSelf.present(navigationController, animated: true, completion: nil)
                 } else {
                     let createFlashcardViewController = CreateFlashcardViewController.makeFromStoryboard()
-                    createFlashcardViewController.flashcard = self.flashcards[indexPath.row]
+                    createFlashcardViewController.flashcard = strongSelf.flashcards[indexPath.row]
                     createFlashcardViewController.delegate = self
                     let navigationController = createFlashcardViewController.embedInNavigationController()
-                    self.present(navigationController, animated: true, completion: nil)
+                    strongSelf.present(navigationController, animated: true, completion: nil)
                 }
             }
         }
@@ -163,41 +175,6 @@ extension FlashcardsListViewController: UITableViewDataSource, UITableViewDelega
         let cell = tableView.cellForRow(at: indexPath) as! FlashcardCell
         cell.flashcard = flashcards[indexPath.row]
     }
-    
-//    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-//        
-//        let editAction = UITableViewRowAction(style: .default, title: "Edit", handler: { (action, indexPath) in
-//            if (self.flashcards[indexPath.row].imageData as Data?) != nil {
-//                let createImageFlashcardViewController = CreateImageFlashcardViewController.makeFromStoryboard()
-//                createImageFlashcardViewController.flashcard = self.flashcards[indexPath.row]
-//                let navigationController = createImageFlashcardViewController.embedInNavigationController()
-//                self.present(navigationController, animated: true, completion: nil)
-//            } else {
-//                let createFlashcardViewController = CreateFlashcardViewController.makeFromStoryboard()
-//                createFlashcardViewController.flashcard = self.flashcards[indexPath.row]
-//                let navigationController = createFlashcardViewController.embedInNavigationController()
-//                self.present(navigationController, animated: true, completion: nil)
-//            }
-//        })
-//        editAction.backgroundColor = UIColor.blue
-//        
-//        
-//        let deleteAction = UITableViewRowAction(style: .default, title: "Delete", handler: { (action, indexPath) in
-//            DialogUtils.showYesNoDialog(self, title: "Delete", message: "Are you sure you want to delete flashcard?", completion: { (result) in
-//                if result {
-//                    if FlashcardsManager.shared.deleteFlashcard(flashcard: self.flashcards[indexPath.row]) {
-//                        self.flashcards.remove(at: indexPath.row) //.removeObject(at: indexPath.row)
-//                        tableView.reloadData()
-//                    } else {
-//                        DialogUtils.showWarningDialog(self, title: nil, message: "Error!!!", completion: nil)
-//                    }
-//                }
-//            })
-//        })
-//        deleteAction.backgroundColor = UIColor.red
-//        
-//        return [editAction, deleteAction]
-//    }
     
 }
 

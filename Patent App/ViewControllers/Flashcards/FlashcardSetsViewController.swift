@@ -20,6 +20,10 @@ final class FlashcardSetsViewController: UIViewController {
         }
     }
     
+    deinit {
+        print("deinit")
+    }
+    
     override var prefersStatusBarHidden: Bool {
         return true
     }
@@ -39,6 +43,8 @@ final class FlashcardSetsViewController: UIViewController {
         tableView.tableFooterView = UIView()
         
         view.backgroundColor = UIColor(red: 242/255.0, green: 233/255.0, blue: 134/255.0, alpha: 1)
+        
+        tableView.register(UINib(nibName: String(describing: FlashcardSetTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: FlashcardSetTableViewCell.self))
         
         flashcardSet = FlashcardSetManager.shared.getFlashcardSet()
     }
@@ -70,13 +76,8 @@ extension FlashcardSetsViewController: UITableViewDataSource, UITableViewDelegat
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
-        cell.textLabel?.textColor = UIColor(red: 0, green: 97/255.0, blue: 104/255.0, alpha: 1)
-        cell.textLabel?.text = flashcardSet[indexPath.row].name
-        cell.textLabel?.font = UIFont.systemFont(ofSize: 20)
-        cell.textLabel?.textAlignment = .center
-        cell.backgroundColor = UIColor.clear
-        cell.selectionStyle = .none
+        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: FlashcardSetTableViewCell.self)) as! FlashcardSetTableViewCell
+        cell.flashcardSetNameLabel.text = flashcardSet[indexPath.row].name
         return cell
     }
     
@@ -85,13 +86,9 @@ extension FlashcardSetsViewController: UITableViewDataSource, UITableViewDelegat
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        if let flashcards = flashcardSet[indexPath.row].flashcards?.array as? [Flashcard] {
-            let flashcardsListViewController = FlashcardsListViewController.makeFromStoryboard()
-            flashcardsListViewController.flashcardSet = flashcardSet[indexPath.row]
-//            flashcardsListViewController.flashcardSetIndex = indexPath.row
-//            flashcardsListViewController.flashcards = flashcards
-            self.navigationController?.pushViewController(flashcardsListViewController, animated: true)
-//        }
+        let flashcardsListViewController = FlashcardsListViewController.makeFromStoryboard()
+        flashcardsListViewController.flashcardSet = flashcardSet[indexPath.row]
+        self.navigationController?.pushViewController(flashcardsListViewController, animated: true)
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
