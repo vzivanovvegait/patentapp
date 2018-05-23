@@ -43,7 +43,7 @@ class FlashcardsManager {
             try context.save()
             return true
         } catch {
-            context.reset()
+            context.delete(newFlashcard)
             return false
         }
     }

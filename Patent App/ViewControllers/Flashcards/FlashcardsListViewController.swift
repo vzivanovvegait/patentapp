@@ -138,12 +138,14 @@ extension FlashcardsListViewController: UITableViewDataSource, UITableViewDelega
             if delete {
                 DialogUtils.showYesNoDialog(strongSelf, title: "Delete", message: "Are you sure you want to delete flashcard?", completion: { (result) in
                     if result {
-                        if FlashcardsManager.shared.deleteFlashcard(flashcard: flashcard) {
+                        strongSelf.flashcardSet.removeFromFlashcards(flashcard)
+//                        if FlashcardsManager.shared.deleteFlashcard(flashcard: flashcard) {
                             strongSelf.flashcards.remove(at: indexPath.row)
                             tableView.deleteRows(at: [indexPath], with: .fade)
-                        } else {
-                            DialogUtils.showWarningDialog(strongSelf, title: nil, message: "Error!!!", completion: nil)
-                        }
+                        FlashcardsManager.shared.saveFlashcard()
+//                        } else {
+//                            DialogUtils.showWarningDialog(strongSelf, title: nil, message: "Error!!!", completion: nil)
+//                        }
                     }
                 })
             } else {
