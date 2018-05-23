@@ -444,7 +444,6 @@
 				E19170DE1FF3985100C3BD1C /* Resources */,
 				30596A52BB6652A682786126 /* [CP] Embed Pods Frameworks */,
 				E1C54EA72087526E00E4AB1E /* ShellScript */,
-				F290FF84DD85E43E776B3F64 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -558,21 +557,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Fabric/run\" e79125c4c3210b061e01af254bf03b5a117ed775 5a4c747525d63514b300000c974b928bc222b137f6c5cb7e1855c01d313402aa\n";
-		};
-		F290FF84DD85E43E776B3F64 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Patent App/Pods-Patent App-resources.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 		FB625EC32FD4917E3AE2B2D8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

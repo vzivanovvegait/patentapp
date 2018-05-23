@@ -306,7 +306,12 @@ extension FlashcardViewController: AudioControllerDelegate {
                                 return
                             }
                             strongSelf.bottomToolBar.setGoogleSpeechLabel(text: alternative.transcript)
-                            let _ = strongSelf.viewControllers[strongSelf.storyIndex].checkString(googleString: alternative.transcript)
+                            if strongSelf.strictOrder {
+                                let _ = strongSelf.viewControllers[strongSelf.storyIndex].checkOrederedString(googleString: alternative.transcript)
+                            } else {
+                                let _ = strongSelf.viewControllers[strongSelf.storyIndex].checkString(googleString: alternative.transcript)
+                            }
+                            
                         }
                     }
                 }
