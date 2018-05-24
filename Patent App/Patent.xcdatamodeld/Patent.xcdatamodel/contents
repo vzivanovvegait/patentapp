@@ -26,7 +26,7 @@
         <attribute name="imageData" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="question" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="flashcardSet" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="FlashcardSet" inverseName="flashcards" inverseEntity="FlashcardSet" syncable="YES"/>
+        <relationship name="flashcardSet" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FlashcardSet" inverseName="flashcards" inverseEntity="FlashcardSet" syncable="YES"/>
     </entity>
     <entity name="FlashcardSet" representedClassName="FlashcardSet" syncable="YES">
         <attribute name="name" attributeType="String" syncable="YES"/>
