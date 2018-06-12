@@ -16,6 +16,12 @@ enum State: Int16 {
     case normal
 }
 
+enum ElementState {
+    case oneline 
+    case firstLastLetter
+    case solved
+}
+
 //class Word {
 //
 //    var mainString:String = ""

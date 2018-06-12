@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mTj-fq-jlI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mTj-fq-jlI">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -62,7 +62,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d75-f5-cuC" customClass="MenuButton" customModule="Patent_App" customModuleProvider="target">
-                                <rect key="frame" x="77" y="276" width="220" height="120"/>
+                                <rect key="frame" x="77.666666666666686" y="276" width="220" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="3cf-QR-zTd"/>
                                     <constraint firstAttribute="width" constant="220" id="87D-Ux-suC"/>
@@ -73,7 +73,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rx0-H5-mBT" customClass="MenuButton" customModule="Patent_App" customModuleProvider="target">
-                                <rect key="frame" x="77" y="426" width="220" height="120"/>
+                                <rect key="frame" x="77.666666666666686" y="426" width="220" height="120"/>
                                 <state key="normal" title="FLASHCARDS"/>
                                 <connections>
                                     <action selector="flashcards:" destination="mTj-fq-jlI" eventType="touchUpInside" id="MQo-hz-GKx"/>
@@ -344,7 +344,6 @@
                         <viewLayoutGuide key="safeArea" id="aTf-bh-P26"/>
                     </view>
                     <connections>
-                        <outlet property="answerLabel" destination="f4w-1M-0s3" id="k26-rs-lqg"/>
                         <outlet property="bottomToolBar" destination="O1s-AU-naS" id="dcp-I2-05r"/>
                         <outlet property="containerView" destination="Yjn-sz-xg1" id="3z1-iV-g5D"/>
                         <outlet property="containerViewBottomConstraint" destination="eTM-85-5PE" id="TFS-ZZ-5Qc"/>
@@ -605,7 +604,7 @@
                         <viewLayoutGuide key="safeArea" id="9U1-7b-hG7"/>
                     </view>
                     <connections>
-                        <outlet property="answerLabel" destination="f4w-1M-0s3" id="NTs-d1-sLR"/>
+                        <outlet property="answerLabel" destination="f4w-1M-0s3" id="RZL-06-EPU"/>
                         <outlet property="imageView" destination="m3Q-Pk-3GN" id="Avm-6M-QdV"/>
                         <outlet property="questionLabel" destination="Kt6-Yj-y8T" id="g9b-aO-wH6"/>
                     </connections>
@@ -633,7 +632,7 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Library" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3MD-ZN-ang">
-                                <rect key="frame" x="143.66666666666666" y="52" width="89" height="36"/>
+                                <rect key="frame" x="143" y="52" width="89" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <color key="textColor" red="0.0" green="0.3803921569" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -779,10 +778,10 @@
                                 <rect key="frame" x="0.0" y="266" width="375" height="512"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xuo-Qh-kvq" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="82.333333333333329"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="82.666666666666671"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3iX-3I-Qdk" customClass="PatentLabel" customModule="Patent_App" customModuleProvider="target">
-                                                <rect key="frame" x="10" y="10.000000000000004" width="355" height="62.333333333333343"/>
+                                                <rect key="frame" x="10" y="9.9999999999999964" width="355" height="62.666666666666657"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="52"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -896,7 +895,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zW0-le-kvs">
-                                                    <rect key="frame" x="8" y="37.000000000000007" width="359" height="115.66666666666669"/>
+                                                    <rect key="frame" x="8" y="37" width="359" height="115.5"/>
                                                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
                                                     <color key="textColor" red="0.0" green="0.3803921569" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>

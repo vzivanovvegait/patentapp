@@ -15,6 +15,35 @@ class Element {
     var text: String = ""
     var isSpecial: Bool = false
     var isFound = false
+    var elementState: ElementState = .oneline
+    var range: Range<String.Index>?
+    
+    func getString() -> String {
+        if self.isFound || self.elementState == .solved {
+            return self.text
+        }
+        if elementState == .firstLastLetter {
+            return text.mapFirstLastString()
+        }
+        return text.mapString()
+    }
+    
+    func changeState() {
+            switch self.elementState {
+            case .oneline:
+                self.elementState = ElementState.firstLastLetter
+                if self.text.count < 3 {
+                    self.isFound = true
+                }
+                break
+            case .firstLastLetter:
+                self.elementState = ElementState.solved
+                break
+            case .solved:
+                self.isFound = true
+                break
+            }
+        }
 }
 
 final class FlashcardViewController: UIViewController, StoryboardInitializable, KeyboardHandlerProtocol {
@@ -386,6 +415,6 @@ extension FlashcardViewController: FlashcardPartDelegate {
 extension FlashcardViewController: SettingsDelegate {
     func changeFont(fontSize: CGFloat) {
         UserDefaults.standard.set(Int(fontSize), forKey: "fontSize")
-        viewControllers[storyIndex].increaseFont()
+        viewControllers[storyIndex].setTextLabel()
     }
 }

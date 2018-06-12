@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TTTAttributedLabel
 
 protocol FlashcardPartDelegate: class {
     func timer(isValid: Bool, time: Int)
@@ -37,10 +38,10 @@ final class FlashcardPartViewController: UIViewController {
     var isActive: Bool = false
     
     var strictOrder: Bool = false
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setLabels()
         setTapGesture()
     }
@@ -59,9 +60,6 @@ final class FlashcardPartViewController: UIViewController {
     // Set UI
     
     func setLabels() {
-        words = DataUtils.createArray(sentence: answer)
-        replacedString = DataUtils.createAnswerString(from: answer)
-        
         if let question = question {
             questionLabel.isHidden = false
             imageView.isHidden = true
@@ -71,7 +69,7 @@ final class FlashcardPartViewController: UIViewController {
             imageView.isHidden = false
             imageView.image = image
         }
-        answerLabel.setText(DataUtils.createAttributtedString(from: replacedString))
+        answerLabel.delegate = self
     }
     
     fileprivate func setTapGesture() {
@@ -85,36 +83,26 @@ final class FlashcardPartViewController: UIViewController {
         vc.image = image
         self.present(vc, animated: true, completion: nil)
     }
-
 }
 
 extension FlashcardPartViewController {
+    func setTextLabel() {
+        let result = DataUtils.createElementString(from: words, basicString: replacedString)
+        answerLabel.setText(result.0)
+    }
+    
     func checkString(googleString: String) -> Bool {
         var isFound = false
         let arrayOfString = googleString.lowercased().components(separatedBy: " ")
         for string in arrayOfString {
             let array = findString(googleString: string)
-            for e in array {
+            if !array.isEmpty {
                 isFound = true
-                let ranges = findRanges(for: e.text.lowercased(), in: answer.lowercased())
-                for range in ranges {
-                    replacedString.replaceSubrange(range, with: e.text)
-                    answerLabel.setText(DataUtils.createAttributtedString(from: replacedString))
-                    if !words.contains(where: { !$0.isFound }) {
-                        DialogUtils.showWarningDialog(self, title: "Great job!", message: nil, completion: nil)
-                        delegate?.pageSolved()
-                        timer.invalidate()
-                        if question != nil {
-                            questionLabel.isHidden = false
-                            imageView.isHidden = true
-                        } else {
-                            questionLabel.isHidden = true
-                            imageView.isHidden = false
-                        }
-                        delegate?.timer(isValid: timer.isValid, time: seconds)
-                    }
-                }
             }
+            setTextLabel()
+        }
+        if isEndOfGame() {
+            endOfGame()
         }
         return isFound
     }
@@ -123,36 +111,45 @@ extension FlashcardPartViewController {
         var isFound = false
         let arrayOfString = googleString.lowercased().components(separatedBy: " ")
         for string in arrayOfString {
-            if let element = findOrderedString(googleString: string) {
+            let firstUnfoundWord = words.first(where: {$0.isFound == false})
+            if firstUnfoundWord?.text.lowercased() == string {
+                firstUnfoundWord?.isFound = true
                 isFound = true
-                let ranges = findRanges(for: element.text.lowercased(), in: answer.lowercased())
-                let foundElemnts = words.filter { $0.text.lowercased() == string.lowercased() && $0.isFound == true }
-                if let lastElement = foundElemnts.last, let index = foundElemnts.index(where: {$0 === lastElement}) {
-                    replacedString.replaceSubrange(ranges[index], with: element.text)
-                    answerLabel.setText(DataUtils.createAttributtedString(from: replacedString))
-                    if !words.contains(where: { !$0.isFound }) {
-                        DialogUtils.showWarningDialog(self, title: "Great job!", message: nil, completion: nil)
-                        delegate?.pageSolved()
-                        timer.invalidate()
-                        if question != nil {
-                            questionLabel.isHidden = false
-                            imageView.isHidden = true
-                        } else {
-                            questionLabel.isHidden = true
-                            imageView.isHidden = false
-                        }
-                        delegate?.timer(isValid: timer.isValid, time: seconds)
-                    }
-                }
             }
         }
+        setTextLabel()
+        if isEndOfGame() {
+            endOfGame()
+        }
         return isFound
+    }
+    
+    func isEndOfGame() -> Bool {
+        if !words.contains(where: { !$0.isFound }) {
+            return true
+        }
+        return false
+    }
+    
+    func endOfGame() {
+        DialogUtils.showWarningDialog(self, title: "Great job!", message: nil, completion: nil)
+        delegate?.pageSolved()
+        timer.invalidate()
+        if question != nil {
+            questionLabel.isHidden = false
+            imageView.isHidden = true
+        } else {
+            questionLabel.isHidden = true
+            imageView.isHidden = false
+        }
+        delegate?.timer(isValid: timer.isValid, time: seconds)
     }
     
     func findString(googleString: String) -> [Element] {
         let results = words.filter { $0.text.lowercased() == googleString.lowercased() && $0.isFound == false }
         for result in results {
             result.isFound = true
+            result.elementState = .solved
         }
         return results
     }
@@ -166,28 +163,14 @@ extension FlashcardPartViewController {
         return nil
     }
     
-    func findRanges(for word: String, in text: String) -> [Range<String.Index>] {
-        do {
-            let regex = try NSRegularExpression(pattern: "\\b\(word)\\b", options: [])
-            
-            let fullStringRange = NSRange(text.startIndex..., in: text)
-            let matches = regex.matches(in: text, options: [], range: fullStringRange)
-            return matches.map {
-                Range($0.range, in: text)!
-            }
-        }
-        catch {
-            return []
-        }
-    }
-    
     func resetFlashcard() {
         words = DataUtils.createArray(sentence: answer)
         replacedString = DataUtils.createAnswerString(from: answer)
+
         if let question = question {
             questionLabel.setText(DataUtils.createAttributtedString(from: question))
         }
-        answerLabel.setText(DataUtils.createAttributtedString(from: replacedString))
+        setTextLabel()
         
         timer.invalidate()
         
@@ -255,7 +238,7 @@ extension FlashcardPartViewController: LevelDelegate {
             delegate?.timer(isValid: timer.isValid, time: seconds)
         }
     }
-
+    
     func changeConstraint(isFull: Bool) {
         if isFull {
             if question != nil {
@@ -274,4 +257,28 @@ extension FlashcardPartViewController: LevelDelegate {
 
 extension FlashcardPartViewController: StoryboardInitializable {
     
+}
+
+extension FlashcardPartViewController: TTTAttributedLabelDelegate {
+    func attributedLabel(_ label: TTTAttributedLabel!, didSelectLinkWith url: URL!) {
+        if let index = Int(url.absoluteString) {
+            handleResponse(index: index)
+        }
+    }
+    
+    func handleResponse(index: Int) {
+        let element = words[index]
+        switch element.elementState {
+        case .oneline:
+            element.changeState()
+            self.setTextLabel()
+            if isEndOfGame() {
+                endOfGame()
+            }
+            break
+         default:
+            break
+        }
+        
+    }
 }
